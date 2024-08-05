@@ -1,0 +1,49 @@
+--- HELP_GENERAL
+About Zinc Designer
+Zinc Designer allows you to create and modify .DAT files.  .DAT files
+can be used to load resource windows dynamically at run-time, to
+store translations of text strings, to provide internationalization
+data, to provide images for an application, or to store help information.
+The Designer is divided into several components, each of which can be
+used to work on specific information within the .DAT file.  These
+components are:\
+\
+WINDOW EDITOR\
+\
+The Window Editor is used to create and modify resource windows.\
+\
+DEFAULTS EDITOR\
+\
+The Defaults Editor is used to create and modify tables of language
+strings and locale formatting data used by Zinc.  This information is
+accessed at run-time to produce localized applications.\
+\
+MESSAGE EDITOR\
+\
+The Message Editor is used to create and modify tables of messages which can be
+loaded by your application at run-time and used wherever text strings are required.
+\
+IMAGE EDITOR\
+\
+The Image Editor provides options for creating icon, bitmap, and
+mouse cursor images that can be used throughout your application.\
+\
+HELP EDITOR\
+\
+The Help Editor allows you to interactively create help contexts
+that can be associated in a language independent fashion within your
+applications.\
+\
+STRING EDITOR\
+\
+The String Editor allows you to use characters within your application 
+which are not available from a standard keyboard. For example, if you need 
+to translate your application into Chinese, the Chinese characters needed can 
+be accessed from within the String Editor. Since this is accomplished using 
+the complete Unicode character set, the String Editor is available only in 
+Unicode mode. \
+\
+Copyright (C) 1991-1994 Zinc Software Incorporated.  All Rights
+Reserved.\
+\
+

@@ -1,0 +1,6 @@
+Notes for editing motif sources
+
+1. in designer /design/message/message1.cpp needs an #if defined(ZIL_LINUX)
+before SetButtonTitle() on ~line 227
+
+in /design/main.cpp needs several #if defined(ZIL_LINUX)s

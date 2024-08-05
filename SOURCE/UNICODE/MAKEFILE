@@ -1,0 +1,49 @@
+
+i18n.dat: jis208.umt cp932.umt nec9800.umt \
+	ibm5550.umt cp938.umt \
+	ksc5601.umt cp949.umt \
+	big5.umt \
+	gb2312.umt \
+	cp437.umt cp737.umt cp850.umt cp852.umt cp855.umt cp857.umt \
+	cp860.umt cp861.umt cp863.umt cp865.umt cp866.umt cp869.umt \
+	cp1250.umt cp1251.umt cp1252.umt cp1253.umt cp1254.umt cp1255.umt cp1256.umt \
+	mac.umt next.umt
+	del $*.dat
+	makemap jis208.umt   4 2 $*.dat IBM_932
+	makemap cp932.umt    2 1 $*.dat IBM_932~AT
+	makemap nec9800.umt  2 1 $*.dat IBM_932~NEC
+	makemap ibm5550.umt  1 2 $*.dat IBM_938
+	makemap cp938.umt    2 1 $*.dat IBM_938~AT
+	makemap ksc5601.umt  3 2 $*.dat IBM_949
+	makemap -l $*.dat IBM_932 IBM_942
+	makemap cp949.umt    2 1 $*.dat IBM_949~AT
+	makemap big5.umt     1 2 $*.dat IBM_950
+	makemap gb2312.umt   3 2 $*.dat IBM_1381
+	makemap cp437.umt    2 1 $*.dat IBM_437
+	makemap cp737.umt    2 1 $*.dat IBM_737
+	makemap cp850.umt    2 1 $*.dat IBM_850
+	makemap cp852.umt    2 1 $*.dat IBM_852
+	makemap cp855.umt    2 1 $*.dat IBM_855
+	makemap cp857.umt    2 1 $*.dat IBM_857
+	makemap cp860.umt    2 1 $*.dat IBM_860
+	makemap cp861.umt    2 1 $*.dat IBM_861
+	makemap cp863.umt    2 1 $*.dat IBM_863
+	makemap cp865.umt    2 1 $*.dat IBM_865
+	makemap cp866.umt    2 1 $*.dat IBM_866
+	makemap cp869.umt    2 1 $*.dat IBM_869
+	makemap cp1250.umt   2 1 $*.dat IBM_1250
+	makemap cp1251.umt   2 1 $*.dat IBM_1251
+	makemap cp1252.umt   2 1 $*.dat IBM_1252
+	makemap cp1253.umt   2 1 $*.dat IBM_1253
+	makemap cp1254.umt   2 1 $*.dat IBM_1254
+	makemap cp1255.umt   2 1 $*.dat IBM_1255
+	makemap cp1256.umt   2 1 $*.dat IBM_1256
+	makemap jis208.umt   3 2 $*.dat EUC_JIS
+	makemap mac.umt      2 1 $*.dat MACINTOSH
+	makemap next.umt     2 1 $*.dat NeXT
+#	makemap cp932.umt    2 1 $*.dat IBM_932~ATi
+#	makemap cp932.umt    2 1 $*.dat IBM_932~ATm
+#	makemap cp942.umt    2 1 $*.dat IBM_942~OS/2
+#	makemap cp950.umt    2 1 $*.dat IBM_950~AT
+#	makemap dosvcn.umt   1 2 $*.dat IBM_1381~AT
+#	makemap ascii.umt    2 1 $*.dat EUC_JIS~Motif

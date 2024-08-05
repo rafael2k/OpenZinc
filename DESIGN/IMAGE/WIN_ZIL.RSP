@@ -1,0 +1,10 @@
+wimage.lib
+	+odib.obw+odib1.obw+odib2.obw &
+	+wdib.obw+wdib1.obw+wdib2.obw &
+	+wico.obw+wico1.obw+wico2.obw &
+	+xpm.obw+xpm1.obw+xpm2.obw &
+	+znc1.obw+znc2.obw &
+	+image.obw+image1.obw+image2.obw+color.obw+draw.obw &
+	+export.obw+import.obw &
+	+w_image.obw
+

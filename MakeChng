@@ -1,0 +1,55 @@
+#!/bin/csh
+
+#	This script can be used to make the same series of changes to all
+#	Makefile files in a directory tree.  The default directory is '.'.
+#	The changes to be make are defined by the variable 'sed_changes' below.
+#	You should use the script 'MakeConfigure' to make most of the changes that
+#	may need to be made.
+
+#	Usage:	MakeChng [startdir]
+
+
+#	The variable 'sed_changes' contains a list of sed commands that will
+#	be executed on each Makefile.  You can modify the list to contain your
+#	changes.  Dont forget the '\' at the end of each line.
+
+#	For example, to change all occurances one string to another in all
+#	Makefiles, sed_changes just needs to contain one line:
+#		s/one\ string/another/g	\
+#	Note that ' ' and '.' in the match string should be escaped with a
+#	backslash (\).
+
+set sed_changes=(\
+	s/one\ string/another/g	\
+)
+
+#	Set start directory to . if no arg.
+if ("$1" == "") then
+	set root = .
+else
+	set root = $1
+endif
+
+#	Build a sed command file.
+echo "" > $root/cmds.$$
+@ i = 1
+while ( $i <= $#sed_changes )
+	echo "$sed_changes[$i]" >> $root/cmds.$$
+	@ i++
+end
+
+#	Apply the same sed changes to each Makefile.
+echo Modifying the following files:
+foreach i (`find $root -name Makefile -print`)
+	pushd $i:h > /dev/null
+	echo "	$i"
+	sed -f $root/cmds.$$ $i > tmpfixmakefile
+	mv Makefile Makefile~
+	mv tmpfixmakefile $i
+	rm -f motif.mak
+	ln Makefile motif.mak
+	popd > /dev/null
+end
+
+rm -f $root/cmds.$$
+

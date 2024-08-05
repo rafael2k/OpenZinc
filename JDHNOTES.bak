@@ -1,0 +1,53 @@
+Zinc 4.4
+
+Objects
+
+1. Progress Bar---------------------- done
+2. Tootip Application---------------- done
+3. Calendar
+4. DBF Browser
+5. CBWindow
+6. ListSpinner
+7. CB_AUTOFORM
+8. CB_TABLE_MAKER
+9. UIW_DIAL
+
+Utility Functions
+
+1. SetRadioButtons()---------------- done 
+2. GetRadioButtons ----------------- done
+3. SetCheckboxes-------------------- done
+4. GetCheckBoxes ------------------- done
+5. SetListStrings
+6. SetListButtons
+7. PrintDialog
+8. GetFiles
+9. SaveFile
+10. PrintCodeReporter
+11. AddCalendarButton() ------------ done
+12. ESMessage, a one line message function ----------- done
+13. ComboBoxMakeCurrent a function to make a combobox item current ------ done
+14. MouseWait() ---------------------- done , instituted as a macro
+15. MouseUnwait() ---------------------- done , instituted as a macro
+
+
+Other
+
+1. a DOS only version that is minimal in size and decent looking
+	The visual basic style text interface is BAD not needed
+	The shadow style and standard interfaces are not real good either but fairly functional
+	None of these options are particularly good
+	Other possible options include using Zinc interface as a wrapper around either TurboVision or Mix window toolkit
+	or to make the interface more attractive.
+	TurboVision would be interesting as a C++ framework within C++ framework example looking for a thin layer. 
+	Mix Window toolkit would be less redundant.
+	This is an interesting but low priority item 
+	Note 8/19/10 Merely altering the palettes for text displays as contained in g_pnorm.cpp massively
+	improves the appearance of the text display. Undoubtedly further tinkering is possible	
+	Another alternative is a 4.2 interface to the 3.5 framework.
+	This reduces the library by ~35% (~250 K) and pure Zinc executables by 30 - 35% (100 - 150 K)
+	This may well allow an executable with a database library to run in DOS real mode
+	This is likely the best bet. 	
+2. replace symbol true with trueRegion throughout --------------------  done
+3. replace symbol xor ------------------------------------------------  done
+4. eliminate if Defined( s associated with symbol true ---------------  done 

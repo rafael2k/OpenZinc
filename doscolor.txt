@@ -1,0 +1,1 @@
+G_PNORM.CPP is the file that contains palette mappings for the various OSs and styles. These mappings are relatively standard for stadard environments however, DOS palette mappings supplied with Zinc 4.2 SUCK. These palette mappings are easily changed to emulate Turbovision for example. Time devoted to improving the aesthetics of the DOS mapping would be well spent

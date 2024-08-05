@@ -1,0 +1,1801 @@
+--- HELP_GENERAL
+About Window Editor
+The Window Editor is used to create and modify resource windows
+in .DAT files.\
+\
+Previously created .DAT files can be opened or new ones can be
+created.  Resource windows can be created and can be imported or
+exported from or to another file.\
+\
+Copyright (C) 1991-1994 Zinc Software Incorporated.  All Rights
+Reserved.\
+\
+--- HELP_OPT_EDIT
+Edit Options
+Edit category options are used to edit the appearance and performance
+of objects within the current file.  Options that are displayed in
+the menu with `...' cause an associated window to appear when
+selected.  The following options are available:\
+\
+The Object option allows you to edit the current object through
+interaction with its information notebook.\
+\
+The Cut option removes the current object from the screen and places
+it in a global paste buffer.\
+\
+The Copy option copies the current object and places the copy in a
+global paste buffer.\
+\
+The Paste option allows you to recall and position on the screen the
+contents of the global paste buffer.\
+\
+The Delete option removes the current object from the screen and
+deletes it from the file.\
+\
+The Move option allows you to move the current object by using the
+arrow keys.\
+\
+The Size option allows you to size the selected region by using the
+arrow keys.\
+\
+The Group option allows you to select a region of objects to be
+combined into one unit, or edit group.\
+\
+The Ungroup option causes the group within the current window to be
+dissolved.\
+\ 
+--- HELP_OPT_FILE
+File Options
+File category options control the general operations of Zinc Designer files. 
+Options that are displayed in the menu with `...' cause an associated
+window to appear when selected. The following options are available:\
+\
+The New option allows you to create a new file.\
+\
+The Open option allows you to open a previously created file.\
+\
+The Save option causes the current file to be saved in its present
+condition.\
+\
+The Save As option allows you to either save a file that has not been
+previously named or to save the current file under another name.\
+\
+The Close option causes the screen to be cleared and the current file
+to close.\
+\
+The Delete option allows you to delete a file.\
+\
+The Preferences option allows you to change the default settings of
+Zinc Designer.\
+\
+The Exit option allows you to exit Zinc Designer.  If you have not
+saved the current file, a modal window will appear to give you
+that opportunity.\
+\
+--- HELP_OPT_OBJECT
+Object Options
+The Object category provides options that allow you to actually create
+objects. Each of the options on this menu is a category under which
+several window objects are classified.  Selecting one of the options causes another associated menu to appear, which
+lists the actual window objects of that category.\
+\
+To create an object, select it from the associated menu.  Position the mouse cursor where
+you want the object to appear on the resource window and either press enter or press the
+left mouse button.  (Subsequently pressing the right mouse button makes a copy of the
+most recently placed object, and pressing the left button places that
+copy.)\
+\
+NOTE: All objects must be attached to a resource parent window; they cannot be
+attached directly to the screen.\
+\
+The information notebook, or editor, of each of these objects can be accessed by
+either of the following methods:\
+\
+-  Select Edit | Object while the object is current\
+-  Double-click on the object with the mouse\
+\
+--- HELP_OPT_WINDOW
+Window Options
+The Window category options allow you to create, modify and retrieve
+window resources in the current file.  Options that are displayed in
+the menu with `...' cause an associated window to appear when
+selected.  The following options are available:\
+\
+The Import option allows you to import a window resource from another
+.DAT file or Windows .RC file.\
+\
+The Export option allows you to export a resource window to another
+file.\
+\
+The Create option automatically creates a window to which other
+objects may be added.\
+\
+The Load option is used to recall a previously created resource
+window from the current file.\
+\
+The Store option causes the current resource window to be saved in
+its present condition.\
+\
+The Store As option allows you to save the current resource window
+under another name.\
+\
+The Clear option causes the current resource window to be removed
+from the screen.\
+\
+The Clear All option causes all resource windows present on the
+screen to be removed.\
+\
+The Delete option allows you to delete a resource window from the
+current file.\
+\
+The Test option allows you to test the objects of your current
+resource.\
+\
+--- HELP_UIW_BIGNUM
+Bignum
+A bignum object is used to display and collect numeric information. It can be 
+formatted in various ways, such as for numbers presented as percentages, 
+currency and credit.\
+\
+Enter in the VALUE field the number that you want to appear in the bignum 
+field. The number will be displayed with the number of decimal places 
+designated by the PRECISION field.  A bignum object can have up to thirty digits 
+to the left of the decimal place and up to eight digits to the right of the 
+decimal place.\
+\
+Enter in the DECIMAL field the number of decimal places to be
+displayed.\
+\
+If you want to specify a certain range of acceptable bignum values, 
+enter in the RANGE field the valid bignum range.  NOTE: When specifying the range, 
+Zinc requires that decimal places be separated by periods, regardless of the 
+country's standard format.\
+\
+Enter in the NAME field a name that will distinguish the bignum object from 
+other objects on the window.\
+\
+The HELP field designates the help context to be associated with the bignum 
+object.\
+\
+The options that control the presentation of the bignum object are 
+listed in the OPTIONS LIST on the right half of the window. The first section presents 
+options for formatting how the bignum is displayed. The options are:\
+\
+  CURRENCY SYMBOLS-Displays the number with the country-specific 
+currency symbol.\
+\
+  CREDIT SYMBOLS-Displays the number with the country-specific credit 
+symbols whenever the number is negative.\
+\
+  COMMA SEPARATORS-Displays the number with commas.\
+\
+  PERCENT SYMBOL-Displays the number with a percentage symbol.\
+\
+The second section presents the following option for formatting
+input:\
+\
+  AUTOMATICALLY HIGHLIGHT DATA-Causes the current bignum value to be 
+highlighted when the user tabs to the field from another window
+field.\
+\
+--- HELP_UIW_BORDER
+Border
+Windows within the Designer are automatically created with a border. To display
+a window without a border, toggle off the "Border" option
+in the parent window's information notebook, or editor.\
+\
+The NAME field displays the border's name. This field is
+nonselectable.\
+\
+--- HELP_UIW_BUTTON
+Button
+A button is used a selectable object that performs an action when 
+selected.\
+\
+Enter in the TEXT field text exactly as you want it to appear on the
+button.\
+\
+The VALUE field allows you to enter a value that serves as a unique
+identification for a button.  If the Send user message option is set, the 
+value must be an event type.\
+\
+The IMAGE field designates the bitmap image to be associated with the
+button.\
+\
+Enter in the NAME field a name that will distinguish the button object from 
+other objects on the window.\
+\
+The HELP field designates the help context to be associated with the
+button.\
+\
+The options that control the presentation and operation of the 
+button are listed in the OPTIONS LIST on the right half of the window.
+The first section presents options that determine the type of button.
+These options are:\
+\
+  NORMAL-Causes the button to be presented as a normal three-dimensional 
+button.\
+\
+  RADIO-BUTTON-Causes the button to appear and function as a radio
+button.\
+\
+  CHECK-BOX-Creates a check box that can be toggled when selected.\
+\
+The second section presents options that determine the button's settings. The 
+options are:\
+\
+  SEND USER MESSAGE-Causes an event to be created from the button's value 
+and put on the event queue when the button is selected.  No callback function
+should be assigned in the Advanced page.\
+\
+  SET AS DEFAULT BUTTON-Causes the button to be the default button on the 
+window.  A default button is selected when the user hits <Enter> from 
+anywhere on the window. Only one button per window should be marked 
+as a default button.\
+\
+The third section presents options that determine the state of the button. The 
+options are:\
+\
+  1-STATE (NO TOGGLE)-Does not toggle the button's state. A single-state 
+button simply performs its action when selected. It does not remain in a 
+selected state.\
+\
+  2-STATE (ON/OFF)-Toggles the button's state. A two-state button performs 
+its action when selected, but remains in a selected state until it is
+unselected.\
+\
+The fourth section presents options that determine the sizing of the button. 
+The options are:\
+\
+  CELL BASED-The button's height is set to one cell height, or about the same 
+height as a string object.\
+\
+  AUTO-SIZED-Automatically computes the run-time height of the button. If 
+the application is running in text mode, the height is set to 1. If the
+application is running in graphics mode, the button is approximately 120% of 
+the default cell height.\
+\
+The fifth section presents options that determine the appearance of depth for 
+the button. The options are:\
+\
+  FLAT-Causes the button to be displayed without a three dimensional 
+appearance.\
+\
+  NORMAL 3-D-Causes the button to be displayed with a three dimensional 
+appearance.\
+\
+The sixth section presents the options that determine when the button's 
+action is performed. The options are:\
+\
+  ACTION ON UP-CLICK-Completes the button action on a down-click and 
+release action.\
+\
+  ACTION ON DOWN-CLICK-Completes the button action on a button 
+down-click, rather than on a down-click and release action.\
+\
+  ACTION ON DOUBLE-CLICK-Completes the button action when the button has
+been selected twice in rapid succession.\
+\
+  ACTION ON TIME INTERVALS-Continuously repeats the action if the user 
+continues to hold the mouse button down on the button.\
+\
+--- HELP_UIW_COMBO_BOX
+Combo Box
+A combo box is a combination of a string field and a scrollable list box.
+It is used to display a list of selectable items without requiring a lot
+of screen space.\
+\
+Objects are added to the combo box's list by selecting them from the menu or 
+button bar and placing them on the combo box object.\
+\
+The LIST HEIGHT field determines the height of the combo box's drop-down 
+list.\
+\
+Enter in the LIST NAME field a name for the drop-down list portion of the 
+combo box.\
+\
+Some objects allow a COMPARE function, which is typically used to 
+sort information. If you want to have a compare function associated with the 
+object, you can enter the function's name in this field.  When using a compare
+function, the function itself must be defined somewhere in your code with the
+same name that is entered in the information notebook.\
+\
+Enter in the NAME field a name that will distinguish the combo box from 
+other objects on the window.\
+\
+The HELP field designates the help context to be associated with the combo 
+box.\
+\
+The options that control the presentation and operation of the 
+combo box are listed in the OPTIONS LIST on the right half of the window. The
+first section presents the following option:\
+\
+  VERTICAL SCROLL-BAR-Adds a vertical scroll bar to the drop-down list of the 
+combo box.\
+\
+The second section presents options that alter interaction with the combo 
+box's drop-down list. The options are:\
+\
+  ALPHABETICAL SORTING-Causes the list options to be sorted and displayed in 
+alphabetical order.\
+\
+  BITMAP CHILDREN-Allows objects that contain bitmaps to be added to the 
+combo box.\
+\
+  DON'T WRAP KEYSTROKES-Prevents arrowing up or down to wrap from the 
+end of the list to the beginning or vice versa.\
+\
+--- HELP_UIW_DATE
+Date
+A date field displays and collects date information.\
+\
+Enter in the VALUE field the date that you want to appear in the date
+object.\
+\
+If you want to specify a certain range of acceptable dates, enter in 
+the RANGE field the valid date ranges. This range is in a universal year-month-day 
+format.\
+\
+Enter in the NAME field a name that will distinguish the date object from 
+other objects in the window.\
+\
+The HELP field designates the help context to be associated with the date 
+object.\
+\
+The options that control the presentation of the date object are 
+listed in the OPTIONS LIST on the right half of the window. The first section presents 
+options for formatting input. The options are:\
+\
+  SHORT ALPHANUMERIC DAY-Adds a shortened day-of-week text to the
+date.\
+\
+  ALPHANUMERIC DAY-OF-WEEK-Adds an ASCII day-of-week string to the 
+date.\
+\
+  SHORT ALPHANUMERIC MONTH-Uses a shortened alphanumeric month in the 
+date.\
+\
+  ALPHANUMERIC MONTH-Formats the month to be displayed as an ASCII 
+string value.\
+\
+  SHORT YEAR-Forces the year to be displayed as a two-digit value.\
+\
+  FORMAT UPPER-CASE-Converts the alphanumeric date to uppercase.\
+\
+  PAD DATE WITH ZEROS-Forces the year, month and day values to be zero 
+filled when their values are less than 10.\
+\
+  FILL BLANKS WITH SYSTEM VALUE-Fills a blank date with the system
+date.\
+\
+  AUTOMATICALLY HIGHLIGHT DATA-Causes the current date value to be highlighted 
+when the user tabs to the date field from another window field.\
+\
+The second section presents options for separating date values. The options 
+are:\
+\
+  SYSTEM DEFAULTS-Separates each date value according to the default settings 
+for the current system.\
+\
+  DASH SEPARATORS-Separates each date value with a dash, regardless of the 
+default country date separator.\
+\
+  SLASH SEPARATORS-Separates each date value with a slash, regardless of 
+the default country date separator.\
+\
+The third section presents options for formatting according to country and 
+military standards. The options are:\
+\
+  SYSTEM DEFAULT FORMAT-Formats the date according to the default settings 
+for the current system.\
+\
+  EUROPEAN FORMAT-Forces the date to be displayed and interpreted in the 
+European format (i.e., day/month/year), regardless of the default country 
+information.\
+\
+  ASIAN FORMAT-Forces the date to be displayed and interpreted in the Far 
+East Asian format (i.e., year/month/day), regardless of the default country
+information.\
+\
+  MILITARY FORMAT-Forces the date to be displayed and interpreted in the 
+U.S. Military format (i.e., day month year where month is a 3 letter 
+abbreviated word), regardless of the default country information.\
+\
+  U.S. FORMAT-Forces the date to be displayed and interpreted in the U.S. 
+format (i.e., month/day/year), regardless of the default country
+information.\
+\
+--- HELP_UIW_FORMATTED_STRING
+Formatted String
+A formatted string object is used to display and collect information that 
+requires a specific format.\
+\
+Enter text in the TEXT field as you want it to initially appear in the formatted 
+string object. It must conform to the specifications set by the EDIT and
+DELETE fields.\
+\
+The EDIT field determines the type of characters that the formatted string 
+will accept.  Enter in the EDIT field a string of characters that will define the acceptable 
+format for the string.  The following characters can be used to define the edit
+mask:\
+\
+  a-Allows the end user to enter a space (` `) or any letter (i.e., 'a' through 
+'z' or 'A' through 'Z').\
+\
+  A-Same as the 'a' character option except that a lowercase letter is
+automatically converted to an uppercase letter.\
+\
+  c-Allows the end user to enter a space (' '), a number (i.e., '0' through 
+'9'), or any alphabetic character (i.e., 'a' through 'z' or 'A' through
+'Z').\
+\
+  C-Same as the 'c' character option except that a lowercase character is 
+automatically converted to uppercase.\
+\
+  L-Uses this position as a literal place holder. Using this character causes 
+the formatted string to get the character to be read and displayed from the 
+literal mask. The end user cannot edit this character.\
+\
+  N-Allows the end user to enter any digit.\
+\
+  x-Allows the end user to enter any printable character.\
+\
+  X-Same as the 'x' character option except that a lowercase letter is
+automatically converted to an uppercase alphanumeric letter.\
+\
+Enter into the DELETE field a string of literal characters that will be used 
+whenever a character is deleted from a particular position in the formatted
+string.\
+\
+Enter in the NAME field a name that will distinguish the formatted string 
+object from other objects on the window.\
+\
+The HELP field designates the help context to be associated with the formatted 
+string.\
+\
+The options that control the presentation of the formatted string object are 
+listed in the OPTIONS LIST on the right half of the window. The following input 
+conversion option is available:\
+\
+  AUTOMATICALLY HIGHLIGHT DATA-Causes the current formatted string value 
+to be highlighted when the user tabs to the field from another window 
+field.\
+\
+--- HELP_UIW_GROUP
+Group
+The group object is used to allow grouping of window objects.  For 
+example, a series of radio buttons can be grouped together by first creating a 
+group object and then adding the radio buttons.\
+\
+Enter in the TEXT field text exactly as you want it to appear in the group
+object's border.\
+\
+Enter in the NAME field a name that will distinguish the group object from 
+other objects on the window.\
+\
+The HELP field designates the help context to be associated with the group 
+box.\
+\
+The options that control interaction with the group object are 
+listed in the OPTIONS LIST on the right half of the window. These options
+are:\
+\
+  AUTOMATIC ITEM SELECTION-Causes each object in the group to be
+automatically selected when it becomes current.  Typically this option is
+used when the group contains radio buttons.  If the user arrows through the 
+radio buttons, the current button will always be the selected
+button.\
+\
+  SELECT MULTIPLE CHILDREN-Allows more than one item in the group to 
+become selected at the same time.  This option is typically used if the 
+group contains check boxes.\
+\
+  DON'T WRAP KEYSTROKES-Prevents arrowing up or down to wrap from the 
+end of the group's items to the beginning or vice versa.\
+\
+--- HELP_UIW_HZ_LIST
+Horizontal List
+A horizontal list is used to display related information in a multiple-column fashion within
+a window.  The list is only scrollable horizontally.\
+\
+Enter in the FIELD WIDTH field a number to specify the maximum cell width of a
+single list item.  If the list is wider than the specified width, it will be displayed with
+multiple columns.\
+\
+Enter in the FIELD HEIGHT field a number to specify the maximum cell height of a
+single list item.  If the list is taller than the specified height, it will be displayed with
+multiple rows.\
+\
+If you want to have a compare function associated with the list, you can
+enter the name of it in the COMPARE field.  The function must be defined somewhere in your
+code under the same name that is entered so that Zinc Designer can find it and
+execute the designated action.\
+\
+Enter in the NAME field a name that will distinguish the horizontal list object from
+other objects.\
+\
+The HELP field designates the help context to be associated with the horizontal
+list.\
+\
+The options that control the presentation and operation of the horizontal
+list are listed in the OPTIONS LIST on the right half of the window.  The first section presents
+the following support feature option:\
+\
+  HORIZONTAL SCROLL BAR-Causes a horizontal scroll bar to be added to the
+list.\
+\
+The second section presents options that determine interaction with the list.  The
+options are:\
+\
+  ALPHABETICAL SORTING-Causes the options to be sorted in alphabetical order.
+\
+  BITMAP CHILDREN-Indicates that some of the objects contain bitmaps. This flag
+should be set when adding check boxes or radio buttons to the horizontal
+list.\
+\
+  DON'T WRAP KEYSTROKES-Will not allow arrowing up, down, left or right to wrap
+from the end of the list to the beginning or vice versa.\
+\
+  SELECT ON DOWN CLICK-Selects the item on a button down-click, rather than on a
+down-click and release action.\
+\
+  CONTINUE SELECTION ON DRAG-Allows the end-user to drag through the list options
+with the mouse button pressed.  If this flag is not set, the
+highlight on the list items will not follow the dragging mouse.\
+\
+  SELECT MULTIPLE ITEMS-Allows more than one object to be selected at a
+time.\
+\
+--- HELP_UIW_ICON
+Icon
+An icon is used to display a 32x32 pixel image on the screen.  It is often 
+present in an application as an indicator of some sort that cannot be
+interacted with; however, an icon can also be created for interaction purposes, 
+such as a question mark icon that displays help when selected.\
+\
+If you want a title to appear in the rectangular region below the icon, 
+enter in the TITLE field the exact text for the title.\
+\
+The IMAGE field designates the image to be associated with the icon.\
+\
+Enter in the NAME field a name that will distinguish the icon object from 
+other objects on the window.\
+\
+The HELP field designates the help context to be associated with the
+icon.\
+\
+The options that determine how to activate an action associated 
+with the icon are listed in the OPTIONS LIST on the right half of the window. These 
+options are:\
+\
+  ACTION ON UP-CLICK-Completes the action on a down-click and release 
+action.\
+\
+  ACTION ON DOUBLE-CLICK-Completes the action when the icon has 
+been selected twice in rapid succession.\
+\
+--- HELP_UIW_INTEGER
+Integer
+An integer object is used to present and collect numeric information for 
+integers. It cannot be formatted. (The bignum object must be used for numbers 
+requiring special formatting capabilities.)\
+\
+Enter in the VALUE field the integer that you want to appear in the integer 
+field.\
+\
+If you want to specify a certain range of acceptable integer values, 
+enter in the RANGE field the valid integer ranges.\
+\
+Enter in the NAME field a name that will distinguish the integer object from 
+other objects on the window.\
+\
+The HELP field designates the help context to be associated with the integer 
+field.\
+\
+The options that control the input conversion of the integer object 
+are listed in the OPTIONS LIST on the right half of the window. The following option is 
+available:\
+\
+  AUTOMATICALLY HIGHLIGHT DATA-Causes the current integer value to be 
+highlighted when the user tabs to the integer field from another window 
+field.\
+\
+--- HELP_UIW_MAXIMIZE_BUTTON
+Maximize Button
+A maximize button is used to maximize a window.  Windows within the
+Designer are automatically created with a maximize button, which is
+displayed in the upper right corner. To display
+a window without this button, toggle off the "Maximize Button" option
+in the parent window's information notebook, or editor.\
+\
+The NAME field displays the maximize button's name. This field is
+nonselectable.\
+\
+--- HELP_UIW_MINIMIZE_BUTTON
+Minimize Button
+A minimize button is used to minimize a window.  Windows within the
+Designer are automatically created with a minimize button, which is
+displayed in the upper right corner, next to the maximize button. To display
+a window without this button, toggle off the "Minimize Button" option
+in the parent window's information notebook, or editor.\
+\
+The NAME field displays the minimize button's name. This field is
+nonselectable.\
+\
+--- HELP_UIW_NOTEBOOK
+Notebook
+A notebook is used to display multiple pages of related objects.  Each of 
+these pages has a tab at the top of it which, when selected by the mouse, 
+causes the complete page to be displayed.\
+\
+The pages within the notebook are actually modified windows.  Adding more 
+pages is accomplished by selecting the window object and placing it within 
+the notebook structure.\
+\
+Enter in the NAME field a name that will distinguish the notebook object 
+from other objects on the window.\
+\
+The HELP field designates the help context to be associated with the
+notebook.\
+\
+--- HELP_UIW_POP_UP_ITEM
+Pop-up Item
+A pop-up item is used to display and select options associated with a list of 
+menu items.\
+\
+Enter in the TEXT field text exactly as you want it to appear on the pop-up 
+item.\
+\
+The VALUE field allows you to enter in a value that serves as a unique 
+identification for a pop-up item.  If the Send user message option is set, 
+the value must be an event type.\
+\
+Enter in the NAME field a name that will distinguish the pop-up item from 
+other objects on the window.\
+\
+The HELP field designates the help context to be associated with the pop-up 
+item.\
+\
+The options that determine the item's features are listed in the 
+OPTIONS LIST on the right half of the window. The options are:\
+\
+  MARK AS SEPARATOR-Causes the pop-up item to be a separator that will 
+appear as a horizontal line when placed in a pop-up menu.\
+\
+  ALLOW CHECK-MARK-Causes the pop-up item to display a check mark at the 
+front of the text when the pop-up item is selected.\
+\
+  SEND USER MESSAGE-Causes the event associated with the pop-up item's 
+value to be created and put on the event queue when the pop-up item is 
+selected.  No callback function should be assigned in the 
+Advanced page.\
+\
+The second section presents options that apply to any pop-up menu lists 
+associated with the pop-up item. The options are:\
+\
+  ALPHABETICAL SORTING-Causes the menu items to be sorted in alphabetical 
+order.\
+\
+  DON'T WRAP KEYSTROKES-Prevents the current item in the pop-up menu 
+from wrapping between the top and bottom items when arrowing through 
+the list.\
+\
+  SELECT MULTIPLE CHILDREN-Allows more than one item in the pop-up menu to 
+become selected at the same time.\
+\
+The third section presents options for associating messages with the item. 
+The options are:\
+\
+  NORMAL OPERATION-Does not cause any message to be sent.\
+\
+  SEND ABOUT MESSAGE-Causes the pop-up item to be placed as the About
+option in the Apple menu.  This option applies only to Macintosh
+applications and will be ignored in all other environments.\
+\
+  SEND MAXIMIZE MESSAGE-Causes the window to be maximized when 
+the pop-up item is selected.\
+\
+  SEND MINIMIZE MESSAGE-Causes the window to be minimized when the 
+pop-up item is selected.\
+\
+  SEND MOVE MESSAGE-Causes the window to enter a mode that allows it 
+to be moved.\
+\
+  SEND SIZE MESSAGE-Causes the window to enter a mode that allows it to 
+be sized.\
+\
+  SEND SWITCH MESSAGE-Causes the operating system's task list or window 
+list to display.  This option only works in Windows and OS/2.\
+\
+  SEND RESTORE MESSAGE-Causes the window to be restored to its original 
+size if it is in a maximized or minimized state.\
+\
+  SEND CLOSE MESSAGE-Causes the window to be closed when the pop-up 
+item is selected.\
+\
+--- HELP_UIW_PROMPT
+Prompt
+A prompt object is used to provide lead information for another window 
+object.\
+\
+Enter in the TEXT field text exactly as you want it to appear in the
+prompt.\
+\
+Enter in the NAME field a name that will distinguish the prompt object from 
+other objects on the window.\
+\
+--- HELP_UIW_PULL_DOWN_ITEM
+Pull-down Item
+A pull-down item serves as the first level of selection in a pull-down
+menu.\
+\
+Enter in the TEXT field text exactly as you want it to appear on the pull-down 
+item.\
+\
+The VALUE field allows you to enter in a value that serves as a unique 
+identification for a pull-down item.  If the Send user message option is set, 
+the value must be an event type and no callback function should be 
+assigned in the Advanced page.\
+\
+Enter in the NAME field a name that will distinguish the pull-down item 
+from other objects on the window.\
+\
+The HELP field designates the help context to be associated with the
+pull-down item.\
+\
+The options that control interaction with the pull-down item are 
+listed in the OPTIONS LIST on the right half of the window. The options
+are:\
+\
+  ALPHABETICAL SORTING-Causes the menu items to be sorted in alphabetical 
+order.\
+\
+  DON'T WRAP KEYSTROKES-Prevents the current item in the pop-up menu 
+from wrapping between the top and bottom items when arrowing through 
+the list.\
+\
+  SELECT MULTIPLE-Allows more than one item in the pop-up menu to 
+become selected at the same time.\
+\
+--- HELP_UIW_PULL_DOWN_MENU
+Pull-down Menu
+A pull-down menu acts as a structure for selectable menu items that appear in a single
+horizontal line.  It automatically occupies the length of the top portion of the window to
+which it is attached.\
+\
+A multi-level selectable menu is created by adding pull-down items and pop-up items to
+the pull-down menu.  The pull-down menu object is automatically created with one pull-
+down item attached to it.\
+\
+The INDENT field determines the blank space, measured in cell units, between the
+first menu item and the left edge of the menu.\
+\
+Enter in the NAME field a name that will distinguish the pull-down menu object
+from other objects on the window.\
+\
+The HELP field designates the help context to be associated with the pull-down
+menu.\
+\
+The options that control interaction with the pull-down menu are listed
+in the OPTIONS LIST on the right half of the window.  The following option is
+available:\
+\
+  ALPHABETICAL SORTING-Causes the menu items to be sorted and displayed in
+alphabetical order.\
+\
+--- HELP_UIW_REAL
+Real
+A real number object is used to present and collect floating-point numeric 
+information.  Decimal numbers will be displayed using decimal notation. 
+When the decimal strings are too large for the input field, they are
+automatically converted to scientific notation.\
+\
+Enter in the VALUE field the number that you want to appear in the real 
+number field.\
+\
+Enter in the PRECISION field the number of decimal places to be
+displayed.\
+\
+If you want to specify a certain range of acceptable real number values, 
+enter in the RANGE field the valid real number range.\
+\
+Enter in the NAME field a name that will distinguish the real number object 
+from other objects on the window.\
+\
+The HELP field designates the help context to be associated with the real 
+number field.\
+\
+The options that control the input conversion of the real number 
+object are listed in the OPTIONS LIST on the right half of the window. 
+These options are:\
+\
+  AUTOMATICALLY HIGHLIGHT DATA-Causes the current real value to be 
+highlighted when the user tabs to the real number field from another window 
+field.\
+\
+  SCIENTIFIC NOTATION-Displays the number using scientific notation.\
+\
+--- HELP_UIW_SCROLL_BAR
+Scroll Bar/Slider
+A scroll bar is used to scroll the information contained within
+another object, such as a list.  A horizontal scroll bar scrolls information
+horizontally, a vertical scroll bar scrolls information vertically, and a
+corner scroll box fills the area between the horizontal and vertical
+scroll bars.\
+\
+A slider is typically used to visually indicate the current value
+relative to the range of possible values and to allow the setting of a value.
+It is different from a scroll bar, which is designed to scroll another 
+object, such as a list.\
+\
+NOTE: A vertical slider's thumb button moves up as the 
+slider's value increases, whereas a scroll bar's thumb button moves down as 
+the scroll bar's value increases.\
+\
+The MINIMUM field specifies the minimum value of the scrolling
+range.\
+\
+The MAXIMUM field specifies the maximum value of the scrolling range.\
+\
+The CURRENT field specifies the initial value of the scroll bar or
+slider, or the initial position of its thumb button.\
+\
+Enter in the NAME field a name that will distinguish the scroll bar
+or slider from other objects on the window.\
+\
+The HELP field designates the help context to be associated with the
+scroll bar or slider.\
+\
+The options that determine the type of scroll bar/slider are listed
+in the OPTIONS LIST on the right half of the window.  These options
+are:\
+\
+  VERTICAL SLIDER/SCALE-Defines the object to be a vertical slider.\
+\
+  HORIZONTAL SLIDER/SCALE-Defines the object to be a horizontal
+slider.\
+\
+  VERTICAL SCROLL BAR-Defines the object to be a vertical scroll
+bar.\
+\
+  HORIZONTAL SCROLL BAR-Defines the object to be a horizontal scroll
+bar.\
+\
+  CORNER SCROLL BOX-Defines the object to be a corner scroll box.\
+\
+--- HELP_UIW_SPIN_CONTROL
+Spin Control
+A spin control object is used to allow the user to select a value from a finite 
+range of values.  The spin control can be used to set integer, real and bignum 
+values, as well as times and dates.\
+\
+The TYPE field determines the type of object to be associated with the spin 
+control.\
+\
+Selecting the EDIT... button brings up the information notebook for the type 
+of object associated with the spin control, since that object is what 
+determines the spin control's specifications.\
+\
+The DELTA field assigns the value by which the object value will be adjusted 
+when the object is spun.  It should be specified in units appropriate to the 
+object type.\
+\
+Enter in the NAME field a name that will distinguish the spin control from 
+other objects on the window.\
+\
+The HELP field designates the help context to be associated with the spin 
+control.\
+\
+--- HELP_UIW_STATUS_BAR
+Status Bar
+A status bar presents status information to the user.  It is not interactive,
+but is a means of displaying information.  A status bar is like a modified window 
+that always occupies the bottom width of the parent window.\
+\
+The HEIGHT field designates the height of the status bar within the
+window.\
+\
+Enter in the NAME field a name that will distinguish the status bar from 
+other objects on the window.\
+\
+The HELP field designates the help context to be associated with the status 
+bar.\
+\
+--- HELP_UIW_STRING
+String
+A string object is used to present and collect alphanumeric string
+information.\
+\
+The TEXT field allows you to enter information to be displayed within the 
+object exactly as you want it to appear in your application.\
+\
+The number in the LENGTH field determines the number of characters that 
+the string object will display.\
+\
+Enter in the NAME field a name that will distinguish the string object from 
+other objects on the window.\
+\
+The HELP field designates the help context to be associated with the
+string.\
+\
+The options that control the presentation of the string object are 
+listed in the OPTIONS LIST on the right half of the window.  The first 
+section presents options for formatting the string's input.\
+\
+  NORMAL-Causes the character input to be displayed exactly as it is 
+entered.\
+\
+  LOWER-CASE-Converts all character input to lowercase values.\
+\
+  UPPER-CASE-Converts all character input to uppercase values.\
+\
+  PASSWORD-Causes the characters entered into the string field to be
+displayed as disguising password characters.\
+\
+The second section of the list presents options for converting character input. 
+The options are:\
+\
+  SPACES TO UNDERSCORES-Converts the space character to an underscore 
+value.\
+\
+  AUTOMATICALLY HIGHLIGHT DATA-Causes the string to be highlighted when 
+the user tabs to the string field from another window field.\
+\
+--- HELP_UIW_SYSTEM_BUTTON
+System Button
+A system button is used to provide a small menu of standard, general
+options that can be performed on a window.  Windows within the
+Designer are automatically created with a system button, which is
+displayed in the upper left corner.  The following options are
+included by default in the button's related menu:\
+\
+  Restore-Restores the window from either a maximized or a minimized
+state.\
+\
+  Move-Allows the window to be moved.\
+\
+  Size-Allows the window to be sized.\
+\
+  Minimize-Minimizes the window.\
+\
+  Maximize-Maximizes the window.\
+\
+  Close-Closes the window.\
+\
+To display a window without a system button, toggle off the "System Button" option
+in the parent window's information notebook, or editor.\
+\
+The NAME field displays the system button's name. This field is
+nonselectable.\
+\
+--- HELP_UIW_TABLE
+Table
+A table object is used to create a table of records, which can be scrolled both 
+vertically and horizontally. Records in the table can have one or more fields 
+which may be of different types. One use of the table object would be a 
+spreadsheet.\
+\
+A table object differs in one important way from the other objects of the 
+Designer, in that it is merely a template for a table. The data for the fields in 
+the table cannot be initialized from within the Designer; it must be set at run-
+time. For example, though we may designate one cell of the table as a string 
+field, we cannot specify the string's initial data from within the Designer. 
+This is different from a horizontal list with a string field, which displays 
+information that we assign to it.\
+\
+Enter in the NAME field a name that will distinguish the table object from 
+other objects on the window.\
+\
+The HELP field designates the help context to be associated with the
+table.\
+\
+The options that determine the presentation of the table are 
+listed in the OPTIONS LIST on the right half of the window. The first section presents 
+options that determine the support features of the table. These options
+are:\
+\
+  VERTICAL SCROLL BAR-Places a vertical scroll bar inside the right border of 
+the table.\
+\
+  HORIZONTAL SCROLL BAR-Places a horizontal scroll bar inside the bottom
+border of the table.\
+\
+  COLUMN HEADING-Places a column header, with one prompt field attached 
+to it, at the top of the table.\
+\
+  ROW HEADING-Places a row header, with one prompt field attached to it, at 
+the left side of the table.\
+\
+The second section presents the following option:\
+\
+  DRAW GRID-Displays lines that divide the table's columns and rows.\
+\
+--- HELP_UIW_TABLE_HEADER
+Table Header
+Table headers provide information about the contents of the row or
+column with which they are associated.  There are three types of
+header:\
+\
+1) Corner Header\
+A corner table header occupies the space between a column header and
+a row header within a table.\
+\
+Enter in the NAME field a name that will distinguish the corner
+header from other objects on the window.\
+\
+2) Column Header\
+A column table header is used to display information about the data
+presented in a table's column section.  Table records, which are
+attached to the header, contain the actual label text.\
+\
+Enter in the NAME field a name that will distinguish the column
+header from other objects on the window.\
+\
+3) Row Header\
+A row table header is used to display information about the data
+presented in a table's row section.  Table records, which are
+attached to the header, contain the actual label text.\
+\
+Enter in the NAME field a name that will distinguish the row
+header from other objects on the window.\
+\
+--- HELP_UIW_TABLE_RECORD
+Table Record
+A table record is the actual region to which specific fields are
+attached, such as a string or date, within a table. Table records
+are used in the headers to display information--typically labels that
+identify the contents of the row or column--and in the table
+directly, to display or collect data.\
+\
+Only one table record should be added to the table directly. The table
+will use a virtual record to draw all the other displayed records, using
+the data passed to the table at run-time.\
+\
+Enter in the NAME field a name that will distinguish the table record from 
+other objects on the window.\
+\
+--- HELP_UIW_TEXT
+Text
+A text object is used to present and collect alphanumeric textual information 
+in a multi-line format.\
+\
+The TEXT field allows you to enter information to be displayed within the 
+object exactly as you want it to appear in your application.\
+\
+The number in the LENGTH field determines the number of characters that 
+the text object will display.\
+\
+Enter in the NAME field a name that will distinguish the text object from 
+other objects on the window.\
+\
+The HELP field designates the help context to be associated with the text 
+object.\
+\
+The options that control the presentation of the text object are 
+listed in the OPTIONS LIST on the right half of the window. The first section presents 
+options for support features. The options are:\
+\
+  VERTICAL SCROLL-BAR-Adds a vertical scroll bar inside the right border of the 
+text field.\
+\
+  HORIZONTAL SCROLL-BAR-Adds a horizontal scroll bar inside the bottom border
+of the text field.\
+\
+The second section of the list presents options for formatting input. The 
+options are:\
+\
+  DON'T WRAP TEXT IN FIELD-Disables the default word wrap in the text
+field.\
+\
+  AUTOMATICALLY HIGHLIGHT DATA-Causes the current text value to be highlighted 
+when the user tabs to the field from another window field.\
+\
+--- HELP_UIW_TIME
+Time
+A time field displays and collects time information.\
+\
+Enter in the VALUE field the time that you want to appear in the time
+object.\
+\
+If you want to specify a certain range of acceptable time values, enter 
+in the RANGE field the valid time ranges.\
+\
+Enter in the NAME field a name that will distinguish the time object from 
+other objects on the window.\
+\
+The HELP field designates the help context to be associated with the time 
+object.\
+\
+The options that control the presentation of the time object are 
+listed in the OPTIONS LIST on the right half of the window. The first section presents 
+options for display format. The options are:\
+\
+  INCLUDE HUNDREDTHS-Includes the hundredths value in the time.\
+\
+  INCLUDE SECONDS-Includes the seconds value in the time.\
+\
+  NO MINUTES-Does not display nor interpret a minute value for the time 
+object.\
+\
+  NO HOURS-Does not display nor interpret an hour value for the time 
+object.\
+\
+  PAD TIME WITH ZEROS-Forces the hour, minute, and second values to be zero 
+filled when their values are less than 10.\
+\
+  FILL BLANKS WITH SYSTEM VALUES-Fills a blank time with the system
+time.\
+\
+  AUTOMATICALLY HIGHLIGHT DATA-Causes the current time value to be highlighted 
+when the user tabs to the time field from another window field.\
+\
+The second section presents options for separating time values. The options 
+are:\
+\
+  SYSTEM DEFAULTS-Separates each time value according to the default settings 
+for the current system.\
+\
+  NO SEPARATORS-Does not use any separator characters to delimit the time 
+values.\
+\
+  COLON SEPARATORS-Separates each time value with a colon.\
+\
+The third section presents options for formatting time input. The options
+are:\
+\
+  NORMAL-Displays the date with the upper- and lower-case formatting
+as it is entered by the end-user.\
+\
+  LOWER-CASE-Converts the time to lowercase.\
+\
+  UPPER-CASE-Converts the time to uppercase.\
+\
+The fourth section presents options for formatting according to country
+standards. The options are:\
+\
+  SYSTEM DEFAULT FORMAT-Formats the date according to the default settings 
+for the current system.\
+\
+  24 HOUR-Forces the time to be displayed and interpreted using a 24-hour 
+clock, regardless of the default country information.\
+\
+  12 HOUR-Forces the time to be displayed and interpreted using a 12-hour 
+clock, regardless of the default country information.\
+\
+--- HELP_UIW_TITLE
+Title
+A title bar is used to display the title for a window and to allow
+for moving the window with the mouse. A window can also be maximized
+by double-clicking on the title with the mouse, or if the window is
+already maximized, the window can be restored to its original size by
+double-clicking on it. Windows within the
+Designer are automatically created with a title bar, which is
+displayed across the top of the window.\
+\
+Enter in the TITLE field the text to be displayed as the title within
+the title bar.\
+\
+The NAME field displays the title bar's name. This field is
+nonselectable.\
+\
+--- HELP_UIW_TOOL_BAR
+Tool Bar
+A tool bar is used as a controlling structure for a set of selectable window objects.  It
+differs from the pull-down menu in that a variety of objects can be added to
+it-not just string items.  The tool bar will automatically occupy the upper-most area available in a
+window, positioning itself directly below the pull-down menu, if one exists.  Multiple tool
+bars may be added to a window.\
+\
+An object can be added to the tool bar by selecting the desired object from the control
+window's menu or object bar and placing it on the resource window's tool bar.  The
+control window's object bar itself is an example of a group of bitmapped buttons that
+have been attached to a tool bar.\
+\
+Enter in the NAME field a name that will distinguish the tool bar from other
+objects.\
+\
+The HELP field designates the help context to be associated with the tool bar. 
+\
+The options that control interaction with the tool bar are listed in the
+OPTIONS LIST on the right half of the window.  The options are:\
+\
+  BITMAP CHILDREN-Indicates that some of the objects contain bitmaps. This flag
+should be set when adding check boxes or radio buttons to the vertical
+list.\
+\
+  SELECT MULTIPLE OBJECTS-Allows more than one object to be selected at a time. 
+This option must be set if check boxes are added to the tool bar.\
+\
+  DON'T WRAP KEYSTROKES-Causes objects placed in the tool bar to be positioned
+according to their specified coordinates.\
+\
+--- HELP_UIW_VT_LIST
+Vertical List
+A vertical list is used to display items in a single-column fashion.  The list is only
+scrollable vertically.\
+\
+If you want to have a compare function associated with the list, you can
+enter the name of it in the COMPARE field.  The function must be defined somewhere in your
+code under the same name that is entered so that Zinc Designer can find it and
+execute the designated action.\
+\
+Enter in the NAME field a name that will distinguish the vertical list object from
+other objects.\
+\
+The HELP field designates the help context to be associated with the vertical
+list.\
+\
+The options that control the presentation and operation of the vertical
+list are listed in the OPTIONS LIST on the right half of the window.  The first section presents
+the following support feature option:\
+\
+  VERTICAL SCROLL BAR-Causes a vertical scroll bar to be added to the
+list.\
+\
+The second section presents options that determine interaction with the list.  The
+options are:\
+\
+  ALPHABETICAL SORTING-Causes the options to be sorted in alphabetical
+order.\
+\
+  BITMAP CHILDREN-Indicates that some of the objects contain bitmaps. This flag
+should be set when adding check boxes or radio buttons to the vertical
+list.\
+\
+  DON'T WRAP KEYSTROKES-Will not allow arrowing up, down, left or right to wrap
+from the end of the list to the beginning or vice versa.\
+\
+  SELECT ON DOWN CLICK-Selects the item on a button down-click, rather than on a
+down-click and release action.\
+\
+  CONTINUE SELECTION ON DRAG-Allows the end-user to drag through the list options
+with the mouse button pressed.  If this flag is not set, the
+highlight on the list items will not follow the dragging mouse.\
+\
+  SELECT MULTIPLE ITEMS-Allows more than one object to be selected at a
+time.\
+\
+--- HELP_UIW_WINDOW
+Window
+A window is used as a controlling structure for displaying and interacting with other
+objects.  Objects can be added by simply selecting them from the menu
+or object bar and placing them on the window.\
+\
+Enter in the TITLE field text exactly as you want it to appear in the window's title. 
+It will be automatically centered vertically.\
+\
+The MINICON field designates the bitmap image to be associated with the window
+when it is minimized.\
+\
+Enter in the NAME field a name that will distinguish the window from other
+objects.\
+\
+The HELP field designates the help context to be associated with the window.\
+\
+The options that control the presentation and operation of the window are
+listed in the OPTIONS LIST on the right half of the window.  The first section presents options
+that determine the support features of the window.  These options
+are:\
+\
+  BORDER-Draws a three-dimensional border around the outer perimeter of the
+window.\
+\
+  MAXIMIZE BUTTON-Attaches a maximize button to the window that will enlarge
+the window to its maximum size on the screen when selected.\
+\
+  MINIMIZE BUTTON-Attaches a minimize button to the window that will reduce the
+window to its minimum size on the screen when selected.\
+\
+  SYSTEM BUTTON-Attaches a system button to the window.\
+\
+  GEOMETRY MANAGEMENT-Enables the geometry management feature for the window,
+meaning that objects which are attached to the window can then be
+positioned and sized according to their own geometry management specifications. 
+If this option has not been previously set and one of the child objects is using
+geometry management, it will automatically be toggled.\
+\
+  VERTICAL SCROLL BAR-Places a vertical scroll bar inside the right border of the
+child window.\
+\
+  HORIZONTAL SCROLL BAR-Places a horizontal scroll bar inside the bottom border
+of the child window.\
+\
+The second section presents options that determine the window's type.  The options
+are:\
+\
+  DEFAULT-Creates a normal window.\
+\
+  DIALOG OBJECT-Creates the window as a dialog box.  A dialog box is a
+temporary window used to display or receive information from the user.  Using
+this flag will cause a dialog style border to be displayed.\
+\
+  MDI OBJECT-Creates the window as an MDI window.  An MDI parent must
+have a pull-down menu.  In general, other than the standard support objects (i.e.,
+system button, border, title, etc.) and the pull-down menu, MDI parent windows
+should only contain MDI children.\
+\
+The third section presents options that determine interaction with the window. 
+The options are:\
+\
+  ALPHABETICAL SORTING-Causes the objects to be sorted and displayed in
+alphabetical order on the window.\
+\
+  SELECT MULTIPLE OBJECTS-Allows more than one object to be selected at a
+time.\
+\
+  SELECT ON DRAG OPERATION-Causes any objects overlapped by a drag operation to
+be selected.\
+\
+  ALLOW NORMAL HOTKEYS-Allows the end-user to select an option using its hotkey
+by pressing the hotkey by itself, without the <Alt> key otherwise
+required.\
+\
+  DON'T SIZE-Prevents the end-user from changing the size of the window at
+run-time.  This option must be set if the window is to be a non-MDI
+child.\
+\
+  DON'T MOVE-Prevents the end user from changing the screen location of the
+window at run-time.  This flag must be set if the window is to be a non-MDI
+child.\
+\
+  MODAL-Prevents any other window from receiving event information.  A modal
+window receives all event information until it is removed from the screen
+display.\
+\
+  LOCKED-Prevents the user from removing the window from the screen
+display.\
+\
+  TEMPORARY-Causes the window to only occupy the screen temporarily.  Once
+another window is selected on the screen, the temporary window is removed. 
+Once removed, a temporary window will be destroyed if the "Don't destroy
+object" flag is not set.\
+\
+  DON'T DESTROY OBJECT-Prevents the window from being destroyed when it is
+closed.\
+\
+The fourth section presents the following special option:\
+\
+  RENUMBER SUBOBJECTS-Causes the objects within the window to be renumbered
+sequentially.  This is especially useful after several delete, cut, or similar actions
+that result in gaps in the original numbering of the objects.\
+\
+--- HELP_UIW_POP_UP_MENU
+Pop-up Menu
+A pop-up menu object is used to present a menu of selections.\
+\
+Enter in the NAME field a name that will distinguish the pop-up menu object
+from other objects on the window.\
+\
+The HELP field designates the help context to be associated with the
+pop-up menu.\
+\
+The options that control the presentation of the pop-up menu object are 
+listed in the OPTIONS LIST on the right half of the window.\
+\
+  ALPHABETICAL SORTING-Causes the objects to be sorted and displayed in
+alphabetical order on the pop-up menu.\
+\
+--- HELP_UI_ADVANCED
+Advanced Page
+The Advanced notebook page contains information relating to the advanced 
+properties of an object. It is designed for use by the experienced user
+only.\
+\
+The NUMBERID field assigns a unique programmer number to the object. By 
+default this number corresponds to the order in which the object was created 
+in the program.\
+\
+If you want to have a CALLBACK function, or user function, associated with the
+object, you can enter the function's name in this field.  When using a callback
+function, the function itself must be defined somewhere in your code with the
+same name that is entered in the information notebook.\
+\
+The USEROBJECT field designates a void pointer to a user-specified
+object.\
+\
+The USERFLAGS field contains any flags that are set and maintained by the 
+programmer.\
+\
+The USERSTATUS field contains any status flags that are set and maintained 
+by the programmer.\
+\
+The DERIVED NAME field contains the name of the derived class to inherit 
+the properties of the current object.  As part of the code for the derived class, 
+the programmer must create a static New function that is able to call the 
+constructor for the derived class.\
+\
+The OPTIONS LIST is located on the right side of the Advanced page, and 
+it displays options which control the advanced properties and operations of 
+the current object. Options that are not applicable to the current object are
+grayed out, meaning that they cannot be selected.\
+\
+The first section of the list presents options that determine the extent to 
+which the end user can interact with or edit the object. Only one of these can 
+be current at a time. The options are:\
+\
+  NORMAL INTERACTION-Allows the end user to have normal interaction with 
+the object, including being able to select, position on and edit it (if it is an 
+editable object).\
+\
+  VIEW ONLY-Prevents the object from being edited.\
+\
+  NON-CURRENT-The object cannot be made current.\
+\
+  NON-SELECTABLE (GRAY)-Prevents the object from being selected. The
+object will be displayed in a dimmed (usually gray) color to suggest
+that it is non-selectable.\
+\
+  NON-SELECTABLE (BLACK)-Prevents the object from being selected. The
+object will still be displayed in a dark (usually black) color,
+however.\
+\
+The second section of the list presents options that determine the initial
+settings of the object. The options are:\
+\
+  MARK AS INVALID-Sets the initial status of the object to be
+invalid.\
+\
+  MARK AS UNANSWERED-Sets the initial status of the field to be
+unanswered.\
+\
+The third section of the list presents options that determine other default
+settings for the object. The options are:\
+\
+  DON'T DEALLOCATE DATA-Causes the object to not allocate its own buffer for 
+data. If this option is set, you must allocate a buffer that will be used to 
+store the object's data.\
+\
+  ALLOW MOVE DRAGGING-Allows the object to be moved in a drag and 
+drop operation.\
+\
+  ALLOW COPY DRAGGING-Allows the object to be copied in a drag and 
+drop operation.\
+\
+  ALLOW OBJECT DROPPING-Allows objects to be dropped onto the current 
+object in a drag and drop operation.\
+\
+  SUPPORT OBJECT-Causes the object to be placed in the parent object's support
+list.\
+\
+--- HELP_UI_GENERAL
+General Page
+The General notebook page contains information related to 
+the specific object being edited. It is always the first page visible upon
+entering the information notebook. Since each object is different, the editable 
+properties will vary, but the following fields are common to most
+objects:\
+\
+The TEXT or VALUE field allows you to enter information to be displayed 
+within the object exactly as you want it to appear in your
+application.\
+\
+Some objects allow a COMPARE function, which is typically used to 
+sort information. If you want to have a compare function associated with the 
+object, you can enter the function's name in this field.  When using a compare
+function, the function itself must be defined somewhere in your code with the
+same name that is entered in the information notebook.\
+\
+The NAME field contains the name (sometimes called a string identification) 
+for the object and is present in every object information notebook. Because
+these objects appear in various lists throughout the program, it is 
+recommended that you override the default name and enter a string that more 
+specifically identifies the object.\
+\
+The HELP field designates the help context to be associated with the
+object.\
+\
+The OPTIONS LIST is located on the right side of the General page. It displays
+options which control the general presentation and operation of the 
+object.\
+\
+--- HELP_UI_GEOMETRY_MANAGER
+Geometry
+The geometry object is used to manage constraints within a window.\
+\
+Enter in the TEXT field text exactly as you want it to appear in the
+geometry object.\
+\
+  The CONSTRAINTS field displays the window constraints, listed in the order in which they were
+created, that are attached to the window.
+\
+--- HELP_UI_OBJECT
+Subobjects Page
+The Subobjects page allows you to modify the subobjects of the
+current object.  It contains the following fields:\
+\
+  The OBJECTS field displays the objects, listed in the order in which they were
+created, that are attached to the current object.  The editor of any one of these objects can
+be accessed by one of the following methods: double click on the desired object with
+a mouse, scroll to it and press <space>, or click on the EDIT button while it is
+highlighted in the list.\
+\
+  The DIRECTORIES field displays the other objects--both parent and
+subobjects--that
+are related to the current object.  Double clicking on one of the names (or hitting
+<Enter> while the name is current) causes the ``Objects'' field to display the
+subobjects of the selected object.  This feature allows you to move within an extensive
+hierarchy--such as a pull-down menu--without having to interact with every level
+of it.\
+\
+  Selecting the EDIT button causes the editor of the object highlighted in the
+OBJECTS list to appear.\
+\
+  Selecting the ADD button causes the object appearing in the combo box (located in
+the lower right corner of the page) to be added to the current
+object.\
+\
+  Selecting the DELETE button causes the highlighted object in the
+OBJECTS list to be deleted.  (<Ctrl Delete> also performs this
+action.)\
+\
+  Selecting the MOVE UP button causes the highlighted object in the
+OBJECTS list to move up one line in the list. <Ctrl up-arrow> also performs this action.)  Moving an
+object changes the tab order of objects on the screen.  For list item objects, such as
+pop-up items, it also changes the order that the items appear within the parent
+lists.\
+\
+  Selecting the MOVE DOWN button causes the highlighted object in the
+OBJECTS list to move down one line in the list. (<Ctrl down-arrow> also performs this action.)  Moving
+an object changes the tab order of objects on the screen.  For list item objects, such
+as pop-up items, it also changes the order that the items appear within the parent
+lists.\
+\
+  The ADD OBJECT COMBO BOX designates the type of object to be added when
+the ADD button (described above) is selected.  Select the combo box button to
+view a list of the available objects.  If you select one of the objects listed, it will be
+added to the current parent object whenever the ADD button is
+selected.\
+\
+--- HELP_UI_POSITION
+Position Page
+The Position notebook page contains information related to an object's
+position, border, region, and alignment.  The fields of the Position page
+are the same for every object. They are as follows:\
+\
+The POSITION/SIZE field allows you to alter the positioning and size of the 
+object. The first row within the field contains three buttons that 
+determine the coordinate scale to be used.  Depressing the left button
+causes screen coordinates to be based on a pixel scale.  Depressing the
+middle button causes screen coordinates to be based on a mini-cell scale,
+which is 1/10 of a cell coordinate by default.  Depressing the right button
+causes screen coordinates to be based on a whole cell scale.\
+\
+Underneath each button in the POSITION/SIZE field is a column of fields that 
+display the precise location and size of the object.  Only the column 
+underneath the currently selected option is selectable and editable.\
+\
+The top two fields of each column, COLUMN and LINE, determine the object's 
+location.  The lower two fields, WIDTH and HEIGHT, determine the object's size.\
+\
+The two buttons contained in the BORDER field determine whether or not the 
+object is displayed with a border.\
+\
+The two buttons contained in the REGION field determine the region allocated
+for the object.\
+\
+The three buttons contained in the ALIGNMENT field determine the alignment 
+of the text within the object. Depressing the left button causes the text to be 
+justified to the left margin, depressing the middle button causes the text to be 
+centered, and depressing the right button causes the text to be justified to the 
+right margin.\
+\
+--- HELP_ZAF_DERIVED_OBJECT
+Derived Object
+The derived object lets you place an object that will be of your own
+derived type in a window.  Within the Designer, the object is
+essentially a place holder, since the Designer doesn't know about
+your derived class.\
+\
+Your source code must provide a class by the same name as what you
+specified in the Advanced page of the derived object's information
+notebook.  This class must have a static New() function, and a static 
+ZIL_ICHAR array called _className.  The New() function must conform
+to the specification described in the Programmer's Reference manual
+(see any window object's chapter or the UI_WINDOW_OBJECT chapter). 
+_className can be any string you desire.\
+\
+Enter in the NAME field a name that will distinguish the derived
+window object from other objects on the window.\
+\
+The HELP field designates the help context to be associated with the
+derived window object.\
+\
+--- HELP_ZAF_EDIT_GROUP
+Edit Group
+An edit group allows you to select a region of objects to be combined into 
+one unit.  Only one edit group is permitted per window at one time. Upon
+grouping a second region, the first group in the same window will be
+ungrouped.\
+\
+The options that determine the item's features are listed in the 
+OPTIONS LIST on the right half of the window. The options in the
+first section determine the objects' justification:\
+\
+  NONE-Leaves the objects where they are.\
+\
+  LEFT-Causes all of the objects within the group to be displayed 
+next to the left border of the gray area.\
+\
+  CENTER-Causes all of the objects within the group to be displayed
+in the horizontal center of the gray area.\
+\
+  RIGHT-Causes all of the objects within the group to be displayed
+next to the right border of the gray area.\
+\
+The second section affects the objects' tab order.  The option in
+this section is:\
+\
+  ON SCREEN LOCATION-Causes the objects within the group to be 
+sorted in top-left to bottom-right priority.\
+\
+--- HELP_ZAF_GEOMETRY_MANAGER
+Geometry Page
+The Geometry notebook page allows you to place constraints on an object 
+that specify how the object should be sized and positioned under specific 
+conditions.  For example, using geometry management, you can determine 
+how an object will react to re-sizing of its parent object--whether it stays at 
+a fixed location or moves relative to the parent, whether it stays the same 
+size or grows with the parent, etc.\
+\
+Geometry management also allows you to establish a connection
+relationship between two child objects and to set size constraints for
+individual objects.\
+\
+The fields of the Geometry page are the same for every object. They are as 
+follows:\
+\
+The ATTACHMENT GROUP, located on the left side of the page, is designed 
+to visually represent the relationship between the current object and its
+surroundings.  The small square in the center represents the object itself,
+and the four lines, one radiating from each side of the square, represent possible
+connections to the surrounding objects. Each line ends at a combo box field 
+which displays the type of connection for that line.\
+\
+To change the type of connection, select the combo box button and a list of 
+available types will be displayed. The following three types are
+available:\
+\
+  NONE-Indicates that no connection is in effect.\
+\
+  RELATIVE-Causes the object's border to position itself within its parent
+relative to the parent's borders. In this case, the value entered into the offset 
+field will represent a percentage ratio for placement.  NOTE: A relative connection
+is possible only between a child object and its parent-not between two child window
+objects.\
+\
+  ABSOLUTE-Causes the object's border to position itself relative to its parent 
+or sibling object at a fixed distance. In this case, the value entered into 
+the offset field will represent a fixed measurement for placement.\
+\
+The CONSTRAINT FEATURES group determines the constraint features of the 
+connection in the attachment group currently being edited. It contains the 
+following fields:\
+\
+  OFFSET-Determines the offset of the current connection, or the amount of 
+space between its inside and outside anchors. The actual measurement of 
+the value depends upon whether the connection is relative, in which case 
+the value represents a percentage ratio, or absolute, in which case the 
+value represents a fixed measurement.\
+\
+  OPTIONS-Presents several options that alter the typical behavior of the 
+connections. The following options are available:\
+\
+  STRETCH-Causes the actual object to stretch or shrink as the anchor border 
+is moved.\
+\
+  OPPOSITE-Causes the connection to be anchored to the opposite border of 
+the object designated in CONNECT.\
+\
+  HZ-CENTER-Causes the connection to be anchored from the horizontal 
+center of the current object. This allows for more consistent placement, 
+especially when centering the object.\
+\
+  VT-CENTER-Causes the connection to be anchored from the vertical center 
+of the current object. This allows for more consistent placement, especially
+when centering the object.\
+\
+  ANCHOR-This field determines what the current connection is anchored
+to.\
+\
+The SIZE RESTRICTIONS field determines the minimum and maximum size for 
+the object. The first row determines the range of WIDTH values, while the
+second row determines the range of HEIGHT values. The first value of each row 
+represents the minimum size possible, and the second the maximum
+possible.\
+\
+--- HELP_ZAF_WINDOW_EDITOR
+Window Editor
+The Window Editor controls the creation of windows and the objects on
+them.  It has the following fields:\
+\
+The TITLE BAR identifies which Designer is in use, the ISO
+designer or the Unicode Designer, as well as the name of the .DAT
+file being edited.\
+\
+The PULL-DOWN MENU provides access to all the operations that can be
+performed from the control window.  It has the following options:\
+\
+  File-File category options control the general operations of Zinc Designer
+files.  Options that are displayed in the menu with `...' cause an associated
+window to appear when selected.\
+\
+  Edit-Edit category options are used to edit the appearance and performance
+of objects within the current file.  Options that are displayed in
+the menu with `...' cause an associated window to appear when
+selected.\
+\
+  Window-The Window category options allow you to create, modify and retrieve
+window resources in the current file.  Options that are displayed in
+the menu with `...' cause an associated window to appear when
+selected.\
+\
+  Object-The Object category provides options that allow you to actually create
+objects. Each of the options on this menu is a category under which
+several window objects are classified.  Selecting one of the options causes
+another associated menu to appear, which lists the actual window objects of
+that category.\
+\
+  Help-The Help category provides help on specific topics related to
+the Window Editor.\
+\
+The BUTTON BAR (not present in text mode) provides quick access to
+each of the window objects that can be placed on a window.\
+\
+The STATUS BAR provides feedback on the current object being edited. 
+It has the following fields:\
+\
+  Type-Indicates the type of object being edited.\
+\
+  Name-Indicates the name of the object being edited.\
+\
+  Pos-Indicates the starting position of the object being edited.
+\
+  Size-Indicates the size of the object being edited.\
+\
+  Place Object-Indicates the type of object which has been selected
+for placement on another object.\
+\
+--- HELP_ZAF_WINDOW_PREFERENCES
+Preferences Help
+The Preferences option allows you to change the default settings of Zinc Designer. 
+These settings are saved in the ZINC.CFG file.\
+\
+The DELTA STORAGE group gives you access to delta storage, which allows you to save only the changes
+of the current file to another file. The group contains the following
+fields:\
+\
+  CURRENT displays the path name of the delta file.  This field is not
+editable.\
+\
+  PATHNAME designates the name for the delta copy file.\
+\
+  EXTENSION designates the subdirectory where the delta object will
+be stored.\
+\
+  Selecting the START button causes the designated delta file to be opened.  Any modifications
+made to the current file thereafter will be saved to the
+delta file only. Selecting the END button causes the delta file designated at the ``Pathname'' prompt
+to be closed. The START and END buttons work independently of the three main buttons of the
+Window Editor Preferences window. While you are in delta mode (i.e., you have
+opened a delta file and not closed it yet), a "(D)" appears on the control
+window's title bar, to the right of the file name.\
+\
+The MINICELL field allows you to set the default coordinate minicell ratios.  The default width and
+height are 1/10.\
+\
+The FILE OPTIONS group contains options for file backups, file extensions, and what files to save.
+Enter in the BACKUPS field the number of backups that you would like the designer
+to maintain.  Each backup file will be saved under the same name as the main file
+but with an extension that indicates the backup number of the copy.
+If any number greater than "1" is entered at the prompt, each time a save 
+occurs another backup file will be created, up to the maximum specified.
+The Designer will create up to nine backups.\
+\
+Enter in the DEFAULT EXTENSION field the default extension for files saved in the
+designer.  Zinc's default is .dat, but you can enter a different default for your
+applications, if desired.\
+\
+Select the WRITE HPP and/or the WRITE CPP option if you want an .HPP file
+or .CPP file to be generated with each save operation.  When these options are not in effect, save operations will be much
+quicker.\
+\

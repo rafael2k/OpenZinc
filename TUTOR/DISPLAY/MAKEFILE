@@ -1,0 +1,34 @@
+# ----- Usage --------------------------------------------------------------
+usage:
+        @echo ...........
+        @echo ...........
+        @echo To make this Zinc tutorial for Borland C++ type:
+        @echo make -fbtcpp450.mak dos
+        @echo make -fbtcpp450.mak dos16
+        @echo make -fbtcpp450.mak dos32
+        @echo make -fbtcpp450.mak windows
+        @echo make -f btcpp450.mak winnt
+        @echo make -fbtcpp200.mak os2
+        @echo ...........
+        @echo To make this Zinc tutorial for IBM C++ type:
+        @echo nmake -f iccpp210.mak os2
+        @echo ...........
+        @echo To make this Zinc tutorial for Visual C++ type:
+        @echo nmake -fmvcpp150.mak dos
+        @echo nmake -fmvcpp150.mak dos16
+        @echo nmake -fmvcpp100.mak dos32
+        @echo nmake -fmvcpp150.mak windows
+        @echo nmake -f mvcpp200.mak winnt
+        @echo ...........
+        @echo To make this Zinc tutorial for Symantec C++ type:
+        @echo smake -fsccpp700.mak dos
+        @echo smake -fsccpp700.mak dos32
+        @echo smake -fsccpp700.mak windows
+        @echo ...........
+        @echo To make this Zinc tutorial for Watcom C++ type:
+        @echo wmake -fwccpp.mak dos32
+        @echo wmake -fwccpp.mak windows
+        @echo wmake -f wccpp.mak winnt
+        @echo wmake -fwccpp.mak os2
+        @echo ...........
+        @echo ...........

@@ -1,0 +1,2 @@
+This shows how to make a notebook page non-selectable.  This will not
+work under OS/2 because the native object doesn't allow it.

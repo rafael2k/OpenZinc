@@ -1,0 +1,524 @@
+--- HELP_GENERAL
+About Defaults Editor
+The Defaults Editor is used to create and modify tables of language
+strings and locale formatting data used by Zinc.  This information is
+accessed at run-time to produce localized applications.\
+\
+Zinc provides language and locale information for many locations.
+\
+Copyright (C) 1991-1994 Zinc Software Incorporated.  All Rights
+Reserved.\
+\
+--- HELP_LOC_CURRENCY
+Currency
+Contains the formatting data used to format currency values.\
+\
+SYMBOL is the symbol used to display the currency type.\
+\
+INT'L SYMBOL is the international currency symbol.\
+\
+DECIMAL is the symbol used as the decimal separator.\
+\
+THOUSANDS is the symbol used as the thousands separator.\
+\
+GROUPING is the number of digits that are grouped in a number.\
+\
+--- HELP_LOC_DATE
+Date
+Contains the formatting data used to format a date.\
+\
+SEPARATOR is the symbol used to separate the various values of the
+date.\
+\
+DATE is the formatting string that specifies the order in which the date
+values should be arranged.\
+\
+DATE/TIME is the formatting string that specifies the order in which
+the values should be arranged in a combined date and time value.\
+\
+The options that control the presentation of the date object are listed in the 
+OPTIONS LIST on the right half of the window. The first section presents options for 
+formatting input. The options are:\
+\
+  SHORT ALPHANUMERIC DAY-Adds a shortened day-of-week text to the
+date.\
+\
+  ALPHANUMERIC DAY-OF-WEEK-Adds an ASCII string day-of-week string to 
+the date.\
+\
+  SHORT ALPHANUMERIC MONTH-Uses a shortened alphanumeric month in the 
+date.\
+\
+  ALPHANUMERIC MONTH-Formats the month to be displayed as an ASCII 
+string value.\
+\
+  SHORT YEAR-Forces the year to be displayed as a two-digit value.\
+\
+  FORMAT UPPER-CASE-Converts the alphanumeric date to uppercase.\
+\
+  PAD DATE WITH ZEROS-Forces the year, month and day values to be zero 
+filled when their values are less than 10.\
+\
+  FILL BLANKS WITH SYSTEM VALUE-Fills a blank date with the system
+date.\
+\
+The second section presents options for separating date values. The options 
+are:\
+\
+  SYSTEM DEFAULTS-Separates each date value according to the default settings
+for the current system.\
+\
+  DASH SEPARATORS-Separates each date value with a dash, regardless of the 
+default country date separator.\
+\
+  SLASH SEPARATORS-Separates each date value with a slash, regardless of 
+the default country date separator.\
+\
+The third section presents options for formatting according to country and 
+military standards. The options are:\
+\
+  EUROPEAN FORMAT-Forces the date to be displayed and interpreted in the 
+European format (i.e., day/month/year), regardless of the default country 
+information.\
+\
+  ASIAN FORMAT-Forces the date to be displayed and interpreted in the Asian 
+format (i.e., year/month/day), regardless of the default country
+information.\
+\
+  MILITARY FORMAT-Forces the date to be displayed and interpreted in the 
+U.S. Military format (i.e., day month year where month is a 3 letter 
+abbreviated word), regardless of the default country information.\
+\
+  U.S. FORMAT-Forces the date to be displayed and interpreted in the U.S. 
+format (i.e., month/day/year), regardless of the default country
+information.\
+\
+--- HELP_LOC_NUMBER
+Number
+Contains the formatting data used to format a number.\
+\
+DIGIT is the number of digits to display after the decimal point on
+currency values.\
+\
+INT'L DIGIT is the number of digits to display after the decimal point on
+international currency values.\
+\
+DECIMAL is the symbol used as the decimal separator.\
+\
+THOUSANDS is the symbol used as the thousands separator.\
+\
+GROUPING is the number of digits that are grouped in a number.\
+\
+LEFT PAREN is the left symbol used when displaying a negative value using 
+credit symbols.\
+\
+RIGHT PAREN is the right symbol used when displaying a negative value using 
+credit symbols.\
+\
+DEF DIGITS are the default digits used to display a number.\
+\
+ALT DIGITS are the alternative digits used to display a number.\
+\
+The POSITIVE NUMBERS group contains specifications that affect the display
+of positive numbers.  The NEGATIVE NUMBERS group contains specifications that 
+affect the display of negative numbers.  Both their fields are the
+same.\
+\
+SEPARATOR is an integer used to indicate the spacing of a negative monetary 
+value. The following values can be used:\
+\
+  0-Causes no spaces to be placed between the currency symbol and the 
+value.\
+\
+  1-Causes a space to be placed between the currency symbol and the 
+value.\
+\
+  2-Causes a space to separate the currency symbol and the sign string, if 
+they are adjacent.\
+\
+CURRENCY is an integer used to position the currency symbol for negative
+monetary values. The following values can be used:\
+\
+  0-Causes the currency symbol to follow the value.\
+\
+  1-Causes the currency symbol to precede the value.\
+\
+POSITION is an integer used to position the positive or negative sign for a
+monetary value. The following values can be used:\
+\
+  0-Causes parentheses to enclose the quantity and the currency
+symbol.\
+\
+  1-Causes the sign string to precede the quantity and the currency
+symbol.\
+\
+  2-Causes the sign string to follow the quantity and the currency
+symbol.\
+\
+  3-Causes the sign string to precede the currency symbol.\
+\
+  4-Causes the sign string to follow the currency symbol.\
+\
+SIGN is a symbol used to indicate that the number is positive or negative,
+as appropriate.\
+\
+--- HELP_LOC_TIME
+Time
+Contains the formatting data used to format a time.\
+\
+SEPARATOR is the symbol used to separate the various values of the
+time.\
+\
+TIME is the formatting string that specifies the order in which the time
+values should be arranged.\
+\
+12 HOUR is the formatting string that specifies the order in which the time
+values should be arranged for a 12 hour format.\
+\
+The options that control the presentation of the time object are listed in the 
+OPTIONS LIST on the right half of the window. The first section presents
+options for the default format. The options are:\
+\
+  INCLUDE HUNDREDTHS-Includes the hundredths value in the time.\
+\
+  INCLUDE SECONDS-Includes the seconds value in the time.\
+\
+  NO MINUTES-Does not display nor interpret a minute value for the time 
+object.\
+\
+  NO HOURS-Does not display nor interpret an hour value for the time 
+object.\
+\
+  FORMAT LOWER-CASE-Converts the time to lowercase.\
+\
+  FORMAT UPPER-CASE-Converts the time to uppercase.\
+\
+  PAD DATE WITH ZEROS-Forces the hour, minute and second values to be zero 
+filled when their values are less than 10.\
+\
+  FILL BLANKS WITH SYSTEM VALUES-Fills a blank time with the system
+time.\
+\
+The second section presents options for separating time values. The options 
+are:\
+\
+  SYSTEM DEFAULTS-Separates each time value according to the default settings
+for the current system.\
+\
+  NO SEPARATORS-Does not use any separator characters to delimit the time 
+values.\
+\
+  COLON SEPARATORS-Separates each time value with a colon.\
+\
+The third section presents options for formatting according to country
+standards. The options are:\
+\
+  12 HOUR-Forces the time to be displayed and interpreted using a 12-hour 
+clock, regardless of the default country information.\
+\
+  24 HOUR-Forces the time to be displayed and interpreted using a 24-hour 
+clock, regardless of the default country information.\
+\
+--- HELP_OPT_FILE
+File Options
+The File menu presents options for manipulating files.  When the
+Defaults Editor is used in conjunction with the Window Editor, the File option
+is nonselectable in the Defaults Editor, since all
+file-related operations are handled in the Window Editor.\
+\
+--- HELP_OPT_LANGUAGE
+Language Options
+The Language options allow you to create, modify and retrieve
+language tables in the current file.  Options that are displayed in
+the menu with `...' cause an associated window to appear when
+selected.  The following options are available:\
+\
+The Import option allows you to import a language table from another
+.DAT file.\
+\
+The Export option allows you to export a language table to another
+file.\
+\
+The Create option automatically creates a new language table.\
+\
+The Load option is used to recall a previously created language table
+from the current file.\
+\
+The Store option causes the current language table to be saved.\
+\
+The Store As option allows you to save the current language table under
+another name.\
+\
+The Clear option causes the current language table to be removed
+from the screen.\
+\
+The Clear All option causes all language tables present on the
+screen to be removed.\
+\
+The Delete option allows you to delete a language table from the
+current file.\
+\
+--- HELP_OPT_LOCALE
+Locale Options
+The Locale options allow you to create, modify and retrieve
+locale tables in the current file.  Options that are displayed in
+the menu with `...' cause an associated window to appear when
+selected.  The following options are available:\
+\
+The Import option allows you to import a locale table from another
+.DAT file.\
+\
+The Export option allows you to export a locale table to another
+file.\
+\
+The Create option automatically creates a new locale table.\
+\
+The Load option is used to recall a previously created locale table
+from the current file.\
+\
+The Store option causes the current locale table to be saved.\
+\
+The Store As option allows you to save the current locale table under
+another name.\
+\
+The Clear option causes the current locale table to be removed
+from the screen.\
+\
+The Clear All option causes all locale tables present on the
+screen to be removed.\
+\
+The Delete option allows you to delete a locale table from the
+current file.\
+\
+--- HELP_UIW_BIGNUM
+Number
+Contains the strings used to display error messages for a number
+field.\
+\
+INVALID indicates the number is in an invalid format.\
+\
+OUT-OF-RANGE indicates the number is out of range for the field.\
+\
+LESS-THAN indicates the number is less than the low end of a positive,
+open-ended range of acceptable values.\
+\
+GREATER-THAN indicates the number is greater than the high end of a negative, 
+open-ended range of acceptable values.\
+\
+--- HELP_UIW_DATE
+Date
+Contains the strings in error messages for a date field.\
+\
+INVALID indicates the date is in an invalid format.\
+\
+OUT-OF-RANGE indicates the date is out of range for the date field.\
+\
+MISSING VALUE indicates the date is missing a required value and cannot be 
+interpreted.\
+\
+INVALID NAME indicates the date has an invalid month name that cannot be 
+interpreted.\
+\
+AMBIGUOUS indicates the date has an ambiguous month name that cannot be 
+uniquely interpreted.\
+\
+LESS-THAN indicates the date is chronologically less than the low end of a 
+positive, open-ended range of acceptable date values.\
+\
+GREATER-THAN indicates the date is chronologically greater than the high end 
+of a negative, open-ended range of acceptable date values.\
+\
+--- HELP_UIW_INTEGER
+Integer
+Contains the strings used to display error messages for an integer
+field.\
+\
+INVALID indicates the number is in an invalid format.\
+\
+OUT-OF-RANGE indicates the number is out of range for the integer
+field.\
+\
+LESS-THAN indicates the number is less than the low end of a positive,
+open-ended range of acceptable values.\
+\
+GREATER-THAN indicates the number is greater than the high end of a negative, 
+open-ended range of acceptable values.\
+\
+--- HELP_UIW_REAL
+Real
+Contains the strings used to display error messages for a real
+field.\
+\
+INVALID indicates the number is in an invalid format.\
+\
+OUT-OF-RANGE indicates the number is out of range for the real
+field.\
+\
+LESS-THAN indicates the number is less than the low end of a positive,
+open-ended range of acceptable values.\
+\
+GREATER-THAN indicates the number is greater than the high end of a negative, 
+open-ended range of acceptable values.\
+\
+--- HELP_UIW_SYSTEM_BUTTON
+System Button
+Contains the strings used to display the options in a generic system button 
+menu.\
+\
+RESTORE contains the text used to create the menu option that restores a window from its 
+minimized or maximized state.\
+\
+MOVE contains the text used to create the menu option that allows the window to be 
+moved using the keyboard.\
+\
+SIZE contains the text used to create the menu option that allows the window to be sized 
+using the keyboard.\
+\
+MINIMIZE contains the text used to create the menu option that minimizes the
+window.\
+\
+MAXIMIZE contains the text used to create the MAXIMIZE menu option that maximizes the
+window.\
+\
+CLOSE contains the text used to create the menu option that closes the window.\
+\
+--- HELP_UIW_TIME
+Time
+Contains the strings used to display error messages for a time
+field.\
+\
+INVALID indicates the time is in an invalid format.\
+\
+OUT-OF-RANGE indicates the time is out of range for the time field.\
+\
+MISSING VALUE indicates the time is missing a required value and cannot be 
+interpreted.\
+\
+LESS-THAN indicates the time is chronologically less than the low end of a 
+positive, open-ended range of acceptable time values.\
+\
+GREATER-THAN indicates the time is chronologically greater than the high end 
+of a negative, open-ended range of acceptable time values.\
+\
+--- HELP_UIW_WINDOW
+Window
+Contains the strings used to display error messages for a window.\
+\
+ERROR contains the international word for error if no other language
+information is available.\
+\
+UNKNOWN OBJECT contains the string used when loading a persistent window
+to indicate that an unknown type of object has been located in the .DAT
+file.\
+\
+OBJECT NOT FOUND contains the string used when loading a persistent window
+to indicate that an object could not be located in the .DAT file.\
+\
+FILE NOT FOUND contains the string used when loading a persistent window
+to indicate that the persistent file could not be found.\
+\
+--- HELP_ZAF_MSG
+Message Window
+Contains the strings used to display button options on a message window.\
+\
+OK contains the text that appears in the OK button on a message
+window.\
+\
+YES contains the text that appears in the YES button on a message
+window.\
+\
+NO contains the text that appears in the NO button on a message
+window.\
+\
+ABORT contains the text that appears in the ABORT button on a message
+window.\
+\
+RETRY contains the text that appears in the RETRY button on a message
+window.\
+\
+IGNORE contains the text that appears in the IGNORE button on a message
+window.\
+\
+CANCEL contains the text that appears in the CANCEL button on a message
+window.\
+\
+HELP contains the text that appears in the HELP button on a message
+window.\
+\
+--- HELP_UI_ERROR_SYSTEM
+Error Window
+Contains the strings used to display objects on an error window.\
+\
+TITLE contains the default text that appears in the error window title
+bar if the application does not supply a new title when calling the
+error system.\
+\
+OK SELECTION contains the text used to create the OK button on the error
+window.\
+\
+CANCEL SELECTION contains the text used to create the Cancel button on the
+error window.\
+\
+ICON NAME contains the name of the icon that is displayed on the error window 
+as it appears in the .DAT file.\
+\
+MOVE OPTION contains the text used to create the system menu option that
+allows the error window to be moved.\
+\
+CLOSE OPTION contains the text used to create the system menu option that
+allows the error window to be closed.\
+\
+--- HELP_UI_HELP_SYSTEM
+Help Window
+Contains the strings used to display a help window.\
+\
+TITLE contains the default text that appears in the help window title bar
+if the application does not supply a help context for the object about
+which the end-user requested help.\
+\
+DEFAULT MESSAGE contains the default text that appears in the help window
+if the application does not supply a help context for the object about
+which the end-user requested help.\
+\
+ICON TITLE contains the text that appears on the help window's minimize
+icon.\
+\
+ICON NAME contains the name of the icon that is used as the help window
+minimize icon as it appears in the .DAT file.\
+\
+--- HELP_ZIL_DAY
+Day
+This page contains the strings used for alphanumeric days.\
+\
+SHORT DAYS contains the strings used when displaying a short day name.\
+\
+ABBREVIATED DAYS contains the strings used when displaying an abbreviated 
+day name.\
+\
+LONG DAYS contains the strings used when displaying a full day name.\
+\
+--- HELP_ZIL_MONTH
+Month
+Contains the strings used for alphanumeric months.\
+\
+SHORT MONTHS contains the strings used when displaying a short month 
+name.\
+\
+ABBREVIATED MONTHS contains the strings used when displaying an
+abbreviated month name.\
+\
+LONG MONTHS contains the strings used when displaying a full month
+name.\
+\
+--- HELP_ZIL_TIME
+Am
+Contains the strings used to indicate if a time is antemeridian or
+postmeridian.\
+\
+A.M. STRING indicates a time is antemeridian.\
+\
+P.M. STRING indicates a time is postmeridian.\
+\
+TIME ZONE identifies the time zone.\
+\
+

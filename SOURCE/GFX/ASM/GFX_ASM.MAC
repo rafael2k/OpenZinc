@@ -1,0 +1,270 @@
+        ;**********************************************************;
+        ;*  Copyright C Source, Inc. 1987, 1988, 1989, 1990, 1991 *;
+        ;**********************************************************;
+
+NO			EQU	0
+YES 			EQU	1
+
+MDA			EQU	1			; constants for card types
+CGA			EQU	2
+EGA			EQU	4
+HERCULES		EQU	8
+
+SEQ_ADDR		EQU	3C4H			; constants for programming EGA registers
+S_MAP		EQU	2
+
+GRAPH_ADDR	EQU	3CEH
+GRAPH_DATA	EQU	3CFH
+
+G_SET_RESET	EQU	0
+G_EN_SET_RESET EQU	1
+G_COLOR_CMP	EQU	2
+G_DATA_ROT	EQU	3
+G_READ_MAP	EQU	4
+G_MODE		EQU	5
+G_BITMASK		EQU	8H
+
+WRITE_MODE_0	EQU	0
+WRITE_MODE_1	EQU	1
+WRITE_MODE_2	EQU	2
+READ_CMP		EQU	10
+
+MED_RES		EQU	1
+E_RES_COLOR	EQU	2
+L_TO_R		EQU	4
+SPLIT_TO_MR	EQU	8
+
+EGA_MED_RES 	EQU	0DH
+
+XOR_PEL		EQU	2000H
+
+INT_SZ EQU 2
+IF (.$$DATA_SIZE EQ ._SMALL_DATA)
+	PTR_SZ EQU 2 
+ELSE
+	PTR_SZ EQU 4  
+ENDIF
+
+DS_SEG  equ DGROUP
+
+GFX STRUC
+		;   general parameters for setting rom bios
+
+        gfx_mode	 DW   ?	; info about current gfx mode
+        card_monitor DW   ?	; type of card and monitor
+        bios_mode	 DW   ?	; bios mode
+        vpage_n	 DW   ?	; active page to read
+        wpage_n	 DW   ?	; active page to write
+        err_number   DW   ?   ; C function error number
+        show_gfx_err DW   ?	; display the GFX error number
+        screen_x_res DW   ?	; use ansi.sys
+        screen_y_res DW ?   ; is ansi.sys loaded? */
+        paint_stack_sz DW ?   ; size of stack for PAINT() */
+
+
+		; Info for writing text to the screen
+
+        n_colors	  DW  ?	; # of colors for writing
+        screen_base	  DW  ?	; screen base: segment
+        screen_offset DW  ?	; screen base: offset
+
+
+		; graphics values
+
+        view_nmbr	DW  ?	; current view #
+        palette	DW  ?	; palette of colors
+        bytes_per_row  DW ?	; # of bytes in row
+	   last_video_row DW ?   ; last video row	
+        color_flags	   DW  ?	; xor the point?
+
+        bkgnd		DW  ?	; background color
+        fgnd		DW  ?	; forground color
+	   font_handle DW  ?	; font handle
+        auto_scale	DW  ?	; use auto-scaling */
+        xlat_scale	DW  ?	; the auto-scaling factor */
+	   v_start_byte  DW  ?     ; first byte of viewport
+        v_nbytes_wide DW  ?
+	   n_pels_high DW  ?     ; viewport's height
+	   n_pels_wide DW  ?     ; viewport's width -- in bytes
+        min_x		DW  ?	; minimum x cordintate
+        min_y		DW  ?	; minimum y cordintate
+        max_x		DW  ?	; maximum x coordinate
+        max_y		DW  ?	; maximum y coordinate
+
+GFX ENDS
+
+		; Mouse state structure
+		
+CMOUSE_STATE STRUC
+
+	mouse_button_event	DW	?
+	cm_x				DW	?
+	cm_y				DW	?
+	visible			DW	?
+	n_cursor_regions	DW	?
+	curr_cursor_region	DW	?
+IF (DATA_PTR EQ ._SMALL_DATA_PTR)
+	cursor_regions		DW	?
+	ELSE
+	cursor_regions		DD	?
+	ENDIF
+
+CMOUSE_STATE ENDS
+
+
+
+		; Event Queue Control Block structure -- EQ_CB
+
+EQ_CB STRUC
+	max_n_q_events		DW	?
+	n_events_in_q		DW	?
+	head				DW	?
+	tail				DW	?
+	q_mouse_event		DB	?
+	db_click_pause		DB	?
+IF (CODE_PTR EQ ._SMALL_CODE_PTR)
+	dummy2			DW	?
+	event_vec			DW	?
+	ELSE
+	dummy2			DD	?
+	event_vec			DD	?
+	ENDIF
+IF (DATA_PTR EQ ._SMALL_DATA_PTR)
+	event_q			DW	?
+	ELSE
+	event_q			DD	?
+	ENDIF
+
+EQ_CB ENDS
+
+		; Event structure
+
+_EVENT_QUEUE STRUC
+
+	ascii			DW	?
+	scan				DW	?
+	kybd_shift_flags	DW	?
+	bios_time			DW	?
+	mouse_state_event	DW	?
+	eq_x				DW	?
+	eq_y				DW	?
+	event_type		DW	?
+
+_EVENT_QUEUE ENDS
+
+
+GFX_MOUSE_CURSOR STRUC
+	use_gfx_cursor	DW	?
+	crsr_size		DW	?
+	ul_x			DW	?
+	ul_y			DW	?
+	save_buf_off	DW	?
+	save_buf_seg	DW	?
+	color1		DW	?
+	color2		DW	?
+	shape_x		DW	?
+	shape_y		DW	?
+	shape_bitmap	DW	?
+GFX_MOUSE_CURSOR ENDS
+
+
+; EVENT TYPES
+
+KYBD_EVENT	EQU	2
+MOUSE_EVENT	EQU	4
+REGION_EVENT	EQU	8
+
+
+CROSS_REGION_SCAN_CODE	EQU	214
+
+FCN_PUT_PEL				EQU	 1
+FCN_SET_VIDRAM                EQU   2
+FCN_FIND_PEL                  EQU   3
+FCN_ASM_INE                   EQU   4
+FCN_GET_PEL                   EQU   5
+FCN_INIT_MOVE_VID_LINE        EQU   6
+FCN_ASM_PAT_HLINE             EQU   7
+FCN_ASM_VLINE                 EQU   8
+FCN_ASM_HLINE                 EQU   9
+FCN_4_PEL                     EQU  10
+FCN_MOVE_4PLANE_BLOCK		EQU	11
+FCN_SWAP_PEL                  EQU	12
+
+; The following constants and macros are used by the assembly
+; code providing the Pas/M2 front end for the C functions
+
+INT_STEP		EQU	-2415
+INT_CAP		EQU	-1347
+FLT_STEP		EQU	8
+FLT_CAP		EQU	0
+FLOAT_SCALE	EQU	123
+
+SET_HUGE_DS MACRO xtrn_name
+IFDEF CTUR
+	IF (.$MEMORY_MODEL EQ ._LARGE_MODEL) && DEF
+		push	ds
+		mov	ax, seg xtrn_name
+		mov	ds, ax
+	     ENDIF
+	ENDIF
+	ENDM
+	
+RESET_HUGE_DS	MACRO
+IFDEF CTUR
+	IF (.$MEMORY_MODEL EQ ._LARGE_MODEL) && DEF
+		pop	ds
+		ENDIF
+	ENDIF
+	ENDM	
+
+
+.set_fcn_vec    MACRO vec_name
+	mov	cx, OFFSET vec_name
+	IF (.$$CODE_SIZE EQ ._LARGE_CODE)
+		mov	dx, SEG vec_name
+		ENDIF
+
+	ENDM
+
+.jmp_cfunc	MACRO
+       .smov	_gfx_vec_ptr_offset, cx
+	IF (.$$CODE_SIZE EQ ._LARGE_CODE)
+	       .smov	_gfx_vec_ptr_segment, dx
+		jmp	dword ptr _gfx_vec_ptr_offset
+		ELSE
+		jmp	word ptr _gfx_vec_ptr_offset
+		ENDIF
+	ENDM
+
+.call_cfunc	MACRO
+       .smov	_gfx_vec_ptr_offset, cx
+	IF (.$$CODE_SIZE EQ ._LARGE_CODE)
+	       .smov	_gfx_vec_ptr_segment, dx
+		call	dword ptr _gfx_vec_ptr_offset
+		ELSE
+		call	word ptr _gfx_vec_ptr_offset
+		ENDIF
+	ENDM
+	
+.save_ret_vec	MACRO
+        pop	word ptr _gfx_save_vec
+	IF (.$$CODE_SIZE EQ ._LARGE_CODE)
+	        pop	word ptr _gfx_save_vec+2
+		ENDIF
+	ENDM
+
+.restore_ret_vec	MACRO
+	IF (.$$CODE_SIZE EQ ._LARGE_CODE)
+	        push	word ptr _gfx_save_vec+2
+		ENDIF
+        push	word ptr _gfx_save_vec
+	ENDM
+
+.ret MACRO
+	IF (.$$CODE_SIZE EQ ._LARGE_CODE)
+	        retf
+		ELSE
+		ret
+		ENDIF
+	ENDM
+

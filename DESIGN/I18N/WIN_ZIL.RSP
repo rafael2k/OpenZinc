@@ -1,0 +1,5 @@
+SYS windows OP heapsize=16k OP stack=30k
+N wi18edit
+F main.obw
+L wi18n.lib,wstorage.lib,wstredit.lib,wdirect.lib
+L wservice.lib,windows,win_zil

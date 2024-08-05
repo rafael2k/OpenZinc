@@ -1,0 +1,1 @@
+path=c:\bc55\bin;c:\OpenZinc\bin

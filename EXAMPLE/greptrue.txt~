@@ -1,0 +1,163 @@
+/home/jack/Zinc421/example/data/agency/agency.cpp:#		undef true
+/home/jack/Zinc421/example/data/agency/agency.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/data/agency/agency.cpp:#		undef true
+/home/jack/Zinc421/example/data/agency/agency.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/data/agency/agency.cpp:		itinerary->Event(UI_EVENT(S_DISPLAY_ACTIVE, 0, itinerary->true));
+/home/jack/Zinc421/example/data/agency/agency.cpp:	UI_REGION region = true;
+/home/jack/Zinc421/example/data/agency/agency.cpp:#		undef true
+/home/jack/Zinc421/example/data/agency/agency.cpp~:#		undef true
+/home/jack/Zinc421/example/data/agency/agency.cpp~:#		define true OSRegion
+/home/jack/Zinc421/example/data/agency/agency.cpp~:#		undef true
+/home/jack/Zinc421/example/data/agency/agency.cpp~:#		define true OSRegion
+/home/jack/Zinc421/example/data/agency/agency.cpp~:		itinerary->Event(UI_EVENT(S_DISPLAY_ACTIVE, 0, itinerary->true));
+/home/jack/Zinc421/example/data/agency/agency.cpp~:	UI_REGION region = true;
+/home/jack/Zinc421/example/data/agency/agency.cpp~:#		undef true
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:#		undef true
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:#		undef true
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:	display->VirtualGet(screenID, true);
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:		xCenter = (true.left + true.right) / 2;
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:		yCenter = (true.top + true.bottom) / 2;
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:		xRadius = (true.right - true.left) / 15;
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:		yRadius = (true.bottom - true.top) / 15;
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:		xLength = (true.right - true.left) / 2 - xRadius;
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:		yLength = (true.bottom - true.top) / 2 - yRadius;
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:	if (true.left >= true.right || true.top >= true.bottom)
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:	// coordinates found in UI_REGION true.
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:	display->VirtualGet(screenID, true);
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:	poly1[0] = true.left; poly1[1] = true.top; poly1[2] = true.right;
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:	poly1[3] = true.top; poly1[4] = true.left; poly1[5] = true.bottom + 1;
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:	poly1[6] = true.left; poly1[7] = true.top;
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:	poly2[0] = true.left; poly2[1] = true.bottom + 1; poly2[2] = true.right;
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:	poly2[3] = true.top; poly2[4] = true.right; poly2[5] = true.bottom + 1;
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:	poly2[6] = true.left; poly2[7] = true.bottom + 1;
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:	if (true.left >= true.right || true.top >= true.bottom)
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:	display->VirtualGet(screenID, true);
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:	if (true.left >= true.right || true.top >= true.bottom)
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:	display->VirtualGet(screenID, true);
+/home/jack/Zinc421/example/drawitem/analog/analog.cpp:#		undef true
+/home/jack/Zinc421/example/drawitem/dsplay/dsplay.cpp:#		undef true
+/home/jack/Zinc421/example/drawitem/dsplay/dsplay.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/drawitem/dsplay/dsplay.cpp:#		undef true
+/home/jack/Zinc421/example/drawitem/dsplay/dsplay.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/drawitem/dsplay/dsplay.cpp:	UI_REGION drawRegion = true;
+/home/jack/Zinc421/example/drawitem/dsplay/dsplay.cpp:		UI_REGION region = true;
+/home/jack/Zinc421/example/drawitem/dsplay/dsplay.cpp:#		undef true
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:#		undef true
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:#		undef true
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:	display->VirtualGet(screenID, true);
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:	const int left = true.left,
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:		bottom = true.bottom,
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:	display->VirtualGet(screenID, true);
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:	int bottom = true.top + MiniConvertY(100);
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:	int barWidth = (true.Width() - (BAR_COUNT + 1) * spacing) / BAR_COUNT;
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:	int left = true.left + spacing;
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:	display->VirtualGet(screenID, true);
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:	center.column = true.Width() / 2;
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:	center.line = true.Height() / 2;
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:	display->Ellipse(screenID, true.left + center.column,
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:		true.top + center.line - display->cellHeight / 2 + center.line/8, 0, 360,
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:		display->Ellipse(screenID, true.left + center.column, true.top + center.line -
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:		left += left > 0 ? display->cellWidth + true.left + center.column:
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:			+ true.left + center.column;
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:		top = top > 0 ? true.top + center.line - top - display->TextHeight(label[sector], screenID, font) -
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:			display->cellHeight / 2 : true.top + center.line - top + display->cellHeight / 2;
+/home/jack/Zinc421/example/drawitem/graph/graph.cpp:#		undef true
+/home/jack/Zinc421/example/drawitem/grid/grid.cpp:#		undef true
+/home/jack/Zinc421/example/drawitem/grid/grid.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/drawitem/grid/grid.cpp:#		undef true
+/home/jack/Zinc421/example/drawitem/grid/grid.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/drawitem/grid/grid.cpp:	int x1 = true.left,
+/home/jack/Zinc421/example/drawitem/grid/grid.cpp:		x2 = true.right,
+/home/jack/Zinc421/example/drawitem/grid/grid.cpp:		y1 = true.top,
+/home/jack/Zinc421/example/drawitem/grid/grid.cpp:		y2 = true.bottom;
+/home/jack/Zinc421/example/drawitem/grid/grid.cpp:	UI_REGION clip = true;
+/home/jack/Zinc421/example/drawitem/grid/grid.cpp:	display->VirtualGet(screenID, true);
+/home/jack/Zinc421/example/drawitem/grid/grid.cpp:	display->Rectangle(screenID, true, lastPalette, 0, TRUE);
+/home/jack/Zinc421/example/drawitem/grid/grid.cpp:		true.top += display->cellHeight * 4;   // Recompute new top of drawObject.
+/home/jack/Zinc421/example/drawitem/grid/grid.cpp:#		undef true
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp:#		undef true
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp:#		undef true
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp:	display->VirtualGet(screenID, true);
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp:	UI_REGION region = true;
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp:	display->Rectangle(screenID, true, palette, 0, TRUE, FALSE, &clip);
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp:#		undef true
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp~:#		undef true
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp~:#		define true OSRegion
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp~:#		undef true
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp~:#		define true OSRegion
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp~:	display->VirtualGet(screenID, true);
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp~:	UI_REGION region = true;
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp~:	display->Rectangle(screenID, true, palette, 0, TRUE, FALSE, &clip);
+/home/jack/Zinc421/example/drawitem/lstitm/lstitm.cpp~:#		undef true
+/home/jack/Zinc421/example/i18n/delta/delta.cpp:	window->true.right += 15;
+/home/jack/Zinc421/example/i18n/delta/delta.cpp:	date->true.right += 15;
+/home/jack/Zinc421/example/i18n/delta/delta.cpp:	time->true.right += 3;
+/home/jack/Zinc421/example/mapping/calndr/calndr.cpp:#		undef true
+/home/jack/Zinc421/example/mapping/calndr/calndr.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/mapping/calndr/calndr.cpp:#		undef true
+/home/jack/Zinc421/example/mapping/calndr/calndr.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/mapping/calndr/calndr.cpp:		true -= display->cellWidth; 
+/home/jack/Zinc421/example/mapping/calndr/calndr.cpp:		xLength = true.Width();
+/home/jack/Zinc421/example/mapping/calndr/calndr.cpp:		yLength = true.Height() - display->cellHeight;
+/home/jack/Zinc421/example/mapping/calndr/calndr.cpp:	UI_REGION region = true;
+/home/jack/Zinc421/example/mapping/calndr/calndr.cpp:	display->VirtualGet(screenID, true);
+/home/jack/Zinc421/example/mapping/calndr/calndr.cpp:	display->Rectangle(screenID, true, &whitePalette, 1, TRUE);
+/home/jack/Zinc421/example/mapping/calndr/calndr.cpp:#		undef true
+/home/jack/Zinc421/example/messages/match/match.cpp:#		undef true
+/home/jack/Zinc421/example/messages/match/match.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/messages/match/match.cpp:#		undef true
+/home/jack/Zinc421/example/messages/match/match.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/messages/match/match.cpp:		UI_REGION region = button->true;
+/home/jack/Zinc421/example/messages/match/match.cpp:#		undef true
+/home/jack/Zinc421/example/messages/mdi/mdi.cpp:#		undef true
+/home/jack/Zinc421/example/messages/mdi/mdi.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/messages/mdi/mdi.cpp:#		undef true
+/home/jack/Zinc421/example/messages/mdi/mdi.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/messages/mdi/mdi.cpp:			update = oObject->true;
+/home/jack/Zinc421/example/messages/mdi/mdi.cpp:		Event(UI_EVENT(S_DISPLAY_ACTIVE, 0, window->true));
+/home/jack/Zinc421/example/messages/mdi/mdi.cpp:#		undef true
+/home/jack/Zinc421/example/messages/world/world.cpp:#		undef true
+/home/jack/Zinc421/example/messages/world/world.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/messages/world/world.cpp:#		undef true
+/home/jack/Zinc421/example/messages/world/world.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/messages/world/world.cpp:			worldField->Event(UI_EVENT(S_DISPLAY_ACTIVE, 0, worldField->true));
+/home/jack/Zinc421/example/messages/world/world.cpp:	UI_REGION wRegion = true;
+/home/jack/Zinc421/example/messages/world/world.cpp:#		undef true
+/home/jack/Zinc421/example/misc/colors/colors.cpp://defines below needed because gcc defines true
+/home/jack/Zinc421/example/misc/colors/colors.cpp:#		undef true
+/home/jack/Zinc421/example/misc/colors/colors.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/misc/colors/colors.cpp:#undef true
+/home/jack/Zinc421/example/misc/colors/colors.cpp:#define true OSRegion
+/home/jack/Zinc421/example/misc/colors/colors.cpp:	display->VirtualGet(screenID, true);
+/home/jack/Zinc421/example/misc/colors/colors.cpp:	display->Rectangle(screenID, true, &palette, 0, TRUE, FALSE, &clip);
+/home/jack/Zinc421/example/misc/colors/colors.cpp:	int boxWidth = (true.Width() - (BOX_COUNT + 1) * (spacing / 2)) / BOX_COUNT;
+/home/jack/Zinc421/example/misc/colors/colors.cpp:	int boxHeight = (true.Height() - 2 - BOX_COUNT * spacing) / BOX_COUNT;
+/home/jack/Zinc421/example/misc/colors/colors.cpp:	int left = true.left + spacing / 2;
+/home/jack/Zinc421/example/misc/colors/colors.cpp:	int top = true.top + spacing;
+/home/jack/Zinc421/example/misc/colors/colors.cpp:		left = true.left + spacing / 2;
+/home/jack/Zinc421/example/misc/colors/colors.cpp:#undef true
+/home/jack/Zinc421/example/misc/fonts/fonts.cpp:		//	SetOutlinePreferred(true);
+/home/jack/Zinc421/example/misc/spy/spy.cpp:#		undef true
+/home/jack/Zinc421/example/misc/spy/spy.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/misc/spy/spy.cpp:#		undef true
+/home/jack/Zinc421/example/misc/spy/spy.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/misc/spy/spy.cpp:		int newNumberShowing = (true.bottom - true.top + display->preSpace + display->postSpace);
+/home/jack/Zinc421/example/misc/spy/spy.cpp:				line * lineHeight, true.right - true.left + 1,
+/home/jack/Zinc421/example/misc/spy/spy.cpp:		Event(UI_EVENT(S_DISPLAY_ACTIVE, 0, true));
+/home/jack/Zinc421/example/misc/spy/spy.cpp:#		undef true
+/home/jack/Zinc421/example/new_obj/printr/printr.cpp:#		undef true
+/home/jack/Zinc421/example/new_obj/printr/printr.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/new_obj/printr/printr.cpp:#		undef true
+/home/jack/Zinc421/example/new_obj/printr/printr.cpp:#		define true OSRegion
+/home/jack/Zinc421/example/new_obj/printr/printr.cpp:					screenDisplay->VirtualGet(window->screenID, window->true);
+/home/jack/Zinc421/example/new_obj/printr/printr.cpp:					printer.ScreenDump(window->screenID, window->true,
+/home/jack/Zinc421/example/new_obj/printr/printr.cpp:	UI_REGION region = true;
+/home/jack/Zinc421/example/new_obj/printr/printr.cpp:	display->VirtualGet(screenID, true);
+/home/jack/Zinc421/example/new_obj/printr/printr.cpp:#		undef true
+Binary file /home/jack/Zinc421/example/new_obj/printr/p_printr.dat matches

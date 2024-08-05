@@ -1,0 +1,148 @@
+copy ui_*.hpp ..\include
+UI_DSP.HPP
+UI_ENV.HPP
+UI_EVT.HPP
+UI_GEN.HPP
+UI_MAP.HPP
+UI_WIN.HPP
+        6 file(s) copied
+copy z_clean.* ..\bin
+Z_CLEAN.BAT
+Z_CLEAN.CMD
+        2 file(s) copied
+link /NOI +test.obn, ntest, , wnt_zil kernel32 user32 gdi32 , 
+OPTLINK (R) for Windows (DPMI)  Release 4.10   for Symantec C++
+Copyright (C) SLR Systems, Inc. 1989-93  All rights reserved.
+Definition File: (.def):
+wnt_zil.lib(z_app.cpp)  Offset 38C1CH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_APPLICATION@@6B@
+wnt_zil.lib(z_text.cpp)  Offset 82F5AH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_TEXT@@6BUI_LIST@@@
+wnt_zil.lib(z_text.cpp)  Offset 82F88H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_TEXT@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(z_text.cpp)  Offset 82FA4H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_TEXT@@6B@
+wnt_zil.lib(z_title.cpp)  Offset 88954H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_TITLE@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(z_title.cpp)  Offset 88970H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_TITLE@@6B@
+wnt_zil.lib(z_sys.cpp)  Offset 7DAF3H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_SYSTEM_BUTTON@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(z_sys.cpp)  Offset 7DB0FH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_SYSTEM_BUTTON@@6B@
+wnt_zil.lib(z_min.cpp)  Offset 612DBH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_MINIMIZE_BUTTON@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(z_min.cpp)  Offset 612F7H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_MINIMIZE_BUTTON@@6B@
+wnt_zil.lib(z_max.cpp)  Offset 5C7CCH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_MAXIMIZE_BUTTON@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(z_max.cpp)  Offset 5C7E8H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_MAXIMIZE_BUTTON@@6B@
+wnt_zil.lib(z_border.cpp)  Offset 3ED8DH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_BORDER@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(z_border.cpp)  Offset 3EDA9H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_BORDER@@6B@
+wnt_zil.lib(z_win1.cpp)  Offset 90AE7H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_WINDOW@@6BUI_LIST@@@
+wnt_zil.lib(z_win1.cpp)  Offset 90B15H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_WINDOW@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(z_win1.cpp)  Offset 90B31H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_WINDOW@@6B@
+wnt_zil.lib(z_event.cpp)  Offset 4AD32H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_EVENT_MANAGER@@6B@
+wnt_zil.lib(z_event.cpp)  Offset 4B228H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_QUEUE_ELEMENT@@6B@
+wnt_zil.lib(z_event.cpp)  Offset 4B2B8H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_QUEUE_BLOCK@@6B@
+wnt_zil.lib(z_intl.cpp)  Offset 5BDFFH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_INTERNATIONAL@@6B@
+wnt_zil.lib(z_win.cpp)  Offset 9B02FH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_WINDOW_MANAGER@@6BUI_LIST@@@
+wnt_zil.lib(z_win.cpp)  Offset 9B05DH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_WINDOW_MANAGER@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(z_win.cpp)  Offset 9B079H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_WINDOW_MANAGER@@6B@
+wnt_zil.lib(z_cursor.cpp)  Offset 427A4H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UID_CURSOR@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(z_cursor.cpp)  Offset 427C0H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UID_CURSOR@@6B@
+wnt_zil.lib(3_mouse.cpp)  Offset 1323BH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UID_MOUSE@@6B@
+wnt_zil.lib(3_keybrd.cpp)  Offset 12207H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UID_KEYBOARD@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(3_keybrd.cpp)  Offset 12223H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UID_KEYBOARD@@6B@
+wnt_zil.lib(3_dsp.cpp)  Offset 074D6H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_MSWINDOWS_DISPLAY@@6B@
+wnt_zil.lib(z_path.cpp)  Offset 654C8H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_PATH_ELEMENT@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(z_path.cpp)  Offset 654E4H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_PATH_ELEMENT@@6B@
+wnt_zil.lib(z_path.cpp)  Offset 65574H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_PATH@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(z_path.cpp)  Offset 65590H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_PATH@@6B@
+wnt_zil.lib(z_list.cpp)  Offset 65D9EH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_ELEMENT@@6B@
+wnt_zil.lib(z_list.cpp)  Offset 65E2EH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_LIST@@6B@
+wnt_zil.lib(z_list.cpp)  Offset 662E6H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_BIT_VECTOR@@6B@
+wnt_zil.lib(z_win2.cpp)  Offset 6725CH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_WINDOW_OBJECT@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(z_win2.cpp)  Offset 67278H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_WINDOW_OBJECT@@6B@
+wnt_zil.lib(z_button.cpp)  Offset 33E9DH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_BUTTON@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(z_button.cpp)  Offset 33EB9H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_BUTTON@@6B@
+wnt_zil.lib(3_button.cpp)  Offset 01FC7H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_TIME@@6B@
+wnt_zil.lib(z_popup.cpp)  Offset 682A6H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_POP_UP_MENU@@6BUI_LIST@@@
+wnt_zil.lib(z_popup.cpp)  Offset 682D4H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_POP_UP_MENU@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(z_popup.cpp)  Offset 682F0H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_POP_UP_MENU@@6B@
+wnt_zil.lib(z_i18n.cpp)  Offset 1D3EEH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_I18N@@6B@
+wnt_zil.lib(z_i18n.cpp)  Offset 1D4A2H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_I18N_MANAGER@@6B@
+wnt_zil.lib(z_lang.cpp)  Offset 1CC4EH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_LANGUAGE@@6B@
+wnt_zil.lib(z_lang.cpp)  Offset 1D1D6H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_LANGUAGE_MANAGER@@6B@
+wnt_zil.lib(z_popup1.cpp)  Offset 1D19FH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_POP_UP_ITEM@@6BZIL_INTERNATIONAL@@@
+wnt_zil.lib(z_popup1.cpp)  Offset 1D1BBH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UIW_POP_UP_ITEM@@6B@
+wnt_zil.lib(z_storew.cpp)  Offset 795F3H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_STORAGE@@6B@
+wnt_zil.lib(z_storew.cpp)  Offset 7AC4DH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_STORAGE_OBJECT@@6B@
+wnt_zil.lib(z_storer.cpp)  Offset 71590H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_STORAGE_READ_ONLY@@6B@
+wnt_zil.lib(z_storer.cpp)  Offset 7278FH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_STORAGE_OBJECT_READ_ONLY@@6B@
+wnt_zil.lib(z_storer.cpp)  Offset 73A9DH Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_STORAGE_DIRECTORY@@6B@
+wnt_zil.lib(z_region.cpp)  Offset 6CE72H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_REGION_ELEMENT@@6B@
+wnt_zil.lib(z_region.cpp)  Offset 6CF02H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_REGION_LIST@@6B@
+wnt_zil.lib(z_list1.cpp)  Offset 6E7A8H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_LIST_BLOCK@@6B@
+wnt_zil.lib(z_locale.cpp)  Offset 6F280H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_LOCALE@@6B@
+wnt_zil.lib(z_locale.cpp)  Offset 6F334H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_LOCALE_MANAGER@@6B@
+wnt_zil.lib(z_device.cpp)  Offset 47B68H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_DEVICE@@6B@
+wnt_zil.lib(i_map.cpp)  Offset 46BD3H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_MAP_CHARS@@6B@
+wnt_zil.lib(z_dsp.cpp)  Offset 352E4H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7UI_DISPLAY@@6B@
+wnt_zil.lib(z_utime.cpp)  Offset 36AE7H Record Type 00C3 
+ Error 1: Previous Definition Different : ??_7ZIL_UTIME@@6B@
+OPTLINK : Error 113: Unknown COMDAT Allocation type 
+link --- errorlevel 66

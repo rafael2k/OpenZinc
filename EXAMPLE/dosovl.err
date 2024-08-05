@@ -1,0 +1,469 @@
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33385584 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -ovalidt.ovl validt.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+validt.cpp:
+
+        Available memory 3457068
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -oagency.ovl agency.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+agency.cpp:
+
+        Available memory 3469040
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:0516 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:0512 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:0621 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:061D in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:0778 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TBAR
+Warning: No stub for fixup at _DATA:0774 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TBAR
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -omenus.ovl menus.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+menus.cpp:
+
+        Available memory 3502284
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:035C in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:0358 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:051A in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TBAR
+Warning: No stub for fixup at _DATA:0516 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TBAR
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -onotebk.ovl notebk.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+notebk.cpp:
+
+        Available memory 3447612
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:0512 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_GROUP
+Warning: No stub for fixup at _DATA:050E in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_GROUP
+Warning: No stub for fixup at _DATA:05C4 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_NOTEBK
+Warning: No stub for fixup at _DATA:05C0 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_NOTEBK
+Warning: No stub for fixup at _DATA:06C7 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:06C3 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -ophonbk.ovl phonbk.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+phonbk.cpp:
+
+        Available memory 3485128
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -opostwn.ovl postwn.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+postwn.cpp:
+
+        Available memory 3501004
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -ospread.ovl spread.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+spread.cpp:
+
+        Available memory 3425804
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:0AC0 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:0ABC in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:0BCB in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:0BC7 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:0D22 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TABLE
+Warning: No stub for fixup at _DATA:0D1E in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TABLE
+Warning: No stub for fixup at _DATA:0D6F in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TABLE1
+Warning: No stub for fixup at _DATA:0D6B in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TABLE1
+Warning: No stub for fixup at _DATA:0DEB in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TABLE2
+Warning: No stub for fixup at _DATA:0DE7 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TABLE2
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -ostatus.ovl status.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+status.cpp:
+
+        Available memory 3480252
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:0324 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_GROUP
+Warning: No stub for fixup at _DATA:0320 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_GROUP
+Warning: No stub for fixup at _DATA:04A1 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:049D in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -owindow.ovl window.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+window.cpp:
+
+        Available memory 3494852
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -oanalog.ovl analog.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+analog.cpp:
+
+        Available memory 3459084
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -odsplay.ovl dsplay.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+dsplay.cpp:
+
+        Available memory 3452840
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -ograph.ovl graph.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+graph.cpp:
+
+        Available memory 3468652
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -ogrid.ovl grid.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+grid.cpp:
+
+        Available memory 3479516
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:04B7 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:04B3 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:060E in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TBAR
+Warning: No stub for fixup at _DATA:060A in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TBAR
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -olstitm.ovl lstitm.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+lstitm.cpp:
+
+        Available memory 3488048
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:062F in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:062B in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -odelta.ovl delta.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+delta.cpp:
+
+        Available memory 3502028
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -oi18n.ovl i18n.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+i18n.cpp:
+
+        Available memory 3498620
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -ocalc.ovl calc.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+calc.cpp:
+
+        Available memory 3418588
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -ocalndr.ovl calndr.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+calndr.cpp:
+
+        Available memory 3423236
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:040C in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:0408 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:0517 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:0513 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -opalmap.ovl palmap.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+palmap.cpp:
+
+        Available memory 3496144
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -omatch.ovl match.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+match.cpp:
+
+        Available memory 3457044
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:03AC in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:03A8 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -omdi.ovl mdi.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+mdi.cpp:
+
+        Available memory 3473280
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:0468 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:0464 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:0573 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:056F in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -omessgs.ovl messgs.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+messgs.cpp:
+
+        Available memory 3477668
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -oworld.ovl world.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+world.cpp:
+
+        Available memory 3483180
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:041E in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:041A in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -ogmgr.ovl gmgr.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+gmgr.cpp:
+
+        Available memory 3458436
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:0359 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_GMGR
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -omsgwin.ovl msgwin.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+msgwin.cpp:
+
+        Available memory 3496388
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -operiod.ovl period.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+period.cpp:
+
+        Available memory 3498956
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:03B4 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_GROUP
+Warning: No stub for fixup at _DATA:03B0 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_GROUP
+Warning: No stub for fixup at _DATA:0404 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_HLIST
+Warning: No stub for fixup at _DATA:0400 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_HLIST
+Warning: No stub for fixup at _DATA:03FC in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_HLIST
+Warning: No stub for fixup at _DATA:063D in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:0639 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:0686 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SPIN
+Warning: No stub for fixup at _DATA:0682 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SPIN
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -oprintr.ovl printr.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+printr.cpp:
+
+        Available memory 3450016
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:04F2 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_GROUP
+Warning: No stub for fixup at _DATA:04EE in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_GROUP
+Warning: No stub for fixup at _DATA:05E0 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:05DC in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:06EB in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:06E7 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -ospin.ovl spin.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+spin.cpp:
+
+        Available memory 3495284
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:03B7 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:03B3 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:0400 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SPIN
+Warning: No stub for fixup at _DATA:03FC in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SPIN
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -otable.ovl table.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+table.cpp:
+
+        Available memory 3431888
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:0654 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:0650 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_PLLDN
+Warning: No stub for fixup at _DATA:0730 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SBAR
+Warning: No stub for fixup at _DATA:072C in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SBAR
+Warning: No stub for fixup at _DATA:07A7 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:07A3 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:08FE in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TABLE
+Warning: No stub for fixup at _DATA:08FA in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TABLE
+Warning: No stub for fixup at _DATA:094B in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TABLE1
+Warning: No stub for fixup at _DATA:0947 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TABLE1
+Warning: No stub for fixup at _DATA:09C7 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TABLE2
+Warning: No stub for fixup at _DATA:09C3 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_TABLE2
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -ocolors.ovl colors.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+colors.cpp:
+
+        Available memory 3490436
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -ocoords.ovl coords.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+coords.cpp:
+
+        Available memory 3509028
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -odrag.ovl drag.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+drag.cpp:
+
+        Available memory 3487348
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+Warning: No stub for fixup at _DATA:0372 in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_GROUP
+Warning: No stub for fixup at _DATA:036E in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_GROUP
+Warning: No stub for fixup at _DATA:04EF in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+Warning: No stub for fixup at _DATA:04EB in library file c:\openzinc\lib\btcpp310\dos_zilo.lib in module Z_SCROLL
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -ofonts.ovl fonts.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+fonts.cpp:
+
+        Available memory 3436576
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -ofrestr.ovl frestr.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+frestr.cpp:
+
+        Available memory 3464820
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International
+MAKE Version 3.6  Copyright (c) 1992 Borland International
+
+Available memory 33377392 bytes
+
+        bcc -c -ml -O1 -Z -Vs -Y -w -ospy.ovl spy.cpp 
+Borland C++  Version 3.1 Copyright (c) 1992 Borland International
+spy.cpp:
+
+        Available memory 3451836
+        tlink /c /x @MAKE0001.$$$
+Turbo Link  Version 5.1 Copyright (c) 1992 Borland International

@@ -1,0 +1,7 @@
+bc31note.txt
+Borlandc 3.1 apparently runs out of memory when compiling the entire OpenZinc library 
+in one go (at least from the command line in Windows 7).
+So the library has been split in two to allow compilation without complaint. 
+These libraries have been named dos_zil.lib and dos_zil2.lib in DOS 
+and win_zil.lib and win_zil2.lib under 16 bit windows. 
+Dos_zilo.lib is small enough it does not need to be split. 

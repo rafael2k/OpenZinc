@@ -1,0 +1,36 @@
+--- HELP_GENERAL
+String Editor Service
+The String Editor allows you to use characters within your application 
+which are not available from a standard keyboard. For example, if you need 
+to translate your application into Chinese, or use extended Ascii
+characters, the desired characters can be accessed from within the String
+Editor.\
+\
+The String Editor can be invoked by either restoring it from its minimized icon on the 
+bottom of the screen, or in DOS or Windows by pressing <F12> while positioned 
+on any window field within Zinc Designer. The latter approach is most commonly
+used when you are positioned in a field that you would like to translate.
+Any editing done with the String Editor will be reflected in that field 
+only.\
+\
+If you are not positioned in a window field containing text when you invoke 
+the String Editor, any editing done can be transferred to a window field by 
+by copying and pasting the string.\
+\
+The ORIGINAL field displays the text that is to be edited.\
+\
+The characters selected from the table appear in the CURRENT field, in the order that 
+they are selected.\
+\
+The PAGE spin control field designates the currently displayed Unicode page. It 
+actually displays the upper byte of the Unicode value, or the first two digits 
+of the page number. To change pages, either enter the desired page number, 
+or click on the spinner arrows to increment or decrement a page at a
+time.\
+\
+The CHARACTER TABLE field displays the current page of the character table. To select
+a character, click on it with the mouse and it will appear at the CURRENT prompt. 
+Since not all characters can be rendered in all operating systems, some cells 
+may be blank or display a filler character, depending on the system.\
+\
+

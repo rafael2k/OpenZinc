@@ -1,0 +1,40 @@
+//	LSTITM.HPP  (LSTITM) - List Items example program.
+//  COPYRIGHT (C) 1990-1995.  All Rights Reserved.
+//	Zinc Software Incorporated.  Pleasant Grove, Utah  USA
+//	May be freely copied, used and distributed.
+
+enum TRANSPORT
+{
+	NO_TRANSPORT = -1,
+	PLANE = 0,
+	TRAIN,
+	BUS,
+	SHIP,
+	CAB
+};
+
+struct TRANSPORT_IMAGE
+{
+	ZIL_ICHAR *text;
+	ZIL_UINT8 graphic[16 * 8];
+};
+
+class ZIL_EXPORT_CLASS LIST_ITEM : public UIW_BUTTON
+{
+public:
+	LIST_ITEM(TRANSPORT tType, ZIL_ICHAR *departure, ZIL_INT32 cost);
+	~LIST_ITEM();
+
+	virtual EVENT_TYPE DrawItem(const UI_EVENT &, EVENT_TYPE ccode);
+
+	static int Compare(void *, void *);
+
+
+protected:
+	static TRANSPORT_IMAGE tImage[5];
+	TRANSPORT tType;
+	ZIL_ICHAR *departure;
+	ZIL_INT32 cost;
+};
+
+

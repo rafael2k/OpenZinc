@@ -1,0 +1,836 @@
+#!/bin/csh
+
+###########################################################################
+#	Zinc Application Framework - Posix INSTALL
+#	COPYRIGHT (C) 1996.  All Rights Reserved.
+#	Zinc Software Incorporated.  Pleasant Grove, Utah  USA
+###########################################################################
+
+###########################################################################
+#	This script is run by the user as the first step in compiling
+#	Zinc Application Framework.  This script lets the user select
+#	values for the macros for all Makefiles in the installation tree.
+#	This allows users to customize the Makefiles to work on their system.
+#
+#	You can add new system types by changing the definition of the
+#	variable 'values' below.
+#
+#	Variables, meanings, and values need to have the same number of 
+#	entries	in the same order.
+#
+#	After the user has selected values for the variables, those values
+#	are saved in the file INSTALL42.status and used in the next run.
+#
+#	Usage: INSTALL [-c] [-f] [-g] [-G] [-i] [-m] [-x] [system]
+#		-c:	Set up for Curses instead of Motif.
+#		-f:	Fresh mode.  Don't use settings in status file from last run.
+#		-g:	Use the Oasis Green Hills C++ compiler.
+#		-G:	Use the Gnu C++ compiler.
+#		-m:	Set up for Motif.  This is the default.
+#		-n:	Non-interactive.  Don't prompt user for macro values.
+#		-x:	Set up for the X key instead of Motif.
+#		system:	One of: decaxp, hpux, hpux8, ibm, sco, sgi, sinix,
+#			solaris, sunos4, x86, none.
+###########################################################################
+
+
+###########################################################################
+#	Set up.
+###########################################################################
+alias e echo
+alias E echo -n
+set nl = ""
+alias blank 'echo " "'
+set compiler = bundled
+set oldecho = 0
+#set noclobber
+set statusfile=./INSTALL42.status
+set motiflibs = "-lXm -lXt -lX11"
+set curseslibs = "-lcurses"
+if (! -e $statusfile) then
+	set firsttimethru = 1
+else
+	set firsttimethru = 0
+endif
+
+if (! -e source && ! -e demo) then
+	e "INSTALL can only be run from the root of the Zinc directory tree."
+	goto abort
+endif
+
+###########################################################################
+#	First pass thru command line options.
+###########################################################################
+@ interactive = 1
+
+@ i = 1
+while ($i <= $#argv)
+	switch ("$argv[$i]")
+	case "-e":
+		set oldecho = 1
+		breaksw
+
+	case "-f":
+		@ fresh = 1
+		breaksw
+
+	case "-n":
+		@ interactive = 0
+		breaksw
+
+	case "-G":
+	case "-g":
+	case "-c":
+	case "-m":
+		breaksw
+
+	default:
+		if ($#argv < 1) breaksw
+		set system = $argv[$i]
+	endsw
+	@ i++
+end
+
+
+if ($?system) then
+	if ($system == sco) set oldecho = 1
+endif
+
+if ($oldecho == 1) then
+	unalias E
+	alias E /bin/echo
+	set nl = "\c"
+endif
+
+
+###########################################################################
+#	Introduction.
+###########################################################################
+clear
+blank
+blank
+e "              Zinc Application Framework Installation "
+blank
+blank
+e "     This program lets you describe your system so you can compile the Zinc"
+e "     software.  You will be asked a series of questions, and your answers"
+e "     will be used to set up all the Makefiles in the Zinc installation so"
+e "     you can type 'make' to compile the Zinc source code."
+blank
+if ($firsttimethru == 0) goto after_intro
+if ("$interactive" == 1) then
+e "     To install Zinc Application Framework, it is necessary to confirm"
+e "     that you have read and accepted the Zinc Application Framework End User"
+e "     License Agreement and Source Code License Agreement (if applicable)."
+e "     The license agreements are found at the beginning of the Programmer's "
+e "     Guide."
+blank
+e "To confirm and proceed with the installation, enter "y".  Otherwise,"
+E "enter "n" and the installation will end. [ y, n, enter = quit ] > " $nl
+set res=$<
+if ("$res" != y) goto abort
+
+else	#	Non interactive message.
+e "     If you do not agree with the terms of the agreements, stop "
+e "     execution of this program now by pressing ctrl-C, DEL, or use your "
+e "     defined interrupt key."
+sleep 5
+blank
+e "     Continuing with the installation...."
+endif
+
+after_intro:
+
+###########################################################################
+#	Use results of previous run?
+###########################################################################
+if ($interactive == 1 && $?fresh == 0 && -e $statusfile) then
+	blank
+	blank
+	e "This is not the first time you have run INSTALL.  Do you want"
+	e "to edit your selections from the last run or start from scratch?"
+	blank
+	e " 1)    Change configuration from last time"
+	e " 2)    Start over"
+	blank
+	E "Please select an option [ q = quit, return = change ]: " $nl
+	set tmp=$<
+	if ($tmp == "2") set fresh = 1
+	if ($tmp == "q") goto abort
+endif
+
+if ($?fresh == 0) @ fresh = 0
+if ($fresh == 0 && -e $statusfile) source $statusfile
+
+if ("$interactive" == 0) then
+	if ($?system == 0) then
+		set system = none
+	endif
+	if ($?display == 0) then
+		set display = motif
+	endif
+#	goto after_init
+endif
+
+
+###########################################################################
+#	Second pass thru command line options.  These options override the
+#	status file.
+###########################################################################
+@ i = 1
+while ($i <= $#argv)
+	switch ("$argv[$i]")
+	case "-G":
+		set compiler = gnu
+		breaksw
+
+	case "-g":
+		set compiler = greenhills
+		breaksw
+
+	case "-c":
+		set display = curses
+		breaksw
+	
+	case "-m":
+		set display = motif
+		breaksw
+
+	endsw
+	@ i++
+end
+
+###########################################################################
+#	Determine which system.
+###########################################################################
+set systems=(\
+	decaxp		\
+	hpux		\
+	hpux8		\
+	ibm		\
+	sco		\
+	sgi		\
+	sinix		\
+	solaris		\
+	sunos4		\
+	x86		\
+	none		\
+)
+
+while ($?system == 0)	# $system may already be set from argv.
+	clear
+	blank
+	blank
+	e "This install script can be used to install Zinc on the following systems:"
+	blank
+	e " 1)    DEC OSF/1 3.2"
+	e " 2)    Hewlett Packard HP-UX 9.0"
+	e " 3)    Hewlett Packard HP-UX 8.0"
+	e " 4)    IBM RS/6000 AIX 4.1"
+	e " 5)    SCO UNIX 3.2"
+	e " 6)    SGI IRIX 4.0"
+	e " 7)    Siemens/Nixdorf SINIX"
+	e " 8)    Sun Solaris 2.X"
+	e " 9)    SunOS 4.1.3"
+	e "10)    Solaris X86"
+	e "11)    None of the above (systems not listed)"
+	blank
+	E "Please select a system type [ q = quit ]: " $nl
+	set tmp=$<
+	if ($tmp == "q") goto abort
+	if ($tmp >= 1 && $tmp <= $#systems) then
+		set system = $systems[$tmp]
+	endif
+end
+
+
+###########################################################################
+#	Determine which display.
+###########################################################################
+set displays=(\
+	curses		\
+	motif		\
+)
+
+if ($?display == 0) then	# $display may already be set from argv.
+	if (-e ./curses.txt) set display = $displays[1]
+	if (-e ./motif.txt) set display = $displays[2]
+
+	@ i = 0
+	if (-e ./curses.txt) @ i++
+	if (-e ./motif.txt) @ i++
+	if ( $i > 0) then
+		clear
+		blank
+		blank
+		e Supported display types:
+		blank
+		e " 1)    Curses"
+		e " 2)    Motif"
+		blank
+		E "Please select a display type [ q = quit, return = Motif ]: " $nl
+		set tmp=$<
+		if ($tmp == "1") set display = $displays[1]
+		if ($tmp == "2") set display = $displays[2]
+		if ($tmp == "q") goto abort
+	endif
+endif
+
+if ($system == "sco" && $interactive == 1) then
+	e Interactive mode is not supported for SCO systems.
+	@ interactive = 0
+endif
+
+after_init:
+
+###########################################################################
+#   Make macro initialization.
+#   If you change the order of any of the following lists,
+#   change the order in all lists.  
+###########################################################################
+
+set CC            = 1
+set LINK          = 2
+set LIBRARIAN     = 3
+set CPP_EXTENSION = 4
+set CC_FLAGS      = 5
+set LINK_FLAGS    = 6
+set AR_FLAGS      = 7
+set INCLUDE_DIR   = 8
+set GUI_LIBS      = 9
+set LIBS          = 10
+set LIB_DIRS      = 11
+set RANLIB        = 12
+
+set SYSTEM        = 13
+set ZINC_LIB_NAME = 14
+set TARGET        = 15
+
+# The user doesn't see or set anything past $last_user_variable
+set last_user_variable	= $RANLIB
+
+set variables=(\
+	CC				\
+	LINK			\
+	LIBRARIAN		\
+	CPP_EXTENSION	\
+	CC_FLAGS		\
+	LINK_FLAGS		\
+	AR_FLAGS		\
+	INCLUDE_DIR		\
+	GUI_LIBS		\
+	LIBS			\
+	LIB_DIRS		\
+	RANLIB			\
+					\
+	SYSTEM			\
+	ZINC_LIB_NAME	\
+	TARGET			\
+)
+
+set meanings=(\
+	"Name of your C++ compiler (must be in your path)."		\
+	"Name of your linker (must be in your path)."			\
+	"Name of your archiver or librarian (must be in your path)."	\
+	"C++ file extension (usually one of: .cpp, .C, .cxx, .cc, etc)."\
+	"Compiler options (-c is always added)."			\
+	"Link options."							\
+	"Archiver/Librarian options."					\
+	"Directories to search for include files (eg: -I/mydir)."	\
+	"Graphical libraries to link in (eg: -lcurses)."		\
+	"Any other libraries to link in (eg: -lmylib)."		\
+	"Directories to search for libraries (eg: -Lmydir)."		\
+	'Ranlib command (usually not needed; eg: "/usr/bin/ranlib $@").'\
+									\
+	"Internal system type -- user doesn't see this message"		\
+	"Internal library name -- user doesn't see this message"	\
+	"Internal display type -- user doesn't see this message"	\
+)
+
+if ($?values == 1) goto display_variables
+
+
+
+###########################################################################
+#	Initialize macro values for Motif systems.
+###########################################################################
+switch ("$system")
+	case "x86":
+		set values=(\
+			"CC"						\
+			"CC"						\
+			"ar"						\
+			".cc"						\
+			""						\
+			""						\
+			"r"						\
+			"-I/usr/openwin/include -I/usr/dt/include"	\
+			INITIALIZED_LATER				\
+			'-lsocket -lgen -lnsl'				\
+			'-L/usr/openwin/lib -L/usr/dt/lib'			\
+			""						\
+									\
+			'$(SOLARIS)'					\
+			INITIALIZED_LATER				\
+			INITIALIZED_LATER				\
+		)
+		./FixLink > /dev/null
+		breaksw
+	
+	case "solaris":
+		set values=(\
+			"CC"						\
+			"CC"						\
+			"ar"						\
+			".cc"						\
+			""						\
+			""						\
+			"r"						\
+			"-I/usr/openwin/include -I/usr/dt/include"			\
+			INITIALIZED_LATER				\
+			'-lsocket -lgen -lnsl'				\
+			'-L/usr/openwin/lib -L/usr/dt/lib'				\
+			""						\
+									\
+			'$(SOLARIS)'					\
+			INITIALIZED_LATER				\
+			INITIALIZED_LATER				\
+		)
+		./FixLink > /dev/null
+		breaksw
+
+	case "sunos4":
+		set values=(\
+			"CC"						\
+			"CC"						\
+			"ar"						\
+			".cc"						\
+			"-D_SUNOS4"					\
+			""						\
+			"r"						\
+			"-I/opt/IXImd12x/include -I/usr/openwin/include"	\
+			INITIALIZED_LATER				\
+			""						\
+			'-L/opt/IXImd12x/lib -L/usr/openwin/lib'			\
+			'/bin/ranlib $@'				\
+									\
+			'$(SUNOS4)'					\
+			INITIALIZED_LATER				\
+			INITIALIZED_LATER				\
+		)
+		./FixLink > /dev/null
+		breaksw
+
+	case "sgi":
+		set values=(\
+			"CC"						\
+			"CC"						\
+			"ar"						\
+			".cc"						\
+			""						\
+			""						\
+			"r"						\
+			""						\
+			INITIALIZED_LATER				\
+			'-lmalloc -lm -lC -lc_s -lPW'			\
+			""						\
+			""						\
+									\
+			'$(SGI)'					\
+			INITIALIZED_LATER				\
+			INITIALIZED_LATER				\
+		)
+		breaksw
+
+	case "hpux8":
+		set values=(\
+			"CC"						\
+			"CC"						\
+			"ar"						\
+			".cpp"						\
+			""						\
+			""						\
+			"r"						\
+			'-I/usr/include/X11R4 -I/usr/include/Motif1.1'	\
+			INITIALIZED_LATER				\
+			""						\
+			'-L/usr/lib/Motif1.1 -L/usr/lib/X11R4'		\
+			""						\
+									\
+			'$(HP)'						\
+			INITIALIZED_LATER				\
+			INITIALIZED_LATER				\
+		)
+		breaksw
+	
+
+	case "hp":
+	case "hpux":
+	case "hpux9":
+		set values=(\
+			"CC"						\
+			"CC"						\
+			"ar"						\
+			".cpp"						\
+			""						\
+			""						\
+			"r"						\
+			'-I/usr/include/X11R5 -I/usr/include/Motif1.2'	\
+			INITIALIZED_LATER				\
+			""						\
+			'-L/usr/lib/Motif1.2 -L/usr/lib/X11R5'		\
+			""						\
+									\
+			'$(HP)'						\
+			INITIALIZED_LATER				\
+			INITIALIZED_LATER				\
+		)
+		./FixLink > /dev/null
+		breaksw
+	
+	case "ibm":
+	case "rs6000":
+		set values=(\
+			"xlC"						\
+			"xlC"						\
+			"ar"						\
+			".C"						\
+			"-D_IBM_RS6000"					\
+			""						\
+			"r"						\
+			""						\
+			INITIALIZED_LATER				\
+			""						\
+			""						\
+			""						\
+									\
+			'$(RS6000)'					\
+			INITIALIZED_LATER				\
+			INITIALIZED_LATER				\
+		)
+		breaksw
+		
+	case "sco":
+		set values=(\
+			"CC"						\
+			"CC"						\
+			"ar"						\
+			".C"						\
+			"-DSCO_UNIX"					\
+			""						\
+			"r"						\
+			""						\
+			INITIALIZED_LATER				\
+			"-lsocket -lintl"				\
+			""						\
+			""						\
+									\
+			'$(SCO)'					\
+			INITIALIZED_LATER				\
+			"curses"					\
+		)
+		set motiflibs = "-lXm -lXmu -lXt -lX11"
+		breaksw
+
+	case "sinix":
+		set values=(\
+			"CC"						\
+			"CC"						\
+			"ar"						\
+			".C"						\
+			"-D_SINIX"					\
+			""						\
+			"r"						\
+			""						\
+			INITIALIZED_LATER				\
+			"-lnsl -lgen"					\
+			""						\
+			""						\
+									\
+			'$(SIEMENS)'					\
+			INITIALIZED_LATER				\
+			INITIALIZED_LATER				\
+		)
+		breaksw
+		
+	case "decaxp":
+		set values=(\
+			"cxx"						\
+			"cxx"						\
+			"ar"						\
+			".cxx"						\
+			""				\
+			""						\
+			"r"						\
+			""						\
+			INITIALIZED_LATER				\
+			"-ldnet_stub"					\
+			""						\
+			""						\
+									\
+			'$(DEC)'					\
+			INITIALIZED_LATER				\
+			INITIALIZED_LATER				\
+		)
+		breaksw
+
+# You can add any system type cases here.
+
+	default:
+		set values=(\
+			"CC"						\
+			"CC"						\
+			"ar"						\
+			".cpp"						\
+			""						\
+			""						\
+			"r"						\
+			""						\
+			INITIALIZED_LATER				\
+			""						\
+			""						\
+			""						\
+									\
+			'$(UNKNOWN)'					\
+			INITIALIZED_LATER				\
+			INITIALIZED_LATER				\
+		)
+
+		if ($interactive != 1) breaksw
+
+		if ("$system" != "none") then
+			echo "Unknown system type: '$system'."
+			E "Continue [ q = quit, return = continue ]: " $nl
+			set tmp=$<
+			if ($tmp == "q") goto abort
+		endif
+		blank
+endsw
+
+
+if ($compiler == greenhills) then
+	set values[$CC] = "gcx"
+	set values[$LINK] = "gcx"
+else if ($compiler == gnu) then
+	set values[$CC] = "g++"
+	set values[$CPP_EXTENSION] = ".cxx"
+	set values[$LIBS] = "$values[$LIBS] -lgcc"
+endif
+
+if ($display == motif) then
+	set values[$ZINC_LIB_NAME] = '$(ZINC_MOTIF_LIB)'
+	set values[$TARGET] = 'motif'
+	set values[$GUI_LIBS] = "$motiflibs"
+else if ($display == curses) then
+	set values[$ZINC_LIB_NAME] = '$(ZINC_CURSES_LIB)'
+	set values[$TARGET] = 'curses'
+	set values[$GUI_LIBS] = "$curseslibs"
+endif
+
+if ($display == "curses") then
+	set values[$CC_FLAGS] = "$values[$CC_FLAGS] -DZIL_CURSES"
+endif
+
+display_variables:
+
+#blank
+
+
+
+
+###########################################################################
+#	Interactivly display values and maybe let them change them.
+###########################################################################
+if ($interactive != 1) goto done_assigning
+clear
+blank
+e Locations of Zinc include files and Zinc libraries are computed automatically.
+blank
+e Variables will be set in the Makefiles as follows:
+blank
+@ i = 1
+while ( $i <= $last_user_variable )
+	e $variables[$i] = $values[$i]
+	@ i++
+end
+blank
+blank
+E "Do you want to change any of these values? [ y, n, q, return = n ] > " $nl
+set res=$<
+if ("$res" == q) goto abort
+if ("$res" != y) goto done_assigning
+
+
+###########################################################################
+#	Show each variable, and let the user change it.
+###########################################################################
+@ i = 1
+while ( $i <= $last_user_variable )
+	clear
+	blank
+	blank
+	e "Variable name: " $variables[$i]
+	e "Description:   " $meanings[$i]
+	E "Default value: " $nl
+	if ("$values[$i]" == "") then
+		echo \(None\)
+	else
+		echo $values[$i]
+	endif
+	E "	" $nl
+	blank
+	E "Enter new value [ q = quit, enter = default ] > " $nl
+	# If you're wondering why the "$<", try ``set this=-g -c''.
+	set res="$<"
+	e
+	if ("$res" == q) goto abort
+	if ("$res" != "") set values[$i]="$res"
+	@ i++
+end
+
+goto display_variables
+
+
+
+###########################################################################
+#	Save the results.
+###########################################################################
+done_assigning:
+
+if ($display == motif) then
+	set motiflibs = "$values[$GUI_LIBS]"
+else if ($display == curses) then
+	set curseslibs = "$values[$GUI_LIBS]"
+endif
+
+if (-e ./INSTALL == 1) then
+	echo set system = $system > $statusfile
+	echo set display = $display >> $statusfile
+	echo set values = \( \) >> $statusfile
+	@ i = 1
+	while ( $i <= $#meanings )	# Instructions for creating the var.
+		echo 'set values = ( $values ' filler \) >> $statusfile
+		@ i++
+	end
+	@ i = 1
+	while ( $i <= $#meanings )
+		echo set values\[$i\] = \'$values[$i]\' >> $statusfile
+		@ i++
+	end
+	echo set motiflibs = \'$motiflibs\' >> $statusfile
+	echo set curseslibs = \'$curseslibs\' >> $statusfile
+endif
+
+
+
+###########################################################################
+#	Create an awk program file to perform the changes.
+###########################################################################
+
+set tmpawkfile=/tmp/tmpAwkFile.$$
+set newline="\n"
+echo "{ matched = 0 }" > $tmpawkfile
+@ i = 1
+while ( $i <= $#meanings )
+	echo \$1 == \"$variables[$i]\" { printf \"%s = %s\", \$1, \"$values[$i]\" \; matched = 1 \; print \"\" } >> $tmpawkfile
+	@ i++
+end
+
+echo "matched == 0 { print }" >> $tmpawkfile
+
+
+
+###########################################################################
+#	Run awk program to edit each Makefile in the current tree.
+###########################################################################
+blank
+e Configuring Makefiles...
+set tmpmakefile=/tmp/tmpmakefile.$$
+if (-e /bin/nawk) then
+	set awk=/bin/nawk
+else
+	set awk=awk
+endif
+
+set startdir = `pwd`
+foreach i (`find $startdir -name posix.mak -print`)
+	cd $i:h
+	$awk -f $tmpawkfile posix.mak > $tmpmakefile
+	mv $tmpmakefile Makefile
+end
+cd $startdir
+rm -f $tmpawkfile
+
+if ($system == "sunos4" && -e ./lib/lib_mtf_zil.a) then
+	/bin/ranlib ./lib/lib_mtf_zil.a
+endif
+
+blank
+
+
+###########################################################################
+#	Change source file suffixes
+###########################################################################
+if (-x ./Suffixes && $values[$CPP_EXTENSION] != ".cpp") then
+	if (-x /bin/tr || -x /usr/bin/tr) then
+		# Strip the '.' from the extension.
+		set ext=`echo $values[$CPP_EXTENSION] | tr "." " "`
+		e "Checking and changing source file extensions..."
+		./Suffixes cpp $ext > /dev/null
+	else
+		e "Unable to change source file extensions.  Please run \'Suffixes\'."
+	endif
+endif
+
+
+###########################################################################
+#	Install ZincApp file
+###########################################################################
+if ($firsttimethru == 1 && $display == motif) then
+	if ($interactive == 1) then
+		clear
+		blank
+		e Programs created with Zinc for Motif work best if the Zinc X
+		e resource file \(ZincApp\) is copied to a place where X can find it.
+		blank
+		e Would you like to copy ZincApp to:
+		e " 1)    /usr/lib/X11/app-defaults (you must be super-user)"
+		if ($?HOME) then
+			if (-w $HOME) then
+				e " 2)    your home directory ($HOME)"
+			endif
+		endif
+		e " 3)    don't copy it anywhere"
+		blank
+		E "Please select a destination [ q = quit, return = home ]: " $nl
+		set tmp=$<
+		if ($tmp == "q") goto abort
+		if ($tmp == "1") then
+			cp ./ZincApp /usr/lib/X11/app-defaults/ZincApp
+		else if ($tmp != "3") then
+			cp ./ZincApp $HOME/ZincApp
+		endif
+	else
+		if ($?HOME) cp ./ZincApp $HOME/ZincApp
+	endif
+endif
+
+skip_ZincApp:
+
+
+###########################################################################
+#	Finish up
+###########################################################################
+exit_point:
+blank
+e Makefile configuration is complete.
+blank
+exit (0)
+
+abort:
+if ($firsttimethru == 1) rm -f $statusfile
+blank
+e Aborting Zinc Installation program
+blank
+blank
+blank

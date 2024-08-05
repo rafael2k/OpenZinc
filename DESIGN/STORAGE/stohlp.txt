@@ -1,0 +1,15 @@
+--- HELP_GENERAL
+Storage Service
+The Storage Service allows you to access resources in the current
+file.\
+\
+To access a resource, enter the name at the OBJECTNAME
+prompt.\
+\
+Other resources that belong to the current directory are listed in the
+scrollable field below the OBJECTNAME field. Selecting one of
+these resources causes the name to appear in the OBJECTNAME field.\
+\
+The current directory is shown below the DIRECTORIES prompt.\
+\
+

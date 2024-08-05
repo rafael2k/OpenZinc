@@ -1,0 +1,49 @@
+--------------------------------------------------------------------
+------------------  Zinc Interface Library 3.0  --------------------
+-------  Zinc Software Incorporated, Pleasant Grove Utah USA  ------
+--------------------------------------------------------------------
+
+
+---- Revisions ----
+
+8/3/92 - Added all European characters to the fonts.
+
+9/17/92 - Cleaned up several characters in the small font (2,3,9,%).
+
+9/22/92 - Deleted extra spaces in the small font on several characters
+and added characters 0x01 - 0x20.
+
+
+---- Borland C++ BGI Font Support ----
+
+Included in this file are upgraded fonts for use with Zinc Interface
+Library 3.0 and the UI_BGI_DISPLAY class.  These are stroked fonts
+that have been created by Zinc.  This version includes fixes for
+the European extended ASCII character set and have been tested with
+Zinc Interface Library version 3.0 revision 5 (dated 8/31/92).  It
+also includes fixes for several characters that had an extra dot
+appearing in some instances.
+
+To use the fonts, include them in your projects or makefiles along
+with your application or add them to ZIL.LIB with the following command
+line:
+
+    tlib zil.lib +dialog.obj +small.obj +system.obj
+
+You can use the Borland font editor FE.EXE (available on CompuServe or
+from Borland) to edit the fonts.  Beware however that some versions
+of the font editor do NOT work correctly.  To avoid problems, rename
+DIALOG.CHR to TRIP.CHR, SYSTEM.CHR to SANS.CHR, and SMALL.CHR to
+LITT.CHR while editing and then rename them back.  Also, some times
+the font editor may move the font position down slightly.  This can
+be corrected by sizing character ê (the E with a top) to a smaller
+size.
+
+To convert the CHR files to OBJ files use the following lines:
+    bgiobj system.chr system.obj _SystemFont
+    bgiobj dialog.chr dialog.obj _DialogFont
+    bgiobj small.chr small.obj _SmallFont
+
+If you have any questions or problems with the fonts please contact
+Zinc Technical Support at (801) 785-8998 or leave a message on the
+BBS at (801) 785-8997.

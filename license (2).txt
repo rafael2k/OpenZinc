@@ -1,0 +1,250 @@
+---------------------------------------------------------------------
+------------ Zinc Application Framework 4.2 - LICENSE.TXT -----------
+----------- COPYRIGHT (C) 1990-1996.  All Rights Reserved. ----------
+------ Zinc Software Incorporated.  Pleasant Grove, Utah  USA -------
+---------------------------------------------------------------------
+
+DO NOT OPEN THE SOFTWARE PACKAGE(S) UNTIL YOU HAVE READ AND ACCEPTED
+THIS LICENSE AGREEMENT.  BY OPENING THE SOFTWARE PACKAGE(S) OR USING
+THE SOFTWARE (OR AUTHORIZING ANY OTHER PERSON TO DO SO) YOU ACCEPT THIS
+LICENSE AGREEMENT.  IF YOU DO NOT AGREE TO THIS LICENSE AGREEMENT, YOU
+MAY RETURN THIS PRODUCT WITHIN TEN DAYS OF PURCHASE (IF THE SOFTWARE
+PACKAGE(S) IS (ARE) UNOPENED) FOR A REFUND.
+
+Zinc Application Framework, V4.2
+End User Software License Agreement
+
+1.  Software.  Zinc Application Framework is comprised of the computer
+programs and documentation contained in this product package and is
+referred to as the "Software."  The enclosed Software includes an
+"Engine" and one or more "Keys."  The Key(s) enclosed in the
+accompanying software package(s) is (are) referred to in this Agreement
+as the "Licensed Keys."  If Licensee desires to use additional Keys,
+a license for such additional Keys may be purchased from Zinc.
+Additional Keys for which a license is purchased shall be governed by
+this Agreement as Licensed Keys.
+
+2.  A "Zinc" Product.  The Software is a product owned and developed
+by Zinc Software Incorporated ("Zinc") and its licensor(s).
+
+3.  Licensee.  Licensee is the person or entity who purchased this
+License or for whom it was purchased.
+
+4.  License.  Zinc sells and grants to Licensee, and Licensee
+purchases, a nonexclusive, nontransferable license (the "License") to
+use the Software in accordance with this Agreement.  Each Licensed Key
+may be used by a single user only (i.e., the Licensed Key is personal
+to the user) on a single computer running under the operating system
+designated on the Software package for the Key (a "licensed computer").
+Licensee may not use a Licensed Key on more than one computer at any
+given time unless an additional license for each additional computer
+is purchased.  The Engine may be used by a single user only (i.e., the
+Engine is personal to the user) on any licensed computer on which at
+least one of the user's Licensed Key(s) is used as permitted above.
+Rights not expressly granted are reserved by Zinc.
+
+5.  Distribution Rights.  The Software includes "Linkable Routines" and
+"Distributable Files."  Linkable Routines consist of the object code
+routines in the Software libraries (e.g., *.LIB, lib*.a).  The License
+includes the right to incorporate Linkable Routines into application
+programs developed by Licensee and to distribute them as part of such
+applications, provided that the Linkable Routines have been
+incorporated in such a way that they cannot be used apart from the
+applications.  Distributable Files consist of those "run-time" files
+identified in the Software documentation as required during execution
+of Licensee's applications.  The License further includes the right to
+distribute Distributable Files as part of application programs
+developed by Licensee.  No other portions of the Software may be
+distributed or transferred by Licensee.  THE LINKABLE ROUTINES AND
+DISTRIBUTABLE FILES MAY NOT BE DISTRIBUTED AS PART OF ANY APPLICATION
+PROGRAM THAT IS A LIBRARY-TYPE PRODUCT, DEVELOPMENT TOOL OR OPERATING
+SYSTEM, OR THAT MAY BE COMPETITIVE WITH OR USED IN LIEU OF THE
+SOFTWARE, WITHOUT THE EXPRESS WRITTEN PERMISSION OF ZINC.  Licensee
+must include an appropriate Zinc copyright notice on all copies of its
+application programs.
+
+6.  Copies and Adaptations.  Licensee may make or authorize the making
+of copies or adaptations of the Software provided that any such new
+copy or adaptation: (i) is created as an essential step in the
+utilization of the Software on the licensed computer and is used in no
+other manner, or (ii) is only for archival purposes to back-up the
+licensed computer.  All trademark and copyright notices must be
+faithfully reproduced and included on such copies and adaptations.
+Notwithstanding the foregoing, Licensee may not copy the Software
+documentation.
+
+7.  Source Code.  The License is limited to the Software in machine
+executable code and object code form only and does not include any
+rights to source code unless a separate Source Code License is
+purchased.
+
+8.  Protection of Software.  Except as expressly authorized in this
+Agreement, Licensee may not: (i) disassemble, decompile or otherwise
+reverse engineer the Software, or (ii) create derivative works based
+upon the Software, or (iii) rent, lease, sublicense, distribute,
+transfer, copy, reproduce, modify or timeshare the Software, or (iv)
+allow any third party to access or use the Software, or (v) modify the
+Software (including any deletion of code from or addition of code to
+the Software).
+
+9.  Ownership.  Ownership of, and title to, the Software (including any
+adaptations) and all copies thereof (including copies provided with
+this Agreement and copies under Paragraph 6) shall be held by Zinc.
+Copies are loaned to Licensee to allow Licensee to exercise rights
+under the License.  Only the License is purchased by Licensee.
+
+10.  Transfer of License.  Licensee may transfer the License to another
+person or entity if Licensee first delivers to Zinc the written
+agreement of the transferee to be bound by this Agreement.  If the
+License is transferred, Licensee must permanently transfer to the
+transferee all copies of the Software including the original copies
+provided in this package and copies under Paragraph 6.
+
+11.  Limited Warranty.
+
+11(a).  Registration Card.  Licensee shall have no rights under this
+Limited Warranty if the enclosed Registration Card is not promptly
+completed, signed and returned to Zinc.
+
+11(b).  Media and Documentation.  Zinc warrants that if the enclosed
+magnetic media or documentation are in a damaged or physically
+defective condition at the time that the License is purchased and if
+they are returned to Zinc (postage prepaid) within 90 days of purchase,
+then Zinc will provide Licensee with replacements at no charge.
+
+11(c).  Software.  Zinc warrants that if the Software fails to
+substantially conform to the specifications in the Software
+documentation or to any other Software specifications published by Zinc
+and if the nonconformity is reported in writing by Licensee to Zinc
+within 90 days from the date the License is purchased, then Zinc shall
+either remedy the nonconformity or offer to refund the purchase price
+to Licensee upon a return of all copies of the Software to Zinc.  In
+the event of a refund the License shall terminate.
+
+12.  Disclaimer and Limitations.
+
+12(a).  DISCLAIMER OF WARRANTIES.  ZINC MAKES NO WARRANTY,
+REPRESENTATION OR PROMISE NOT EXPRESSLY SET FORTH IN THIS AGREEMENT.
+ZINC DISCLAIMS AND EXCLUDES ANY AND ALL IMPLIED WARRANTIES OF MER-
+CHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+ZINC DOES NOT WARRANT THAT THE SOFTWARE WILL SATISFY LICENSEE'S
+REQUIREMENTS OR THAT THE SOFTWARE IS WITHOUT DEFECT OR ERROR OR THAT
+THE OPERATION OF THE SOFTWARE WILL BE UNINTERRUPTED.
+
+12(b).  LIMITATION ON LIABILITY.  THE AGGREGATE LIABILITY OF ZINC
+ARISING FROM OR RELATING TO THIS AGREEMENT OR THE SOFTWARE (REGARDLESS
+OF THE FORM OF ACTION OR CLAIMþE.G., CONTRACT, WARRANTY, TORT, COMPUTER
+MALPRACTICE, FRAUD AND/OR OTHERWISE) IS LIMITED TO THE TOTAL OF ALL
+PAYMENTS MADE BY OR FOR LICENSEE TO PURCHASE THE LICENSE.  ZINC SHALL
+NOT IN ANY CASE BE LIABLE FOR ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL,
+INDIRECT OR PUNITIVE DAMAGES EVEN IF ZINC HAS BEEN ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGES.  ZINC IS NOT RESPONSIBLE FOR LOST PROFITS
+OR REVENUE, LOSS OF USE OF THE SOFTWARE, LOSS OF DATA, COSTS OF RE-
+CREATING LOST DATA, THE COST OF ANY SUBSTITUTE EQUIPMENT OR PROGRAM,
+OR CLAIMS BY ANY PARTY OTHER THAN LICENSEE.  THE OFFICERS, DIRECTORS,
+EMPLOYEES, SHAREHOLDERS AND REPRESENTATIVES OF ZINC ARE NOT PARTIES TO
+THIS AGREEMENT AND SHALL HAVE NO OBLIGATION OR LIABILITY RELATING TO
+THIS AGREEMENT OR THE SOFTWARE.
+
+12(c).  Responsibility for Decisions.  Licensee is responsible for
+decisions made and actions taken based on the Software.  The Software
+is designed and intended for use by computer professionals experienced
+in the uses and limitations of computer software and it is Licensee's
+responsibility to ascertain the suitability of the Software.  The
+Software is not intended for personal, family or household use.
+
+13.  SOLE REMEDY AND ALLOCATION OF RISK.  LICENSEE'S SOLE AND EXCLUSIVE
+REMEDY IS SET FORTH IN THIS AGREEMENT. This Agreement defines a
+mutually agreed-upon allocation of risk and the License prices and fees
+reflect such allocation of risk.
+
+14.  Governing Law.  This Agreement shall be governed by the laws of
+the state of Utah and the United States of America.
+
+15.  Entire Agreement.  This Agreement sets forth the entire
+understanding and agreement between the parties and may be amended only
+in a writing signed by both parties.  No vendor, distributor, dealer,
+retailer, sales person or other person is authorized by Zinc to modify
+this Agreement or to make any warranty, representation or promise which
+is different than, or in addition to, the warranties, representations
+or promises of this Agreement.
+
+16.  Interpretation.  Any reference in this Agreement to Software shall
+include any portion thereof.
+
+17.  Termination.  The License shall automatically terminate if
+Licensee materially breaches this Agreement.  Upon termination of the
+License, Licensee shall deliver to Zinc the original and all other
+copies of the Software.
+
+18.  Export Act.  Licensee hereby warrants and certifies that no
+Software or any related item or product will be made available or
+exported to any country in contravention of any law of the United
+States, including the Export Administration Act of 1979 and regulations
+relating thereto.
+
+19.  Construction.  This Agreement represents the wording selected by
+the Parties to define their agreement and no rule of strict
+construction shall apply against any Party.
+
+20.  Restricted Rights.  Any Software provided by Zinc under this
+Agreement to the US Federal Government or its agencies, is licensed
+with Restricted Rights.  Use, duplication, or disclosure by the
+Government is subject to restrictions as set forth in subparagraph
+(c)(1)(ii) of The Rights in Technical Data and Computer Software clause
+at DFARS 252.227-7013 or in subparagraph (c)(2) of the Commercial
+Computer Software--Restricted Rights at FAR 52.227-19, as applicable.
+Contractor/Manufacturer is Zinc Software Incorporated, 405 South 100
+East, 2nd Floor, Pleasant Grove, Utah 84062.
+
+IF SOURCE CODE IS INCLUDED IN THE SOFTWARE PACKAGE(S) PROVIDED TO
+LICENSEE, THE FOLLOWING SOURCE CODE LICENSE ADDENDUM IS ALSO
+APPLICABLE.
+
+Zinc Application Framework, V4.2
+Source Code License Addendum
+
+1.  Source Code.  "Source Code" shall mean the source code enclosed in
+the Software Package(s) provided to Licensee.
+
+2.  End User License Agreement.  This Source Code License Addendum is
+an addendum to, and part of, the Zinc Application Framework End User
+Software License Agreement ("End User License Agreement") accepted by
+you as the "Licensee."  The enclosed source code shall be governed by
+such End User License Agreement as part of the "Software."
+
+3.  Source Code License.  The License under the End User License
+Agreement is expanded to include the right to use the Source Code to
+maintain and modify the Software to conform with Licensee's needs in
+creating application programs.
+
+4.  Disclaimer.  Because Zinc Software Incorporated ("Zinc") has no
+control over modifications made by Licensee, it is not obligated to
+maintain or support modified versions of the Software and no warranties
+are applicable to such modified versions.  There is no warranty that
+the Software is suitable for modification and all modifications are
+undertaken at the risk and discretion of Licensee.
+
+5.  Ownership.  All modifications to the Software, and all modified
+versions of the Software created by Licensee, shall be the property of
+Zinc and Licensee hereby assigns the same (including any corresponding
+copyrights and intellectual property) to Zinc.  These modifications
+shall be deemed licensed to Licensee as Software under the License.
+
+6.  Confidentiality.  Licensee acknowledges that the Source Code
+contains confidential information and trade secrets proprietary to Zinc
+and/or its licensor(s).  The Source Code (and each copy thereof) is the
+sole and exclusive property of Zinc.  Licensee shall not disclose or
+transfer the Source Code or any part thereof to any other person or
+entity.  Licensee shall take reasonable precautions to protect and
+preserve the confidentiality of the Source Code.
+
+7.  Termination.  Termination of the License under the End User License
+Agreement terminates all of Licensee's rights under this Source Code
+License Addendum.  The License shall automatically terminate if
+Licensee materially breaches this Source Code License Addendum.  Upon
+termination of the License, Licensee shall deliver to Zinc all copies
+of the Source Code.
+
+Revision 9/94
+

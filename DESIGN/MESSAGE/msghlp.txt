@@ -1,0 +1,222 @@
+--- HELP_GENERAL
+About Message Editor
+The Message Editor is used to create and modify tables of messages which can be
+loaded by your application at run time and used wherever text strings are required.
+Using the Message Editor has several advantages over placing strings in your source 
+code. The first advantage is that the strings can be changed without requiring 
+the application to be rebuilt, since the strings are loaded from the .DAT file at 
+run time. The second advantage is that different message tables can be created 
+for different languages. Your application can load the necessary table at run 
+time.\
+\
+A message table is created as a ZIL_LANGUAGE object. After creating a 
+message table in your application using the name that you used to store the 
+message table in the Designer, you can call the ZIL_LANGUAGE::GetMessage( )
+function to access a particular string. The GetMessage( ) function 
+identifies the string using the numberID you assigned to the message in the 
+Message Editor.\
+\
+Copyright (C) 1991-1994 Zinc Software Incorporated.  All Rights
+Reserved.\
+\
+--- HELP_MESSAGE_INFORMATION
+Message Edit
+The message edit window appears when a message in the message list is 
+double-clicked or the Edit button on the window is selected.\
+\
+Enter the text for the message string in the MESSAGE field.\
+\
+Enter the NUMBERID that will be used to identify the message string within 
+the table.  This is the numberID that is used by the GetMessage( ) function to 
+access a specific string from your application.\
+\
+Enter the STRINGID that will be used to identify the message within the table.  
+The stringID text will be used to create a constant by the same name in the 
+.DAT file's associated header file.  The constant's value will be the numberID 
+created in the NumberID field.  This constant value can be used to specify the 
+desired string when calling ZIL_LANGUAGE::GetMessage( ) from your 
+application.\
+\
+--- HELP_MESSAGE_WINDOW
+Message Table
+This window allows you to create a new message table.\
+\
+The MESSAGE LIST, initially empty, contains all the messages in the message
+table.  Double-clicking on an entry in the list brings up the message edit 
+window.\
+\
+Selecting the EDIT option brings up the edit window for the current 
+message in the table.\
+\
+Selecting the ADD option adds a new default message entry to the end 
+of the message table.\
+\
+Selecting the DELETE option removes the current message from the 
+message table.\
+\
+Selecting the MOVE UP option moves the current message up in 
+the message table one position.\
+\
+Selecting the MOVE DOWN option moves the current message 
+down in the message table one position.\
+\
+--- HELP_OPT_FILE
+File Options
+The File menu presents options for manipulating files.  When the
+Message	Editor is used in conjunction with the Window Editor, the File option
+is nonselectable in the Message Editor, since all
+file-related operations are handled in the Window Editor.\
+\
+--- HELP_OPT_LOGICAL_EVENTS
+Logical Event Information...
+L_VIEW                  = 1001\
+L_SELECT                = 1002\
+L_BEGIN_SELECT          = 1003\
+L_CONTINUE_SELECT       = 1004\
+L_END_SELECT            = 1005\
+L_BEGIN_ESCAPE          = 1006\
+L_CONTINUE_ESCAPE       = 1007\
+L_END_ESCAPE            = 1008\
+L_HELP                  = 1009\
+L_CANCEL                = 1010\
+L_EXIT_FUNCTION         = 1011\
+L_DOUBLE_CLICK          = 1012\
+L_MOVE                  = 1013\
+L_SIZE                  = 1014\
+L_RESTORE               = S_RESTORE\
+L_MINIMIZE              = S_MINIMIZE\
+L_MAXIMIZE              = S_MAXIMIZE\
+\
+L_NEXT_WINDOW           = 1040\
+\
+L_UP                    = 1050\
+L_DOWN                  = 1051\
+L_LEFT                  = 1052\
+L_RIGHT                 = 1053\
+L_PREVIOUS              = 1054\
+L_NEXT                  = 1055\
+L_FIRST                 = 1056\
+L_TOP                   = 1056\
+L_LAST                  = 1057\
+L_BOTTOM                = 1057\
+L_PGUP                  = 1058\
+L_PGDN                  = 1059\
+\
+L_BEGIN_MARK            = 1101\
+L_CONTINUE_MARK         = 1102\
+L_END_MARK              = 1103\
+L_CUT                   = 1104\
+L_PASTE                 = 1105\
+L_CUT_PASTE             = 1106\
+L_MARK                  = 1107\
+L_COPY_MARK             = 1127\
+L_DELETE                = 1108\
+L_DELETE_WORD           = 1109\
+L_DELETE_EOL            = 1110\
+L_INSERT_TOGGLE         = 1114\
+L_WORD_LEFT             = 1115\
+L_WORD_RIGHT            = 1116\
+L_BOL                   = 1117\
+L_EOL                   = 1118\
+L_BACKSPACE             = 1119\
+\
+L_MARK_LEFT             = 1130\
+L_MARK_RIGHT            = 1131\
+L_MARK_UP               = 1132\
+L_MARK_DOWN             = 1133\
+L_MARK_BOL              = 1134\
+L_MARK_EOL              = 1135\
+L_MARK_PGUP             = 1136\
+L_MARK_PGDN             = 1137\
+L_MARK_WORD_RIGHT       = 1138\
+L_MARK_WORD_LEFT        = 1139\
+\
+L_BEGIN_MOVE_DRAG       = 1150\
+L_CONTINUE_MOVE_DRAG    = 1151\
+L_END_MOVE_DRAG         = 1152\
+L_BEGIN_COPY_DRAG       = 1153\
+L_CONTINUE_COPY_DRAG    = 1154\
+L_END_COPY_DRAG         = 1155\
+\
+--- HELP_OPT_MESSAGE
+Message Options
+The Message options allow you to create, modify and retrieve
+message tables in the current file.  Options that are displayed in
+the menu with `...' cause an associated window to appear when
+selected.  The following options are available:\
+\
+The Import option allows you to import a message table from another
+.DAT file.\
+\
+The Export option allows you to export a message table to another
+file.\
+\
+The Create option automatically creates a new message table.\
+\
+The Load option is used to recall a previously created message table
+from the current file.\
+\
+The Store option causes the current message table to be saved.\
+\
+The Store As option allows you to save the current message table under
+another name.\
+\
+The Clear option causes the current message table to be removed
+from the screen.\
+\
+The Clear All option causes all message tables present on the
+screen to be removed.\
+\
+The Delete option allows you to delete a message table from the
+current file.\
+\
+--- HELP_OPT_SYSTEM_EVENTS
+System Event Information...
+S_MINIMIZE              = -4\
+S_MAXIMIZE              = -5\
+S_CLOSE                 = -11\
+S_NON_CURRENT           = -13\
+S_MOVE                  = -14\
+S_CLOSE_TEMPORARY       = -18\
+S_REGION_DEFINE         = -21\
+S_CASCADE               = -24\
+S_RESTORE               = -25\
+S_REGISTER_OBJECT       = -26\
+\
+S_SIZE                  = -200\
+S_CHANGED               = -201\
+S_DISPLAY_ACTIVE        = -202\
+S_DISPLAY_INACTIVE      = -203\
+S_CURRENT               = -204\
+S_SHOW_DEFAULT          = -210\
+S_HIDE_DEFAULT          = -211\
+\
+S_VSCROLL               = -300\
+S_HSCROLL               = -301\
+S_VSCROLL_SET           = -302\
+S_HSCROLL_SET           = -303\
+S_VSCROLL_CHECK         = -304\
+S_HSCROLL_CHECK         = -305\
+S_VSCROLL_WINDOW        = -306\
+S_HSCROLL_WINDOW        = -307\
+S_SCROLLRANGE           = -308\
+\
+S_ADD_OBJECT            = -400\
+S_SUBTRACT_OBJECT       = -401\
+S_ROUTE_EVENT           = -402\
+S_DRAG_MOVE_OBJECT      = -403\
+S_DRAG_COPY_OBJECT      = -404\
+S_DROP_MOVE_OBJECT      = -405\
+S_DROP_COPY_OBJECT      = -406\
+S_DRAG_DEFAULT          = -411\
+S_DROP_DEFAULT          = -412\
+\
+S_VERIFY_STATUS         = -450\
+\
+S_MDICHILD_EVENT        = -500\
+\
+S_CHANGE_PAGE           = -600\
+\
+S_SET_DATA              = -700\
+\
+

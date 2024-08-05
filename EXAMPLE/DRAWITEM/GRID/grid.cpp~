@@ -1,0 +1,243 @@
+//  GRID.CPP (GRID) - DrawItem example.
+//  COPYRIGHT (C) 1990-1995.  All Rights Reserved.
+//  Zinc Software Incorporated.  Pleasant Grove, Utah  USA
+//  May be freely copied, used and distributed.
+#	if __BORLANDC__ >= 0X0500
+#		undef true
+#		define true OSRegion
+#	endif
+
+
+#include <ui_win.hpp>
+
+#	if defined(__linux__)
+#		undef true
+#		define true OSRegion
+#	endif
+
+#include "grid.hpp"
+
+
+// Color palette definitions.
+UI_PALETTE gridPalette =
+	{ ' ', attrib(BLACK, BLACK), attrib(MONO_BLACK, MONO_BLACK),
+		PTN_SOLID_FILL, BLACK, BLACK, BW_BLACK, BW_BLACK, GS_GRAY, GS_GRAY };
+UI_PALETTE shapePalette =
+	{ ' ', attrib(BLUE, BLUE), attrib(MONO_BLACK, MONO_BLACK),
+		PTN_SOLID_FILL, BLUE, BLUE, BW_BLACK, BW_BLACK, GS_GRAY, GS_GRAY };
+
+EVENT_TYPE GridFunction(UI_WINDOW_OBJECT *object, UI_EVENT &, EVENT_TYPE ccode)
+{
+	if (ccode != L_SELECT)
+		return (0);
+
+	EVENT_TYPE value;
+	object->Information(I_GET_VALUE, &value);
+
+	// object is the "Reset" button on the toolbar. It's parent's parent
+	// is the main window from which we Get() a pointer to the DRAW_OBJECT.
+	object->parent->parent->Get("GRID")->Event(value);
+
+	return (0);
+}
+
+DRAW_OBJECT::DRAW_OBJECT(void) :
+	UI_WINDOW_OBJECT(0, 0, 0, 0, WOF_NON_FIELD_REGION, WOAF_NON_CURRENT)
+{
+	woStatus |= WOS_OWNERDRAW;
+	StringID("GRID");   // Assign stringID for our grid object.
+
+	// Initialize grid cell region and value.
+	for(int i = 0; i < 3; i++)
+		for(int k = 0; k < 3; k++)
+		{
+			gridCell[3 * k + i].region.left = i * CELL + 3;
+			gridCell[3 * k + i].region.top  = k * CELL + 3;
+			gridCell[3 * k + i].region.right  = gridCell[3 * k + i].region.left + CELL - 6;
+			gridCell[3 * k + i].region.bottom = gridCell[3 * k + i].region.top + CELL - 6;
+			gridCell[3 * k + i].cellValue = EMPTY_CELL;
+		}
+	xoCount = 0;
+	moveOccurred = FALSE;
+}
+
+EVENT_TYPE DRAW_OBJECT::DrawItem(const UI_EVENT &, EVENT_TYPE)
+{
+	int x1 = true.left,
+		x2 = true.right,
+		y1 = true.top,
+		y2 = true.bottom;
+
+	UI_REGION clip = true;
+	xCenter = x2 - (x2 - x1)/2;
+	yCenter = y2 - (y2 - y1)/2;
+
+	// Virtualize the display;
+	display->VirtualGet(screenID, true);
+
+	// Draw background.
+	display->Rectangle(screenID, true, lastPalette, 0, TRUE);
+
+	// Draw grid.
+	display->Line(screenID, xCenter - CELL/2, yCenter - CELL*3/2 - 1,
+		xCenter - CELL/2, yCenter + CELL*3/2 + 1, &gridPalette, 3, FALSE, &clip);
+	display->Line(screenID, xCenter + CELL/2, yCenter - CELL*3/2 - 1,
+		xCenter + CELL/2, yCenter + CELL*3/2 + 1, &gridPalette, 3, FALSE, &clip);
+	display->Line(screenID, xCenter - CELL*3/2 - 1, yCenter - CELL/2,
+		xCenter + CELL*3/2 + 1, yCenter - CELL/2, &gridPalette, 3, FALSE, &clip);
+	display->Line(screenID, xCenter - CELL*3/2 - 1, yCenter + CELL/2,
+		xCenter + CELL*3/2 + 1, yCenter + CELL/2, &gridPalette, 3, FALSE, &clip);
+
+	// Draw x's and o's.
+	for(int i = 0; i < 9; i++)
+	{
+		if (gridCell[i].cellValue == X_CELL)
+		{
+			display->Line(screenID, gridCell[i].region.left + xCenter - (CELL * 3/2 ),
+				gridCell[i].region.top + yCenter - (CELL * 3/2) , gridCell[i].region.right  + xCenter - (CELL * 3/2),
+				gridCell[i].region.bottom + yCenter - (CELL * 3/2), &shapePalette, 1, FALSE, &clip);
+			display->Line(screenID, gridCell[i].region.right + xCenter - (CELL * 3/2),
+				gridCell[i].region.top + yCenter - (CELL * 3/2), gridCell[i].region.left + xCenter - (CELL * 3/2),
+				gridCell[i].region.bottom + yCenter - (CELL * 3/2), &shapePalette, 1, FALSE, &clip);
+		}
+		else if (gridCell[i].cellValue == O_CELL)
+		{
+			int radius = (gridCell[i].region.right - gridCell[i].region.left) / 2;
+			display->Ellipse(screenID, gridCell[i].region.left + xCenter - (CELL * 3/2) + radius,
+				gridCell[i].region.top + yCenter - (CELL/2 * 3) + radius,
+				0, 360, radius, radius, &shapePalette, FALSE, FALSE, &clip);
+		}
+	}
+
+	// Un-virtualize the display.
+	display->VirtualPut(screenID);
+	return (TRUE);
+}
+
+EVENT_TYPE DRAW_OBJECT::Event(const UI_EVENT &event)
+{
+	UI_EVENT tevent = event;
+	int i;
+
+	// Switch on the event.
+	EVENT_TYPE ccode = LogicalEvent(event, ID_WINDOW_OBJECT);
+	switch (ccode)
+	{
+	case S_CREATE:
+	case S_CHANGED:
+		ccode = UI_WINDOW_OBJECT::Event(event);
+		true.top += display->cellHeight * 4;   // Recompute new top of drawObject.
+		if (ccode == S_CREATE)
+			RegisterObject("DRAW_OBJECT");
+		break;
+
+	case L_BEGIN_SELECT:   // Mouse click occurred.
+		NormalizePosition(this, tevent, tevent.position);
+
+		// We adjust the mouse position relative to top,left of grid.
+		// gridCell[0].region.left = 0, gridCell[0].region.top = 0.
+		tevent.position.line -= yCenter - (CELL * 3/2);
+		tevent.position.column -= xCenter - (CELL * 3/2);
+		for (i = 0; i < 9; i++)
+			if (gridCell[i].region.Overlap(tevent.position))
+			{
+				if (gridCell[i].cellValue == EMPTY_CELL)
+				{
+					moveOccurred = TRUE;
+					gridCell[i].cellValue = ++xoCount % 2 ? X_CELL : O_CELL;
+					Event(S_REDISPLAY);   // Call DrawItem() function.
+				}
+			}
+		break;
+
+	case E_RESET_GRID:
+		for(i = 0; i < 9; i++)
+			gridCell[i].cellValue = EMPTY_CELL;
+		Event(S_REDISPLAY);   // Call DrawItem() function.
+		xoCount = 0;
+		moveOccurred = FALSE;
+		break;
+
+	case E_O_FIRST:   // By default X is first.
+		if (!moveOccurred)
+			xoCount = 1;
+		break;
+
+	case E_X_FIRST:   // By default X is first.
+		if (!moveOccurred)
+			xoCount = 0;
+		break;
+
+	default:
+		ccode = UI_WINDOW_OBJECT::Event(event);
+	}
+
+	return (ccode);
+}
+
+int UI_APPLICATION::Main(void)
+{
+	// This line fixes linkers that don't look for main in the .LIBs.
+	UI_APPLICATION::LinkMain();
+
+	// Check for graphics display.
+	if (display->isText)
+		return (0);
+
+	UIW_TEXT *text = new UIW_TEXT(0, 0, 0, 0, "This demonstrates how to add "
+		"two objects, both having the WOF_NON_FIELD_REGION flag set, to the"
+		" same window.  The top is a UIW_TEXT object.  The lower is a "
+		"UI_WINDOW_OBJECT that we draw a grid on.", 200,
+		WNF_NO_FLAGS, WOF_NON_FIELD_REGION | WOF_BORDER);
+	*text + new UIW_SCROLL_BAR(0, 0, 0, 0, SBF_VERTICAL);
+
+	UIW_WINDOW *window = new UIW_WINDOW("p_grid.dat~GRID_WINDOW");
+	*window
+		+ new DRAW_OBJECT  //DRAW_OBJECT is added first
+		+ text;                    // text object then takes remaining area of window
+
+	windowManager->Center(window);
+	*windowManager + window;
+
+	// Process user responses.
+	UI_APPLICATION::Control();
+
+	return (0);
+}
+
+// ------------------------------------------------------------------------
+// From code file generated by designer (.cpp) ----------------------------
+// ------------------------------------------------------------------------
+#define USE_GRID_WINDOW
+#define USE_DERIVED_OBJECTS
+void z_jump_dummy(void) { }   // Bug fix for broken linkers.
+
+extern EVENT_TYPE GridFunction(UI_WINDOW_OBJECT *, UI_EVENT &, EVENT_TYPE);
+
+static ZIL_ICHAR _GridFunction[] = { 'G','r','i','d','F','u','n','c','t','i','o','n',0 };
+
+static UI_ITEM _userTable[] =
+{
+	{ 0, (EVENT_TYPE*)ZIL_VOIDF(GridFunction), _GridFunction, 0 },
+	{ ID_END, ZIL_NULLP(void), ZIL_NULLP(ZIL_ICHAR), 0 }
+};
+UI_ITEM *UI_WINDOW_OBJECT::userTable = _userTable;
+
+static UI_ITEM _objectTable[] =
+{
+	{ ID_BORDER, (UI_WINDOW_OBJECT*)ZIL_VOIDF(UIW_BORDER::New), UIW_BORDER::_className, 0 },
+	{ ID_BUTTON, (UI_WINDOW_OBJECT*)ZIL_VOIDF(UIW_BUTTON::New), UIW_BUTTON::_className, 0 },
+	{ ID_ICON, (UI_WINDOW_OBJECT*)ZIL_VOIDF(UIW_ICON::New), UIW_ICON::_className, 0 },
+	{ ID_MAXIMIZE_BUTTON, (UI_WINDOW_OBJECT*)ZIL_VOIDF(UIW_MAXIMIZE_BUTTON::New), UIW_MAXIMIZE_BUTTON::_className, 0 },
+	{ ID_MINIMIZE_BUTTON, (UI_WINDOW_OBJECT*)ZIL_VOIDF(UIW_MINIMIZE_BUTTON::New), UIW_MINIMIZE_BUTTON::_className, 0 },
+	{ ID_SYSTEM_BUTTON, (UI_WINDOW_OBJECT*)ZIL_VOIDF(UIW_SYSTEM_BUTTON::New), UIW_SYSTEM_BUTTON::_className, 0 },
+	{ ID_TITLE, (UI_WINDOW_OBJECT*)ZIL_VOIDF(UIW_TITLE::New), UIW_TITLE::_className, 0 },
+	{ ID_TOOL_BAR, (UI_WINDOW_OBJECT*)ZIL_VOIDF(UIW_TOOL_BAR::New), UIW_TOOL_BAR::_className, 0 },
+	{ ID_WINDOW, (UI_WINDOW_OBJECT*)ZIL_VOIDF(UIW_WINDOW::New), UIW_WINDOW::_className, 0 },
+	{ ID_END, ZIL_NULLP(void), ZIL_NULLP(ZIL_ICHAR), 0 }
+};
+UI_ITEM *UI_WINDOW_OBJECT::objectTable = _objectTable;
+
+#	if defined(__linux__)
+#		undef true
+#	endif

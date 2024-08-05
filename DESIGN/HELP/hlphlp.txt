@@ -1,0 +1,84 @@
+--- HELP_GENERAL
+About Help Editor
+Zinc Help Editor allows you to interactively create help contexts
+that can be associated in a language independent fashion within your
+applications.  Simply create a help context and then select the
+Context option to edit the help information for your application.\
+\
+After creating help contexts, you save them to disk in a
+platform-independent persistent object file.  You then use these
+contexts in your application with one line of code.  Help contexts
+you create with the Windows version of Zinc Help Editor can be opened
+and edited with any other platform version (such as DOS or OS/2) and vice versa.\
+\
+Copyright (C) 1991-1994 Zinc Software Incorporated.  All Rights
+Reserved.\
+\
+--- HELP_HELP_WINDOW
+Help Context Creation
+The context creation window allows you to create a new help context.\
+\
+Enter in the TITLE field the text that you would like to appear in the help window's title 
+bar. \
+\
+The ID field is used to show the context number associated with with
+the help item.  This value is set automatically by the help editor
+when the help context is saved and therefore cannot be edited.\
+\
+Enter in the MESSAGE window the information that you would like to appear in the help 
+window.\
+\
+Selecting the STORE button causes the current help context to be saved 
+to the current file. If you have not entered a name for the help context 
+through a Store As.. operation, you will be asked for a name before you can 
+store the help context.\
+\
+The STORE AS button is generally used to store the current help context under 
+another name.\
+\
+Selecting the CLOSE button causes the window to close without executing 
+any changes.\
+\
+Additional information about creating help contexts appears when the
+HELP button is selected.\
+\
+--- HELP_OPT_CONTEXT
+Context Options
+The Context category options are used to create and modify
+context-specific help information. Options that are displayed in
+the menu with `...' cause an associated window to appear when
+selected. The following options are available:\
+\
+The Import option allows you to import help contexts from another
+file.\
+\
+The Export option allows you to export a help context to another
+file.\
+\
+The Create option allows you to create a help context.\
+\
+The Load option is used to recall a previously created help context from the current file.\
+\
+The Store option causes the current help context to be saved in
+its present condition.\
+\
+The Store As option allows you to save the current help context
+under another name.\
+\
+The Clear option causes the current help context window to be removed
+from the screen.\
+\
+The Clear All option causes all help context windows present on the
+screen to be removed.\
+\
+The Delete option allows you to delete a help context from the
+current file.\
+\
+--- HELP_OPT_FILE
+File Options
+The File menu presents options for manipulating files.  When the Help 
+Editor is used in conjunction with the Window Editor, the File option
+is nonselectable in the Help Editor, since all
+file-related operations are handled in the Window Editor.\
+\
+

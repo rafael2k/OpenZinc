@@ -1,0 +1,373 @@
+--- HELP_GENERAL
+Zinc Application
+Welcome to the Zinc Application 
+program.  This sample program provides an introduction 
+to the various components found in the library. Use 
+the mouse to select an item from the main menu or
+press the <Alt> key in combination with the first
+letter of the item.\
+\
+--- HELP_KEYBOARD_MSDOS
+Keyboard movement...
+The following movement is defined for the keyboard within the
+program:\
+\
+Begin field       <Ctrl+Home>\
+Delete character  <Del>\
+Delete prev char  <Backspace>\
+Delete window     <Alt+F4>\
+End line          <End>\
+Exit              <Shift+F3>\
+Help              <F1>\
+Insert toggle     <Ins>\
+Left word         <Ctrl+left-arrow>\
+Mark              <Ctrl+F5>\
+Maximize          <Alt +>\
+Menu control      <Alt>\
+Minimize          <Alt ->\
+Move window       <Alt+F7>\
+Next field        <Tab>\
+Next window       <Alt+F6>\
+Previous field    <Shift+Tab>\
+Refresh           <F5>\
+Right word        <Ctrl+right-arrow>\
+Select            <Enter>\
+Size window       <Alt+F8>\
+System button     <Alt .>\
+\
+--- HELP_KEYBOARD_MSWINDOWS
+Keyboard movement...
+The following movement is defined for the keyboard within the
+program:\
+\
+Begin field       <Ctrl+Home>\
+Delete character  <Del>\
+Delete prev char  <Backspace>\
+Delete window     <Alt+F4>\
+End line          <End>\
+Help              <F1>\
+Left word         <Ctrl+left-arrow>\
+Mark              <Shift+left-arrow>\
+                  <Shift+right-arrow>\
+                  <Shift+up-arrow>\
+                  <Shift+down-arrow>\
+Menu control      <Alt>\
+Next field        <Tab>\
+Next window       <Alt+F6>\
+Previous field    <Shift+Tab>\
+Right word        <Ctrl+right-arrow>\
+Select            <Enter>\
+System button     <Alt Space>\
+\
+--- HELP_KEYBOARD_OS2
+Keyboard movement...
+The following movement is defined for the keyboard within the
+program:\
+\
+Begin field       <Ctrl+Home>\
+Delete character  <Del>\
+Delete prev char  <Backspace>\
+Delete window     <Alt+F4>\
+End line          <End>\
+Help              <F1>\
+Insert toggle     <Ins>\
+Left word         <Ctrl+left-arrow>\
+Mark              <Shift+left-arrow>\
+                  <Shift+right-arrow>\
+                  <Shift+up-arrow>\
+                  <Shift+down-arrow>\
+Maximize          <Alt+F10>\
+Minimize          <Alt+F9>\
+Move window       <Alt+F7\
+Next field        <Tab>\
+Previous field    <Shift+Tab>\
+Restore window    <Alt+F5>
+Right word        <Ctrl+right-arrow>\
+Select            <Enter>\
+Size window       <Alt+F8>\
+\
+--- HELP_KEYBOARD_MOTIF
+Keyboard movement...
+The following movement is defined for the keyboard within the
+program:\
+\
+Backward word     <MCtrl KLeft>\
+Begin field       <KBeginData>\
+Delete character  <KDelete>\
+Delete prev char  <KBackSpace>\
+Delete window     <Alt+F4>\
+End line          <KEndLine>\
+Forward word      <MCtrl KRight>\
+Help              <KHelp>\
+Lower window      <Alt+F3>\
+Maximize          <Alt+F10>\
+Menu control      <F10>\
+Minimize          <Alt+F9>\
+Move window       <Alt+F7>\
+Next field        <KNextField>\
+Previous field    <KPrevField>\
+Restore window    <Alt+F5>\
+Select            <KSelect>\
+Size window       <Alt+F8>\
+\
+The actual keys represented by the above mnemonics vary from system
+to system.  See your system administrator for key mappings on your
+system.\
+\
+--- HELP_KEYBOARD_MACINTOSH
+Keyboard movement...
+The following movement is defined for the keyboard within the
+program:\
+\
+Begin field       <Home>\
+Delete prev char  <Delete>\
+Delete window     <Cmd+W>\
+End field         <End>\
+Help              <Cmd+?>\
+Mark              <Shift+left-arrow>\
+                  <Shift+right-arrow>\
+                  <Shift+up-arrow>\
+                  <Shift+down-arrow>\
+Next field        <Tab>\
+Previous field    <Shift+Tab>\
+Select            <Enter>\
+\
+--- HELP_KEYBOARD_CURSES
+Keyboard movement...
+The following movement is defined for the keyboard within the program
+if you are using a PC keyboard:\
+\
+Delete prev char  <Backspace>\
+Delete window     <Alt+F4>\
+Help              <F1>\
+Mark              <F5>\
+Menu control      <F10>\
+Move window       <Alt+F7>\
+Next field        <Tab>\
+Next window       <Alt+F6>\
+Previous field    <Shift+Tab>\
+Refresh           <F5>\
+Select            <Enter>\
+Size window       <Alt+F8>\
+\
+The following movement is defined for the keyboard within the program
+if you are using a non-PC keyboard:\
+\
+Delete prev char  <Backspace> or <Ctrl+H>\
+Delete window     <Close> or <Alt+F4>\
+Help              <Help> or <Ctrl+P>\
+Mark              <Mark> or <Ctrl+K>\
+Menu control      <Command>\
+Move window       <Move> or <Ctrl+V>\
+Next field        <Tab>\
+Next window       <Next> or <Ctrl+N>\
+Previous field    <Backtab>\
+Refresh           <Refresh> or <Ctrl+L>\
+Select            <Enter>\
+Size window       <Size> or <Ctrl+B>\
+\
+--- HELP_MOUSE
+Mouse movement...
+The following movement is defined for the mouse within the program:\
+\
+Choose     <Left-down-click>\
+Select     <Left-release>\
+\
+--- HELP_COMMANDS
+Zinc Application commands...
+CONTROL COMMANDS\
+\
+Refresh\
+The Refresh option refreshes the window information presented
+on the screen.\
+\
+Exit\
+The Exit option causes the program to exit.\
+\
+\
+DISPLAY COMMANDS (Available in DOS only)\
+\
+25x40 text mode\
+The "25x40 text mode" option changes the display mode to a 25 line by 40
+column text mode.\
+\
+25x80 text mode\
+The "25x80 text mode" option changes the display mode to a 25 line by 80
+column text mode.\
+\
+(43/50)x80 text mode\
+The "(43/50)x80 text mode" option changes the display mode to a 43 line by 80
+column text mode.\
+\
+Graphics mode\
+The "Graphics mode" option changes the display mode to the current
+graphics display mode (i.e., CGA, EGA, VGA, or Hercules).\
+\
+\
+HELP COMMANDS\
+\
+Keyboard\
+The "Keyboard" option displays help on how to use the keyboard
+to interact with the program.\
+\
+Mouse\
+The "Mouse" option displays help on how to use a mouse to
+interact with the program.\
+\
+Commands\
+The "Commands" option displays help on interacting with the
+menu options.\
+\
+Procedures\
+The "Procedures" option displays help on specific procedures used
+in within the program.\
+\
+Objects\
+The "Objects" options describes the type of window objects that
+are demonstrated by the program.\
+\
+Using help\
+The "Using help" option displays information that describes how
+the help system works and how to interact with it during an
+application.\
+\
+About...\
+The "About..." option displays general information about the
+program.\
+\
+--- HELP_PROCEDURES
+Zinc Application procedures...
+ACCESSING A MENU:\
+To access a menu associated with the current window, either click on
+the desired option with the left mouse button, or press <Alt> + the
+letter highlighted in the menu item's text.\
+\
+CHANGING FIELDS:\
+To move from the current field to another selectable window field
+using a mouse, simply click on the new field.  To move to the next
+field using the keyboard press <Tab>.  To
+move to the previous field using the keyboard press
+<Shift Tab>.\
+\
+CHANGING WINDOWS:\
+To move from the current window to another, click on the next window with
+the mouse.\
+\
+CHANGING THE DISPLAY MODE: (Available in DOS only)\
+To change the run-time display mode of your application, select the
+"Display" menu, which lists the display mode choices.  Select one of
+these and the mode will immediately change.\
+\
+CLOSING A WINDOW:\
+If the window includes a system button, select the "Close" option
+from the system button, or press <ALT+F4> to close a window.  Pressing
+<Esc> closes a temporary window (e.g., a pop-up menu).\
+\
+MAXIMIZING A WINDOW:\
+To increase a window to its maximum size, select the system
+button's "Maximize" option.\
+\
+MINIMIZING A WINDOW:\
+To reduce a window to its minimum size, select the system
+button's "Minimize" option.\
+\
+MOVING:\
+To move an entire window, either position the mouse cursor on the
+window's title bar, press the left mouse button, and drag the window.
+If the window has an associated system button, you can select the
+"Move" option from the system button and then drag the window using
+the arrow keys.\
+\
+RESTORING A WINDOW'S SIZE:\
+To restore a window to its original size,
+select the system button's "Restore" option.\
+\
+SIZING:\
+To size a window using a mouse, position on the border of the
+window so that the cursor changes to a double arrow, and drag the
+mouse.  If the window has an associated system button, you can
+select the "Size" option from the system button and then drag the
+window's border using the arrow keys.\
+\
+--- HELP_HELP
+Using help...
+To access help within the program, either press the help key (see
+Help|Keyboard) or use the Help menu on the Control Window.\
+\
+--- HELP_OBJECTS
+Objects...
+Bignum\
+Bignum is an editable number field that presents and collects
+information for integer and real numbers.  Examples of the
+UIW_BIGNUM object are shown when the "Number window..." option
+is selected.\
+\
+Button\
+Button is a selectable object that relates to a window.  Examples
+of the UIW_BUTTON object are shown anytime a "Window" option is
+selected.\
+\
+Date\
+Date is an editable field that displays and collects date information.
+Examples of the UIW_DATE object are shown when the "Date window..."
+option is selected.\
+\
+Formatted string\
+Formatted string is an editable field that displays and collects
+information requiring a specific format, such as a telephone number.
+Examples of the UIW_FORMATTED_STRING object are shown when the
+"String window..." option is selected.\
+\
+Icon\
+Icon is a bitmap image that is displayed on the screen in graphics
+mode.  The icon includes an optional string field below the bitmap,
+which can be displayed in text mode when the bitmap image does not
+appear.  Examples of the UIW_ICON object are shown when the "Icon
+window..." option is selected.\
+\
+Integer\
+Integer is an editable number field that presents and collects
+information for integer numbers.\
+\
+Prompt\
+Prompt is a field that provides lead information for another field.
+Examples of the UIW_PROMPT object are shown when any of the "Window"
+options is selected.\
+\
+Pull-down menu\
+Pull-down menu is an object used to display selectable menu items that
+appear in a single horizontal line.  It automatically occupies the length
+of the top portion of the window to which it is attached.  An example
+of the UIW_PULL_DOWN_MENU object is shown when the "Menu window..."
+option is selected.\
+\
+Real\
+Real is an editable number field that presents and collects
+information for floating point numbers.\
+\
+Scroll bar\
+Scroll bar object is used to scroll through information contained
+in text or list fields.  Examples of the UIW_SCROLL_BAR object
+are shown when the "Text window..." option is
+selected.\
+\
+String\
+String is a field that presents and collects alphanumeric
+single-line text information.  An example of the UIW_STRING object
+is shown when the "String window..." option is selected.\
+\
+Text\
+Text is a field that presents and collects alphanumeric
+multi-line text information.  An example of the UIW_TEXT object
+is shown when the "Text window..." option is selected.\
+\
+Time\
+Time is a field that displays and collects time information.
+Examples of the UIW_TIME object are shown when the "Time window..."
+option is selected.\
+\
+Window\
+Window is a framework that acts as the main structure for other
+window objects to be displayed.  Examples of the UIW_WINDOW object
+are shown anytime a "Window" option is selected.\
+\

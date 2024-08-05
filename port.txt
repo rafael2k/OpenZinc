@@ -1,0 +1,300 @@
+---------------------------------------------------------------------
+------------- Zinc Application Framework 4.2- PORT.TXT -------------
+----------- COPYRIGHT (C) 1990-1996.  All Rights Reserved -----------
+------- Zinc Software Incorporated.  Pleasant Grove, Utah  USA ------
+---------------------------------------------------------------------
+
+This document explains how to port Zinc Application Framework to an 
+unsupported Motif or Curses environment running on a POSIX system.
+(By 'POSIX system' we mean a computing environment based on a modern 
+UNIX or supporting the POSIX.1 interface.) It explains the shell
+scripts available, some changes you may need to make to the source
+and header files, and some hints that may make porting easier. This 
+document doesn't explain how to install Zinc. For installation
+instructions, see Motif.txt or Curses.txt.
+
+The source code distributed by Zinc compiles and runs on dozens
+of different combinations of hardware, operating systems, and
+GUIS and graphics libraries.  Zinc makes it as simple as possible
+to compile the Zinc library and programs.  But because of the
+diversity of compilers, linkers, and GUI libraries, you usually
+will have to change the source to compile and run Zinc on a new
+system.
+
+Before you can port Zinc to your system, you must know how to use
+the text editors, compilers, linkers, and Motif or Curses header and 
+libraries available on your system.  If you can't compile and run a 
+simple program on your system, you can't port Zinc Application
+Framework.
+
+
+---------------------------------------------------------------------
+---- CONTENTS -------------------------------------------------------
+---------------------------------------------------------------------
+
+This document is divided into the following sections:
+
+     RUNNING INSTALL
+     MODIFYING ui_env.hpp
+     COMPILING
+     HINTS AND GOTCHAS
+
+
+---------------------------------------------------------------------
+---- RUNNING INSTALL ------------------------------------------------
+---------------------------------------------------------------------
+
+Nearly every system that Zinc is compiled on may be configured
+differently. To allow you to specify your configuration, Zinc
+provides a C shell script called INSTALL that configures the Zinc
+Makefiles for your system.  This allows you to specify things like
+the name of your linker or the arguments passed to the compile
+command.  
+     
+To use INSTALL, type:
+
+     INSTALL [-c] [-f] [-g] [-G] [-i] [-n] [-u] [system]
+
+     -c   Configure for Curses instead of the default Motif.
+     -f   Start fresh.  Don't remember settings from the last
+          run.
+     -g   Configure for the Green Hills C++ compiler.
+     -G   Configure for the GNU C++ compiler.
+     -m   Set up for Motif rather than Curses [default].
+     -n   Run noninteractively.  Try this if the script won't
+          run because of a primitive csh, such as SCO's.
+     -u   Configure for Unicode mode.
+
+You can either run INSTALL without specifying a system, or you can
+edit the script and add support for your system.
+
+INSTALL initializes and then lets you modify the values of the
+make variables used by Zinc.  It modifies the files named Makefile
+in and below the current directory. You must run it from the root
+of the Zinc tree.
+
+INSTALL lets you provide values for the following make variables:
+
+     CC
+          
+     Name of the C++ compiler on your system. Usually CC.
+
+
+     LINK
+
+     Name of the linker on your system. Usually CC or ld.
+
+
+     CPP_EXTENSION
+
+     C++ file extension your compiler expects. Usually .cpp, .C,
+     .cc or .cxx.
+
+
+     CC_FLAGS
+
+     Flags in the compile command, such as
+
+          -g -DMY_CPP_MACRO
+
+
+     LINK_FLAGS
+
+     Flags in the link command.
+
+
+     INCLUDE_DIR
+
+     Directories where the preprocessor should search for 
+     include files.  Each should be preceded by -I, such as
+
+          -I/usr/mydir -I/yourdir
+
+     If your preprocessor can't find some of the Zinc header
+     files, such as ui_gen.hpp, add dot to the search path (-I.).
+     If you are compiling for Motif, note that the usual location
+     of the Motif headers is /usr/include/Xm, and X11 and Xt
+     headers are found in /usr/include/X11.  All Zinc references
+     to these files expect Xm and X11 to be either in /usr/include
+     or in a place you specify with this macro.  So if your Motif
+     headers are in /usr/foo/Xm, add
+
+          -I/usr/foo
+
+
+     GUI_LIBS
+
+     Display libraries. In Motif, usually
+
+          -lXm -lXt -lX11
+
+     In Curses, usually
+
+          -lcurses
+
+
+     LIBS
+
+     Libraries other than the display libs that you want linked in.  
+     To link in the libraries libfoo.a and libbar.sl, set LIBS to 
+
+          -lfoo -lbar
+
+
+     LIB_DIRS
+
+     Directories for the libraries specified in LIBS.  For example, 
+     if libXm.a is located in /mylibs, set 
+
+          -L/mylibs
+
+
+     RANLIB
+
+     Make command for those systems that must still run ranlib on
+     their libraries.  The default is blank because most modern
+     archivers don't need ranlib. 
+
+     If your system must run ranlib, set the value of
+     this variable to something like 
+
+          ranlib $@'
+
+
+When you're satisfied with the values of the macros, INSTALL
+will update the makefiles in the current tree with the new values.
+
+If necessary, INSTALL will rename all the source files in the Zinc
+tree so their file extension matches CPP_EXTENSION.
+
+
+---------------------------------------------------------------------
+---- MODIFYING ui_env.hpp -------------------------------------------
+---------------------------------------------------------------------
+
+First, edit Zinc/source/ui_env.hpp.
+
+This file must have an entry for each system Zinc is compiled on.
+Currently, it has entries for several systems, including HP, 
+Sun, IBM, SGI, and SCO.  Every Zinc source and include file includes 
+it. NOTE: Although Zinc distributes this file with an entry
+for many systems, Zinc does not necessarily support that system.  
+
+If ui_env.hpp doesn't contain a section for your system you are
+working on, you must add your own.  In your new section, use
+#if defined(_system_)to specify your system type, where _system_
+is some preprocessor macro predefined for your system. Often, you
+can read the man page for cpp or the C or C++ compiler to learn the 
+correct value for _system_. If you can't find a suitable predefined 
+preprocessor macro, define one yourself by setting CC_FLAGS in
+INSTALL like this:
+
+          CC_FLAGS = -DMY_SYSTEM_TYPE
+
+In the new section for your system, do the following:
+
+     -    #define ZIL_POSIX if your system is a standard Unix or
+          POSIX.1 system.  All calls to an operating-system
+          interface in Zinc are specified per operating system in
+          #if defined statements.  Each of your system's variations
+          from POSIX.1 must have its own #if defined statements.
+
+     -    Ensure that ZIL_BIGENDIAN or ZIL_LITTLEENDIAN is
+          defined correctly for your system's byte-ordering.
+          (Most RISC chips are big-endian, and all Intel chips are
+          little-endian.)  The default value ZIL_LITTLEENDIAN is
+          the default. For big endian systems, use
+    
+               #undef ZIL_LITTLEENDIAN
+    
+          and then use
+    
+               #define ZIL_BIGENDIAN.  
+
+     -    For Motif systems, #define ZIL_LOAD_MOTIF to cause
+          ZIL_MOTIF to be defined as 1001 for Motif 1.1, 1002 for
+          Motif 1.2, etc.  You just define ZIL_LOAD_MOTIF;
+          ZIL_MOTIF will be defined for you.
+
+     -    For Curses systems, specify
+
+               #define ZIL_CURSES
+
+          as well as
+    
+               #include <curses.h>
+     
+
+---------------------------------------------------------------------
+---- COMPILING ------------------------------------------------------
+---------------------------------------------------------------------
+
+Now that your makefiles are configured and you've added a section to 
+ui_env.hpp, you're ready to compile. Type
+
+     cd source; make
+
+Expect to find a few problems. The simplest approach to fixing them 
+is to fix the problems as they occur.  Remember to "#if def" your
+changes to the Zinc source code, so you can still compile on other
+systems.
+
+The following files may need more attention than others:
+
+     z_utime.cpp
+
+     The POSIX time routines don't have time resolutions of less
+     than one second, so they are insufficient for things like
+     timing mouse double clicks.  All systems that have X11, and
+     most others as well, will have the non-POSIX function
+     gettimeofday() available somewhere, even though it may not be
+     in the standard header files. However, you may have to
+     declare it yourself and link in a special library.  If your
+     gettimeofday() doesn't return time zone information, your
+     system should provide another method of doing so.  
+
+
+     m_keybrd.cpp
+
+     In Motif, m_keybrd.cpp sets up a signal handler to trap intr,
+     which is usually ctrl-C.  Signal handling still isn't uniform
+     in the UNIX world, so you may have to modify this file. Figure 
+     out which arguments a signal handler takes, and #define
+     SA_HANDLER_ARGS correctly.
+
+
+     z_stdarg.cpp
+
+     ZIL_STDARG::RearrangeArgs(), a function used by the
+     internationalization routines, changes the order of arguments
+     for localization; this requires access into the va_list
+     structure.  POSIX specifies little about what va_list must
+     do, so there is a section in z_stdarg.cpp that must be changed 
+     for a new system.  To accomplish this, look at your system's
+     stdarg.h header, figure out how the va_list works, and copy and 
+     modify a similar section in z_stdarg.cpp.  If your applications 
+     will run using English only, just comment out the #define
+     ZIL_REARRANGEARGS in ui_env.hpp.
+
+
+---------------------------------------------------------------------
+---- HINTS AND GOTCHAS ----------------------------------------------
+---------------------------------------------------------------------
+
+-    Since Zinc is written in C++, the header files on your system
+     must be compatible with ANSI C and must not use C++ reserved
+     words such as 'class' or 'new' as variable names.  Some old X
+     and Xt headers have problems when compiled with C++.  Although 
+     you can sometimes get such systems to work by editing the header 
+     files and changing the bad names, it maybe simpler to obtain a 
+     more recent release of X and Motif.  
+
+-    Older X, Xt, and Motif headers may have problems with ANSI C
+     prototyping that can be fixed by defining the Motif macro
+     XTFUNCPROTO. For example, use
+
+          #define XTFUNCPROTO
+    
+     in your system's section of ui_env.hpp.
+
+

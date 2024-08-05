@@ -1,0 +1,348 @@
+//	DSPLAY.CPP (DSPLAY) - Example program using UI_DISPLAY.
+//	COPYRIGHT (C) 1990-1995.  All Rights Reserved.
+//	Zinc Software Incorporated.  Pleasant Grove, Utah  USA
+//	May be freely copied, used and distributed.
+
+#define USE_RAW_KEYS
+#include <ui_win.hpp>
+#include "dsplay.hpp"
+
+#if defined(__linux__)
+#		undef trueRegion
+#		define trueRegion OSRegion
+#	endif
+
+#if defined(ZIL_MSDOS)
+#	include <stdio.h>
+#endif
+
+#define EDGE 70
+
+UI_PALETTE rectanglePalette =
+	{ ' ', attrib(BLACK, LIGHTGRAY), attrib(MONO_NORMAL, MONO_BLACK),
+	PTN_INTERLEAVE_FILL, BLACK, BLUE, BW_BLACK, BW_WHITE, GS_BLACK, GS_WHITE };
+UI_PALETTE ellipsePalette =
+	{ ' ', attrib(BLACK, LIGHTGRAY), attrib(MONO_NORMAL, MONO_BLACK),
+	PTN_INTERLEAVE_FILL, RED, YELLOW, BW_BLACK, BW_WHITE, GS_BLACK, GS_WHITE };
+UI_PALETTE polygonPalette =
+	{ ' ', attrib(BLACK, LIGHTGRAY), attrib(MONO_NORMAL, MONO_BLACK),
+	PTN_SOLID_FILL, MAGENTA, BROWN, BW_BLACK, BW_WHITE, GS_BLACK, GS_WHITE };
+UI_PALETTE textPalette =
+	{ ' ', attrib(BLACK, LIGHTGRAY), attrib(MONO_NORMAL, MONO_BLACK),
+	PTN_SOLID_FILL, GREEN, LIGHTRED, BW_BLACK, BW_WHITE, GS_BLACK, GS_WHITE };
+UI_PALETTE linePalette =
+	{ ' ', attrib(BLACK, LIGHTGRAY), attrib(MONO_NORMAL, MONO_BLACK),
+	PTN_INTERLEAVE_FILL, LIGHTGRAY, CYAN, BW_BLACK, BW_WHITE, GS_BLACK, GS_WHITE };
+
+void DrawRectangle(UI_DISPLAY *display, ZIL_SCREENID screenID, UI_REGION &clipRegion)
+{
+	// Top, left.
+	display->Rectangle(screenID, clipRegion.left - EDGE,
+		clipRegion.top - EDGE, clipRegion.left + EDGE,
+		clipRegion.top + EDGE, &rectanglePalette, 1, FALSE, FALSE, &clipRegion);
+
+	// Bottom, left.
+	display->Rectangle(screenID, clipRegion.left - EDGE,
+		clipRegion.bottom - EDGE, clipRegion.left + EDGE,
+		clipRegion.bottom + EDGE, &rectanglePalette, 1, FALSE, FALSE, &clipRegion);
+
+	// Bottom, right.
+	display->Rectangle(screenID, clipRegion.right - EDGE,
+		clipRegion.bottom - EDGE, clipRegion.right + EDGE,
+		clipRegion.bottom + EDGE, &rectanglePalette, 1, FALSE, FALSE, &clipRegion);
+
+	// Top, right.
+	display->Rectangle(screenID, clipRegion.right - EDGE,
+		clipRegion.top - EDGE, clipRegion.right + EDGE,
+		clipRegion.top + EDGE, &rectanglePalette, 1, FALSE, FALSE, &clipRegion);
+
+	// In the middle.
+	display->Rectangle(screenID, clipRegion.left + EDGE,
+		clipRegion.top + EDGE, clipRegion.right - EDGE,
+		clipRegion.bottom - EDGE, &rectanglePalette, 5, FALSE, FALSE, &clipRegion);
+}
+
+void DrawEllipse(UI_DISPLAY *display, ZIL_SCREENID screenID, UI_REGION &clipRegion)
+{
+	// Top, left.
+	display->Ellipse(screenID, clipRegion.left, clipRegion.top,
+		0, 360, EDGE, EDGE, &ellipsePalette, FALSE, FALSE, &clipRegion);
+
+	// Bottom, left.
+	display->Ellipse(screenID, clipRegion.left, clipRegion.bottom,
+		0, 360, EDGE, EDGE, &ellipsePalette, FALSE, FALSE, &clipRegion);
+
+	// Bottom, right.
+	display->Ellipse(screenID, clipRegion.right, clipRegion.bottom,
+		0, 360, EDGE, EDGE, &ellipsePalette, FALSE, FALSE, &clipRegion);
+
+	// Top, right.
+	display->Ellipse(screenID, clipRegion.right, clipRegion.top,
+		0, 360, EDGE, EDGE, &ellipsePalette, FALSE, FALSE, &clipRegion);
+}
+
+void DrawPolygon(UI_DISPLAY *display, ZIL_SCREENID screenID, UI_REGION &clipRegion)
+{
+	int pointsTL[8];	// Un-optimized for HP bug.
+	pointsTL[0] = clipRegion.left + EDGE;
+	pointsTL[1] = clipRegion.top + EDGE;
+	pointsTL[2] = clipRegion.left - EDGE;
+	pointsTL[3] = clipRegion.top;
+	pointsTL[4] = clipRegion.left;
+	pointsTL[5] = clipRegion.top - EDGE;
+	pointsTL[6] = clipRegion.left + EDGE;
+	pointsTL[7] = clipRegion.top + EDGE;
+
+	int pointsBL[8];	// Un-optimized for HP bug.
+	pointsBL[0] = clipRegion.left + EDGE;
+	pointsBL[1] = clipRegion.bottom - EDGE;
+	pointsBL[2] = clipRegion.left - EDGE;
+	pointsBL[3] = clipRegion.bottom;
+	pointsBL[4] = clipRegion.left;
+	pointsBL[5] = clipRegion.bottom + EDGE;
+	pointsBL[6] = clipRegion.left + EDGE;
+	pointsBL[7] = clipRegion.bottom - EDGE;
+
+	int pointsBR[8];	// Un-optimized for HP bug.
+	pointsBR[0] = clipRegion.right - EDGE;
+	pointsBR[1] = clipRegion.bottom - EDGE;
+	pointsBR[2] = clipRegion.right + EDGE;
+	pointsBR[3] = clipRegion.bottom;
+	pointsBR[4] = clipRegion.right;
+	pointsBR[5] = clipRegion.bottom + EDGE;
+	pointsBR[6] = clipRegion.right - EDGE;
+	pointsBR[7] = clipRegion.bottom - EDGE;
+
+	int pointsTR[8];	// Un-optimized for HP bug.
+	pointsTR[0] = clipRegion.right - EDGE;
+	pointsTR[1] = clipRegion.top + EDGE;
+	pointsTR[2] = clipRegion.right + EDGE;
+	pointsTR[3] = clipRegion.top;
+	pointsTR[4] = clipRegion.right;
+	pointsTR[5] = clipRegion.top - EDGE;
+	pointsTR[6] = clipRegion.right - EDGE;
+	pointsTR[7] = clipRegion.top + EDGE;
+
+	// Top, left.
+	display->Polygon(screenID, 4, pointsTL, &polygonPalette, FALSE, FALSE, &clipRegion);
+
+	// Bottom, left.
+	display->Polygon(screenID, 4, pointsBL, &polygonPalette, FALSE, FALSE, &clipRegion);
+
+	// Bottom, right.
+	display->Polygon(screenID, 4, pointsBR, &polygonPalette, FALSE, FALSE, &clipRegion);
+
+	// Top, right.
+	display->Polygon(screenID, 4, pointsTR, &polygonPalette, FALSE, FALSE, &clipRegion);
+}
+
+void DrawBitmap(UI_DISPLAY *display, ZIL_SCREENID screenID, UI_REGION &clipRegion)
+{
+	static ZIL_UINT8 bitmapArray[] =
+	{
+#define _ (ZIL_UINT8)BLACK,
+#define O (ZIL_UINT8)BACKGROUND,
+#define I (ZIL_UINT8)YELLOW,
+		O O O O O O O O O O O O I I I I I I I I O O O O O O O O O O O O
+		O O O O O O O O O I I I I I I I I I I I I I I O O O O O O O O O
+		O O O O O O O I I I I I I I I I I I I I I I I I I O O O O O O O
+		O O O O O O I I I I I I I I I I I I I I I I I I I I O O O O O O
+		O O O O O I I I I I I I I I I I I I I I I I I I I I I O O O O O
+		O O O O I I I I I I I I I I I I I I I I I I I I I I I I O O O O
+		O O O I I I I I I I I I I I I I I I I I I I I I I I I I I O O O
+		O O I I I I I I I I I I I I I I I I I I I I I I I I I I I I O O
+		O O I I I I I I I _ _ _ I I I I I I I I _ _ _ I I I I I I I O O
+		O I I I I I I I _ _ _ _ _ I I I I I I _ _ _ _ _ I I I I I I I O
+		O I I I I I I I _ _ _ _ _ I I I I I I _ _ _ _ _ I I I I I I I O
+		O I I I I I I I _ _ _ _ _ I I I I I I _ _ _ _ _ I I I I I I I O
+		I I I I I I I I I _ _ _ I I I I I I I I _ _ _ I I I I I I I I I
+		I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I
+		I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I
+		I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I
+		I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I
+		I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I
+		I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I I
+		I I I I I _ _ I I I I I I I I I I I I I I I I I I _ _ I I I I I
+		O I I I I _ _ I I I I I I I I I I I I I I I I I I _ _ I I I I O
+		O I I I I _ _ _ I I I I I I I I I I I I I I I I _ _ _ I I I I O
+		O I I I I I _ _ I I I I I I I I I I I I I I I I _ _ I I I I I O
+		O O I I I I _ _ _ I I I I I I I I I I I I I I _ _ _ I I I I O O
+		O O I I I I I _ _ _ _ I I I I I I I I I I _ _ _ _ I I I I I O O
+		O O O I I I I I _ _ _ _ _ _ I I I I I _ _ _ _ _ I I I I I O O O
+		O O O O I I I I I I _ _ _ _ _ _ _ _ _ _ _ _ I I I I I I O O O O
+		O O O O O I I I I I I I I _ _ _ _ _ _ I I I I I I I I O O O O O
+		O O O O O O I I I I I I I I I I I I I I I I I I I I O O O O O O
+		O O O O O O O I I I I I I I I I I I I I I I I I I O O O O O O O
+		O O O O O O O O O I I I I I I I I I I I I I I O O O O O O O O O
+		O O O O O O O O O O O O I I I I I I I I O O O O O O O O O O O O
+#undef _
+#undef O
+#undef I
+	};
+
+	// Top, left.
+	display->Bitmap(screenID, clipRegion.left - 16,
+		clipRegion.top - 16, 32, 32, bitmapArray, ZIL_NULLP(UI_PALETTE),
+		&clipRegion);
+
+	// Bottom, left.
+	display->Bitmap(screenID, clipRegion.left - 16,
+		clipRegion.bottom - 16, 32, 32, bitmapArray, ZIL_NULLP(UI_PALETTE),
+		&clipRegion);
+
+	// Bottom, right.
+	display->Bitmap(screenID, clipRegion.right - 16,
+		clipRegion.bottom - 16, 32, 32, bitmapArray, ZIL_NULLP(UI_PALETTE),
+		&clipRegion);
+
+	// Top, right.
+	display->Bitmap(screenID, clipRegion.right - 16,
+		clipRegion.top - 16, 32, 32, bitmapArray, ZIL_NULLP(UI_PALETTE),
+		&clipRegion);
+
+	// Center.
+	display->Bitmap(screenID, clipRegion.left + (clipRegion.right - clipRegion.left) / 2 - 16,
+		clipRegion.top + (clipRegion.bottom - clipRegion.top) / 2 - 16, 32, 32, bitmapArray);
+}
+
+void DrawAlphabet(UI_DISPLAY *display, ZIL_SCREENID screenID, UI_REGION &clipRegion)
+{
+	char *string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	// Top.
+	display->Text(screenID, clipRegion.left +
+		(clipRegion.right - clipRegion.left - display->TextWidth(string, screenID)) / 2,
+		clipRegion.top - (display->TextHeight(string, screenID) / 2), string,
+		&textPalette, -1, FALSE, FALSE, &clipRegion);
+
+	// Left.
+	display->Text(screenID, clipRegion.left - (display->TextWidth(string, screenID) / 2),
+		clipRegion.top + (clipRegion.bottom - clipRegion.top) / 2 -
+		display->TextHeight(string, screenID) / 2, string,
+		&textPalette, -1, FALSE, FALSE, &clipRegion);
+
+	// Right.
+	display->Text(screenID, clipRegion.right - (display->TextWidth(string, screenID) / 2),
+		clipRegion.top + (clipRegion.bottom - clipRegion.top) / 2 -
+		display->TextHeight(string, screenID) / 2, string,
+		&textPalette, -1, FALSE, FALSE, &clipRegion);
+
+	// Bottom.
+	display->Text(screenID, clipRegion.left +
+		(clipRegion.right - clipRegion.left - display->TextWidth(string, screenID)) / 2,
+		clipRegion.bottom - (display->TextHeight(string, screenID) / 2), string,
+		&textPalette, -1, FALSE, FALSE, &clipRegion);
+}
+
+void DrawLines(UI_DISPLAY *display, ZIL_SCREENID screenID, UI_REGION &clipRegion)
+{
+	// Top, left to bottom, right.
+	display->Line(screenID, clipRegion.left - EDGE,
+		clipRegion.top, clipRegion.right, clipRegion.bottom + EDGE,
+		&linePalette, 1, FALSE, &clipRegion);
+
+	// Bottom, right to top, left.
+	display->Line(screenID, clipRegion.right + EDGE,
+		clipRegion.bottom, clipRegion.left, clipRegion.top - EDGE,
+		&linePalette, 1, FALSE, &clipRegion);
+
+	// Bottom, left to top, right.
+	display->Line(screenID, clipRegion.left - EDGE,
+		clipRegion.bottom, clipRegion.right, clipRegion.top - EDGE,
+		&linePalette, 1, FALSE, &clipRegion);
+
+	// Top, right to bottom, left.
+	display->Line(screenID, clipRegion.right + EDGE,
+		clipRegion.top, clipRegion.left, clipRegion.bottom + EDGE,
+		&linePalette, 1, FALSE, &clipRegion);
+}
+
+DISPLAY_WINDOW::DISPLAY_WINDOW(int left, int top, int width, int height, WOF_FLAGS woFlags)
+	: UIW_WINDOW(left, top, width, height, woFlags, WOAF_NO_FLAGS)
+{
+	woStatus |= WOS_OWNERDRAW;
+	woAdvancedFlags |= WOAF_NON_CURRENT;
+}
+
+EVENT_TYPE DISPLAY_WINDOW::DrawItem(const UI_EVENT &event, EVENT_TYPE ccode)
+{
+	UIW_WINDOW::DrawItem(event, ccode);
+
+	UI_REGION drawRegion = trueRegion;
+	display->VirtualGet(screenID, drawRegion);
+
+	// Draw a clipped rectangle.
+	DrawRectangle(display, screenID, drawRegion);
+
+	// Draw a clipped ellipse.
+	DrawEllipse(display, screenID, drawRegion);
+
+	// Draw a clipped polygon.
+	DrawPolygon(display, screenID, drawRegion);
+
+	// Draw clipped bitmaps.
+	DrawBitmap(display, screenID, drawRegion);
+
+	// Draw clipped text.
+	DrawAlphabet(display, screenID, drawRegion);
+
+	// Draw clipped lines.
+	DrawLines(display, screenID, drawRegion);
+
+	// Draw the border on the window.
+	if (FlagSet(woFlags, WOF_BORDER))
+	{
+		lastPalette = LogicalPalette(ccode);
+		UI_REGION region = trueRegion;
+		DrawBorder(screenID, region, FALSE, ccode);
+	}
+	woStatus &= ~WOS_REDISPLAY;
+
+	display->VirtualPut(screenID);
+	return (TRUE);
+}
+
+int UI_APPLICATION::Main(void)
+{
+	// The UI_APPLICATION constructor automatically initializes the 
+	// display, eventManager, and windowManager variables.
+
+	// This line fixes linkers that don't look for main in the .LIBs.
+	UI_APPLICATION::LinkMain();
+
+	// Check for graphics display.
+#if defined(ZIL_MSDOS) || defined(ZIL_CURSES)
+	if (display->isText)
+	{
+		delete windowManager; windowManager = ZIL_NULLP(UI_WINDOW_MANAGER);
+		delete eventManager; eventManager = ZIL_NULLP(UI_EVENT_MANAGER);
+		delete display; display = ZIL_NULLP(UI_DISPLAY);
+		printf("ERROR: Initialization of the graphics display failed.\n");
+		return (0);
+	}
+#endif
+
+	// Create the main window.
+	UIW_WINDOW *mainWindow = new UIW_WINDOW(5, 1, 70, 12, WOF_NO_FLAGS, WOAF_NO_SIZE,
+		NO_HELP_CONTEXT);
+
+	*mainWindow
+		+ new UIW_BORDER
+		+ new UIW_MINIMIZE_BUTTON
+		+ new UIW_SYSTEM_BUTTON(SYF_GENERIC)
+		+ new UIW_TITLE("DISPLAY");
+
+	// Create a drawing area and add it to the main window.
+	UI_WINDOW_OBJECT *clipWindow = new DISPLAY_WINDOW(10, 2, 48, 8, WOF_BORDER);
+	*mainWindow
+		+ clipWindow;
+
+	// Put main window on the display.
+	windowManager->Center(mainWindow);
+	*windowManager
+		+ mainWindow;
+
+	// Process user responses.
+	UI_APPLICATION::Control();
+
+	return (0);
+}

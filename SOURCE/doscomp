@@ -1,0 +1,244 @@
+WATCOM Make Version 10.6
+Copyright by WATCOM International Corp. 1988, 1996. All rights reserved.
+WATCOM is a trademark of WATCOM International Corp.
+	copy ui_*.hpp ..\include
+UI_DSP.HPP
+UI_ENV.HPP
+UI_EVT.HPP
+UI_GEN.HPP
+UI_MAP.HPP
+UI_WIN.HPP
+        6 file(s) copied.
+	copy z_clean.* ..\bin
+Z_CLEAN.BAT
+Z_CLEAN.CMD
+        2 file(s) copied.
+	wlink SYSTEM dos4g OP stack=20000 DISA 1124 N test32 F test.o32  L d32_zil,d32_wcc
+WATCOM Linker Version 10.6
+Copyright by WATCOM International Corp. 1985, 1996. All rights reserved.
+WATCOM is a trademark of WATCOM International Corp.
+loading object files
+searching libraries
+Warning(1028): __wcpp_2_undef_vfun__ is an undefined reference
+Warning(1028): __wcpp_2_undefed_cdtor__ is an undefined reference
+Warning(1028): __wcpp_2_dtor_array_store__ is an undefined reference
+Warning(1028): __wcpp_2_pure_error__ is an undefined reference
+Warning(1028): __wcpp_2_ctor_array_storage_g__ is an undefined reference
+Warning(1028): __wcpp_2_lcl_register__ is an undefined reference
+Warning(1028): ___wcpp_2_data_module_dtor_ref_ is an undefined reference
+Warning(1028): __wcpp_2_mod_register__ is an undefined reference
+creating a DOS/4G executable
+file test.o32(C:\Z421w106\SOURCE\test.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_wcc.lib(C:\Z421w106\SOURCE\z_app.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_wcc.lib(C:\Z421w106\SOURCE\z_app.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_wcc.lib(C:\Z421w106\SOURCE\z_app.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_wcc.lib(C:\Z421w106\SOURCE\z_app.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_win1.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_win1.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_win1.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_win1.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_win1.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_text.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_text.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_text.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_text.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_title.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_title.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_title.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_title.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_sys.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_sys.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_sys.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_sys.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_sys.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_min.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_min.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_min.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_min.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_max.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_max.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_max.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_max.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_border.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_border.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_border.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_border.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_border.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_intl.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_intl.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_intl.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\i_map.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\i_map.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\i_map.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\i_map.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_list.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_list.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_list.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_list.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_list.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_list.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_list.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_list.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_path.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_path.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_path.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_path.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_path.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_path.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_tdsp.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_tdsp.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_tdsp.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_tdsp.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_tdsp.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_wcc.lib(C:\Z421w106\SOURCE\d_wccdsp.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_wcc.lib(C:\Z421w106\SOURCE\d_wccdsp.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_wcc.lib(C:\Z421w106\SOURCE\d_wccdsp.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_wcc.lib(C:\Z421w106\SOURCE\d_wccdsp.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_wcc.lib(C:\Z421w106\SOURCE\d_wccdsp.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_event.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_event.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_event.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_event.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_event.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_event.cpp): undefined symbol __wcpp_2_pure_error__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_event.cpp): undefined symbol __wcpp_2_pure_error__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_event.cpp): undefined symbol __wcpp_2_pure_error__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_event.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_event.cpp): undefined symbol __wcpp_2_ctor_array_storage_g__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_cursor.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_cursor.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_cursor.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_cursor.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_cursor.cpp): undefined symbol __wcpp_2_pure_error__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_cursor.cpp): undefined symbol __wcpp_2_pure_error__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_cursor.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_cursor.cpp): undefined symbol __wcpp_2_lcl_register__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_cursor.cpp): undefined symbol ___wcpp_2_data_module_dtor_ref_
+file d32_zil.lib(C:\Z421w106\SOURCE\d_mouse.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_mouse.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_mouse.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_mouse.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_mouse.cpp): undefined symbol __wcpp_2_pure_error__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_mouse.cpp): undefined symbol __wcpp_2_pure_error__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_mouse.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_keybrd.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_keybrd.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_keybrd.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_keybrd.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_keybrd.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_win.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_win.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_win.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_win.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_win2.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_win2.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_win2.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_win2.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_region.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_region.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_region.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_region.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_region.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_win1.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_win1.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_storew.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_storew.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_storew.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_storew.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_storew.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_storer.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_storer.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_storer.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_storer.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_storer.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_storer.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_lang.cpp): undefined symbol __wcpp_2_mod_register__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_lang.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_lang.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_lang.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_lang.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_lang.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_lang.cpp): undefined symbol ___wcpp_2_data_module_dtor_ref_
+file d32_zil.lib(C:\Z421w106\SOURCE\z_i18n.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_i18n.cpp): undefined symbol __wcpp_2_pure_error__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_i18n.cpp): undefined symbol __wcpp_2_pure_error__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_i18n.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_i18n.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_i18n.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_text.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_button.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_button.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_button.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_button.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_button.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_button.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_button.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_button.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_button.cpp): undefined symbol __wcpp_2_lcl_register__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_button.cpp): undefined symbol ___wcpp_2_data_module_dtor_ref_
+file d32_zil.lib(C:\Z421w106\SOURCE\d_title.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_title.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_title.cpp): undefined symbol __wcpp_2_lcl_register__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_title.cpp): undefined symbol ___wcpp_2_data_module_dtor_ref_
+file d32_zil.lib(C:\Z421w106\SOURCE\d_popup.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_popup.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_popup.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_popup.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_popup.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_popup1.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_popup1.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_popup1.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_popup1.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_sys.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_sys.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_sys.cpp): undefined symbol __wcpp_2_lcl_register__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_sys.cpp): undefined symbol ___wcpp_2_data_module_dtor_ref_
+file d32_zil.lib(C:\Z421w106\SOURCE\z_decor.cpp): undefined symbol __wcpp_2_mod_register__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_decor.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_decor.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_decor.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_decor.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_decor.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_decor.cpp): undefined symbol ___wcpp_2_data_module_dtor_ref_
+file d32_zil.lib(C:\Z421w106\SOURCE\d_min.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_max.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_border.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_locale.cpp): undefined symbol __wcpp_2_mod_register__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_locale.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_locale.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_locale.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_locale.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_locale.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_locale.cpp): undefined symbol ___wcpp_2_data_module_dtor_ref_
+file d32_zil.lib(C:\Z421w106\SOURCE\z_dsp.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_dsp.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_dsp.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_dsp.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_device.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_device.cpp): undefined symbol __wcpp_2_pure_error__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_device.cpp): undefined symbol __wcpp_2_pure_error__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_device.cpp): undefined symbol __wcpp_2_pure_error__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_list1.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_list1.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_list1.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_list1.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_utime.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_utime.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_win.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_win.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_win2.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_win2.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_win2.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_win2.cpp): undefined symbol __wcpp_2_lcl_register__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_win2.cpp): undefined symbol ___wcpp_2_data_module_dtor_ref_
+file d32_zil.lib(C:\Z421w106\SOURCE\z_icon.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_icon.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_icon.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_icon.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_icon.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\z_icon.cpp): undefined symbol __wcpp_2_dtor_array_store__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_popup1.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_icon.cpp): undefined symbol __wcpp_2_undefed_cdtor__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_icon.cpp): undefined symbol __wcpp_2_undef_vfun__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_icon.cpp): undefined symbol __wcpp_2_lcl_register__
+file d32_zil.lib(C:\Z421w106\SOURCE\d_icon.cpp): undefined symbol ___wcpp_2_data_module_dtor_ref_

@@ -1,0 +1,102 @@
+---------------------------------------------------------------------
+------------ Zinc Application Framework 4.2 - DOS16M.TXT ------------
+----------- COPYRIGHT (C) 1990-1996.  All Rights Reserved. ----------
+------ Zinc Software Incorporated.  Pleasant Grove, Utah  USA -------
+---------------------------------------------------------------------
+
+This file describes how to use the Rational DOS16M DOS extender with
+Zinc Application Framework 4.2.
+
+---------------------------------------------------------------------
+---- CONTENTS -------------------------------------------------------
+---------------------------------------------------------------------
+
+This document is divided into the following sections:
+ 
+     BORLAND 4.0, 4.5
+     MICROSOFT VISUAL C++ 1.5
+     SYMANTEC C++ 6.1
+
+
+---------------------------------------------------------------------
+---- BORLAND 4.0, BORLAND 4.5 ---------------------------------------
+---------------------------------------------------------------------
+
+At the time of this release, Rational DOS16M did not yet support
+Borland 4.5.  Results with this version of the compiler may therefore
+be unpredictable.
+
+To use the Rational DOS16M DOS extender with Borland, do the 
+following:
+
+1) Update your path environment variable.  Your DOS16M\BIN
+directory needs to be in the path.
+
+2) Update your Borland TURBOC.CFG and TLINK.CFG files.  The
+DOS16M\INCLUDE path needs to be in the TURBOC.CFG Include section,
+and the DOS16M\LIB and DOS16M\LIB\BCC40 path needs to be in the
+TURBOC.CFG and TLINK.CFG Library sections.
+
+3) Build the libraries by using one of these command lines
+from the \ZINC\SOURCE directory:
+    make -fbtcpp400.mak -DRATIONAL16 dos16
+    make -fbtcpp450.mak -DRATIONAL16 dos16
+
+4) When linking, you may get the error 
+    bcc40c0l.obj not found  
+
+To fix this, edit the makefile to change the path of where
+the file is located, or copy this file into the directory
+\DOS16M\LIB\BCC40\, which is where the makefile looks for this file.
+
+5) After linking, splice the .exe file.  There is a BD16M.BAT
+file in the ZINC\BIN directory to make this step easier.
+This file contains a path to a DOS16M\BIN directory.  Edit this to
+be the full path of your DOS16M\BIN location.  Once the file is
+updated, then any program can be spliced by typing BD16M <fileName>. 
+This will take the .exe file, splice in the loader, mouse, and emu87
+packages and create a DOS executable.
+
+6) When using BTCPP400.MAK or BTCPP450.MAK to build example
+and tutorial programs, follow the above steps.
+
+---------------------------------------------------------------------
+---- MICROSOFT VISUAL C++ 1.5 ---------------------------------------
+---------------------------------------------------------------------
+
+1) Update your path environment variable.  Your DOS16M\BIN
+directory needs to be in the path.
+
+2) Update your INCLUDE and LIB environment variables. The
+DOS16M\INCLUDE path needs to be in the INCLUDE variable and the
+DOS16M\LIB and DOS16M\LIB\MSC80 paths need to be in the LIB variable.
+
+3) Build the libraries by using one of these command lines
+from the \ZINC\SOURCE directory:
+    nmake "RATIONAL16=" -fmvcpp150.mak dos16
+
+4) After linking, splice the .exe file.  Do this by typing
+    splice <exefile>
+
+8)  When using MVCPP150.MAK to build example and tutorial programs,
+you'll need to edit the file similar to step 3.  By default, the
+16-bit makefile options are set up to use Pharlap.
+
+---------------------------------------------------------------------
+---- SYMANTEC C++ 6.1 -----------------------------------------------
+---------------------------------------------------------------------
+
+1) Update your path environment variable.  Your DOS16M\BIN
+directory needs to be in the path.
+
+2) Update your INCLUDE and LIB environment variables. The
+DOS16M\INCLUDE path needs to be in the INCLUDE variable and the
+DOS16M\LIB and DOS16M\LIB\SCC61 paths need to be in the LIB variable.
+
+3) Build the libraries by typing
+    make -f sccpp610.mak dos16.
+
+4) After linking, splice the .exe file.  Do this by typing
+    splice <exefile>
+
+

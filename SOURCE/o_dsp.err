@@ -1,0 +1,2 @@
+o_dsp.cpp(568): Error! E715: col(15) member 'xHotspot' has not been declared in '_POINTERINFO'
+o_dsp.cpp(569): Error! E715: col(15) member 'yHotspot' has not been declared in '_POINTERINFO'

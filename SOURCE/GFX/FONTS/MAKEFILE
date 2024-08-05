@@ -1,0 +1,16 @@
+all:
+	@echo "Make the GFX library by changing into either the"
+	@echo "build directory (for normal DOS libraries) or into"
+	@echo "the build16 directory (for 16bit extender libraries)"
+	@echo "and typing bldgfx{16} borlandc large pasm2."
+	@echo "Type bldgfx{16} to see other options."
+
+fonts:
+	\zil350\utils\bgi2gfx iso_dial
+	\zil350\utils\bgi2gfx iso_syst
+	\zil350\utils\bgi2gfx iso_smal
+	\zil350\utils\bgi2gfx oem_dial
+	\zil350\utils\bgi2gfx oem_syst
+	\zil350\utils\bgi2gfx oem_smal
+	copy *.cpp ..
+	@del *.cpp

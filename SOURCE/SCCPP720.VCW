@@ -1,0 +1,11 @@
+[MSVC Status File]
+Version=1.00
+ProjectType=10
+External=1
+DebugBuildCmd=NMAKE /f SCCPP720.MAK
+ReleaseBuildCmd=NMAKE /f SCCPP720.MAK
+RebuildOption=/a
+BuildMode=1
+TargetName=C:\Z421SC7\SOURCE\SCCPP720.EXE
+BrkptCount=0
+WatchCount=0

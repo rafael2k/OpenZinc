@@ -1,0 +1,31 @@
+all: dos dos16 dos32
+
+dos dos16: bcgfxasm.lib msgfxasm.lib ztgfxasm.lib
+
+bcgfxasm.lib: gfxasm.asm ez_asm.mac gfx_asm.mac turbo_c.mac bcgfxasm.brk
+	-del bcgfxasm.lib
+	breakout bcgfxasm.brk
+	-del bcgfxasm.bak
+
+msgfxasm.lib: gfxasm.asm ez_asm.mac gfx_asm.mac msc.mac newmsc.brk
+	-del msgfxasm.lib
+	breakout newmsc.brk
+	-del msgfxasm.bak
+
+ztgfxasm.lib: gfxasm.asm ez_asm.mac gfx_asm.mac msc.mac newztc.brk
+	-del ztgfxasm.lib
+	breakout newztc.brk
+	-del ztgfxasm.bak
+
+dos32: ztgfxa32.lib wcgfxa32.lib
+
+ztgfxa32.lib: gfxasm32.asm ez_asm32.mac gfx_asm3.mac ztc32.mac ztgfxa32.brk
+	-del ztgfxa32.lib
+	breakout ztgfxa32.brk
+	-del ztgfxa32.bak
+
+wcgfxa32.lib: gfxasm32.asm ez_asm32.mac gfx_asm3.mac wc32.mac wcgfxa32.brk
+	-del wcgfxa32.lib
+	breakout wcgfxa32.brk
+	-del wcgfxa32.bak
+

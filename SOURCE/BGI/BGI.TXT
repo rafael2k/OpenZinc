@@ -1,0 +1,30 @@
+---------------------------------------------------------------------
+-------------- Zinc Application Framework 4.0 - BGI.TXT -------------
+----------- COPYRIGHT (C) 1990-1995.  All Rights Reserved. ----------
+------ Zinc Software Incorporated.  Pleasant Grove, Utah  USA -------
+---------------------------------------------------------------------
+
+Included in this directory are upgraded fonts for use with Zinc
+Application Framework 4.0 and the UI_BGI_DISPLAY class.  These are
+stroked fonts that have been created by Zinc Software Incorporated.
+This version includes the European extended ASCII character set (code
+page 437 only) and have been tested with Zinc Application Framework 
+4.0.  These fonts are included in DOS_BGI.LIB
+
+You can use the Borland font editor FE.EXE (available on CompuServe 
+or from Borland) to edit the fonts.  Be aware, however, that some 
+versions of the font editor do NOT work correctly.  To avoid 
+problems, rename DIALOG.CHR to TRIP.CHR, SYSTEM.CHR to SANS.CHR, and 
+SMALL.CHR to LITT.CHR while editing and then rename them back.  Also, 
+sometimes the font editor may move the font position down slightly.  
+This can be corrected by sizing character the "E with a hat"
+character to a smaller size.
+
+To convert the CHR files to OBJ files use the following lines:
+    bgiobj /f system.chr system.obj _SystemFont
+    bgiobj /f dialog.chr dialog.obj _DialogFont
+    bgiobj /f small.chr small.obj _SmallFont
+
+If you have any questions or problems with the fonts please contact
+Zinc Technical Support at (801) 785-8998 or leave a message on the
+BBS at (801) 785-8997.

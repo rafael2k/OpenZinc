@@ -1,0 +1,130 @@
+---------------------------------------------------------------------
+------------ Zinc Application Framework 4.2 - UPGRADE.TXT -----------
+----------- COPYRIGHT (C) 1990-1996.  All Rights Reserved. ----------
+------ Zinc Software Incorporated.  Pleasant Grove, Utah  USA -------
+---------------------------------------------------------------------
+
+Welcome to Zinc Application Framework 4.2!  This file contains
+information about items that have been fixed or changed in Zinc 4.2.
+
+
+---------------------------------------------------------------------
+
+Fix: 3-D Controls now work in Windows, Windows NT, Windows 95 and
+Win32s regardless of which versions of ctl3dv2.dll and ctl3d32.dll
+are installed.
+
+---------------------------------------------------------------------
+
+Fix: If a derived object has been stored to a .DAT file, and the .DAT
+file is later opened, other objects of the same type can now be given
+the same derived name.
+
+---------------------------------------------------------------------
+
+Fix: Macintosh Zinc applications used to randomly lock up when switching
+between applications.  This was due to a problem in the Macintosh
+API.  This has been worked around. 
+
+---------------------------------------------------------------------
+
+Fix: Geometry management previously didn't work in groups on Windows
+95. 
+
+---------------------------------------------------------------------
+
+Fix: In Windows the first table record of a table is now initialized
+with meaningful data.
+
+---------------------------------------------------------------------
+
+Fix: Text objects larger than 256 bytes used to cause a GPF in
+Windows.
+
+---------------------------------------------------------------------
+
+Fix: Pop up menus no longer lock up the application in Windows if
+they are added directly to the window manager.
+
+---------------------------------------------------------------------
+
+Change: Removed field validation forcing an invalid field to remain
+current.
+
+---------------------------------------------------------------------
+
+Fix: In OS/2 icons used to display incorrectly if the screen
+resolution was greater than 800 x 600.
+
+---------------------------------------------------------------------
+
+Fix: In Motif Non-selectable buttons used to change the display to
+draw stippled and not restore the correct drawing style.
+
+---------------------------------------------------------------------
+
+Fix: The L_VIEW message now moves through the system correctly on the
+Macintosh.
+
+---------------------------------------------------------------------
+
+Fix: The L_CONTINUE_SELECT message is now handled correctly on the
+Macintosh.
+
+---------------------------------------------------------------------
+
+Fix: Drag and Drop now works correctly for MDI applications on the
+Macintosh.
+
+---------------------------------------------------------------------
+
+Fix: The table object now scrolls by records instead of by pixels on
+the Macintosh if the record's height is less than the height of the
+client region for the table.
+
+---------------------------------------------------------------------
+
+Fix: Clicking on the last record in a table used to not select that
+item.  It would instead scroll to the top of the table in Windows,
+and on the Macintosh.
+
+---------------------------------------------------------------------
+
+Change: Support has been added for the Microsoft Visual C++ 4.0 and
+the Borland 5.0 compilers.
+
+---------------------------------------------------------------------
+
+Fix: Added the capability for an item in a vertical list to be
+shorter than a cellheight for Windows 95.
+
+---------------------------------------------------------------------
+
+Change: It is now possible to compile the DOS library for Borland
+without having to have TASM.
+
+---------------------------------------------------------------------
+
+Fix: In Windows Notebooks used to beep when a hotkey was pressed that
+was associated with one of the notebook tabs that was used.
+
+---------------------------------------------------------------------
+
+Fix: Windows used to activate the current item of a group that was
+scrolled into view.
+
+---------------------------------------------------------------------
+
+Fix: Removed a memory leak in Motif associated with font tables. 
+This requires an updated ZincApp file (included with this distribution)
+to take advantage of the fix.
+
+---------------------------------------------------------------------
+
+Fix: Cleared the highlight from an editable field when it loses
+focus.
+
+---------------------------------------------------------------------
+
+Change: Brought the INSTALL script up to date with Zinc 4.2.
+

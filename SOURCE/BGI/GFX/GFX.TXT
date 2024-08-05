@@ -1,0 +1,20 @@
+---------------------------------------------------------------------
+-------------- Zinc Application Framework 4.0 - GFX.TXT -------------
+----------- COPYRIGHT (C) 1990-1995.  All Rights Reserved. ----------
+------ Zinc Software Incorporated.  Pleasant Grove, Utah  USA -------
+---------------------------------------------------------------------
+
+Included in this directory are fonts for use with Zinc Application
+Framework 4.0 and the UI_GRAPHICS_DISPLAY class.  These are bitmapped
+fonts that have been created by Zinc Software Incorporated.  This
+version includes the ISO 8859-1 extended ASCII character set and
+a set of fonts based on IBM's code page 437 only and have been tested
+with Zinc Application Framework 4.0.  The ISO fonts are included in
+DOS_GFX.LIB
+
+If you choose to modify the .CPP files they may be compiled normally
+and linked directly into your application.
+
+If you have any questions or problems with the fonts please contact
+Zinc Technical Support at (801) 785-8998 or leave a message on the
+BBS at (801) 785-8997.

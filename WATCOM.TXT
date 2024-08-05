@@ -1,0 +1,93 @@
+---------------------------------------------------------------------
+------------ Zinc Application Framework 4.2 - WATCOM.TXT ------------
+----------- COPYRIGHT (C) 1990-1996.  All Rights Reserved. ----------
+------ Zinc Software Incorporated.  Pleasant Grove, Utah  USA -------
+---------------------------------------------------------------------
+
+This file describes how to build the libraries with the Watcom
+compilers.
+
+---------------------------------------------------------------------
+---- CONTENTS -------------------------------------------------------
+---------------------------------------------------------------------
+
+This document is divided into the following sections:
+
+     SETTING UP THE ENVIRONMENT
+     BUILDING THE LIBRARY
+     BUILDING THE DESIGNER
+
+
+---------------------------------------------------------------------
+---- SETTING UP THE ENVIRONMENT -------------------------------------
+---------------------------------------------------------------------
+
+At this time, we do not ship pre-compiled libraries for Watcom with
+some environments. Therefore, you must compile the libraries
+yourself.  We provide makefiles for the library, Designer, and
+example and tutorial programs.
+
+We assume you are familiar with the Watcom compiler and have already
+installed it.  After installing Zinc, you must update several
+environment variables that Watcom uses to locate files.  A typical
+setup would look like this:
+
+REM Windows and DOS
+SET INCLUDE=c:\wc10\H;c:\wc10\H\win;c:\zinc\include
+SET LIB=c:\wc10\lib386;c:\wc10\lib386\dos;c:\wc10\lib386\win;
+        c:\zinc\lib\wccppNNN
+SET WATCOM=c:\wc10
+
+The makefiles (WCCPPNNN.MAK) describe the setup required for each
+environment (e.g., OS/2, DESQview X, etc.).  In this article the NNN
+in wccppNNN refers to the version of watcom you are using.  For
+instance, for version 10.5 NNN would be 105 and 10.0 would be 100.
+
+Also, you must have some Watcom bin directories in your path.
+Typically, the WC10\BIN and WC10\BINB directories must be in your
+path.
+
+In order to compile for DESQview X, you must use Watcom C++ 10.0a.
+
+For more details on setting up the environment variables for the
+Watcom compiler see your Watcom C/C++ User's Guide.
+
+
+---------------------------------------------------------------------
+---- BUILDING THE LIBRARY -------------------------------------------
+---------------------------------------------------------------------
+
+To build the library, simply change directories to the ZINC\SOURCE
+directory and type
+
+	wmake -f wccppNNN.mak <target>
+
+where <target> is the target environment.  <target> can be dos32,
+windows, winnt, os2, or dvx.
+
+When the library has been built it will automatically be copied to
+your ZINC\LIB\WCCPPNNN directory.
+
+
+---------------------------------------------------------------------
+---- BUILDING THE DESIGNER ------------------------------------------
+---------------------------------------------------------------------
+
+To build the Designer, simply change directories to the ZINC\DESIGN
+directory and type
+
+	wmake -f wccppNNN.mak <target>
+
+where <target> is the target environment.  <target> can be dos32,
+windows, winnt, os2, or dvx.
+
+When the Designer has been built it will automatically be copied to
+your ZINC\BIN directory.
+
+You can also build each Designer component individually, if desired.
+To do this, change directories to the ZINC\DESIGN\<component>
+directory and type
+
+	wmake -f wccppNNN.mak <target>
+
+A separate executable will be built.

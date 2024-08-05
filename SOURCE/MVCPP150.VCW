@@ -1,0 +1,11 @@
+[MSVC Status File]
+Version=1.00
+ProjectType=10
+External=1
+DebugBuildCmd=NMAKE /f MVCPP150.MAK
+ReleaseBuildCmd=NMAKE /f MVCPP150.MAK
+RebuildOption=/a
+BuildMode=1
+TargetName=C:\OPENZINC\SOURCE\MVCPP150.EXE
+BrkptCount=0
+WatchCount=0

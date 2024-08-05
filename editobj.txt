@@ -1,0 +1,113 @@
+To:   Jack Hume, JackHume
+From: INTERNET:tech@zinc.com, INTERNET:tech@zinc.com
+Date: 12/1/97,  5:51 PM
+Re:   Re: Editable window objects
+ 
+ 
+Sender: tech@platinum.zinc.com
+Received: from platinum.zinc.com (platinum.zinc.com [198.60.40.78])
+        by hil-img-9.compuserve.com (8.8.6/8.8.6/2.9) with ESMTP id RAA18139
+        for <JackHume@compuserve.com>; Mon, 1 Dec 1997 17:51:35 -0500 (EST)
+Received: from promethium (promethium.zinc.com [198.60.40.61]) by platinum.zinc.com (8.7.4/8.7.3) with ESMTP id PAA06311; Mon, 1 Dec 1997 15:55:01 -0700 (MST)
+Message-ID: <34834003.C4647C79@zinc.com>
+Date: Mon, 01 Dec 1997 15:53:56 -0700
+From: Technical Support <tech@zinc.com>
+Reply-To: tech@zinc.com
+Organization: Zinc Software
+X-Mailer: Mozilla 4.01 [en] (WinNT; I)
+MIME-Version: 1.0
+To: Jack Hume <JackHume@compuserve.com>
+Subject: Re: Editable window objects
+X-Priority: 3 (Normal)
+References: <199711240913_MC2-2963-FF3D@compuserve.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+ 
+Jack Hume wrote:
+ 
+> I am presently developing with Zinc 4.2 although I have purchased Zinc
+> 5.0.
+> I have been a CAP customer since 4.x.  I am puzzled by the behavior of
+>
+> editable controls( i.e. UIW_STRING, UIW_TEXT ect) when trying to edit
+> previously filled controls. If I mouse click on a filled control I
+> can't
+> add to the length of the text even though the maximum length may be
+> much
+> greater than the current text. When tabbing into the control I can
+> replace
+> text up to the maximum length but again if I try to edit it I can not
+> increase the length beyond what is already there. Am I missing
+> something
+> here? Thanks for your help.
+ 
+What's probably going on is if you have done a DataSet with only a
+pointerto the new text, not including the size in the call to DataSet,
+then the maxlength
+is probably set to the length of the text that was set.
+ 
+You should be able to verify this by calling DataSet with two
+parameters, text
+and lenght:
+ 
+        string->DataSet(newText, LONG_LENGTH);
+ 
+The function is located in Z_STRING.CPP for the UIW_STRING and
+Z_TEXT.CPP for the UIW_TEXT.
+ 
+ 
+If you are on CAP (I can't verify that here) then please note the
+signature
+below.
+ 
+ 
+>
+>
+> Jack
+>
+> Eclectic Software Inc.
+> SN 003-500-58907
+>        013-500-50219
+>        023-500-46641
+>        033-500-30988
+>        043-500-36871
+ 
+ 
+ 
+ 
+ 
+Brian Christiansen
+Zinc Technical Support
+--
+NOTE: If you are a current CAP member, please send your technical
+support requests to "capsupport@zinc.com" for HIGHER PRIORITY. (Please
+include your ZAF Shared Code serial number for CAP member verification).
+ 
+If you are a ZAF Professional Version user but do not have CAP, please
+continue to send your technical support requests to "support@zinc.com"
+and we will address them as time permits. (Please include your ZAF
+Shared Code serial number for Professional Version user verification).
+ 
+If you are a ZAF Personal Version user and have an installation
+question, please send your request to "support@zinc.com". Non-
+installation technical support requests are handled via Zinc public
+forums or by Zinc directly on a fee-based per incident basis.
+ 
+Zinc Technical Support                  Zinc Software Incorporated
+mailto:support@zinc.com                 Phone: 1.801.785.8998
+http://www.zinc.com/                    Fax: 1.801.785.8996
+ 
+ZINC TECHNICAL SUPPORT SPECIALS:
+- New ZAF 5 Training Courses (see our web site for details):
+    ZAF 5 Basic Training (5 days)
+    ZAF 5 Advanced Training (4 days plus 1 project day)
+    ZAF 5 for ZAF 4 Users (4 days plus 1 project day)
+ 
+- C++ Video Training Courses
+    Standard Course ($300): 12 hours plus workbook and diskette.
+    Advanced Course ($150): 8 hours plus STL source code on disk.
+ 
+For more information, contact the Zinc office nearest you or send
+mailto:sales@zinc.com
+ 
+ 

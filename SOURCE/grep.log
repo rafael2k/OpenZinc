@@ -1,0 +1,21 @@
+File UI_DSP.HPP:
+        static POSTSCRIPTFONT psFontTable[ZIL_MAXFONTS];
+File G_DSP.CPP:
+UI_PRINTER::POSTSCRIPTFONT UI_PRINTER::psFontTable[ZIL_MAXFONTS] =
+File D_PRINT.CPP:
+                        x, y,   psFontTable[font].typeFace, psFontTable[font].pointSize);
+                return psFontTable[font].pointSize;
+                        x, y,   psFontTable[font].typeFace, psFontTable[font].pointSize);
+        return psFontTable[font].pointSize;
+File W_PRINT.CPP:
+                        x, y,   psFontTable[font].typeFace, psFontTable[font].pointSize);
+                height = psFontTable[font].pointSize;
+File 3_PRINT.CPP:
+                        x, y,   psFontTable[font].typeFace, psFontTable[font].pointSize);
+                height = psFontTable[font].pointSize;
+File 9_PRINT.CPP:
+                        x, y,   psFontTable[font].typeFace, psFontTable[font].pointSize);
+                height = psFontTable[font].pointSize;
+File O_PRINT.CPP:
+                        x, y,   psFontTable[font].typeFace, psFontTable[font].pointSize);
+                height = psFontTable[font].pointSize;

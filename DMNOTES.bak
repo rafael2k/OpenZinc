@@ -1,0 +1,33 @@
+Dmc is the more current name for the sc compiler.
+The compiling environment is controlled by the sc.ini file much like the turboc.cfg and tlink.cfg files.
+To use the X32 dos extender copy the x32 lib files to the DM\lib directory.the compiler switch
+
+NOTE:The compiler switch -bx must be removed from makefiles(DOS & win16) or an obsolete compiler will be called
+
+In file gfx.h xor is used as an identifier, replaced by xorInt
+
+In file Z_DSP.CPP in constructor the lines
+
+        void z_gen_dummy(void);
+        z_gen_dummy();
+        extern void z_dsp_dummy(void);
+        z_dsp_dummy();
+
+cause the linker to complain for winnt and windows so I simply did
+
+#if !defined(__SC__)
+        void z_gen_dummy(void);
+        z_gen_dummy();
+        extern void z_dsp_dummy(void);
+        z_dsp_dummy();
+#endif
+
+and it works OK
+
+In dm.mak for the library use rc only with the test.rc file for windows compilaton
+
+For 32 bit dos compilation the x32.lib needs to be explicitly added to the
+
+D32_LIBS=d32_zil d32_gfx dm_32gfx x32     line
+
+Digital Mars no longer supports VCM overlays  !!!!!!!!!!!!!!!!!!!  

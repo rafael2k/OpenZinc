@@ -1,0 +1,27 @@
+--- HELP_GENERAL
+Directory Service
+The Directory Service allows you to access files on the current
+system.\
+\
+To access an existing file, either enter the name in the FILENAME
+field, or select it from the list below.\
+\
+Other files that belong to the current directory are listed in the
+scrollable field below the FILENAME field.  Double clicking on a
+name causes that file to be accessed immediately.\
+\
+The LIST FILES OF TYPE field determines the type of file, based on
+the file extension, to list in the "Filename" field.  Selecting the " *.* "
+extension causes all files in the current directory to be displayed.\
+\
+The current directory is shown below the DIRECTORIES prompt.  Your file
+will be saved to this directory.  Since this item is not selectable, if
+you want to make a different directory the current one, it must be done
+by selecting a new directory from the list below the current directory prompt,
+which displays other available directories of the current drive.\
+\
+The DRIVES field displays the current drive.  Selecting a drive causes
+the files and directories on that drive to be displayed in their respective
+fields.\
+\
+

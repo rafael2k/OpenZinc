@@ -1,0 +1,21 @@
+!# #################################################################
+!# 
+!# This resource file belongs with the 'fonts' example.  It is not
+!# a complete application defaults file for a Zinc program, so it
+!# should not be used in place of the 'ZincApp.ad' file distributed
+!# in the root of the Zinc tree.  This file simply shows what could
+!# be done to specify a new font for a Zinc Motif program.
+!# 
+!# The 'fonts' example creates a new font called the 'italicFont'.
+!# A resource file such as this could be used to tell the X Resource
+!# Database which file to use as the 'italicFont'.  The user could
+!# also specify the font on the command line.  For example:
+!# 		'fonts -xrm "*italicFont: -*-helvetica-bold-o-*--14-*-iso8859-1"
+!# 
+!# If the user doesn't specify a font, the default font specified in
+!# the source code will be used.
+!# #################################################################
+
+
+!# Specify the new font.
+*italicFont:	-*-*-bold-o-*--14-*-iso8859-1

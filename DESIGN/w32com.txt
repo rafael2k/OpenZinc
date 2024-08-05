@@ -1,0 +1,440 @@
+make -fdm.mak 9service.lib
+dmc -c -4 -mn -WA -DZIL_WIN32 -oservice.ob9 service.cpp
+
+lib /N /B 9service+service.ob9;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+copy service.hpp ..\..\include
+        1 file(s) copied.
+copy 9service.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_servic.dat ..\..\bin\p_servic.znc
+        1 file(s) copied.
+
+make -fdm.mak 9storage.lib
+dmc -c -4 -mn -WA -DZIL_WIN32 -ostorage.ob9 storage.cpp
+
+lib /N /B 9storage+storage.ob9;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+copy storage.hpp ..\..\include
+        1 file(s) copied.
+copy 9storage.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_store.dat ..\..\bin\p_store.znc
+        1 file(s) copied.
+
+make -fdm.mak 9direct.lib
+dmc -c -4 -mn -WA -DZIL_WIN32 -ow_direct.ob9 w_direct.cpp
+
+lib /N /B 9direct+w_direct.ob9;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+copy direct.hpp ..\..\include
+        1 file(s) copied.
+copy 9direct.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_direct.dat ..\..\bin\p_direct.znc
+        1 file(s) copied.
+
+make -fdm.mak 9stredit.lib
+dmc -c -4 -mn -WA -DZIL_WIN32 -ostredit.ob9 stredit.cpp
+
+lib /N /B 9stredit+stredit.ob9;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+copy stredit.hpp ..\..\include
+        1 file(s) copied.
+copy 9stredit.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_string.dat ..\..\bin\p_string.znc
+        1 file(s) copied.
+
+make -fdm.mak 9help.lib
+dmc -c -4 -mn -WA -DZIL_WIN32 -ohelp.ob9 help.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -ohelp1.ob9 help1.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oimport.ob9 import.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oexport.ob9 export.cpp
+
+lib /N /B 9help+help.ob9+help1.ob9+import.ob9+export.ob9;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+copy help.hpp ..\..\include
+        1 file(s) copied.
+copy 9help.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_help.dat ..\..\bin\p_help.znc
+        1 file(s) copied.
+
+make -fdm.mak 9message.lib
+dmc -c -4 -mn -WA -DZIL_WIN32 -omessage.ob9 message.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -omessage1.ob9 message1.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oprefer.ob9 prefer.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oimport.ob9 import.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oexport.ob9 export.cpp
+
+lib /N /B 9message+message.ob9+message1.ob9+prefer.ob9+import.ob9+export.ob9;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+copy message.hpp ..\..\include
+        1 file(s) copied.
+copy 9message.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_messag.dat ..\..\bin\p_messag.znc
+        1 file(s) copied.
+
+make -fdm.mak 9image.lib
+dmc -c -4 -mn -WA -DZIL_WIN32 -oodib.ob9 odib.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oodib1.ob9 odib1.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oodib2.ob9 odib2.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -owdib.ob9 wdib.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -owdib1.ob9 wdib1.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -owdib2.ob9 wdib2.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -owico.ob9 wico.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -owico1.ob9 wico1.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -owico2.ob9 wico2.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oxpm.ob9 xpm.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oxpm1.ob9 xpm1.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oxpm2.ob9 xpm2.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oznc1.ob9 znc1.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oznc2.ob9 znc2.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oimage.ob9 image.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oimage1.ob9 image1.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oimage2.ob9 image2.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -ocolor.ob9 color.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -odraw.ob9 draw.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oexport.ob9 export.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oimport.ob9 import.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -ow_image.ob9 w_image.cpp
+
+lib /N /B @w32_zil.rsp
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+library file        (.lib) 9image.lib
+action-object [-+*] (.obj) 	+odib.ob9+odib1.ob9+odib2.ob9 &
+action-object [-+*] (.obj) 	+wdib.ob9+wdib1.ob9+wdib2.ob9 &
+action-object [-+*] (.obj) 	+wico.ob9+wico1.ob9+wico2.ob9 &
+action-object [-+*] (.obj) 	+xpm.ob9+xpm1.ob9+xpm2.ob9 &
+action-object [-+*] (.obj) 	+znc1.ob9+znc2.ob9 &
+action-object [-+*] (.obj) 	+image.ob9+image1.ob9+image2.ob9+color.ob9+draw.ob9 &
+action-object [-+*] (.obj) 	+export.ob9+import.ob9 &
+action-object [-+*] (.obj) 	+w_image.ob9
+list file           (.lst) 
+output library file (.lib) 
+
+Digital Mars Librarian complete.  
+
+copy image.hpp ..\..\include
+        1 file(s) copied.
+copy 9image.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_image.dat ..\..\bin\p_image.znc
+        1 file(s) copied.
+
+make -fdm.mak 9i18n.lib
+dmc -c -4 -mn -WA -DZIL_WIN32 -oi18n.ob9 i18n.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -olanguage.ob9 language.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -olocale.ob9 locale.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oexport.ob9 export.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oimport.ob9 import.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_bnum.ob9 z_bnum.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_curr.ob9 z_curr.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_date.ob9 z_date.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_date1.ob9 z_date1.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_day.ob9 z_day.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_error.ob9 z_error.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_help.ob9 z_help.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_int.ob9 z_int.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_month.ob9 z_month.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_msg.ob9 z_msg.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_num.ob9 z_num.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_real.ob9 z_real.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_sys.ob9 z_sys.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_time.ob9 z_time.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_time1.ob9 z_time1.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_time2.ob9 z_time2.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_win.ob9 z_win.cpp
+
+lib /N /B @w32_zil.rsp
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+library file        (.lib) 9i18n.lib
+action-object [-+*] (.obj) 	+i18n.ob9+language.ob9+locale.ob9 &
+action-object [-+*] (.obj) 	+export.ob9+import.ob9 &
+action-object [-+*] (.obj) 	+z_bnum.ob9+z_curr.ob9+z_date.ob9+z_date1.ob9+z_day.ob9+z_error.ob9 &
+action-object [-+*] (.obj) 	+z_help.ob9+z_int.ob9+z_month.ob9+z_msg.ob9+z_num.ob9+z_real.ob9 &
+action-object [-+*] (.obj) 	+z_sys.ob9+z_time.ob9+z_time1.ob9+z_time2.ob9+z_win.ob9
+list file           (.lst) 
+output library file (.lib) 
+
+Digital Mars Librarian complete.  
+
+copy i18n.hpp ..\..\include
+        1 file(s) copied.
+copy 9i18n.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_i18n.dat ..\..\bin\p_i18n.znc
+        1 file(s) copied.
+
+make -fdm.mak 9file.lib
+dmc -c -4 -mn -WA -DZIL_WIN32 -ofile.ob9 file.cpp
+
+lib /N /B 9file+file.ob9;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+copy file.hpp ..\..\include
+        1 file(s) copied.
+copy 9file.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_file.dat ..\..\bin\p_file.znc
+        1 file(s) copied.
+
+make -fdm.mak 9window.lib
+dmc -c -4 -mn -WA -DZIL_WIN32 -oadvanced.ob9 advanced.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oderive.ob9 derive.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oexport.ob9 export.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -ogeometry.ob9 geometry.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -ogroup.ob9 group.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oimport.ob9 import.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oobject.ob9 object.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oposition.ob9 position.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oprefer.ob9 prefer.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -owindow.ob9 window.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -owindow1.ob9 window1.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_bnum.ob9 z_bnum.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_border.ob9 z_border.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_button.ob9 z_button.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_combo.ob9 z_combo.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_date.ob9 z_date.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_fmtstr.ob9 z_fmtstr.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_gmgr.ob9 z_gmgr.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_group.ob9 z_group.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_hlist.ob9 z_hlist.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_icon.ob9 z_icon.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_int.ob9 z_int.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_max.ob9 z_max.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_min.ob9 z_min.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_notebk.ob9 z_notebk.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_obj.ob9 z_obj.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_plldn.ob9 z_plldn.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_plldn1.ob9 z_plldn1.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_popup.ob9 z_popup.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_popup1.ob9 z_popup1.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_prompt.ob9 z_prompt.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_real.ob9 z_real.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_scroll.ob9 z_scroll.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_sbar.ob9 z_sbar.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_spin.ob9 z_spin.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_string.ob9 z_string.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_sys.ob9 z_sys.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_table.ob9 z_table.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_tbar.ob9 z_tbar.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_text.ob9 z_text.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_time.ob9 z_time.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_title.ob9 z_title.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_vlist.ob9 z_vlist.cpp
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -oz_win.ob9 z_win.cpp
+
+lib /N /B @w32_zil.rsp
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+library file        (.lib) 9window.lib
+action-object [-+*] (.obj) +advanced.ob9+derive.ob9+export.ob9 &
+action-object [-+*] (.obj) +geometry.ob9+group.ob9+import.ob9+object.ob9 &
+action-object [-+*] (.obj) +position.ob9+prefer.ob9+window.ob9+window1.ob9 &
+action-object [-+*] (.obj) +z_bnum.ob9+z_border.ob9+z_button.ob9+z_combo.ob9 &
+action-object [-+*] (.obj) +z_date.ob9+z_fmtstr.ob9+z_gmgr.ob9+z_group.ob9 &
+action-object [-+*] (.obj) +z_hlist.ob9+z_icon.ob9+z_int.ob9+z_max.ob9+z_min.ob9+z_notebk.ob9+z_obj.ob9 &
+action-object [-+*] (.obj) +z_plldn.ob9+z_plldn1.ob9+z_popup.ob9+z_popup1.ob9+z_prompt.ob9 &
+action-object [-+*] (.obj) +z_real.ob9+z_sbar.ob9+z_scroll.ob9+z_spin.ob9+z_string.ob9+z_sys.ob9 &
+action-object [-+*] (.obj) +z_table.ob9+z_tbar.ob9+z_text.ob9+z_time.ob9+z_title.ob9+z_vlist.ob9+z_win.ob9
+list file           (.lst) 
+output library file (.lib) 
+
+Digital Mars Librarian complete.  
+
+copy window.hpp ..\..\include
+        1 file(s) copied.
+copy 9window.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_window.dat ..\..\bin\p_window.znc
+        1 file(s) copied.
+
+dmc -c -4 -mn -WA -DZIL_WIN32 -omain.ob9 main.cpp
+
+link /NOI +main.ob9, 9design, , @w32_zil.rsp
+OPTLINK (R) for Win32  Release 8.00.5
+Copyright (C) Digital Mars 1989-2009  All rights reserved.
+http://www.digitalmars.com/ctg/optlink.html
+c:\z421dm\lib\dm84\9window.lib(export) 
+ Error 42: Symbol Undefined ??0ZIL_FILE@@QAE@PBDG@Z (syscall ZIL_FILE::ZIL_FILE(char const *,unsigned short ))
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Write@ZIL_FILE@@UBEHF@Z (int syscall ZIL_FILE::Write(short )const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Write@ZIL_FILE@@UBEHE@Z (int syscall ZIL_FILE::Write(unsigned char )const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Write@ZIL_FILE@@UBEHC@Z (int syscall ZIL_FILE::Write(signed char )const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Read@ZIL_FILE@@UBEHPAF@Z (int syscall ZIL_FILE::Read(short *)const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Read@ZIL_FILE@@UBEHPAE@Z (int syscall ZIL_FILE::Read(unsigned char *)const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Read@ZIL_FILE@@UBEHPAC@Z (int syscall ZIL_FILE::Read(signed char *)const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Write@ZIL_FILE@@UBEHPAXHH@Z (int syscall ZIL_FILE::Write(void *,int ,int )const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Write@ZIL_FILE@@UBEHPAD@Z (int syscall ZIL_FILE::Write(char *)const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Write@ZIL_FILE@@UBEHK@Z (int syscall ZIL_FILE::Write(unsigned long )const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Write@ZIL_FILE@@UBEHJ@Z (int syscall ZIL_FILE::Write(long )const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Write@ZIL_FILE@@UBEHG@Z (int syscall ZIL_FILE::Write(unsigned short )const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Close@ZIL_FILE@@UAE?AW4Z_ERROR@1@XZ (Z_ERROR::ZIL_FILE syscall ZIL_FILE::Close(void ))
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Open@ZIL_FILE@@UAE?AW4Z_ERROR@1@XZ (Z_ERROR::ZIL_FILE syscall ZIL_FILE::Open(void ))
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Read@ZIL_FILE@@UBEHPAXHH@Z (int syscall ZIL_FILE::Read(void *,int ,int )const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Read@ZIL_FILE@@UBEHPAPAD@Z (int syscall ZIL_FILE::Read(char **)const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Read@ZIL_FILE@@UBEHPADH@Z (int syscall ZIL_FILE::Read(char *,int )const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Read@ZIL_FILE@@UBEHPAK@Z (int syscall ZIL_FILE::Read(unsigned long *)const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Read@ZIL_FILE@@UBEHPAJ@Z (int syscall ZIL_FILE::Read(long *)const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Read@ZIL_FILE@@UBEHPAG@Z (int syscall ZIL_FILE::Read(unsigned short *)const )
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ??1ZIL_FILE@@UAE@XZ (syscall ZIL_FILE::~ZIL_FILE(void ))
+c:\z421dm\lib\dm84\9window.lib(import) 
+ Error 42: Symbol Undefined ?Seek@ZIL_FILE@@QBE?AW4Z_ERROR@1@JW4SEEK@1@@Z (Z_ERROR::ZIL_FILE syscall ZIL_FILE::Seek(long ,SEEK::ZIL_FILE )const )
+c:\z421dm\lib\dm84\9help.lib(import) 
+ Error 42: Symbol Undefined ?Tell@ZIL_FILE@@QBEJXZ (long syscall ZIL_FILE::Tell(void )const )
+c:\z421dm\lib\dm84\9image.lib(import) 
+ Error 42: Symbol Undefined ?SetError@ZIL_FILE@@QAE?AW4Z_ERROR@1@W421@@Z (Z_ERROR::ZIL_FILE syscall ZIL_FILE::SetError(Z_ERROR::ZIL_FILE ))
+c:\z421dm\lib\dm84\9image.lib(znc2) 
+ Error 42: Symbol Undefined ?GetError@ZIL_FILE@@QAE?AW4Z_ERROR@1@XZ (Z_ERROR::ZIL_FILE syscall ZIL_FILE::GetError(void ))
+c:\z421dm\lib\dm84\9direct.lib(w_direct) 
+ Error 42: Symbol Undefined _GetSaveFileNameA@4
+c:\z421dm\lib\dm84\9direct.lib(w_direct) 
+ Error 42: Symbol Undefined _GetOpenFileNameA@4
+
+--- errorlevel 27

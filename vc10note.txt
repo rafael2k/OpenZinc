@@ -1,0 +1,23 @@
+The Microsoft Visual C++ 2010 compiler objects too the identifier DM_POSITION so in all occurances it has been replaced by DM_POSITION_IMAGE.
+
+libc.lib has been replace by a family of libraries in Visual C++ 2010 so the library clibmt.lib has been substituted.
+
+The library ctl3d32.lib is no longer supported or needed for visual C++ 2010 so it has been eliminated
+
+Also, in various files in the designer the section reading
+
+// Metrowerks bug requires taking the address of the member function.
+#if defined(__MWERKS__) || defined(__DECCXX) || defined(__linux__)
+#	define ZIL_PROCESS_REFERENCE(x) &ZAF_HELP_EDITOR::x
+#else
+#	define ZIL_PROCESS_REFERENCE(x) x
+#endif
+
+has been changed to 
+
+// Metrowerks bug requires taking the address of the member function.
+#if defined(__MWERKS__) || defined(__DECCXX) || defined(__linux__) || (_MSC_VER > 1500)
+#	define ZIL_PROCESS_REFERENCE(x) &ZAF_HELP_EDITOR::x
+#else
+#	define ZIL_PROCESS_REFERENCE(x) x
+#endif

@@ -1,0 +1,11 @@
+wwindow.lib
++advanced.obw+derive.obw+export.obw &
++geometry.obw+group.obw+import.obw+object.obw &
++position.obw+prefer.obw+window.obw+window1.obw &
++z_bnum.obw+z_border.obw+z_button.obw+z_combo.obw &
++z_date.obw+z_fmtstr.obw+z_gmgr.obw+z_group.obw &
++z_hlist.obw+z_icon.obw+z_int.obw+z_max.obw+z_min.obw+z_notebk.obw+z_obj.obw &
++z_plldn.obw+z_plldn1.obw+z_popup.obw+z_popup1.obw+z_prompt.obw &
++z_real.obw+z_sbar.obw+z_scroll.obw+z_spin.obw+z_string.obw+z_sys.obw &
++z_table.obw+z_tbar.obw+z_text.obw+z_time.obw+z_title.obw+z_vlist.obw+z_win.obw
+

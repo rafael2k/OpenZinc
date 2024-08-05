@@ -1,0 +1,27 @@
+copy ui_*.hpp ..\include
+UI_DSP.HPP
+UI_ENV.HPP
+UI_EVT.HPP
+UI_GEN.HPP
+UI_MAP.HPP
+UI_WIN.HPP
+        6 file(s) copied.
+copy z_clean.* ..\bin
+Z_CLEAN.BAT
+Z_CLEAN.CMD
+        2 file(s) copied.
+link /NOI /PACKC:42000 +test.obw, wtest, , win_zil libw ctl3dv2, wtest.def
+OPTLINK (R) for Win32  Release 8.00.5
+Copyright (C) Digital Mars 1989-2009  All rights reserved.
+http://www.digitalmars.com/ctg/optlink.html
+ctl3dv2.lib
+ Warning 2: File Not Found ctl3dv2.lib
+
+rc wtest.rc wtest.exe
+
+
+RC : fatal error RC1107 : invalid usage; use RC /? for Help
+
+
+
+--- errorlevel 1

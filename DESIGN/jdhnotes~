@@ -1,0 +1,68 @@
+To compile designer for linux several changes need to be made to the source code.
+These include;
+
+sections like 
+#if defined (__linux__)
+#undef true
+#define true OSRegion
+#endif
+
+Casting references to CLASS_NAME::New() to (UI_WINDOW_OBJECT*)CLASS_NAME::New()
+
+Casting references to funtions in the _userTable[] from
+ZIL_VOIDF(FunctionName) to (EVENT_TYPE*)ZIL_VOIDF(FilenameCallback)
+
+In file help.cpp and help_help.cpp changing block
+
+// Metrowerks bug requires taking the address of the member function.
+#if defined(__MWERKS__) || defined(__DECCXX)
+#	define ZIL_PROCESS_REFERENCE(x) &ZAF_HELP_EDITOR::x
+#else
+#	define ZIL_PROCESS_REFERENCE(x) x
+#endif
+
+to
+
+// Metrowerks bug requires taking the address of the member function.
+#if defined(__MWERKS__) || defined(__DECCXX) || defined(__linux__)
+#	define ZIL_PROCESS_REFERENCE(x) &ZAF_HELP_EDITOR::x
+#else
+#	define ZIL_PROCESS_REFERENCE(x) x
+#endif
+
+NOTE: In the make process for motif make will copy base files and add a suffix and use the derived file to compile. Therefore, if the project is made clean and compiled again the derived file will not have any of the changes previously made. If desired changes are to be permanent change in both base and derived files.
+
+Examples;
+
+help.cpp -> help_help.cpp
+z_bnum.cpp -> z_bnum_i18n.cpp
+z_border.cpp -> z_border_des.cpp       ect.
+
+These changes will allow a clean compile an generate an executable that works. In the file /design/window/object.cpp the code from Zinc for the Subobject window will generate a segmentation fault. Specific changes that need to be made are:
+
+		//subWindow = _subWindow[offset];
+		//dirList = _dirList[offset];
+		//objList = _objList[offset];
+		//subList = _subList[offset];
+		
+//code above causes segmentation fault when switching to subobject
+//window under Motif. Code segment below by jdh avoids this 		
+		
+		subWindow = new UIW_WINDOW("OBJ_SUBOBJECT", storage, file, objectTable, userTable);
+		dirList = (UIW_VT_LIST *)subWindow->Get("LIST_DIRECTORIES");
+		objList = (UIW_VT_LIST *)subWindow->Get("LIST_OBJECTS");
+		subList = (UIW_COMBO_BOX *)subWindow->Get("FIELD_ADD_OBJECT");
+
+Interestingly enough the class ZAF_MESSAGE_PREFERENCES is not used in the designer at least in motif, win32 and win16 wheter this is intentional or an oversight by Zinc is unknown. Located in /design/message/prefer.cpp
+
+The file /design/storage/storage.cpp has been altered so that the generated .cpp file will cast entries in the userTable and compareTable from { 0, ZIL_VOIDF(buttonPush), _buttonPush, 0 } to
+	          { 0, (EVENT_TYPE*)ZIL_VOIDF(buttonPush), _buttonPush, 0 } 
+and objectTable entries from { ID_BIGNUM, ZIL_VOIDF(UIW_BIGNUM::New), UIW_BIGNUM::_className, 0 } to
+			     { ID_BIGNUM, (UI_WINDOW_OBJECT*)ZIL_VOIDF(UIW_BIGNUM::New), UIW_BIGNUM::_className, 0 } as required by gcc compiler.
+			     
+
+UIW_MESSAGE_WINDOW had spacing issues for items in the list, they overlap.  Location /design/message/message1.cpp. This is true of all Zinc code using WOS_OWNERDRAW. The message window has been made functional by using the routine button's drawing and simply manipulating the button label to present the information in three columns. To line up the columns vertically two proportional fonts are added to the application resources in design/main.cpp
+
+A bug exists in the designer help system. After calling File|Open the help index will not show a complete listing from the window editor menu until another tool help editor ect. has been called. Appears to be an issue with Zinc code. 
+
+

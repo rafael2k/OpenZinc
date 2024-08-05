@@ -1,0 +1,341 @@
+--- HELP_BITMAP_WINDOW
+Bitmap Creation Window
+The bitmap creation window is where you actually draw and set the size specifications
+of bitmap images.\
+\
+The bitmap image is drawn in the creation window's drawing field, which is the large
+square region in the upper left corner. You can paint
+one pixel at a time by positioning on it and pressing a mouse button, or you can paint in
+continuous motion by holding down a mouse button and dragging the
+cursor.\
+\
+Different tools for drawing can be selected from the tool bar of the Image Editor control
+window.  Simply select the desired tool.\
+\
+Colors are selected from the color palettes of the control window.  There are
+three separate palettes--one for the left mouse button, one for the right mouse button, and
+one for screen transparency.  The screen transparency palette is used when you want to
+have part of your image show through to the screen behind it.  Whichever mouse button
+is used to select a color from this palette then has the power to draw a transparent region. 
+Thereafter, whenever a different color is selected from the screen palette, all of the
+transparent region within the image will change to that color
+instantly.\
+\
+As you create your image, it will be displayed in its actual size in the small square region,
+called the image field, in the upper right corner of the window.\
+\
+The bitmap creation window also includes the following fields and
+buttons:\
+\
+  Width-This field determines the pixel width of the bitmap image.  The default
+width for a bitmap is 16 pixels.\
+\
+  Height-This field determines the pixel height of the bitmap image.  The
+default height for a bitmap is 16 pixels.\
+\
+  Store-Selecting this button causes the current bitmap image to be saved in its
+present condition to the current file.\
+\
+  Store As-This button is generally used to store the current bitmap image under
+another name.\
+\
+  Close-Selecting this button causes the creation window to close without executing
+any changes.\
+\
+  Help-Additional information about creating images appears when this button is
+selected.\
+\
+  Size-Selecting this button causes the sizing information entered in the Width and
+Height fields to take effect in the drawing field.\
+\
+--- HELP_GENERAL
+About Image Editor
+The Image Editor provides options for creating and modifying icon,
+bitmap, and mouse cursor images that can be used throughout your
+application.  Various drawing tools and palettes are available.\
+\
+Images can be exported and imported to and from platform-specific
+formats, such as .xpm, .BMP, and .ICO files.\
+\
+Copyright (C) 1991-1994 Zinc Software Incorporated.  All Rights
+Reserved.\
+\
+--- HELP_ICON_WINDOW
+Icon Creation Window
+The icon creation window is where you actually draw and set the size specifications
+of icon images.\
+\
+The icon image is drawn in the creation window's drawing field, which is the large
+square region in the upper left corner. You can paint
+one pixel at a time by positioning on it and pressing a mouse button, or you can paint in
+continuous motion by holding down a mouse button and dragging the
+cursor.\
+\
+Different tools for drawing can be selected from the tool bar of the Image Editor control
+window.  Simply select the desired tool.\
+\
+Colors are selected from the color palettes of the control window.  There are
+three separate palettes--one for the left mouse button, one for the right mouse button, and
+one for screen transparency.  The screen transparency palette is used when you want to
+have part of your image show through to the screen behind it.  Whichever mouse button
+is used to select a color from this palette then has the power to draw a transparent region. 
+Thereafter, whenever a different color is selected from the screen palette, all of the
+transparent region within the image will change to that color
+instantly.\
+\
+As you create your image, it will be displayed in its actual size in the small square region,
+called the image field, in the upper right corner of the window.\
+\
+The icon creation window also includes the following fields and
+buttons:\
+\
+  Width-This field determines the pixel width of the icon image.  The default
+width for an icon is 32 pixels.\
+\
+  Height-This field determines the pixel height of the icon image.  The
+default height for an icon is 32 pixels.\
+\
+  Store-Selecting this button causes the current icon image to be saved in its
+present condition to the current file.\
+\
+  Store As-This button is generally used to store the current icon image under
+another name.\
+\
+  Close-Selecting this button causes the creation window to close without executing
+any changes.\
+\
+  Help-Additional information about creating images appears when this button is
+selected.\
+\
+  Size-Selecting this button causes the sizing information entered in the Width and
+Height fields to take effect in the drawing field.\
+\
+--- HELP_MOUSE_WINDOW
+Mouse Cursor Creation Window
+The mouse cursor creation window is where you actually draw and set the size specifications
+of mouse cursor images.\
+\
+The mouse cursor image is drawn in the creation window's drawing field, which is the large
+square region in the upper left corner. You can paint
+one pixel at a time by positioning on it and pressing a mouse button, or you can paint in
+continuous motion by holding down a mouse button and dragging the
+cursor.\
+\
+Different tools for drawing can be selected from the tool bar of the Image Editor control
+window.  Simply select the desired tool.\
+\
+Colors are selected from the color palettes of the control window.  There are
+three separate palettes--one for the left mouse button, one for the right mouse button, and
+one for screen transparency.  The screen transparency palette is used when you want to
+have part of your image show through to the screen behind it.  Whichever mouse button
+is used to select a color from this palette then has the power to draw a transparent region. 
+Thereafter, whenever a different color is selected from the screen palette, all of the
+transparent region within the image will change to that color
+instantly.\
+\
+As you create your image, it will be displayed in its actual size in the small square region,
+called the image field, in the upper right corner of the window.\
+\
+The mouse cursor creation window also includes the following fields and
+buttons:\
+\
+  Width-This field determines the pixel width of the mouse cursor image.  The default
+width for a mouse cursor is 16 pixels.\
+\
+  Height-This field determines the pixel height of the mouse cursor image.  The
+default height for a mouse cursor is 16 pixels.\
+\
+  x-point-The value entered into this field determines the horizontal pixel coordinate
+for the cursor's hot spot.\
+\
+  y-point-The value entered into this field determines the vertical pixel coordinate for
+the cursor's hot spot.\
+\
+  Store-Selecting this button causes the current mouse cursor image to be saved in its
+present condition to the current file.\
+\
+  Store As-This button is generally used to store the current mouse cursor image under
+another name.\
+\
+  Close-Selecting this button causes the creation window to close without executing
+any changes.\
+\
+  Help-Additional information about creating images appears when this button is
+selected.\
+\
+  Size-Selecting this button causes the sizing information entered in the Width and
+Height fields to take effect in the drawing field.\
+\
+--- HELP_OPT_BITMAP
+Bitmap Options
+The Bitmap category options are used to create bitmap images. Options that are displayed in
+the menu with `...' cause an associated window to appear when
+selected. The following options are available:\
+\
+The Import option allows you to import images from another
+.DAT file (Zinc), a .BMP file (MS Windows and OS/2), or an .XPM file
+(OSF/Motif).\
+\
+The Export option allows you to export an image to another
+file.\
+\
+The Create option allows you to create a bitmap image.\
+\
+The Load option is used to recall a previously created bitmap image from the current file.\
+\
+The Store option causes the current bitmap image to be saved in
+its present condition.\
+\
+The Store As option allows you to save the current bitmap image
+under another name.\
+\
+The Clear option causes the current bitmap creation window to be removed
+from the screen.\
+\
+The Clear All option causes all bitmap creation windows present on the
+screen to be removed.\
+\
+The Delete option allows you to delete a bitmap image from the
+current file.\
+\
+--- HELP_OPT_EDIT
+Edit Options
+The Edit menu options allow you to edit images.  The following
+options are available:\
+\
+The Grid option causes a grid coordinate system to be displayed in
+the image creation field.  When this option is in effect, a check
+mark is displayed next to it.\
+\
+The Roller Size option causes another menu to appear which lists roller size
+choices.  The size of roller affects how wide the brush stroke is when using the roller
+brush tool.  The choices range from 1 pixel by 1 pixel through
+1 pixel by 5 pixels (1x1 to 1x5).\
+\
+Selecting the Pattern option allows you to choose what type of drawing tool or pattern
+to use.  It causes another menu to appear with the following
+options:\
+\
+  Pencil-This option sets the current drawing pen to the width of a pencil (one
+pixel wide).\
+\
+  Roller-This option sets the current drawing device to be a roller brush.  In other
+words, it has the capacity to draw with a width greater than one pixel at a time.  The
+actual width is determined by Edit | Roller Size.\
+\
+  Line-This option allows you to draw a line.\
+\
+  Rectangle-This option allows you to create a hollow rectangle.\
+\
+  Fill Rectangle-This option allows you to create a filled rectangle.\
+\
+  Ellipse-This option allows you to create a hollow ellipse.\
+\
+  Fill Ellipse-This option allows you to create a filled ellipse.\
+\
+  Fill-This option allows you to perform a "flood fill" with the current drawing
+color.\
+\
+The Erase option causes the current image to be erased from the image field.  It does
+not delete the image from the file.\
+\
+The Cut option removes the current image group from the screen and places
+it in a global paste buffer.  This option only has effect if a group is designated within the
+image field.\
+\
+The Copy option copies the current image group and places the copy in a
+global paste buffer.  This option only has effect if a group is designated within the image
+field.\
+\
+The Paste option allows you to recall and position on the screen the contents of the
+global paste buffer (placed there by Cut or Copy procedures).  After selecting Paste,
+position the mouse cursor where you would like the paste to occur and press the left
+mouse button.\
+\
+The Delete option causes the current image group to be cleared from the screen and
+deleted from the file.  This option only has effect if a
+group is designated within the image field.\
+\
+The Group option allows you to select a region on the image field to
+become its own unit, or image group.  After selecting Group place the mouse cursor
+at a corner of the region to be grouped and drag the mouse to the opposite corner. Upon releasing the
+mouse, the region will be marked by a cyan border. Only one image group is permitted at a time.
+Upon grouping a second region, the first
+group in the same image will be dissolved (i.e., ungrouped).\
+\
+The Ungroup option causes the group within the current image field to be dissolved. 
+In other words, the cyan border surrounding the group disappears, and the section once
+again becomes a part of the original image.\
+\
+--- HELP_OPT_FILE
+File Options
+The File menu presents options for manipulating files.  When the Image
+Editor is used in conjunction with the Window Editor, the File option
+is nonselectable in the Image Editor, since all
+file-related operations are handled in the Window Editor.\
+\
+--- HELP_OPT_ICON
+Icon Options
+The Icon category options are used to create icon images. Options that are displayed in
+the menu with `...' cause an associated window to appear when
+selected. The following options are available:\
+\
+The Import option allows you to import images from another
+.DAT file (Zinc), a .BMP file (MS Windows and OS/2), or an .XPM file
+(OSF/Motif).\
+\
+The Export option allows you to export an image to another
+file.\
+\
+The Create option allows you to create an icon image.\
+\
+The Load option is used to recall a previously created icon image from the current file.\
+\
+The Store option causes the current icon image to be saved in
+its present condition.\
+\
+The Store As option allows you to save the current icon image
+under another name.\
+\
+The Clear option causes the current icon creation window to be removed
+from the screen.\
+\
+The Clear All option causes all icon creation windows present on the
+screen to be removed.\
+\
+The Delete option allows you to delete an icon image from the
+current file.\
+\
+--- HELP_OPT_MOUSE
+Mouse Cursor Options
+The Mouse category options are used to create mouse cursor images. Options that are displayed in
+the menu with `...' cause an associated window to appear when
+selected. The following options are available:\
+\
+The Import option allows you to import images from another
+.DAT file (Zinc), a .BMP file (MS Windows and OS/2), or an .XPM file
+(OSF/Motif).\
+\
+The Export option allows you to export an image to another
+file.\
+\
+The Create option allows you to create a mouse cursor image.\
+\
+The Load option is used to recall a previously created mouse cursor image from the current file.\
+\
+The Store option causes the current mouse cursor image to be saved in
+its present condition.\
+\
+The Store As option allows you to save the current mouse cursor image
+under another name.\
+\
+The Clear option causes the current mouse cursor creation window to be removed
+from the screen.\
+\
+The Clear All option causes all mouse cursor creation windows present on the
+screen to be removed.\
+\
+The Delete option allows you to delete a mouse cursor image from the
+current file.\
+\
+

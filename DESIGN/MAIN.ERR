@@ -1,0 +1,4 @@
+C:\OpenZinc\INCLUDE\window.hpp(185): Warning! W836: col(41) symbol has different type than previous symbol in same declaration
+C:\OpenZinc\INCLUDE\window.hpp(185): Note! N393: col(41) included from main.cpp(8)
+C:\OpenZinc\INCLUDE\window.hpp(185): Note! N837: col(41) companion definition is 'ZAF_GEOMETRY_MANAGER::field'
+C:\OpenZinc\INCLUDE\window.hpp(185): Note! N392: col(27) definition: 'UI_WINDOW_OBJECT * ZAF_GEOMETRY_MANAGER::field[10]'

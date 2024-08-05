@@ -1,0 +1,6 @@
+The files in this directory can be used to build a new GFX library.
+
+The libraries in the ASM directory (MSGFXASM.LIB and BCGFXASM.LIB)
+contain the assembly language routines.  The provided makefiles
+compile the source file GFX.C and add it to the appropriate library.
+

@@ -1,0 +1,1 @@
+path=c:\bc4\bin;c:\bc4\bgi;c:\OpenZinc

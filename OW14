@@ -1,0 +1,5 @@
+Open Watcom 1.4 will not compile OpenZinc under
+Windows 16 bit because win16.h is missing a number of declarations
+needed.
+
+OS/2 seems to have similar problems

@@ -1,0 +1,3 @@
+import.cpp(240): Warning! W836: col(43) symbol has different type than previous symbol in same declaration
+import.cpp(240): Note! N837: col(43) companion definition is 'line'
+import.cpp(240): Note! N392: col(19) definition: 'char line[256]' in 'long ZAF_MESSAGE_EDITOR::OSImport( ZIL_STORAGE *, UI_EVENT const & )'

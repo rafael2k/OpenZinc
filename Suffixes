@@ -1,0 +1,48 @@
+#!/bin/csh
+
+#	This script changes suffixes in a Zinc directory tree.
+#	Usage: Suffixes old_suffix new_suffix
+#	Eg: Suffixes cpp C
+
+if ("$2" == "") then
+	echo Usage: Suffixes old_suffix new_suffix
+	echo "	eg: Suffixes cpp C"
+	exit 1
+endif
+
+#	Some degenerate systems (like SCO) can't do the whole tree at once.
+if (-e ./source) then
+	foreach i ( `find ./source \( -name \*.$1 -a \! -name "*_def.*" -a \! -name i_\[cw\]str\*.\* -a \! -name i_\[cw\]file.\* -a \! -name i_\[cw\]map.\* -a \! -name i_\[cw\]type.\* -a \! -name "lang_*.*" -a \! -name "loc_*.*" -a \! -name map\[1478mn\]\*.\* \) -print `)
+		echo $i:r.$2
+		mv $i $i:r.$2
+	end
+endif
+
+if (-e ./design) then
+	foreach i ( `find ./design \( -name \*.$1 \) -print `)
+		echo $i:r.$2
+		mv $i $i:r.$2
+	end
+endif
+
+if (-e ./tutor) then
+	foreach i ( `find ./tutor \( -name \*.$1 \) -print `)
+		echo $i:r.$2
+		mv $i $i:r.$2
+	end
+endif
+
+if (-e ./example) then
+	foreach i ( `find ./example \( -name \*.$1 \) -print `)
+		echo $i:r.$2
+		mv $i $i:r.$2
+	end
+endif
+
+if (-e ./demo) then
+	foreach i ( `find ./demo \( -name \*.$1 \) -print `)
+		echo $i:r.$2
+		mv $i $i:r.$2
+	end
+endif
+

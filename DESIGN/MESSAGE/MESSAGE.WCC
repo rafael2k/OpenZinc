@@ -1,0 +1,6 @@
+message.lib
++message.o32
++message1.o32
++prefer.o32
++import.o32
++export.o32

@@ -1,0 +1,42 @@
+# posix.mak - for Zinc Application Framework 4.0
+# This makefile can be used to compile all example programs supplied.
+SHELL=/bin/sh
+
+TARGET = motif
+
+$(TARGET) clean:
+	(cd callback/validt; make $@)
+	(cd data/agency; make $@)
+	(cd data/menus; make $@)
+	(cd data/notebk; make $@)
+	(cd data/phonbk; make $@)
+	(cd data/postwn; make $@)
+	(cd data/spread; make $@)
+	(cd data/status; make $@)
+	(cd data/window; make $@)
+	(cd drawitem/analog; make $@)
+	(cd drawitem/dsplay; make $@)
+	(cd drawitem/graph; make $@)
+	(cd drawitem/grid; make $@)
+	(cd drawitem/lstitm; make $@)
+	(cd i18n/delta; make $@)
+	(cd i18n/i18n; make $@)
+	(cd mapping/calc; make $@)
+	(cd mapping/calndr; make $@)
+	(cd mapping/palmap; make $@)
+	(cd messages/match; make $@)
+	(cd messages/mdi; make $@)
+	(cd messages/messgs; make $@)
+	(cd messages/world; make $@)
+	(cd new_obj/gmgr; make $@)
+	(cd new_obj/msgwin; make $@)
+	(cd new_obj/period; make $@)
+	(cd new_obj/printr; make $@)
+	(cd new_obj/spin; make $@)
+	(cd new_obj/table; make $@)
+	(cd misc/colors; make $@)
+	(cd misc/coords; make $@)
+	(cd misc/drag; make $@)
+	(cd misc/fonts; make $@)
+	(cd misc/frestr; make $@)
+	(cd misc/spy; make $@)

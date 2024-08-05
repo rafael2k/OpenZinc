@@ -1,0 +1,4 @@
+SYSTEM dos4g OP stack=20000
+N stredit
+F main.o32
+L stredit.lib service.lib d32_zil,d32_wcc

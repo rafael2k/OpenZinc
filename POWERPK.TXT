@@ -1,0 +1,66 @@
+---------------------------------------------------------------------
+------------ Zinc Application Framework 4.2 - POWERPK.TXT -----------
+----------- COPYRIGHT (C) 1990-1996.  All Rights Reserved. ----------
+------ Zinc Software Incorporated.  Pleasant Grove, Utah  USA -------
+---------------------------------------------------------------------
+
+This file describes how to use Borland's 16 and 32 bit PowerPak
+DOS extenders with Zinc Application Framework 4.2.
+
+1) Update your path environment variable.  The Borland
+BGI directory must be in your path (C:\BC4\BGI).
+
+2) For PowerPak 16, update your Borland TURBOC.CFG and
+TLINK.CFG files and set up the Zinc include and library paths.
+For PowerPack 32, update the BCC32.CFG and TLINK32.CFG files.
+
+3) Build the PowerPak 16 libraries by using one of these
+command lines from the \ZINC\SOURCE directory:
+
+    make -fbtcpp450.mak dos16
+    make -fbtcpp500.mak dos16
+
+4) Build the PowerPak 32 libraries by using one of these
+command lines from the \ZINC\SOURCE directory:
+
+    make -fbtcpp450.mak dos32
+    make -fbtcpp500.mak dos32
+
+5) You can do similar to the above when using BTCPP400.MAK
+or BTCPP450.MAK to build Zinc example and tutorial programs.
+
+
+*** NOTES ***
+
+- POWERPACK 16-bit has problems switching between multiple fonts.
+  The Zinc BGI display class registers and uses 3 Zinc-created fonts.
+  However, the BGI library in 16-bit PowerPack discards these fonts
+  when another font is used.  The BGI library instead tries to read
+  one of its own fonts from disk.
+
+  You need to rename the Zinc BGI font files to the filenames
+  that BGI tries to load and place them in the BGI driver's directory.
+  BGI looks for the font files in the same directory where it found the
+  display driver.  This means that in addition to the BGI files you
+  would normally ship with your executable (e.g., EGAVGA.BGX, etc.) you
+  will need to ship the Zinc font files.  The font files, which are
+  located in the ZINC\SOURCE\BGI directory, should be copied to the
+  BGI driver's directory and renamed as follows:
+
+        ???_SMAL.CHR ==> LITT.CHR
+        ???_DIAL.CHR ==> TRIP.CHR
+        ???_SYST.CHR ==> SANS.CHR
+
+  ??? indicates either ISO or OEM, whichever fonts your application
+  uses.
+
+  Because these font files have the same names as Borland fonts, you
+  will not be able to use the Borland fonts in your Zinc application.
+
+- POWERPACK 32-bit has a bug in the BGI32.DLL that causes
+  mouse trails to appear when xor mode is used for drawing.  Borland
+  has released a patched BGI32.DLL that fixes this problem.  We ship
+  it in the ZINC\POWERPAK directory.
+
+- No GFX support--only BGI.
+

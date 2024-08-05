@@ -1,0 +1,110 @@
+#include <ui_win.hpp>
+#include "mgr.hpp"
+
+LIST_TABLE_RECORD::LIST_TABLE_RECORD(int width, int height,
+	ZIL_USER_FUNCTION userFunction, WOF_FLAGS woFlags) :
+	UIW_TABLE_RECORD(width, height, userFunction, woFlags)
+{
+	woStatus |= WOS_OWNERDRAW;
+	searchID = ID_LIST_TABLE_RECORD;
+}
+// Normal destructor.
+LIST_TABLE_RECORD::~LIST_TABLE_RECORD()
+{
+}
+
+EVENT_TYPE LIST_TABLE_RECORD::DrawItem(const UI_EVENT &, EVENT_TYPE ccode)
+{
+	// Extract the region information.
+	UI_REGION region = trueRegion;
+	display->VirtualGet(screenID, region);
+
+	if (!virtualRecord) // If not the virtual record then use a different palette.
+		display->Rectangle(screenID, region, &hilightPalette, 0, TRUE, FALSE, &clip);
+	else
+		display->Rectangle(screenID, region, &whitePalette, 0, TRUE, FALSE, &clip);
+
+	// Format and display the listText.
+	UI_REGION tRegion;
+	tRegion.top = region.top + (region.bottom - region.top) / 2 - (display->cellHeight /2) + display->preSpace;
+	display->Text(screenID, region.left + display->cellWidth * 4, tRegion.top + 4, listText,
+		lastPalette, -1, FALSE, FALSE, &clip);
+
+	// Draw the focus rectangle.
+	UI_WINDOW_OBJECT *object = NULL;
+	for (object = this; object && FlagSet(object->woStatus, WOS_CURRENT);
+		object = object->parent)
+			;
+	if (!object)
+		DrawFocus(screenID, region, ccode);
+
+	display->VirtualPut(screenID);
+	woStatus &= ~WOS_REDISPLAY;
+
+	return(ccode);
+}
+
+EVENT_TYPE LIST_TABLE_RECORD::Event(const UI_EVENT &event)
+{
+	static ZIL_UTIME lastTime, currentTime;
+	EVENT_TYPE ccode = LogicalEvent(event);
+	switch(ccode)
+	{
+	case S_SET_DATA:
+		{
+		ccode = UIW_TABLE_RECORD::Event(event);
+		sprintf(listText, "%i times that this record is being displayed.", recordNum);
+		}
+		break;
+
+	case L_DOUBLE_CLICK:
+		UI_ERROR_SYSTEM::Beep();
+		break;
+
+	case L_END_SELECT:
+		{
+		ccode = UIW_TABLE_RECORD::Event(event);
+		currentTime.Import();
+		if (currentTime.Difference(lastTime) < 25)
+		{
+			UI_EVENT uEvent = event;
+			uEvent.type = L_DOUBLE_CLICK;
+			Event(uEvent);
+		}
+		lastTime = currentTime;
+		}
+		break;
+
+	default:
+		ccode = UIW_TABLE_RECORD::Event(event);
+	}
+	return(ccode);
+}
+
+// ----- ZIL_PERSISTENCE ----------------------------------------------------
+
+#if defined(ZIL_LOAD)
+LIST_TABLE_RECORD::LIST_TABLE_RECORD(const char *name, ZIL_STORAGE_READ_ONLY *directory,
+	ZIL_STORAGE_OBJECT_READ_ONLY *file, UI_ITEM *objectTable, UI_ITEM *userTable) :
+	UIW_TABLE_RECORD(name, directory, file, objectTable, userTable)
+{
+	woStatus |= WOS_OWNERDRAW;
+	searchID = ID_LIST_TABLE_RECORD;
+}
+
+void z_jump_dummy(void) { }   // Bug fix for broken linkers.
+
+static UI_ITEM _userTable[] =
+{
+	{ ID_END, ZIL_NULLP(void), ZIL_NULLP(ZIL_ICHAR), 0 }
+};
+UI_ITEM *UI_WINDOW_OBJECT::userTable = _userTable;
+
+static UI_ITEM _objectTable[] =
+{
+	{ ID_LIST_TABLE_RECORD, ZIL_VOIDF(LIST_TABLE_RECORD::New), LIST_TABLE_RECORD::_className, 0 },
+	{ ID_END, ZIL_NULLP(void), ZIL_NULLP(ZIL_ICHAR), 0 }
+};
+UI_ITEM *UI_WINDOW_OBJECT::objectTable = _objectTable;
+#endif
+

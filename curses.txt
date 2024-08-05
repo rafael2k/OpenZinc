@@ -1,0 +1,416 @@
+---------------------------------------------------------------------
+------------ Zinc Application Framework 4.2 - CURSES.TXT ------------
+----------- COPYRIGHT (C) 1990-1996.  All Rights Reserved. ----------
+------ Zinc Software Incorporated.  Pleasant Grove, Utah  USA -------
+---------------------------------------------------------------------
+
+Welcome to Zinc Application Framework 4.2!  This file
+contains some important information concerning the Curses
+release.  Please read this file before installing the product.
+
+---------------------------------------------------------------------
+---- CONTENTS -------------------------------------------------------
+---------------------------------------------------------------------
+
+This document is divided into the following sections:
+
+     SYSTEMS SUPPORTED
+     INSTALLING ZINC FROM DOS MEDIA
+     INSTALLING ZINC FROM UNIX FLOPPIES 
+     DISTRIBUTION CONTENTS
+     COMPILING ZINC
+     RELOCATING THE LIBRARY
+     DIFFERENCES
+     HINTS AND GOTCHAS
+     INTERNET ACCESS
+     KEYBOARD MAPPINGS
+     CURSES DISPLAY
+
+
+---------------------------------------------------------------------
+---- SYSTEMS SUPPORTED ----------------------------------------------
+---------------------------------------------------------------------
+
+This version of Zinc provides Curses support on the following
+systems:
+
+     SCO UNIX V3.2 with SCO C++ Language System 3.1.1b
+     IBM AIX V4.1 on IBM RS6000 with C Set++ for AIX, V3
+
+Although compiling Zinc 4.2 on other Unix systems with Curses
+should be straightforward, Zinc makes no claims about the ease of
+porting to unsupported systems.
+
+
+---------------------------------------------------------------------
+---- INSTALLING ZINC FROM DOS MEDIA ---------------------------------
+---------------------------------------------------------------------
+
+The following steps explain how to install Zinc on your system if
+you received Zinc on DOS media such as DOS floppy disks or from
+the DOS BBS.
+
+-    Copy the distribution files from the Zinc Curses disks
+     (zaf42crs.tz1 and zaf42crs.tz2) to the
+     directory that you want to contain the Zinc source
+     directory (e.g.: /usr/local).  You must have write permission
+     in this directory.
+
+-    Install Zinc by typing the following:
+
+          cat zaf42crs.tz? | zcat | tar xvf -
+
+
+---------------------------------------------------------------------
+---- INSTALLING ZINC FROM UNIX FLOPPIES -----------------------------
+---------------------------------------------------------------------
+
+The following steps explain how to install Zinc on your system if
+you received Zinc on tar floppy disks.
+
+-    cd to the directory that you want to contain the Zinc source
+     directory (e.g.: /usr/local) .  You must have write permission
+     in this directory.
+
+-    Retrieve the compressed tar file (zaf.curses.4.2.0.tar.Z)
+     from the floppy disk(s).  For example, on SCO computers,
+     type:
+
+          tar xvfb /dev/fd0 1440
+
+-    Install Zinc by typing the following:
+
+          zcat zaf.curses.4.2.0.tar.Z | tar xvf -
+
+
+---------------------------------------------------------------------
+---- DISTRIBUTION CONTENTS ------------------------------------------
+---------------------------------------------------------------------
+
+The Curses key for Zinc Application Framework is distributed in
+the following ways:
+
+     Unix Networks (format: compressed tar, filename:
+          zaf.curses.4.2.0.tar.Z)
+
+     DOS floppy or DOS BBS (format: compressed tar, filenames:
+          ZAF42CRS.TZ1 and ZAF42CRS.TZ2 --does
+          not include the Zinc demo)
+
+Compressed tar distributions contain only source code and data
+files, so you must compile Zinc yourself.
+
+All Unix distribution methods contain both the Zinc Engine and
+the Zinc Curses Key together on the same media.  Performing the
+installation as described here installs both the Engine and the
+Curses Key.  The Unicode internationalization key is not
+supported for Curses.
+
+The following diagram shows the Zinc directory structure that
+will be created during installation:
+
+                                   |--- intl
+               |--- source  -------|
+               |                   |--- storage
+               |--- design
+               |
+               |--- lib            |---
+     Zinc -----|                   |---
+               |--- example -------|--- ...
+               |                   
+               |--- tutor   -------|---
+               |                   |---
+               |--- include        |--- ...
+
+
+     Besides containing the above directories, the main `Zinc'
+     directory contains installation scripts (INSTALL, MakeChng,
+     and Suffixes), and several informational files, such as a
+     copy of this file (curses.txt).
+
+     The source directory contains the library source.
+
+     design contains source for the Zinc Designer.
+
+     storage contains several programs for use in validating
+     Zinc data files.
+
+     example and tutor contain Zinc instructional example
+     programs.
+
+     include and lib will contain header and library files
+     for use in compiling and linking the demo, Designer,
+     example, and tutor programs.
+
+
+---------------------------------------------------------------------
+---- CREATING THE LIBRARY -------------------------------------------
+---------------------------------------------------------------------
+
+This section explains how to compile Zinc on a supported system.
+You must compile the distribution before you can use it.  
+
+Two steps are involved in compiling Zinc:
+
+     1)   Configuring Zinc with INSTALL, an interactive script that 
+          lets you tell Zinc about your system configuration.
+
+     2)   Compiling and linking with make.
+
+To install on any system except SCO UNIX systems, from the Zinc
+directory, type:
+
+     INSTALL
+
+For SCO systems, type 
+
+INSTALL -n -c sco
+
+You will be asked what type of system to compile for and then you
+will be shown the default configuration for your system type. 
+You can change any parameters necessary.  INSTALL then configures
+all the Makefiles in the Zinc tree.  If the C++ compiler on your
+system needs to have C++ source file names to end with something
+besides .cpp--such as .C, .cc, or .cxx--INSTALL changes all
+the source files in the Zinc tree.
+
+Use the Suffixes program to change Zinc source file extensions from
+cpp to C.  From Zinc/source, type:
+
+     ../Suffixes cpp C
+
+After running INSTALL and changing file extensions, compile the
+Zinc library:
+
+     make clean
+     make
+
+Any problems you encounter while compiling or linking on a
+supported system can probably be fixed by changing the values
+supplied to INSTALL, especially the locations to search for
+include files and libraries.  You can run INSTALL as many times
+as necessary, until you can compile and link successfully. 
+INSTALL remembers your input from one run to the next (unless you
+run INSTALL -f).
+
+It will take anywhere from 10 minutes to 4 hours to compile the
+whole Zinc tree, depending on your computer's speed and operating
+system.  If, instead of compiling the whole Zinc tree, you just
+want to make and test the Zinc library, you can compile just the
+Zinc library and the Zinc demo by typing:
+     (cd source; make)
+     (cd demo; make; demo)
+
+If you do compile the whole tree, you might want to run some of
+the programs in the example and tutor directories to get an
+idea of what Zinc can do.
+
+
+---------------------------------------------------------------------
+---- RELOCATING THE LIBRARY -----------------------------------------
+---------------------------------------------------------------------
+
+If you want to copy the Zinc library and include files to places
+where they can be found by the compiler and linker, change to the
+Zinc directory, and type:
+
+     make install
+
+This copies the Zinc library and include files to /usr/lib and
+/usr/include by default.  It also copies the Zinc Designer to
+/usr/local/bin. You can change these default locations by
+running INSTALL. You may need super-user permission to complete
+this installation step.
+
+If you skip this installation step, you will have to specify the
+Zinc include and library directories each time you compile and
+link one of your own programs.  For example, if you don't make
+install, the compile/link command for your programs might be:
+
+     CC -o myprog myprog.cpp -I/wherever/Zinc/include \
+          -L/wherever/Zinc/lib -l_crs_zil
+
+If you make install, the command might be:
+
+     CC -o myprog myprog.cpp -l_crs_zil
+
+Zinc 4.2 is now installed.
+
+
+---------------------------------------------------------------------
+---- DIFFERENCES ----------------------------------------------------
+---------------------------------------------------------------------
+
+This section explains some of the differences between the Zinc
+Curses Key and keys for other systems:
+
+-    Text Mode.  Of course, the Curses key runs only in text
+     mode, so it has the functionality of the DOS Text mode Key. 
+     This means that bitmaps and icon pictures will not be
+     displayed.
+
+-    ALT key.  Curses doesn't know about the ALT key.  The ALT
+     key on most Curses systems will simply be ignored.  The
+     current release of Zinc uses the ESC key as the ALT key in
+     the non-PC keyboard configuration or the '`' key when using
+     the PC keyboard configuration.  This can by changed by
+     changing the definition of the ALT_KEY macro in the source
+     file ui_map.hpp.
+
+-    Shift key.  Curses doesn't recognize shifted function keys
+     and special keys such as arrows and the delete key.
+
+-    Control key.  Curses doesn't recognize control function keys
+     and special keys such as arrows and the delete key.
+
+-    Mouse.  Curses doesn't support mouse input.  The SCO UNIX
+     version of the Zinc Curses key does provide for mouse input
+     through the use of the usemouse command.  A usemouse
+     configuration file is provided, named zilmouse.sco.
+
+
+---------------------------------------------------------------------
+---- HINTS AND GOTCHAS ----------------------------------------------
+---------------------------------------------------------------------
+
+Some things to watch out for:
+
+-    Some cfront compilers or translators will generate a warning
+     such as:
+
+          warning: result of *  expression not used
+
+     whenever they encounter a line of code that uses UIW_WINDOW's 
+     operator+ such as:
+     
+          *window + new UIW_PROMPT(5, 5, "Hello");
+
+     This construct is used dozens of times in the Zinc library,
+     so some systems will generate dozens of warnings.  These
+     warnings don't affect the operation of the code.  If you
+     don't like seeing them you can change the offending lines of
+     code;
+
+          (void *)(*window + new UIW_PROMPT(5, 5, "Hello"));
+
+-    Some of the Zinc examples and tutorials have names that may
+     collide with programs already in your path.  For example,
+     some Unix systems have programs named calc.  So if some of
+     our programs don't seem to run correctly, specify the path
+     name too.  For example, after changing to the
+     example/mapping/calc directory, calc probably won't run Zinc's
+     calc program, but ./calc will.
+
+-    When compiling on SCO systems with HCR C++, a number of
+     warnings are produced for each source file that is compiled.
+     This is because HCR C++ complains about const variables that
+     are defined but not used.  There is currently no way to
+     avoid these messages.
+
+-    When compiling on SCO systems with Green Hills C++, there
+     are cases where the compiler will incorrectly include a file
+     from /usr/green/include instead of /usr/include.  To avoid
+     this problem, three Green Hills include files need to be
+     renamed:
+
+          cd /usr/green/include
+
+          mv pwd.h pwd.h.orig
+
+          mv tinfo.h tinfo.h.orig
+
+          mv sys/stat.h sys/stat.h.orig
+
+-    When compiling on SCO systems with Green Hills C++, each
+     source file that directly or indirectly includes
+     /usr/include/tinfo.h will generate a warning about an
+     unterminated linkage construct.  This is due to a confusion
+     in the include files between _cplusplus and __cplusplus,
+     and can be ignored.  There is also a warning about the
+     virtual function Get() not having the same parameters as
+     those in a base class.  This can also be ignored.
+          
+
+---------------------------------------------------------------------
+---- INTERNET ACCESS ------------------------------------------------
+---------------------------------------------------------------------
+
+You can use the Internet to contact Zinc Technical Support and to
+download Zinc demos and upgrades.
+
+You can send email to Technical Support at tech@zinc.com.  To
+download demos for several different systems supported by Zinc,
+connect by anonymous ftp to ftp.zinc.com and change to the /demo
+directory.  For upgrades, or to get an update of the Zinc engine
+or a key that you have already purchased, contact Zinc Technical
+Support.
+
+
+---------------------------------------------------------------------
+---- KEYBOARD MAPPINGS ----------------------------------------------
+---------------------------------------------------------------------
+
+The key strokes available from Curses are significantly different
+than those available from such systems as DOS, Windows, OS/2, or
+Motif.  For example, many terminals supported by Curses have few
+or no regular function keys (F1, F2, etc.) defined.  Curses does
+not support an Alt or Meta key.  The Ctrl and Shift keys often
+cannot be used with any of the function keys or keys such as
+pgup, end, or tab.
+
+On the other hand, some terminals used with Curses have many
+specialized keys that perform such functions as cut, paste,
+restore, or cancel.  If a terminal does not have some of these
+keys, the terminfo database entry can be modified to create
+mappings from existing keys to the required functions.
+
+When Zinc is used with Curses, by default it maps the special
+Curses function keys to Zinc events.  These special Curses
+function keys include
+
+     KEY_ENTER
+     KEY_NPAGE
+     KEY_BTAB
+     KEY_CANCEL
+     KEY_MARK
+     KEY_REFRESH
+
+In Zinc's default mode, Alt, Ctrl, and Shift keys are not used, 
+and hot key sequences are preceded by Esc rather than Alt.  
+
+The default keyboard mapping provided by Zinc does allow the use
+of Ctrl-key combinations for many events.  These Ctrl-key events
+are shown below:
+
+     Backspace                <CTRL-H>
+     Close window             <CTRL-D>
+     Cut                      <CTRL-T>
+     Help, context-specific   <CTRL-E>
+     Help, general            <CTRL-R>
+     Make next window current <CTRL-N>
+     Mark                     <CTRL-K>
+     Move window              <CTRL-V>
+     Paste                    <CTRL-P>
+     Refresh display          <CTRL-L>
+     Restore window           <CTRL-O>
+     Size window              <CTRL-B>
+
+If desired, Zinc provides a mode somewhat compatible with the PC
+keyboard that uses surrogate Alt and Ctrl keys with F1 through
+F10.  In this mode, the '`' key is used as the Alt key, and '~'
+is used as the Ctrl key.  Pressing a surrogate key followed by
+another key causes Zinc to recognize an Alt or Ctrl sequence. 
+Pressing a surrogate key twice causes the key to be recognized as
+normal.  So instead of pressing Curses's KEY_SCANCEL to close a
+window, a user could press '`' followed by F4.  This mode is
+selected at compile time through the definition of the
+ZIL_PC_KEYBRD preprocessor flag.
+
+
+---------------------------------------------------------------------
+---- CURSES DISPLAY -------------------------------------------------
+---------------------------------------------------------------------
+
+Since Curses is a text mode environment, it requires a text display.
+The UI_TEXT_DISPLAY class has been updated for use with Curses in
+addition to DOS text mode. Use it when creating Curses applications.

@@ -1,0 +1,333 @@
+IMPORTANT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+To ensure library is correct with open Watcom under win32 the Watcom 
+section of ui_env.hpp must be modified!!! Initially this section reads
+
+// --------------------------------------------------------------------------
+// ----- WATCOM -------------------------------------------------------------
+// --------------------------------------------------------------------------
+
+#if defined(__WATCOMC__)
+#       undef ZIL_VOIDP
+#       define ZIL_VOIDP(pointer)       ((void *)(pointer))
+#       undef ZIL_SIGNED_CHAR
+#       if defined(ZIL_UNICODE)
+#               include <stddef.h>
+#               define ICHAR_T wchar_t
+#       endif
+#       if defined(__OS2__)
+#               define ZIL_OS2          20
+#               undef ZIL_WORD_SIZE
+#               define ZIL_WORD_SIZE    32
+#               define ZIL_FARDATA
+#       elif defined(__WINDOWS__) ||  defined(__NT__)
+#               define ZIL_MSWINDOWS    WINVER
+#               undef ZIL_MSWINDOWS_CTL3D
+#               if defined (__NT__) || defined(WIN32)    
+#                       define ZIL_WINNT        __NT__
+#                       undef ZIL_WORD_SIZE
+#                       define ZIL_WORD_SIZE    32
+#                       define ZIL_FARDATA
+#               else
+#                       define ZIL_FARDATA              far
+#               endif
+#               ifdef __DLL__
+#                       undef ZIL_EXPORT_CLASS
+#                       if defined(ZIL_WINNT)
+#                               define ZIL_EXPORT_CLASS __export
+#                       else
+#                               define ZIL_EXPORT_CLASS _export
+#                       endif
+#               endif
+#       elif defined(__DVX__)
+#               define ZIL_LOAD_MOTIF   // Use ZIL_MOTIF not ZIL_LOAD_MOTIF in programs.
+#               define MSDOS
+#               define ZIL_FARDATA
+#       elif defined(__QNX__)
+#               define ZIL_POSIX
+#               define ZIL_LOAD_MOTIF   // Use ZIL_MOTIF not ZIL_LOAD_MOTIF in programs.
+#               define ZIL_FARDATA
+                struct _XDisplay;
+                struct _XrmHashBucketRec;
+                struct _XPrivate;
+#       else
+#               define ZIL_MSDOS        20
+#               undef ZIL_WORD_SIZE
+#               define ZIL_WORD_SIZE    32
+#               define ZIL_FARDATA
+#       endif
+#endif
+
+It was modified to
+
+// --------------------------------------------------------------------------
+// ----- WATCOM -------------------------------------------------------------
+// --------------------------------------------------------------------------
+
+#if defined(__WATCOMC__)
+#       undef ZIL_VOIDP
+#       define ZIL_VOIDP(pointer)       ((void *)(pointer))
+#       undef ZIL_SIGNED_CHAR
+#       if defined(ZIL_UNICODE)
+#               include <stddef.h>
+#               define ICHAR_T wchar_t
+#       endif
+#       if defined(__OS2__)
+#               define ZIL_OS2          20
+#               undef ZIL_WORD_SIZE
+#               define ZIL_WORD_SIZE    32
+#               define ZIL_FARDATA
+#       elif defined(__WINDOWS__) ||  defined(__NT__) || defined(WIN32)  // last or added by jdh
+#               define ZIL_MSWINDOWS    WINVER
+#               undef ZIL_MSWINDOWS_CTL3D
+#               if defined (__NT__) || defined(WIN32)    // last or added by jdh
+#                   if defined(__NT__)                   // added by jdh
+#                       define ZIL_WINNT        __NT__
+#                   endif                                // added by jdh
+#                   if defined(WIN32)                    // added by jdh
+#                       define ZIL_WINNT       WIN32     // added by jdh
+#                   endif                                // added by jdh
+#                       undef ZIL_WORD_SIZE
+#                       define ZIL_WORD_SIZE    32
+#                       define ZIL_FARDATA
+#               else
+#                       define ZIL_FARDATA              far
+#               endif
+#               ifdef __DLL__
+#                       undef ZIL_EXPORT_CLASS
+#                       if defined(ZIL_WINNT)
+#                               define ZIL_EXPORT_CLASS __export
+#                       else
+#                               define ZIL_EXPORT_CLASS _export
+#                       endif
+#               endif
+#       elif defined(__DVX__)
+#               define ZIL_LOAD_MOTIF   // Use ZIL_MOTIF not ZIL_LOAD_MOTIF in programs.
+#               define MSDOS
+#               define ZIL_FARDATA
+#       elif defined(__QNX__)
+#               define ZIL_POSIX
+#               define ZIL_LOAD_MOTIF   // Use ZIL_MOTIF not ZIL_LOAD_MOTIF in programs.
+#               define ZIL_FARDATA
+                struct _XDisplay;
+                struct _XrmHashBucketRec;
+                struct _XPrivate;
+#       else
+#               define ZIL_MSDOS        20
+#               undef ZIL_WORD_SIZE
+#               define ZIL_WORD_SIZE    32
+#               define ZIL_FARDATA
+#       endif
+#endif
+
+The need to define ZIL_WINNT as WIN32 was only detected when making 9design.exe.
+Without this define there were unresolved references when trying to link 9design.exe
+(design.exe will compile and link fine with this change
+
+In files 9_table2.cpp and 9_win1.cpp the following line exists
+
+ScrollEvent(UI_EVENT(S_SCROLLRANGE));
+
+OpenWatcom requires the explicit cast
+
+ScrollEvent((UI_EVENT&)UI_EVENT(S_SCROLLRANGE));
+
+In 9_win2.cpp line 252
+
+static initializedTime = FALSE;
+
+needs to be changed to 
+
+static int initializedTime = FALSE;
+
+Similarly on lines 1240 and 1241 
+
+        static registeredClass = 0;
+        static mdiRegisteredClass = 0;
+        
+needs to be changed to 
+
+        static int registeredClass = 0;
+        static int mdiRegisteredClass = 0;
+        
+in file d_wccdsp.cpp in lines 601 and 625
+
+ for (i = 0; i < numPoints * 2; i += 2) 
+ 
+ needs to be changed to
+ 
+  for (int i = 0; i < numPoints * 2; i += 2)
+  
+  because of change in "for" scoping rules
+  
+  in file o_dsp.cpp in lines 91, 272 and 726
+
+ for (i = 0; i < numPoints * 2; i += 2) 
+ 
+ needs to be changed to
+ 
+  for (int i = 0; i < numPoints * 2; i += 2)
+  
+  because of change in "for" scoping rules
+  
+  in file o_hlist.cpp line 57
+  
+  UI_WINDOW_OBJECT *object needs to be declared outside of for loop because of change in "for" scoping rules
+
+ in file o_print.cpp in line 134
+
+ for (i = 0; i < numPoints * 2; i += 2) 
+ 
+ needs to be changed to
+ 
+  for (int i = 0; i < numPoints * 2; i += 2)
+  
+  because of change in "for" scoping rules
+  
+  in line 705
+  
+  DevEscape(hdc, DEVESC_STARTDOC, ::strlen(message), (PSZ)message, 0, 0);
+  
+  needs to be changed to 
+  
+  DevEscape(hdc, DEVESC_STARTDOC, ::strlen(message), (unsigned char *)(PSZ)message, 0, 0); //explicit cast needed
+ 
+in line 865
+
+ ZIL_ICHAR *space needs to be declared outside of for loop because of change in "for" scoping rules
+ 
+ In 0_win2.cpp line 230
+
+static initializedTime = FALSE;
+
+needs to be changed to 
+
+static int initializedTime = FALSE;
+
+FILE W_IMAGE.CPP DOESN'T COMPILE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+
+In file w_table2.cpp line 112 
+
+ScrollEvent(UI_EVENT(S_SCROLLRANGE));
+
+OpenWatcom requires the explicit cast
+
+ScrollEvent((UI_EVENT&)UI_EVENT(S_SCROLLRANGE));
+
+In file w_win1.cpp lines 1311 and  1513
+
+ScrollEvent(UI_EVENT(S_SCROLLRANGE));
+
+OpenWatcom requires the explicit cast
+
+ScrollEvent((UI_EVENT&)UI_EVENT(S_SCROLLRANGE));
+
+In w_win2.cpp line 341
+
+static initializedTime = FALSE;
+
+needs to be changed to 
+
+static int initializedTime = FALSE;
+
+Similarly on lines 1314 and 1315 
+
+        static registeredClass = 0;
+        static mdiRegisteredClass = 0;
+        
+needs to be changed to 
+
+        static int registeredClass = 0;
+        static int mdiRegisteredClass = 0;
+        
+In files 3_table2.cpp and 9_win1.cpp the following line exists
+
+ScrollEvent(UI_EVENT(S_SCROLLRANGE));
+
+OpenWatcom requires the explicit cast
+
+ScrollEvent((UI_EVENT&)UI_EVENT(S_SCROLLRANGE));
+
+In 3_win2.cpp line 289
+
+static initializedTime = FALSE;
+
+needs to be changed to 
+
+static int initializedTime = FALSE;
+
+Similarly on lines 1274 and 1275 
+
+        static registeredClass = 0;
+        static mdiRegisteredClass = 0;
+        
+needs to be changed to 
+
+        static int registeredClass = 0;
+        static int mdiRegisteredClass = 0;
+        
+in file w_image.cpp the following lines are added
+
+#if defined(__WATCOMC__)
+    #undef  GlobalFreePtr
+    #define     GlobalFreePtr(lp) (GlobalUnlockPtr(lp), (BOOL)GlobalFree(GlobalPtrHandle(lp)))
+#endif
+and the line
+
+    GlobalFreePtr(dib);
+
+is changed to
+
+#if defined(__WATCOMC__)
+        GlobalFreePtr((unsigned)dib);
+#else   
+         GlobalFreePtr(dib);
+#endif 
+
+in d_error1.cpp lines 17 & 18
+
+        const ERROR_OK = 9900;
+        const ERROR_CANCEL = 9901;
+
+needs to be changed to 
+
+        const int ERROR_OK = 9900;
+        const int ERROR_CANCEL = 9901;
+        
+in d_icon.cpp line 149
+
+        static initializedTime = FALSE;
+needs to be changed to 
+
+        static int initializedTime = FALSE;
+        
+in file gfx.h line 886
+
+typedef struct _csc { int text, bkgnd, quick_key, xor;
+
+must be changed to 
+
+typedef struct _csc { int text, bkgnd, quick_key, xorInt;
+
+because watcom compiler will not allow xor as a specifier
+
+in d_sys.cpp line 11
+
+        static initializedTime = FALSE;
+needs to be changed to 
+
+        static int initializedTime = FALSE;
+        
+in file d_tdsp.cpp
+
+xor is used extensively as an identifier. Watcom compiler does not allow this
+so all occurences have been replaced with xorInt
+
+
+
+
+
+
+ 
+
+

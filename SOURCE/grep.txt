@@ -1,0 +1,25 @@
+File UI_WIN.HPP:
+const ZIL_LOGICAL_EVENT L_DELETE_EOL                    = 1110;
+const ZIL_LOGICAL_EVENT L_INSERT_TOGGLE                 = 1114;
+const ZIL_LOGICAL_EVENT L_WORD_LEFT                             = 1115;
+const ZIL_LOGICAL_EVENT L_WORD_RIGHT                    = 1116;
+const ZIL_LOGICAL_EVENT L_BOL                                   = 1117;
+const ZIL_LOGICAL_EVENT L_EOL                                   = 1118;
+const ZIL_LOGICAL_EVENT L_BACKSPACE                             = 1119;
+const ZIL_INFO_REQUEST I_SET_FLFLAG                             = 111;
+File I_CSTR2.CPP:
+                { 0x4F, 111, 15, 10 },
+                { 0x6F, 111, 15,  7 },
+                { 0xBA, 111, 16,  9 },
+                { 0xD2, 111, 19, 10 },
+                { 0xD3, 111, 18, 10 },
+                { 0xD4, 111, 20, 10 },
+                { 0xD5, 111, 23, 10 },
+                { 0xD6, 111, 22, 10 },
+                { 0xD8, 111, 24, 10 },
+                { 0xF2, 111, 19,  7 },
+                { 0xF3, 111, 18,  7 },
+                { 0xF4, 111, 20,  7 },
+                { 0xF5, 111, 23,  7 },
+                { 0xF6, 111, 22,  7 },
+                { 0xF8, 111, 24,  7 },

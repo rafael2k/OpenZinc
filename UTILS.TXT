@@ -1,0 +1,71 @@
+---------------------------------------------------------------------
+------------- Zinc Application Framework 4.2 - UTILS.TXT ------------
+----------- COPYRIGHT (C) 1990-1996.  All Rights Reserved. ----------
+------ Zinc Software Incorporated.  Pleasant Grove, Utah  USA -------
+---------------------------------------------------------------------
+
+This file documents the command-line utilities included with Zinc
+Application Framework.  (NOTE: These utilities are not documented
+in the printed documentation.)  You can run these utilities from DOS
+(including a DOS shell), Unix, or Macintosh.
+
+browse
+
+usage:      browse <.DAT>    
+example:    browse foo.dat
+
+Lists all directories and objects inside a .DAT file
+
+
+checkfile
+
+usage:      checkfile <.DAT>
+example:    checkfile foo.dat
+
+Verifies and corrects the integrity of a .DAT file. Does not
+check the integrity of objects inside the .DAT file.
+
+
+cppath
+
+usage:      cppath <.DAT1> <.DAT2>
+example:    cppath foo.dat bar.dat
+
+Copies directories and their contents from .DAT1 to .DAT2.
+
+
+gc
+
+usage:      gc <.DAT>
+example:    gc foo.dat
+
+Stands for "garbage collection." Removes the free list, which
+is a list of unused i-nodes or pointers to empty space in a .DAT file.
+
+
+rrmdir
+
+usage:      rrmdir <.DAT>
+example:    rrmdir foo.dat
+
+Recursively removes directories and their contents from a .DAT file.
+
+
+
+strip
+
+usage:      strip <.DAT>
+example:    strip foo.dat
+
+Removes unneeded UI_CPP, UI_HPP files from a .DAT file. Use
+this utility when you are ready to ship your Zinc application.
+
+
+zdump
+
+usage:      <.DAT> <pathname>
+example:    zdump foo.dat UIW_WINDOW~DERIVED_WINDOW
+
+Dumps the contents of an arbitrary object in a .DAT file in hexadecimal.
+In the above example, DERIVED_WINDOW is derived from
+UIW_WINDOW and is stored in foo.dat.

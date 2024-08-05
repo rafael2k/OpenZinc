@@ -1,0 +1,5 @@
+SYSTEM dos4g OP quiet OP stack=48000
+N mwinedit
+F main.obm
+L mwindow.lib mstorage.lib mstredit.lib mdirect.lib
+L mservice.lib dvx_zil,xm,xt,x,sys

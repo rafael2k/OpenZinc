@@ -1,0 +1,64 @@
+---------------------------------------------------------------------
+------------ Zinc Application Framework 4.2 - ERRATA.TXT ------------
+----------- COPYRIGHT (C) 1990-1996.  All Rights Reserved. ----------
+------ Zinc Software Incorporated.  Pleasant Grove, Utah  USA -------
+---------------------------------------------------------------------
+
+This file describes known errors and omissions in the Zinc Application
+Framework 4.1 manuals.
+
+
+---------------------------------------------------------------------
+---- CONTENTS -------------------------------------------------------
+---------------------------------------------------------------------
+
+This document is divided into the following sections:
+
+     PROGRAMMER'S REFERENCE VOLUME 1
+     GETTING STARTED
+     ZINC DESIGNER
+
+
+---------------------------------------------------------------------
+---- PROGRAMMER'S REFERENCE VOLUME 1 --------------------------------
+---------------------------------------------------------------------
+
+     CHAPTER 42--UI_WINDOW_MANAGER
+     
+     The description of the I_GET_STRINGID_OBJECT and 
+     I_GET_NUMBERID_OBJECT states that they do a depth-first search. 
+     This is not true. They only search the root windows for a match. 
+     It does not search the children, because several different 
+     windows will have children with the same ID.
+
+
+     CHAPTER 49--ZIL_BIGNUM
+     
+     The declaration of ZIL_BIGNUM (499) is incomplete. The #defines
+     NUMBER_WHOLE and NUMBER_DECIMAL should be ZIL_NUMBER_WHOLE and
+     ZIL_NUMBER_DECIMAL.
+
+
+---------------------------------------------------------------------
+---- GETTING STARTED ------------------------------------------------
+---------------------------------------------------------------------
+
+     APPENDIX A--COMPILER CONSIDERATIONS
+     
+     The description of assigning the LIB and INCLUDE environment 
+     variables when using IBM compilers is incorrect. The example 
+     LIB and INCLUDE assignments incorrectly use SCCPP610.MAK as an 
+     IBM makefile. The correct makefile should be ICCPP210.MAK.
+
+
+---------------------------------------------------------------------
+---- ZINC DESIGNER --------------------------------------------------
+---------------------------------------------------------------------
+
+     CHAPTER 15--CONTROL OBJECTS
+     
+     The screenshot on page 297 shows the General notebook page for a 
+     pull-down item object. The screenshot implies that you can set 
+     the BTF_SEND_MESSAGE flag for a pull-down item. This is not true.
+     You cannot set that flag for that object.
+

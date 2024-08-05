@@ -1,0 +1,42 @@
+--- HELP_GENERAL
+General Help
+This "Hello, Universe!" tutorial shows you
+how to create two windows using Zinc Application
+Framework and how to initialize the help and error
+systems.
+
+For more information about one of the windows
+presented in this application press <F1> while 
+the window is at the front of the display.
+
+--- HELP_HELLO_UNIVERSE
+Hello Universe Help
+
+This window simply has a greeting.  It uses 
+the following window objects:
+
+    UIW_WINDOW          \
+    UIW_BORDER          \
+    UIW_MAXIMIZE_BUTTON \
+    UIW_MINIMIZE_BUTTON \
+    UIW_SYSTEM_BUTTON   \
+    UIW_TITLE           \
+    UIW_TEXT            \
+
+--- HELP_UNIVERSE_INFORMATION
+Universe Information Help
+
+This window contains information about the universe. 
+It uses the following window objects:
+
+    UIW_WINDOW          \
+    UIW_BORDER          \
+    UIW_MAXIMIZE_BUTTON \
+    UIW_MINIMIZE_BUTTON \
+    UIW_SYSTEM_BUTTON   \
+    UIW_TITLE           \
+    UIW_PROMPT          \
+    UIW_STRING          \
+    UIW_INTEGER         \
+    UIW_SCROLL_BAR      \
+    UIW_TEXT            \

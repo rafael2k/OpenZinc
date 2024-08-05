@@ -1,0 +1,212 @@
+The linux environment was not defined in the origonal 4.2 release,
+so the following sections were added to ui_env.hpp for Linux
+
+// following define added by jdh to allow compilation under linux
+#if defined(__linux__)
+#define ZIL_LINUX
+#endif
+
+//-------------------------------------------------------------------------
+//-------------Linux-------------------------------------------------------
+//---section added by jdh--------------------------------------------------
+
+#if defined(ZIL_LINUX)
+#	define ZIL_POSIX
+#	undef ZIL_WORD_SIZE
+#	define ZIL_WORD_SIZE 32
+#	undef ZIL_SIGNED_CHAR
+#	define ZIL_LOAD_MOTIF
+#endif
+
+in file m_dsp.cpp source uses xor as an identifier. gcc objects to this.
+Therefore xorInt has been substituted as in the code below.
+
+//statement below altered by jdh, compiler objects to use of xor 
+//as identifier. xorInt has been substituted
+//void UI_XT_DISPLAY::Ellipse(ZIL_SCREENID screenID, int x, int y, int startAngle,
+//	int endAngle, int xRadius, int yRadius,const UI_PALETTE *palette, int fill, 
+//	int xor, const UI_REGION *clipRegion)
+void UI_XT_DISPLAY::Ellipse(ZIL_SCREENID screenID, int x, int y, int startAngle,
+	int endAngle, int xRadius, int yRadius,const UI_PALETTE *palette, int fill, 
+	int xorInt, const UI_REGION *clipRegion)
+{
+	VirtualGet(screenID, x, y, x + xRadius + xRadius, y + yRadius + yRadius);
+
+	GC gc = xGC;
+
+//statement below altered by jdh, compiler objects to use of xor 
+//as identifier. xorInt has been substituted
+//	if (xor)
+	if (xorInt)
+
+Also in file m_dsp.cpp, gcc requires modern scoping rules in "for" statements
+for example;
+
+//line below added by jdh to conform to current "for" scoping
+	int i;
+	for (i = 0; i < numPoints; i++)
+
+In any file that uses the symbol true (a designation for a UI_REGION that is a 
+member of any UI_WINDOW_OBJECT object or derived object codelike the following is 
+used in one way or another. Eventually an alternate designation for the UI_REGION
+is needed
+
+
+at top of file
+//defines below needed because gcc defines true
+#undef true
+#define true OSRegion
+
+at bottom of file
+//undef below needed because gcc defines true
+#undef true
+
+In original source both UIW_VT_LIST and UIW_HZ_LIST do not space properly 
+under Linux. The spacing is totally fubar and screws up the event handling of objects 
+containg a UIW_XX_LIST. I suspect this may be a difference between Motif 1.2 and 
+Motif 2.x but I can not prove this. 
+In the original code these objects are formed with the following Motif objects;
+
+a Frame containing a ScrolledWindow containing a RowColumn
+
+Modified object is formed with
+
+a Frame containing a Form containing a ScrolledWindow containing a RowColumn
+
+This is accomplished by 
+
+1. adding the following include
+ 
+//include added by jdh to allow a form under linux
+#include <Xm/Form.h>
+
+2.altering the S_REGISTER_OBJECT case of the Event() function something like;
+
+	case S_REGISTER_OBJECT:
+		clipList.Destroy();
+		ccode = UI_WINDOW_OBJECT::Event(event);
+		if (FlagSet(woFlags, WOF_BORDER))
+			true -= 2;
+		clipList.Add(new UI_REGION_ELEMENT(screenID, 0, 0,
+			true.right - true.left, true.bottom - true.top));
+			
+	// line below added by jdh to allow region to be available throughout
+	UI_REGION region;
+
+
+#if defined(ZIL_LINUX)
+
+//under linux UIW_HZ_LIST needs to be enclosed in a frame and a form to 
+//function properly spacially
+	
+		//create frame
+		region = true;
+		nargs = 0;
+		true.bottom -= 2;
+		RegisterObject(xmFrameWidgetClass, ZIL_NULLF(ZIL_MOTIF_CONVENIENCE_FUNCTION),
+			ccode, TRUE);
+		true.right -= true.left;
+		true.bottom -= true.top;
+		true.left = 0;
+		true.top = 0;
+		nargs = 0;
+		XtSetArg(args[nargs], XmNresizePolicy, XmRESIZE_NONE); nargs++;
+		RegisterObject(xmFormWidgetClass, ZIL_NULLF(ZIL_MOTIF_CONVENIENCE_FUNCTION),
+			ccode, TRUE, TRUE, screenID);
+		
+#endif
+
+		// Create the Window
+		if (hScroll)		// scroll bar?
+		{
+			nargs = 0;
+			XtSetArg(args[nargs], XmNscrollingPolicy, XmAUTOMATIC); nargs++;
+			XtSetArg(args[nargs], XmNscrollBarDisplayPolicy, XmSTATIC); nargs++;
+			RegisterObject(ZIL_NULLP(_WidgetClassRec), XmCreateScrolledWindow,
+				ccode, TRUE, TRUE, screenID);
+#			if (ZIL_MOTIF > 1001)
+			XtAddCallback(screenID, XmNtraverseObscuredCallback,
+					ScrollObscuredCallback, (XtPointer)this);
+#			endif
+
+			Widget vertScroll = ZIL_NULLP(_WidgetRec),
+				horizScroll = ZIL_NULLP(_WidgetRec);
+			nargs = 0;
+			XtSetArg(args[nargs], XmNhorizontalScrollBar, &horizScroll);
+				nargs++;
+			XtSetArg(args[nargs], XmNverticalScrollBar, &vertScroll);
+				nargs++;
+			XtGetValues(screenID, args, nargs);
+			hScroll->screenID = horizScroll;
+			XtVaSetValues(horizScroll, XmNtraversalOn, FALSE, NULL);
+			true.bottom -= 31;
+			XtUnmanageChild(vertScroll);
+		}
+
+
+
+// code below becomes unnecessary because we have already provided a frame
+
+/*		if (FlagSet(woFlags, WOF_BORDER) && !(hScroll || vScroll) &&
+			ccode == S_CREATE)
+		{
+			nargs = 0;
+			XtSetArg(args[nargs], XmNshadowType, XmSHADOW_IN); nargs++;
+			XtSetArg(args[nargs], XmNshadowThickness,
+				FlagSet(woFlags, WOF_BORDER) ? 2 : 0); nargs++;
+			RegisterObject(xmFrameWidgetClass,
+				ZIL_NULLF(ZIL_MOTIF_CONVENIENCE_FUNCTION), ccode, TRUE, TRUE);
+		}
+		
+		*/
+
+		// create the RowColumn for the window
+		{
+			nargs = 0;
+			XtSetArg(args[nargs], XmNpacking, XmPACK_TIGHT); nargs++;
+			XtSetArg(args[nargs], XmNorientation, XmVERTICAL); nargs++;
+			XtSetArg(args[nargs], XmNnumColumns, true.bottom - true.top); nargs++;
+			XtSetArg(args[nargs], XmNspacing, 0); nargs++;
+			XtSetArg(args[nargs], XmNmarginHeight, 0); nargs++;
+			XtSetArg(args[nargs], XmNmarginWidth, 0); nargs++;
+			XtSetArg(args[nargs], XmNentryAlignment, XmALIGNMENT_BEGINNING); nargs++;			
+			XtSetArg(args[nargs], XmNresizeHeight, FALSE); nargs++;
+			XtSetArg(args[nargs], XmNresizeWidth, FALSE); nargs++;
+			XtSetArg(args[nargs], XmNadjustLast, FALSE); nargs++;
+			RegisterObject(xmRowColumnWidgetClass,
+				ZIL_NULLF(ZIL_MOTIF_CONVENIENCE_FUNCTION), ccode, TRUE, FALSE, screenID ? screenID : 0);
+		}
+
+		// Compute the support object regions.
+		for (object = (UI_WINDOW_OBJECT *)support.First(); object;
+			object = object->Next())
+		{
+			object->Event(event);
+			if (FlagSet(object->woFlags, WOF_NON_FIELD_REGION))
+				clipList.Split(screenID, object->true, FALSE);
+		}
+
+		// Fall thru.    
+
+
+NOTE: Alterations are slightly different for UIW_HZ_LIST and UIW_VT_LIST because 
+UIW_VT_LIST is used in UIW_COMBO_BOX. See code for difinative differences 
+
+In m_button.cpp __linux__ is added to the following define
+
+// Some Motif 1.1s can't draw their bitmaps off the left side of the button
+// if the bitmap is added after the button is created.  PIXMAP_BUG fixes this,
+// with the one problem of using the parent's background color instead of the
+// button's.
+#if defined(_SUNOS4) || defined(_IBM_RS6000) || defined(__DVX__) || defined(__sgi) || defined(__DECCXX) || defined(__linux__)
+#	define PIXMAP_BUG
+#endif
+
+In m_intl.cpp some thought still needs to be given to i18n contains note;
+
+#elif defined(__linux__)
+	//need to look into internationalization in linux
+	//NOTE TO SELF jdh
+
+In files m_notebook.cpp, m_print.cpp, m_sbar.cpp and m_win2.cpp minor changes where made
+to conform to modern scoping of "for" statements see source 

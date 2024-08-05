@@ -1,0 +1,9 @@
+agency is altered for linux because ownerdraw items in a list have spacing problems.
+To remedy this;
+1. proportial fonts (Large and small) courier have been added
+2. the buttons native DrawItem() function is used. Merely the title is manipulated
+
+Note: in UIW_BUTTON's DrawItem() function justification controls the location of
+any bitmap. if left justified bitmap appears on left, if right justified appears on 
+right, if center justified bitmap appears in center on a line above the text.
+

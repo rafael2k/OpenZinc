@@ -1,0 +1,538 @@
+copy ui_*.hpp ..\include
+UI_DSP.HPP
+UI_ENV.HPP
+UI_EVT.HPP
+UI_GEN.HPP
+UI_MAP.HPP
+UI_WIN.HPP
+        6 file(s) copied.
+copy z_clean.* ..\bin
+Z_CLEAN.BAT
+Z_CLEAN.CMD
+        2 file(s) copied.
+copy gfx\source\gfx.h ..\include
+        1 file(s) copied.
+copy gfx\source\gfx_pro.h ..\include
+        1 file(s) copied.
+copy gfx\OEM_*.cpp
+gfx\OEM_DIAL.CPP
+gfx\OEM_SMAL.CPP
+gfx\OEM_SYST.CPP
+        3 file(s) copied.
+copy gfx\ISO_*.cpp
+gfx\ISO_DIAL.CPP
+gfx\ISO_SMAL.CPP
+gfx\ISO_SYST.CPP
+        3 file(s) copied.
+dmc -c -a1 -ml -o+space -R d_gfxdsp.cpp
+
+dmc -DGFX -c -a1 -ml -o+space -R -od_gfxprn.obj d_print.cpp 
+
+dmc -c -a1 -ml -o+space -R i_gfx.cpp
+
+dmc -DGFX -c -a1 -ml -o+space -R -oz_appgfx.obj z_app.cpp 
+
+dmc -c -a1 -ml -o+space -R oem_smal.cpp
+
+dmc -c -a1 -ml -o+space -R oem_dial.cpp
+
+dmc -c -a1 -ml -o+space -R oem_syst.cpp
+
+dmc -c -a1 -ml -o+space -R iso_smal.cpp
+
+dmc -c -a1 -ml -o+space -R iso_dial.cpp
+
+dmc -c -a1 -ml -o+space -R iso_syst.cpp
+
+lib dos_gfx.lib /N /B /NOI +d_gfxdsp.obj+d_gfxprn.obj+i_gfx.obj+z_appgfx.obj;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+lib dos_gfx.lib /N /B /NOI +OEM_smal.obj+OEM_dial.obj+OEM_syst.obj;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+lib dos_gfx.lib /N /B /NOI +ISO_smal.obj+ISO_dial.obj+ISO_syst.obj;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+copy dos_gfx.lib ..\lib\dm84
+        1 file(s) copied.
+make -f dm.mak dos
+Target 'dos' is up to date
+
+dmc -c -a1 -ml -o+space -R test.cpp
+
+dmc -c -a1 -ml -o+space -R d_bnum.cpp
+
+dmc -c -a1 -ml -o+space -R d_border.cpp
+
+dmc -c -a1 -ml -o+space -R d_button.cpp
+
+dmc -c -a1 -ml -o+space -R d_combo.cpp
+
+dmc -c -a1 -ml -o+space -R d_cursor.cpp
+
+dmc -c -a1 -ml -o+space -R d_date.cpp
+
+dmc -c -a1 -ml -o+space -R d_error.cpp
+
+dmc -c -a1 -ml -o+space -R d_error1.cpp
+
+dmc -c -a1 -ml -o+space -R d_event.cpp
+
+dmc -c -a1 -ml -o+space -R d_fmtstr.cpp
+
+dmc -c -a1 -ml -o+space -R d_group.cpp
+
+dmc -c -a1 -ml -o+space -R d_hlist.cpp
+
+dmc -c -a1 -ml -o+space -R d_icon.cpp
+
+dmc -c -a1 -ml -o+space -R d_image.cpp
+
+dmc -c -a1 -ml -o+space -R d_int.cpp
+
+dmc -c -a1 -ml -o+space -R d_intl.cpp
+
+dmc -c -a1 -ml -o+space -R d_keybrd.cpp
+
+dmc -c -a1 -ml -o+space -R d_max.cpp
+
+dmc -c -a1 -ml -o+space -R d_min.cpp
+
+dmc -c -a1 -ml -o+space -R d_mouse.cpp
+
+dmc -c -a1 -ml -o+space -R d_notebk.cpp
+
+dmc -c -a1 -ml -o+space -R d_plldn.cpp
+
+dmc -c -a1 -ml -o+space -R d_plldn1.cpp
+
+dmc -c -a1 -ml -o+space -R d_popup.cpp
+
+dmc -c -a1 -ml -o+space -R d_popup1.cpp
+
+dmc -c -a1 -ml -o+space -R d_prompt.cpp
+
+dmc -c -a1 -ml -o+space -R d_real.cpp
+
+dmc -c -a1 -ml -o+space -R d_sbar.cpp
+
+dmc -c -a1 -ml -o+space -R d_scroll.cpp
+
+dmc -c -a1 -ml -o+space -R d_spin.cpp
+
+dmc -c -a1 -ml -o+space -R d_string.cpp
+
+dmc -c -a1 -ml -o+space -R d_sys.cpp
+
+dmc -c -a1 -ml -o+space -R d_table.cpp
+
+dmc -c -a1 -ml -o+space -R d_table1.cpp
+
+dmc -c -a1 -ml -o+space -R d_table2.cpp
+
+dmc -c -a1 -ml -o+space -R d_tbar.cpp
+
+dmc -c -a1 -ml -o+space -R d_tdsp.cpp
+
+dmc -c -a1 -ml -o+space -R d_text.cpp
+
+dmc -c -a1 -ml -o+space -R d_time.cpp
+
+dmc -c -a1 -ml -o+space -R d_title.cpp
+
+dmc -c -a1 -ml -o+space -R d_vlist.cpp
+
+dmc -c -a1 -ml -o+space -R d_win.cpp
+UI_WINDOW_OBJECT *UI_WINDOW_MANAGER::Subtract(UI_WINDOW_OBJECT *object)
+               ^
+d_win.cpp(449) : Warning 12: variable 'UI_WINDOW_OBJECT* object' used before set
+
+dmc -c -a1 -ml -o+space -R d_win1.cpp
+
+dmc -c -a1 -ml -o+space -R d_win2.cpp
+
+dmc -c -a1 -ml -o+space -R z_bnum.cpp
+
+dmc -c -a1 -ml -o+space -R z_bnum1.cpp
+
+dmc -c -a1 -ml -o+space -R z_bnum2.cpp
+
+dmc -c -a1 -ml -o+space -R z_border.cpp
+
+dmc -c -a1 -ml -o+space -R z_button.cpp
+
+dmc -c -a1 -ml -o+space -R z_combo.cpp
+
+dmc -c -a1 -ml -o+space -R z_cursor.cpp
+
+dmc -c -a1 -ml -o+space -R z_date.cpp
+
+dmc -c -a1 -ml -o+space -R z_date1.cpp
+
+dmc -c -a1 -ml -o+space -R z_decor.cpp
+
+dmc -c -a1 -ml -o+space -R z_device.cpp
+
+dmc -c -a1 -ml -o+space -R z_dialog.cpp
+
+dmc -c -a1 -ml -o+space -R z_dsp.cpp
+
+dmc -c -a1 -ml -o+space -R z_error.cpp
+
+dmc -c -a1 -ml -o+space -R z_error1.cpp
+
+dmc -c -a1 -ml -o+space -R z_event.cpp
+
+dmc -c -a1 -ml -o+space -R z_file.cpp
+
+dmc -c -a1 -ml -o+space -R z_fmtstr.cpp
+
+dmc -c -a1 -ml -o+space -R z_gmgr.cpp
+
+dmc -c -a1 -ml -o+space -R z_gmgr1.cpp
+
+dmc -c -a1 -ml -o+space -R z_gmgr2.cpp
+
+dmc -c -a1 -ml -o+space -R z_gmgr3.cpp
+
+dmc -c -a1 -ml -o+space -R z_group.cpp
+
+dmc -c -a1 -ml -o+space -R z_help.cpp
+
+dmc -c -a1 -ml -o+space -R z_help1.cpp
+
+dmc -c -a1 -ml -o+space -R z_hlist.cpp
+
+dmc -c -a1 -ml -o+space -R z_icon.cpp
+
+dmc -c -a1 -ml -o+space -R z_image.cpp
+
+dmc -c -a1 -ml -o+space -R z_i18n.cpp
+
+dmc -c -a1 -ml -o+space -R z_int.cpp
+
+dmc -c -a1 -ml -o+space -R z_intl.cpp
+
+dmc -c -a1 -ml -o+space -R z_lang.cpp
+
+dmc -c -a1 -ml -o+space -R z_list.cpp
+
+dmc -c -a1 -ml -o+space -R z_list1.cpp
+
+dmc -c -a1 -ml -o+space -R z_locale.cpp
+
+dmc -c -a1 -ml -o+space -R z_map1.cpp
+
+dmc -c -a1 -ml -o+space -R z_map2.cpp
+
+dmc -c -a1 -ml -o+space -R z_max.cpp
+
+dmc -c -a1 -ml -o+space -R z_min.cpp
+
+dmc -c -a1 -ml -o+space -R z_msgwin.cpp
+
+dmc -c -a1 -ml -o+space -R z_notebk.cpp
+
+dmc -c -a1 -ml -o+space -R z_path.cpp
+
+dmc -c -a1 -ml -o+space -R z_plldn.cpp
+
+dmc -c -a1 -ml -o+space -R z_plldn1.cpp
+
+dmc -c -a1 -ml -o+space -R z_popup.cpp
+
+dmc -c -a1 -ml -o+space -R z_popup1.cpp
+
+dmc -c -a1 -ml -o+space -R z_printf.cpp
+
+dmc -c -a1 -ml -o+space -R z_prompt.cpp
+
+dmc -c -a1 -ml -o+space -R z_real.cpp
+
+dmc -c -a1 -ml -o+space -R z_region.cpp
+
+dmc -c -a1 -ml -o+space -R z_sbar.cpp
+
+dmc -c -a1 -ml -o+space -R z_scanf.cpp
+
+dmc -c -a1 -ml -o+space -R z_scroll.cpp
+
+dmc -c -a1 -ml -o+space -R z_spin.cpp
+
+dmc -c -a1 -ml -o+space -R z_stdarg.cpp
+
+dmc -c -a1 -ml -o+space -R z_stored.cpp
+
+dmc -c -a1 -ml -o+space -R z_storer.cpp
+
+dmc -c -a1 -ml -o+space -R z_storew.cpp
+
+dmc -c -a1 -ml -o+space -R z_string.cpp
+
+dmc -c -a1 -ml -o+space -R z_sys.cpp
+
+dmc -c -a1 -ml -o+space -R z_table.cpp
+
+dmc -c -a1 -ml -o+space -R z_table1.cpp
+
+dmc -c -a1 -ml -o+space -R z_table2.cpp
+
+dmc -c -a1 -ml -o+space -R z_tbar.cpp
+
+dmc -c -a1 -ml -o+space -R z_text.cpp
+
+dmc -c -a1 -ml -o+space -R z_time.cpp
+
+dmc -c -a1 -ml -o+space -R z_time1.cpp
+
+dmc -c -a1 -ml -o+space -R z_timer.cpp
+
+dmc -c -a1 -ml -o+space -R z_title.cpp
+
+dmc -c -a1 -ml -o+space -R z_utils.cpp
+
+dmc -c -a1 -ml -o+space -R z_utime.cpp
+
+dmc -c -a1 -ml -o+space -R z_utime1.cpp
+
+dmc -c -a1 -ml -o+space -R z_vlist.cpp
+
+dmc -c -a1 -ml -o+space -R z_win.cpp
+
+dmc -c -a1 -ml -o+space -R z_win1.cpp
+
+dmc -c -a1 -ml -o+space -R z_win2.cpp
+
+dmc -c -a1 -ml -o+space -R z_win3.cpp
+
+dmc -c -a1 -ml -o+space -R z_win4.cpp
+
+dmc -c -a1 -ml -o+space -R g_dsp.cpp
+
+dmc -c -a1 -ml -o+space -R g_event.cpp
+
+dmc -c -a1 -ml -o+space -R g_evt.cpp
+
+dmc -c -a1 -ml -o+space -R g_gen.cpp
+
+dmc -c -a1 -ml -o+space -R g_i18n.cpp
+
+dmc -c -a1 -ml -o+space -R g_jump.cpp
+
+dmc -c -a1 -ml -o+space -R g_lang.cpp
+
+dmc -c -a1 -ml -o+space -R g_lang1.cpp
+
+dmc -c -a1 -ml -o+space -R g_loc.cpp
+
+dmc -c -a1 -ml -o+space -R g_loc1.cpp
+
+dmc -c -a1 -ml -o+space -R g_mach.cpp
+
+dmc -c -a1 -ml -o+space -R g_pnorm.cpp
+
+dmc -c -a1 -ml -o+space -R g_win.cpp
+
+dmc -c -a1 -ml -o+space -R i_file.cpp
+
+dmc -c -a1 -ml -o+space -R i_map.cpp
+
+dmc -c -a1 -ml -o+space -R i_str1.cpp
+
+dmc -c -a1 -ml -o+space -R i_str2.cpp
+
+dmc -c -a1 -ml -o+space -R i_str3.cpp
+
+dmc -c -a1 -ml -o+space -R i_str4.cpp
+
+dmc -c -a1 -ml -o+space -R i_str5.cpp
+
+dmc -c -a1 -ml -o+space -R i_type.cpp
+
+dmc -c -a1 -ml -o+space -R i_sccat.cpp
+
+lib /C /N /B /NOI @dos_zil.rsp
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+library file        (.lib) dos_zil.lib
+action-object [-+*] (.obj) 	+d_bnum.obj &
+action-object [-+*] (.obj) 	+d_border.obj &
+action-object [-+*] (.obj) 	+d_button.obj &
+action-object [-+*] (.obj) 	+d_combo.obj &
+action-object [-+*] (.obj) 	+d_cursor.obj &
+action-object [-+*] (.obj) 	+d_date.obj &
+action-object [-+*] (.obj) 	+d_error.obj &
+action-object [-+*] (.obj) 	+d_error1.obj &
+action-object [-+*] (.obj) 	+d_event.obj &
+action-object [-+*] (.obj) 	+d_fmtstr.obj &
+action-object [-+*] (.obj) 	+d_group.obj &
+action-object [-+*] (.obj) 	+d_hlist.obj &
+action-object [-+*] (.obj) 	+d_icon.obj &
+action-object [-+*] (.obj) 	+d_image.obj &
+action-object [-+*] (.obj) 	+d_int.obj &
+action-object [-+*] (.obj) 	+d_intl.obj &
+action-object [-+*] (.obj) 	+d_keybrd.obj &
+action-object [-+*] (.obj) 	+d_max.obj &
+action-object [-+*] (.obj) 	+d_min.obj &
+action-object [-+*] (.obj) 	+d_mouse.obj &
+action-object [-+*] (.obj) 	+d_notebk.obj &
+action-object [-+*] (.obj) 	+d_plldn.obj &
+action-object [-+*] (.obj) 	+d_plldn1.obj &
+action-object [-+*] (.obj) 	+d_popup.obj &
+action-object [-+*] (.obj) 	+d_popup1.obj &
+action-object [-+*] (.obj) 	+d_prompt.obj &
+action-object [-+*] (.obj) 	+d_real.obj &
+action-object [-+*] (.obj) 	+d_sbar.obj &
+action-object [-+*] (.obj) 	+d_scroll.obj &
+action-object [-+*] (.obj) 	+d_spin.obj &
+action-object [-+*] (.obj) 	+d_string.obj &
+action-object [-+*] (.obj) 	+d_sys.obj &
+action-object [-+*] (.obj) 	+d_table.obj &
+action-object [-+*] (.obj) 	+d_table1.obj &
+action-object [-+*] (.obj) 	+d_table2.obj &
+action-object [-+*] (.obj) 	+d_tbar.obj &
+action-object [-+*] (.obj) 	+d_tdsp.obj &
+action-object [-+*] (.obj) 	+d_text.obj &
+action-object [-+*] (.obj) 	+d_time.obj &
+action-object [-+*] (.obj) 	+d_title.obj &
+action-object [-+*] (.obj) 	+d_vlist.obj &
+action-object [-+*] (.obj) 	+d_win.obj &
+action-object [-+*] (.obj) 	+d_win1.obj &
+action-object [-+*] (.obj) 	+d_win2.obj &
+action-object [-+*] (.obj) 	+z_bnum.obj &
+action-object [-+*] (.obj) 	+z_bnum1.obj &
+action-object [-+*] (.obj) 	+z_bnum2.obj &
+action-object [-+*] (.obj) 	+z_border.obj &
+action-object [-+*] (.obj) 	+z_button.obj &
+action-object [-+*] (.obj) 	+z_combo.obj &
+action-object [-+*] (.obj) 	+z_cursor.obj &
+action-object [-+*] (.obj) 	+z_date.obj &
+action-object [-+*] (.obj) 	+z_date1.obj &
+action-object [-+*] (.obj) 	+z_decor.obj &
+action-object [-+*] (.obj) 	+z_device.obj &
+action-object [-+*] (.obj) 	+z_dialog.obj &
+action-object [-+*] (.obj) 	+z_dsp.obj &
+action-object [-+*] (.obj) 	+z_error.obj &
+action-object [-+*] (.obj) 	+z_error1.obj &
+action-object [-+*] (.obj) 	+z_event.obj &
+action-object [-+*] (.obj) 	+z_file.obj &
+action-object [-+*] (.obj) 	+z_fmtstr.obj &
+action-object [-+*] (.obj) 	+z_gmgr.obj &
+action-object [-+*] (.obj) 	+z_gmgr1.obj &
+action-object [-+*] (.obj) 	+z_gmgr2.obj &
+action-object [-+*] (.obj) 	+z_gmgr3.obj &
+action-object [-+*] (.obj) 	+z_group.obj &
+action-object [-+*] (.obj) 	+z_help.obj &
+action-object [-+*] (.obj) 	+z_help1.obj &
+action-object [-+*] (.obj) 	+z_hlist.obj &
+action-object [-+*] (.obj) 	+z_icon.obj &
+action-object [-+*] (.obj) 	+z_image.obj &
+action-object [-+*] (.obj) 	+z_i18n.obj &
+action-object [-+*] (.obj) 	+z_int.obj &
+action-object [-+*] (.obj) 	+z_intl.obj &
+action-object [-+*] (.obj) 	+z_lang.obj &
+action-object [-+*] (.obj) 	+z_list.obj &
+action-object [-+*] (.obj) 	+z_list1.obj &
+action-object [-+*] (.obj) 	+z_locale.obj &
+action-object [-+*] (.obj) 	+z_map1.obj &
+action-object [-+*] (.obj) 	+z_map2.obj &
+action-object [-+*] (.obj) 	+z_max.obj &
+action-object [-+*] (.obj) 	+z_min.obj &
+action-object [-+*] (.obj) 	+z_msgwin.obj &
+action-object [-+*] (.obj) 	+z_notebk.obj &
+action-object [-+*] (.obj) 	+z_path.obj &
+action-object [-+*] (.obj) 	+z_plldn.obj &
+action-object [-+*] (.obj) 	+z_plldn1.obj &
+action-object [-+*] (.obj) 	+z_popup.obj &
+action-object [-+*] (.obj) 	+z_popup1.obj &
+action-object [-+*] (.obj) 	+z_printf.obj &
+action-object [-+*] (.obj) 	+z_prompt.obj &
+action-object [-+*] (.obj) 	+z_real.obj &
+action-object [-+*] (.obj) 	+z_region.obj &
+action-object [-+*] (.obj) 	+z_sbar.obj &
+action-object [-+*] (.obj) 	+z_scanf.obj &
+action-object [-+*] (.obj) 	+z_scroll.obj &
+action-object [-+*] (.obj) 	+z_spin.obj &
+action-object [-+*] (.obj) 	+z_stdarg.obj &
+action-object [-+*] (.obj) 	+z_stored.obj &
+action-object [-+*] (.obj) 	+z_storer.obj &
+action-object [-+*] (.obj) 	+z_storew.obj &
+action-object [-+*] (.obj) 	+z_string.obj &
+action-object [-+*] (.obj) 	+z_sys.obj &
+action-object [-+*] (.obj) 	+z_table.obj &
+action-object [-+*] (.obj) 	+z_table1.obj &
+action-object [-+*] (.obj) 	+z_table2.obj &
+action-object [-+*] (.obj) 	+z_tbar.obj &
+action-object [-+*] (.obj) 	+z_text.obj &
+action-object [-+*] (.obj) 	+z_time.obj &
+action-object [-+*] (.obj) 	+z_time1.obj &
+action-object [-+*] (.obj) 	+z_timer.obj &
+action-object [-+*] (.obj) 	+z_title.obj &
+action-object [-+*] (.obj) 	+z_utils.obj &
+action-object [-+*] (.obj) 	+z_utime.obj &
+action-object [-+*] (.obj) 	+z_utime1.obj &
+action-object [-+*] (.obj) 	+z_vlist.obj &
+action-object [-+*] (.obj) 	+z_win.obj &
+action-object [-+*] (.obj) 	+z_win1.obj &
+action-object [-+*] (.obj) 	+z_win2.obj &
+action-object [-+*] (.obj) 	+z_win3.obj &
+action-object [-+*] (.obj) 	+z_win4.obj &
+action-object [-+*] (.obj) 	+g_dsp.obj &
+action-object [-+*] (.obj) 	+g_event.obj &
+action-object [-+*] (.obj) 	+g_evt.obj &
+action-object [-+*] (.obj) 	+g_gen.obj &
+action-object [-+*] (.obj) 	+g_i18n.obj &
+action-object [-+*] (.obj) 	+g_jump.obj &
+action-object [-+*] (.obj) 	+g_lang.obj &
+action-object [-+*] (.obj) 	+g_lang1.obj &
+action-object [-+*] (.obj) 	+g_loc.obj &
+action-object [-+*] (.obj) 	+g_loc1.obj &
+action-object [-+*] (.obj) 	+g_mach.obj &
+action-object [-+*] (.obj) 	+g_pnorm.obj &
+action-object [-+*] (.obj) 	+g_win.obj &
+action-object [-+*] (.obj) 	+i_file.obj &
+action-object [-+*] (.obj) 	+i_map.obj &
+action-object [-+*] (.obj) 	+i_str1.obj &
+action-object [-+*] (.obj) 	+i_str2.obj &
+action-object [-+*] (.obj) 	+i_str3.obj &
+action-object [-+*] (.obj) 	+i_str4.obj &
+action-object [-+*] (.obj) 	+i_str5.obj &
+action-object [-+*] (.obj) 	+i_type.obj &
+action-object [-+*] (.obj) 	+i_sccat.obj
+list file           (.lst) 
+output library file (.lib) 
+
+Digital Mars Librarian complete.  
+
+copy dos_zil.lib ..\lib\dm84
+        1 file(s) copied.
+link /NOI /SEG:300 +test.obj, test, , dos_zil dos_gfx dm_lgfx
+OPTLINK (R) for Win32  Release 8.00.5
+Copyright (C) Digital Mars 1989-2009  All rights reserved.
+http://www.digitalmars.com/ctg/optlink.html
+c:\z421dm\lib\dm84\dm_lgfx.lib(gfx) 
+ Error 42: Symbol Undefined F_SCOPY@
+c:\z421dm\lib\dm84\dm_lgfx.lib(gfx) 
+ Error 42: Symbol Undefined F_LXLSH@
+c:\z421dm\lib\dm84\dm_lgfx.lib(gfx) 
+ Error 42: Symbol Undefined F_LXMUL@
+c:\z421dm\lib\dm84\dm_lgfx.lib(gfx) 
+ Error 42: Symbol Undefined F_LMOD@
+c:\z421dm\lib\dm84\dm_lgfx.lib(gfx) 
+ Error 42: Symbol Undefined F_LDIV@
+c:\z421dm\lib\dm84\dm_lgfx.lib(gfx) 
+ Error 42: Symbol Undefined F_PADD@
+c:\z421dm\lib\dm84\dm_lgfx.lib(gfx) 
+ Error 42: Symbol Undefined __turboFloat
+
+--- errorlevel 7

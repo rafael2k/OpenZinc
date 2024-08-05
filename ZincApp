@@ -1,0 +1,64 @@
+!# #################################################################
+!# Defaults file for X programs based on Zinc Application Framework.
+!# Developers that create X programs based on Zinc are encouraged
+!# to augment and possibly rename this file and distribute it with
+!# their programs.
+!# #################################################################
+
+!# 
+!# Color Defaults
+!# 
+*background:		grey70
+*foreground:		black
+
+!# 
+!# Default Zinc fonts (ZAF 4.20)
+!# 
+!# Zinc small font for modified UI_XT_DISPLAY
+*textFontList:		-*-helvetica-medium-r-*--12-*-iso8859-1
+!# Zinc dialog font for modified UI_XT_DISPLAY
+*labelFontList:		-*-helvetica-bold-r-*--14-*-iso8859-1
+!# Zinc system font for modified UI_XT_DISPLAY
+*fontList:		-*-helvetica-medium-r-*--14-*-iso8859-1
+*defaultFontList:	-*-helvetica-medium-r-*--14-*-iso8859-1
+
+!# 
+!# Low Resolution Zinc fonts for VGA, etc (ZAF 4.20)
+!# 
+!# Zinc small font for modified UI_XT_DISPLAY
+!*textFontList:		-*-helvetica-medium-r-*--10-*-iso8859-1
+!# Zinc dialog font for modified UI_XT_DISPLAY
+!*labelFontList:		-*-helvetica-bold-r-*--12-*-iso8859-1
+!# Zinc system font for modified UI_XT_DISPLAY
+!*fontList:	-*-helvetica-medium-r-*--12-*-iso8859-1
+!*defaultFontList:	-*-helvetica-medium-r-*--12-*-iso8859-1
+
+!# 
+!# Default Zinc Fonts (prior to ZAF 4.20)
+!# 
+!*zincSmallFont:	-*-helvetica-medium-r-*--12-*-iso8859-1
+!*zincDialogFont:	-*-helvetica-bold-r-*--14-*-iso8859-1
+!*zincSystemFont:	-*-helvetica-medium-r-*--14-*-iso8859-1
+
+!# 
+!# Low Resolution Zinc Fonts VGA, etc (prior to ZAF 4.20)
+!# 
+!*zincSmallFont:	-*-helvetica-medium-r-*--10-*-iso8859-1
+!*zincDialogFont:	-*-helvetica-bold-r-*--12-*-iso8859-1
+!*zincSystemFont:	-*-helvetica-medium-r-*--12-*-iso8859-1
+
+!# 
+!# Zinc Fonts for Solaris 2.2 Japanese
+!# 
+!*zincSmallFont:	-*-*-*-R-Normal--16-*-*-*-*
+!*zincDialogFont:	-*-*-bold-R-Normal--18-*-*-*-*
+!*zincSystemFont:	-*-*-*-R-Normal--18-*-*-*-*-*
+
+!# 
+!# Zinc Fonts for QuarterDeck's Deskview X
+!# 
+!*zincSmallFont:	-*-helvetica-medium-r-*--11-*-iso8859-1
+!*zincDialogFont:	-*-helvetica-bold-r-*--14-*-iso8859-1
+!*zincSystemFont:	-*-helvetica-medium-r-*--14-*-iso8859-1
+
+

@@ -1,0 +1,21 @@
+#!/bin/csh
+
+#	This script installs Makefiles for use on systems that don't deal
+#	well with objects of the same name in different libraries.
+#	Specificly, it renames all the Makefile.lnk to Makefile.
+#	Usage: FixLink [start_dir]
+
+#	Set start directory to . if no arg.
+if ("$1" == "") then
+	set root = .
+else
+	set root = $1
+endif
+
+foreach i ( `find $root -name Makefile.lnk -print `)
+	pushd $i:h
+	if (-e Makefile) mv Makefile Makefile~
+	ln Makefile.lnk Makefile
+	popd
+end
+

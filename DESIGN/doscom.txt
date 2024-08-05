@@ -1,0 +1,382 @@
+make -fdm.mak service.lib
+dmc -c -mx -R -oservice.o32 service.cpp
+
+lib /C /N /B /NOI service+service.o32;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+copy service.hpp ..\..\include
+        1 file(s) copied.
+copy service.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_servic.dat ..\..\bin\p_servic.znc
+        1 file(s) copied.
+
+make -fdm.mak storage.lib
+dmc -c -mx -R -ostorage.o32 storage.cpp
+
+lib /C /N /B /NOI storage+storage.o32;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+copy storage.hpp ..\..\include
+        1 file(s) copied.
+copy storage.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_store.dat ..\..\bin\p_store.znc
+        1 file(s) copied.
+
+make -fdm.mak direct.lib
+dmc -c -mx -R -od_direct.o32 d_direct.cpp
+
+lib /C /N /B /NOI direct+d_direct.o32;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+copy direct.hpp ..\..\include
+        1 file(s) copied.
+copy direct.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_direct.dat ..\..\bin\p_direct.znc
+        1 file(s) copied.
+
+make -fdm.mak stredit.lib
+dmc -c -mx -R -ostredit.o32 stredit.cpp
+
+lib /C /N /B /NOI stredit+stredit.o32;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+copy stredit.hpp ..\..\include
+        1 file(s) copied.
+copy stredit.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_string.dat ..\..\bin\p_string.znc
+        1 file(s) copied.
+
+make -fdm.mak help.lib
+dmc -c -mx -R -ohelp.o32 help.cpp
+
+dmc -c -mx -R -ohelp1.o32 help1.cpp
+
+dmc -c -mx -R -oimport.o32 import.cpp
+
+dmc -c -mx -R -oexport.o32 export.cpp
+
+lib /C /N /B /NOI help+help.o32+help1.o32+import.o32+export.o32;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+copy help.hpp ..\..\include
+        1 file(s) copied.
+copy help.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_help.dat ..\..\bin\p_help.znc
+        1 file(s) copied.
+
+make -fdm.mak message.lib
+dmc -c -mx -R -omessage.o32 message.cpp
+
+dmc -c -mx -R -omessage1.o32 message1.cpp
+
+dmc -c -mx -R -oprefer.o32 prefer.cpp
+
+dmc -c -mx -R -oimport.o32 import.cpp
+
+dmc -c -mx -R -oexport.o32 export.cpp
+
+lib /C /N /B /NOI message+message.o32+message1.o32+prefer.o32+import.o32+export.o32;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+copy message.hpp ..\..\include
+        1 file(s) copied.
+copy message.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_messag.dat ..\..\bin\p_messag.znc
+        1 file(s) copied.
+
+make -fdm.mak image.lib
+dmc -c -mx -R -oodib.o32 odib.cpp
+
+dmc -c -mx -R -oodib1.o32 odib1.cpp
+
+dmc -c -mx -R -oodib2.o32 odib2.cpp
+
+dmc -c -mx -R -owdib.o32 wdib.cpp
+
+dmc -c -mx -R -owdib1.o32 wdib1.cpp
+
+dmc -c -mx -R -owdib2.o32 wdib2.cpp
+
+dmc -c -mx -R -owico.o32 wico.cpp
+
+dmc -c -mx -R -owico1.o32 wico1.cpp
+
+dmc -c -mx -R -owico2.o32 wico2.cpp
+
+dmc -c -mx -R -oxpm.o32 xpm.cpp
+
+dmc -c -mx -R -oxpm1.o32 xpm1.cpp
+
+dmc -c -mx -R -oxpm2.o32 xpm2.cpp
+
+dmc -c -mx -R -oznc1.o32 znc1.cpp
+
+dmc -c -mx -R -oznc2.o32 znc2.cpp
+
+dmc -c -mx -R -oimage.o32 image.cpp
+
+dmc -c -mx -R -oimage1.o32 image1.cpp
+
+dmc -c -mx -R -oimage2.o32 image2.cpp
+
+dmc -c -mx -R -ocolor.o32 color.cpp
+
+dmc -c -mx -R -odraw.o32 draw.cpp
+
+dmc -c -mx -R -oexport.o32 export.cpp
+
+dmc -c -mx -R -oimport.o32 import.cpp
+
+dmc -c -mx -R -od_image.o32 d_image.cpp
+
+lib /C /N /B /NOI @d32_zil.rsp
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+library file        (.lib) image.lib
+action-object [-+*] (.obj) 	+odib.o32+odib1.o32+odib2.o32 &
+action-object [-+*] (.obj) 	+wdib.o32+wdib1.o32+wdib2.o32 &
+action-object [-+*] (.obj) 	+wico.o32+wico1.o32+wico2.o32 &
+action-object [-+*] (.obj) 	+xpm.o32+xpm1.o32+xpm2.o32 &
+action-object [-+*] (.obj) 	+znc1.o32+znc2.o32 &
+action-object [-+*] (.obj) 	+image.o32+image1.o32+image2.o32+color.o32+draw.o32 &
+action-object [-+*] (.obj) 	+export.o32+import.o32 &
+action-object [-+*] (.obj) 	+d_image.o32
+list file           (.lst) 
+output library file (.lib) 
+
+Digital Mars Librarian complete.  
+
+copy image.hpp ..\..\include
+        1 file(s) copied.
+copy image.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_image.dat ..\..\bin\p_image.znc
+        1 file(s) copied.
+
+make -fdm.mak i18n.lib
+dmc -c -mx -R -oi18n.o32 i18n.cpp
+
+dmc -c -mx -R -olanguage.o32 language.cpp
+
+dmc -c -mx -R -olocale.o32 locale.cpp
+
+dmc -c -mx -R -oexport.o32 export.cpp
+
+dmc -c -mx -R -oimport.o32 import.cpp
+
+dmc -c -mx -R -oz_bnum.o32 z_bnum.cpp
+
+dmc -c -mx -R -oz_curr.o32 z_curr.cpp
+
+dmc -c -mx -R -oz_date.o32 z_date.cpp
+
+dmc -c -mx -R -oz_date1.o32 z_date1.cpp
+
+dmc -c -mx -R -oz_day.o32 z_day.cpp
+
+dmc -c -mx -R -oz_error.o32 z_error.cpp
+
+dmc -c -mx -R -oz_help.o32 z_help.cpp
+
+dmc -c -mx -R -oz_int.o32 z_int.cpp
+
+dmc -c -mx -R -oz_month.o32 z_month.cpp
+
+dmc -c -mx -R -oz_msg.o32 z_msg.cpp
+
+dmc -c -mx -R -oz_num.o32 z_num.cpp
+
+dmc -c -mx -R -oz_real.o32 z_real.cpp
+
+dmc -c -mx -R -oz_sys.o32 z_sys.cpp
+
+dmc -c -mx -R -oz_time.o32 z_time.cpp
+
+dmc -c -mx -R -oz_time1.o32 z_time1.cpp
+
+dmc -c -mx -R -oz_time2.o32 z_time2.cpp
+
+dmc -c -mx -R -oz_win.o32 z_win.cpp
+
+lib /C /N /B /NOI @d32_zil.rsp
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+library file        (.lib) i18n.lib
+action-object [-+*] (.obj) 	+i18n.o32+language.o32+locale.o32 &
+action-object [-+*] (.obj) 	+export.o32+import.o32 &
+action-object [-+*] (.obj) 	+z_bnum.o32+z_curr.o32+z_date.o32+z_date1.o32+z_day.o32+z_error.o32 &
+action-object [-+*] (.obj) 	+z_help.o32+z_int.o32+z_month.o32+z_msg.o32+z_num.o32+z_real.o32 &
+action-object [-+*] (.obj) 	+z_sys.o32+z_time.o32+z_time1.o32+z_time2.o32+z_win.o32
+list file           (.lst) 
+output library file (.lib) 
+
+Digital Mars Librarian complete.  
+
+copy i18n.hpp ..\..\include
+        1 file(s) copied.
+copy i18n.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_i18n.dat ..\..\bin\p_i18n.znc
+        1 file(s) copied.
+
+make -fdm.mak file.lib
+dmc -c -mx -R -ofile.o32 file.cpp
+
+lib /C /N /B /NOI file+file.o32;
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+Digital Mars Librarian complete.  
+
+copy file.hpp ..\..\include
+        1 file(s) copied.
+copy file.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_file.dat ..\..\bin\p_file.znc
+        1 file(s) copied.
+
+make -fdm.mak window.lib
+dmc -c -mx -R -oadvanced.o32 advanced.cpp
+
+dmc -c -mx -R -oderive.o32 derive.cpp
+
+dmc -c -mx -R -oexport.o32 export.cpp
+
+dmc -c -mx -R -ogeometry.o32 geometry.cpp
+
+dmc -c -mx -R -ogroup.o32 group.cpp
+
+dmc -c -mx -R -oimport.o32 import.cpp
+
+dmc -c -mx -R -oobject.o32 object.cpp
+
+dmc -c -mx -R -oposition.o32 position.cpp
+
+dmc -c -mx -R -oprefer.o32 prefer.cpp
+
+dmc -c -mx -R -owindow.o32 window.cpp
+
+dmc -c -mx -R -owindow1.o32 window1.cpp
+
+dmc -c -mx -R -oz_bnum.o32 z_bnum.cpp
+
+dmc -c -mx -R -oz_border.o32 z_border.cpp
+
+dmc -c -mx -R -oz_button.o32 z_button.cpp
+
+dmc -c -mx -R -oz_combo.o32 z_combo.cpp
+
+dmc -c -mx -R -oz_date.o32 z_date.cpp
+
+dmc -c -mx -R -oz_fmtstr.o32 z_fmtstr.cpp
+
+dmc -c -mx -R -oz_gmgr.o32 z_gmgr.cpp
+
+dmc -c -mx -R -oz_group.o32 z_group.cpp
+
+dmc -c -mx -R -oz_hlist.o32 z_hlist.cpp
+
+dmc -c -mx -R -oz_icon.o32 z_icon.cpp
+
+dmc -c -mx -R -oz_int.o32 z_int.cpp
+
+dmc -c -mx -R -oz_max.o32 z_max.cpp
+
+dmc -c -mx -R -oz_min.o32 z_min.cpp
+
+dmc -c -mx -R -oz_notebk.o32 z_notebk.cpp
+
+dmc -c -mx -R -oz_obj.o32 z_obj.cpp
+
+dmc -c -mx -R -oz_plldn.o32 z_plldn.cpp
+
+dmc -c -mx -R -oz_plldn1.o32 z_plldn1.cpp
+
+dmc -c -mx -R -oz_popup.o32 z_popup.cpp
+
+dmc -c -mx -R -oz_popup1.o32 z_popup1.cpp
+
+dmc -c -mx -R -oz_prompt.o32 z_prompt.cpp
+
+dmc -c -mx -R -oz_real.o32 z_real.cpp
+
+dmc -c -mx -R -oz_scroll.o32 z_scroll.cpp
+
+dmc -c -mx -R -oz_sbar.o32 z_sbar.cpp
+
+dmc -c -mx -R -oz_spin.o32 z_spin.cpp
+
+dmc -c -mx -R -oz_string.o32 z_string.cpp
+
+dmc -c -mx -R -oz_sys.o32 z_sys.cpp
+
+dmc -c -mx -R -oz_table.o32 z_table.cpp
+
+dmc -c -mx -R -oz_tbar.o32 z_tbar.cpp
+
+dmc -c -mx -R -oz_text.o32 z_text.cpp
+
+dmc -c -mx -R -oz_time.o32 z_time.cpp
+
+dmc -c -mx -R -oz_title.o32 z_title.cpp
+
+dmc -c -mx -R -oz_vlist.o32 z_vlist.cpp
+
+dmc -c -mx -R -oz_win.o32 z_win.cpp
+
+lib /C /N /B /NOI @d32_zil.rsp
+Digital Mars Librarian Version 8.02n
+Copyright (C) Digital Mars 2000-2007 All Rights Reserved
+http://www.digitalmars.com/ctg/lib.html
+library file        (.lib) window.lib
+action-object [-+*] (.obj) 	+advanced.o32+derive.o32+export.o32 &
+action-object [-+*] (.obj) 	+geometry.o32+group.o32+import.o32+object.o32 &
+action-object [-+*] (.obj) 	+position.o32+prefer.o32+window.o32+window1.o32 &
+action-object [-+*] (.obj) 	+z_bnum.o32+z_border.o32+z_button.o32+z_combo.o32 &
+action-object [-+*] (.obj) 	+z_date.o32+z_fmtstr.o32+z_gmgr.o32+Z_group.o32 &
+action-object [-+*] (.obj) 	+z_hlist.o32+z_icon.o32+z_int.o32+z_max.o32+z_min.o32 & 	+z_notebk.o32+z_obj.o32+z_plldn.o32+z_plldn1.o32 & 	+z_popup.o32+z_paction-object [-+*] (.obj) opup1.o32+z_prompt.o32+z_real.o32 & 	+z_scroll.o32+z_sbar.o32+z_spin.o32+z_string.o32 & 	+z_sys.o32+z_table.o32+z_tbar.o32+z_taction-object [-+*] (.obj) ext.o32 &
+action-object [-+*] (.obj) 	+z_time.o32+z_title.o32+z_vlist.o32+z_win.o32
+list file           (.lst) 
+output library file (.lib) 
+
+Digital Mars Librarian complete.  
+
+copy window.hpp ..\..\include
+        1 file(s) copied.
+copy window.lib ..\..\lib\dm84
+        1 file(s) copied.
+copy p_window.dat ..\..\bin\p_window.znc
+        1 file(s) copied.
+
+dmc -c -mx -R -omain.o32 main.cpp
+
+link /NOI cx+main.o32, design32, ,@d32_zil.rsp
+
+copy design32.exe ..\bin
+        1 file(s) copied.

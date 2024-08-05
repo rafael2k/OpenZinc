@@ -1,0 +1,183 @@
+---------------------------------------------------------------------
+----------- Zinc Application Framework 4.2 - DISCLAIM.TXT -----------
+----------- COPYRIGHT (C) 1990-1996.  All Rights Reserved. ----------
+------ Zinc Software Incorporated.  Pleasant Grove, Utah  USA -------
+---------------------------------------------------------------------
+
+THE FOLLOWING PROBLEMS ARE KNOWN TO EXIST IN VERSION 4.2.
+
+
+---------------------------------------------------------------------
+----- GENERAL -------------------------------------------------------
+---------------------------------------------------------------------
+
+*** GENERAL ***
+- The VLIST tutorial does not work properly if the environment has
+  problems with UIW_TABLE.
+- Sort information is not yet loadable from a .DAT file.
+- UI_PRINTER support for dot matrix printers is limited to text
+  output only.
+- UIW_TABLE class has a limit of 32K of records.
+
+*** INTERNATIONALIZATION ***
+- Not all of the languages documented as "supported" are complete.
+  The not-yet-translated strings are in English. See the following
+  messages in the "LANG_[ISO LANG CODE].CPP" files:
+
+    NMI_LESS_THAN_RANGE                  ZIL_MSG_OK
+    NMI_GREATER_THAN_RANGE               ZIL_MSG_YES
+                                         ZIL_MSG_NO
+    DTI_LESS_THAN_RANGE                  ZIL_MSG_ABORT
+    DTI_GREATER_THAN_RANGE               ZIL_MSG_RETRY
+                                         ZIL_MSG_IGNORE
+    TMI_LESS_THAN_RANGE                  ZIL_MSG_CANCEL
+    TMI_GREATER_THAN_RANGE               ZIL_MSG_HELP
+
+
+---------------------------------------------------------------------
+----- DOS -----------------------------------------------------------
+---------------------------------------------------------------------
+
+*** GENERAL ***
+- ZIL_3D_BORDER text mode style is not complete.
+- UI_PRINTER does not handle critical errors (e.g., printer out of
+  paper, off line, busy, etc.).
+- UI_PRINTER TextWidth() function is not complete.
+- UI_PRINTER with PCL does not print filled polygons and only prints
+  full ellipses (no arcs or sectors).
+- UIW_IMAGE only works with GFX libraries.
+- IMF_SCALED does not work with UIW_IMAGE.
+- Some DOS Real mode tutorial and example programs can run out of memory--
+  in some cases, even on startup.  Any program that creates many windows,
+  uses most or all of the Zinc library objects, or that has many
+  bitmaps and icons, should be built using a DOS extender or overlays.
+  ZINCAPP, MOVIE, MOVIE7, PERIOD, PRINTR, MDI, WORLD, and AGENCY are
+  Zinc programs that are probably too big in most cases for real mode DOS.
+  To be safe, implement a new handler similar to the FRESTR example that
+  can exit gracefully if the program runs out of memory.
+- POWERPACK 16 bit.  Switching between multiple fonts doesn't seem to
+  work correctly with 16 bit PowerPak.  Right now, only the
+  FNT_DIALOG_FONT is used for all Zinc library objects.
+- POWERPACK 32 bit.  There is a bug in the BGI32.DLL that causes
+  mouse trails to appear when xor mode is used for drawing.  Borland
+  has released a BGI32.DLL patch to fix this problem.  Zinc ships
+  this patch on the DOS disks.
+
+*** DOS EXTENDERS ***
+- DOS16M - No BGI support - only GFX.
+- POWERPACK - No GFX support - only BGI.
+- PharLap DLLs are not supported.
+
+*** INTERNATIONALIZATION ***
+- Support for all DOS/V's in text mode is not complete--specifically,
+  line draw characters that are 2 bytes wide cause problems.
+- PC-DOS/V 6.3 Taiwan comes with ETEN functionality.  If you use
+  this (chevtsr) to switch to English mode and switch back, the
+  codepage is set to 938 even if the codepage is 950.
+  This prevents the ZAF codepage mapping functions from being able
+  to load the appropriate mapping tables.
+
+---------------------------------------------------------------------
+----- WINDOWS -------------------------------------------------------
+---------------------------------------------------------------------
+
+*** GENERAL ***
+- Putting "~~" in the string for an object that allows a hot key
+  displays '&' instead of '~'.
+- Hot keys do not work if the current object is an editable
+  UIW_COMBO_BOX.
+- Pressing F1 for help in a pull-down menu does not work.
+- The Symantec compiler requires significant increases in stack size.
+  If you experience problems with any Zinc application, increase the
+  stack size in the appropriate .DEF file.  For this reason, Zinc
+  recommends that you do not use this compiler for Windows.
+
+*** CONSTRAINTS ***
+- WOF_JUSTIFY_ flags do not function on objects derived from
+  UIW_STRING unless they are WOS_OWNERDRAW.
+- UIW_PULL_DOWN_MENUs and UIW_POP_UP_MENUs always act as if
+  WNF_CONTINUE_SELECT is set and WNF_NO_WRAP is not set.
+- UIW_WINDOWs with a parent may not have a pull-down menu.
+- If you do not have a MNIF_MINIMIZE item in a non-SYF_GENERIC system
+  button the window cannot be minimized. A similar problem exists with
+  MNIF_MAXIMIZE, MNIF_MOVE, and MNIF_SIZE. Also, without an
+  MNIF_CLOSE the window cannot be closed with the system button.
+
+*** ENHANCEMENTS ***
+- Zinc as a DLL is not supported.
+
+*** PRE-RELEASE ***
+- Argument rearranging does not work with MS Windows NT on AXP with
+  Microsoft & Digital C/C++ 8.03.  You must comment out
+  #define ZIL_REARRANGEARGS in UI_ENV.HPP.
+
+
+---------------------------------------------------------------------
+----- OS/2 ----------------------------------------------------------
+---------------------------------------------------------------------
+
+*** INTERNATIONALIZATION ***
+- Codepage 932 (OS/2 J) is supported, but codepage 942 is not supported.
+
+*** ENHANCEMENTS ***
+- Zinc as a DLL is not supported.
+
+
+---------------------------------------------------------------------
+----- MACINTOSH -----------------------------------------------------
+---------------------------------------------------------------------
+
+*** GENERAL ***
+- Child windows are not fully supported.
+
+*** COMPILERS ***
+- MPW C++ compilers are not certified.
+
+
+---------------------------------------------------------------------
+----- MOTIF ---------------------------------------------------------
+---------------------------------------------------------------------
+
+*** GENERAL ***
+- UIW_TABLE object does not function properly.
+- Owner draw windows with scroll bars may not draw correctly.
+- MDI children may position themselves incorrectly if the parent is
+  resized.
+
+*** CONSTRAINTS ***
+- Drag and Drop requires Motif 1.2.
+- MDI children are independent windows that are not constrained by
+  the bounds of the parent.
+
+*** ENHANCEMENTS ***
+- HPUX, Sun Solaris, SunOS, QNX, SCO and DesqView/X are Zinc certified.
+  AIX, OSF/1, and x86 are not yet Zinc certified.
+
+
+---------------------------------------------------------------------
+----- ZINC DESIGNER -------------------------------------------------
+---------------------------------------------------------------------
+
+*** WINDOW EDITOR ***
+- The Designer requires read/write access to the drive.
+
+*** IMAGE EDITOR ***
+- Group "Move" not supported.
+
+*** MESSAGE EDITOR ***
+- Import/Export TXT files are not implemented.
+- Import/Export CPP files are not implemented.
+
+*** DEFAULTS (I18N) EDITOR ***
+- Import/Export TXT files are not implemented.
+- Import/Export CPP files are not implemented.
+
+*** WINDOWS ***
+- System buttons should not be edited in the Designer.
+
+*** MOTIF ***
+- Children can't be added to a scrolled window.
+- The "Edit Group" feature may behave erratically.
+
+*** NEXTSTEP ***
+- The Designer is not available with NEXTSTEP pre-release.

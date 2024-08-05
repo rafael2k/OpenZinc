@@ -1,0 +1,11 @@
+[MSVC Status File]
+Version=1.00
+ProjectType=10
+External=1
+DebugBuildCmd=NMAKE /f SCCPP600.MAK
+ReleaseBuildCmd=NMAKE /f SCCPP600.MAK
+RebuildOption=/a
+BuildMode=1
+TargetName=C:\Z421SC6\SOURCE\SCCPP600.EXE
+BrkptCount=0
+WatchCount=0

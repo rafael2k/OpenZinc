@@ -1,0 +1,8 @@
+window.lib
+	+advanced.o32+derive.o32+export.o32 &
+	+geometry.o32+group.o32+import.o32+object.o32 &
+	+position.o32+prefer.o32+window.o32+window1.o32 &
+	+z_bnum.o32+z_border.o32+z_button.o32+z_combo.o32 &
+	+z_date.o32+z_fmtstr.o32+z_gmgr.o32+Z_group.o32 &
+	+z_hlist.o32+z_icon.o32+z_int.o32+z_max.o32+z_min.o32 & 	+z_notebk.o32+z_obj.o32+z_plldn.o32+z_plldn1.o32 & 	+z_popup.o32+z_popup1.o32+z_prompt.o32+z_real.o32 & 	+z_scroll.o32+z_sbar.o32+z_spin.o32+z_string.o32 & 	+z_sys.o32+z_table.o32+z_tbar.o32+z_text.o32 &
+	+z_time.o32+z_title.o32+z_vlist.o32+z_win.o32

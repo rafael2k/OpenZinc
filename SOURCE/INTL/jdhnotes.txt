@@ -1,0 +1,23 @@
+Notes for gcc preproccessor
+
+In files loc2dat.cpp, lang2dat.cpp and map2dat.cpp the line
+
+#define FILENAME(x)	append(lang_, x, .cpp)
+
+needs to be changed to 
+
+#define FILENAME(x)	append(lang_, x,.cpp)
+
+to eliminate the blanks space in the pasted token. The preprocessor 
+will still issue a warning that  pasting "xxxx" and "." does not give a valid preprocessing token but the file will be included and the object file will be created.
+
+
+In file lang2dat.cpp the following change was also made
+
+//	for (int len=0; defaultLanguage[len].text; len++)
+//		;
+//two lines above changed to three lines below to meet current
+//scoping rules for for
+	int len;
+	for (len=0; defaultLanguage[len].text; len++)
+		;

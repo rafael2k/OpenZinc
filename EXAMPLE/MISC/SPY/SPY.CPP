@@ -1,0 +1,446 @@
+//	SPY.CPP (SPY) - An event monitor example program.
+//	COPYRIGHT (C) 1990-1995.  All Rights Reserved.
+//	Zinc Software Incorporated.  Pleasant Grove, Utah  USA
+//  May be freely copied, used and distributed.
+
+
+// This is an simple program that catches all messages put on the event
+// queue except mouse movement events.  Many of the events listed below in
+// the spy class member functions are not seen often because they are
+// interpreted by the window manager or window objects from the keyboard
+// or mouse events and used directly.
+//
+// To use SPY just add a new SPY to the event manager.  It automatically
+// creates a TTY_WINDOW window (see tty.cpp) and adds it to the window
+// manager.  Puting an event of type E_SPY and rawCode D_OFF on the event
+// queue will disable the SPY.  Likewise, an event of type E_SPY and
+// rawCode D_ON will enable it.
+//
+// The spy remains in the event manager's device list until the programmer
+// subtracts it from the event manager or the event manager is deleted.  To
+// redisplay the spy window after the user has closed it send a message to
+// the spy device with event.type = E_SPY and event.rawCode = D_ON.  The
+// spy should be created and added to the event manager only once.
+//
+// Many advanced features can be added to this SPY if the programmer takes
+// the initiative.  These could include disabling all mouse events (currently
+// only mouse move events are disabled) or setting a breakpoint on a certain event.
+
+#define USE_RAW_KEYS
+#include <ui_win.hpp>
+
+
+#include "spy.hpp"
+
+// The TTY_WINDOW is a very useful and simple display window.  Character
+// strings can be displayed in the window using a printf style format.  Just
+// add the tty window to the window manager and send messages to it.
+// For example, if the programmer needs to have continuous output to the
+// screen but does not necessarily need to keep the information.
+
+#include <stdio.h>
+#include <stdarg.h>
+
+
+
+// ----- TTY_ELEMENT --------------------------------------------------------
+
+TTY_ELEMENT::TTY_ELEMENT(int left, int top, int width, int _height) :
+	UIW_PROMPT(left, top, width, ""),
+	height(_height)
+{
+}
+
+EVENT_TYPE TTY_ELEMENT::Event(const UI_EVENT &event)
+{
+	EVENT_TYPE ccode = LogicalEvent(event, ID_WINDOW);
+
+	switch (ccode)
+	{
+	case S_INITIALIZE:
+		UIW_PROMPT::Event(event);
+		if (display && !display->isText)
+			relative.bottom = relative.top + height;
+		break;
+
+	default:
+		ccode = UIW_PROMPT::Event(event);
+		break;
+	}
+
+	// Return the control code.
+	return (ccode);
+}
+
+// ----- TTY_WINDOW ---------------------------------------------------------
+
+TTY_WINDOW::TTY_WINDOW(void) :
+	UIW_WINDOW(0, 0, 0, 0, WOF_NON_FIELD_REGION),
+	numberShowing(0), newList(TRUE)
+{
+}
+
+EVENT_TYPE TTY_WINDOW::Event(const UI_EVENT &event)
+{
+	EVENT_TYPE ccode = LogicalEvent(event, ID_WINDOW);
+
+	switch (ccode)
+	{
+	case S_CREATE:
+	case S_CHANGED:
+		{
+		// Call the default event.
+		UIW_WINDOW::Event(event);
+
+		// Calculate the number of elements that will fit in the list.
+		int lineHeight = display->cellHeight - display->preSpace -
+			display->postSpace;
+		int newNumberShowing = (trueRegion.bottom - trueRegion.top + display->preSpace + display->postSpace);
+		
+		newNumberShowing /= lineHeight;
+		newNumberShowing++;
+		if (display->isText)
+			newNumberShowing++;
+
+		// Make sure the window is full of lines.
+		newList = TRUE;
+		numberShowing = newNumberShowing;
+		Destroy();
+		for (int line = 0; line < numberShowing - 1; line++)
+		{
+			TTY_ELEMENT *element = new TTY_ELEMENT(0,
+				line * lineHeight, trueRegion.right - trueRegion.left + 1,
+				lineHeight);
+			if (!display->isText)
+				element->woStatus |= WOS_GRAPHICS;
+			Add(element);
+		}
+		Event(UI_EVENT(S_DISPLAY_ACTIVE, 0, trueRegion));
+		}
+		break;
+
+	default:
+		ccode = UIW_WINDOW::Event(event);
+		break;
+	}
+
+	// Return the control code.
+	return (ccode);
+}
+
+void TTY_WINDOW::Printf(char *format, ...)
+{
+	// Set the print object.
+	if (!windowManager || windowManager->First() == parent)
+		return;
+	else if (newList)
+	{
+		current = first;
+		newList = FALSE;
+	}
+	else if (Current() && Current()->Next())
+		current = Current()->Next();
+	else if (First())
+	{
+		for (TTY_ELEMENT *object = First(); object && object->Next(); object = object->Next())
+			object->DataSet(object->Next());
+		current = last;
+	}
+	else
+		return;
+
+	// Format the tty output line.
+	static char string[128];
+	va_list arguments;
+	va_start(arguments, format);
+	vsprintf(string, format, arguments);
+	va_end(arguments);
+	Current()->DataSet(string);
+}
+
+SPY::SPY(UI_WINDOW_MANAGER *_windowManager) :
+	UI_DEVICE(E_DEVICE, D_ON)
+{
+	// Initialize the member variables.
+	windowManager = _windowManager;
+
+	// Create the window to display events in. (see tty.cpp)
+	spyWindow = UIW_WINDOW::Generic(20, 0, 40, 14, "Spy Window");
+	*spyWindow
+		+ (ttyWindow = new TTY_WINDOW);
+
+	// The spy should delete the spy window, not the window manager.
+	spyWindow->woAdvancedFlags |= WOAF_NO_DESTROY;
+}
+
+EVENT_TYPE SPY::Event(const UI_EVENT &event)
+{
+	// Process events for this device.
+	switch (event.type)
+	{
+	case S_INITIALIZE:
+	case D_ON:
+		// Add the spy window to the window manager.
+		*windowManager + spyWindow;
+		state = D_ON;
+		break;
+
+	case D_OFF:
+		// Subtract the spy window from the window manager.
+		*windowManager - spyWindow;
+		state = D_OFF;
+		break;
+	}
+
+	return(state);
+}
+
+struct EVENT_PAIR
+{
+	ZIL_LOGICAL_EVENT type;
+	char *name;
+};
+void SPY::Poll(void)
+{
+	if (state != D_ON)
+		return;
+
+	// Declare the event type/name pairs.
+	static EVENT_PAIR eventTable[] =
+	{
+		// Raw events.
+		{ E_MSWINDOWS,			"MSWindows" },
+		{ E_OS2,				"OS/2" },
+		{ E_MOTIF,				"Motif" },
+		{ E_MACINTOSH,			"Macintosh" },
+		{ E_NEXTSTEP,			"NEXTSTEP" },
+		{ E_KEY,				"Key" },
+		{ E_MOUSE,				"Mouse" },
+		{ E_CURSOR,				"Cursor" },
+
+		// System events.
+		{ S_ERROR,				"Error" },
+		{ S_UNKNOWN,			"Unmapped Event" },
+		{ S_NO_OBJECT,			"No Object" },
+		{ S_MINIMIZE,			"Minimize" },
+		{ S_MAXIMIZE,			"Maximize" },
+		{ S_ALT_KEY,			"<Alt>" },
+		{ S_CONTINUE,			"Continue" },
+		{ S_INITIALIZE,			"Initialize" },
+		{ S_CREATE,				"Create" },
+		{ S_CLOSE,				"Close" },
+		{ S_NON_CURRENT,		"Non-Current" },
+		{ S_MOVE,				"Move" },
+		{ S_REDISPLAY,			"Redisplay" },
+		{ S_CLOSE_TEMPORARY,	"Close Temporary" },
+		{ S_DEINITIALIZE,		"Deinitialize" },
+		{ S_REGION_DEFINE,		"Region Define" },
+		{ S_CASCADE,			"Cascade" },
+		{ S_RESTORE,			"Restore" },
+		{ S_REGISTER_OBJECT,	"Register Object" },
+
+		{ S_POSITION,			"Position" },
+
+		{ S_SIZE,				"Size" },
+		{ S_CHANGED,			"Changed" },
+		{ S_DISPLAY_ACTIVE,		"Display Active" },
+		{ S_DISPLAY_INACTIVE,	"Display Inactive" },
+		{ S_CURRENT,			"Current" },
+
+		{ S_VSCROLL,			"Scroll Vertical" },
+		{ S_HSCROLL,			"Scroll Horizontal" },
+		{ S_VSCROLL_SET,		"Scroll Vertical Set" },
+		{ S_HSCROLL_SET,		"Scroll Horizontal Set" },
+		{ S_VSCROLL_CHECK,		"Scroll Vertical Check" },
+		{ S_HSCROLL_CHECK,		"Scroll Horizontal Check" },
+
+		{ S_ADD_OBJECT,			"Add Object" },
+		{ S_SUBTRACT_OBJECT,	"Subtract Object" },
+		{ S_OPEN_DOCUMENT,		"Open Document" },
+		{ S_PRINT_DOCUMENT,		"Print Document" },
+		{ S_RESET_DISPLAY,		"Reset Display" },
+
+		// Logical events.
+		{ L_EXIT,				"Exit" },
+		{ L_VIEW,				"View" },
+		{ L_SELECT,				"Select" },
+		{ L_BEGIN_SELECT,		"Begin Select" },
+		{ L_CONTINUE_SELECT,	"Continue Select" },
+		{ L_END_SELECT,			"End Select" },
+		{ L_BEGIN_ESCAPE,		"Begin Escape" },
+		{ L_CONTINUE_ESCAPE,	"Continue Escape" },
+		{ L_END_ESCAPE,			"End Escape" },
+		{ L_HELP,				"Help" },
+		{ L_CANCEL,				"Cancel" },
+		{ L_EXIT_FUNCTION,		"Exit Function" },
+		{ L_DOUBLE_CLICK,		"Double-Click" },
+		{ L_MOVE,				"Move" },
+		{ L_SIZE,				"Size" },
+
+		{ L_NEXT_WINDOW,		"Next Window" },
+
+		{ L_UP,					"Up" },
+		{ L_DOWN,				"Down" },
+		{ L_LEFT,				"Left" },
+		{ L_RIGHT,				"Right" },
+		{ L_PREVIOUS,			"Previous" },
+		{ L_NEXT,				"Next" },
+		{ L_FIRST,				"First" },
+		{ L_TOP,				"Top" },
+		{ L_LAST,				"Last" },
+		{ L_BOTTOM,				"Bottom" },
+		{ L_PGUP,				"Page Up" },
+		{ L_PGDN,				"Page Down" },
+
+		{ L_BEGIN_MARK,			"Begin Mark" },
+		{ L_CONTINUE_MARK,		"Continue Mark" },
+		{ L_END_MARK,			"End Mark" },
+		{ L_CUT,				"Cut" },
+		{ L_PASTE,				"Paste" },
+		{ L_CUT_PASTE,			"Cut/Paste" },
+		{ L_MARK,				"Mark" },
+		{ L_COPY_MARK,			"Copy" },
+		{ L_DELETE,				"Delete" },
+		{ L_DELETE_WORD,		"Delete Word" },
+		{ L_DELETE_EOL,			"Delete to End of Line" },
+		{ L_INSERT_TOGGLE,		"Insert Toggle" },
+		{ L_WORD_LEFT,			"Word Left" },
+		{ L_WORD_RIGHT,			"Word Right" },
+		{ L_BOL,				"Beginning of Line" },
+		{ L_EOL,				"End of Line" },
+		{ L_BACKSPACE,			"Backspace" },
+
+		{ L_CANCEL,				"Cancel" },
+		{ S_CASCADE,			"Cascade Windows" },
+		{ L_RESTORE,			"Restore" },
+		{ L_MOVE,				"Move" },
+		{ L_SIZE,				"Size" },
+
+		{ 0, 0 } // End of array.
+	};
+
+	// Get next event on the queue (Only if not NO_DESTROY).
+	// Return if nothing there.
+	UI_EVENT event;
+	if (FlagSet(eventManager->QFlags(), Q_NO_DESTROY) ||
+		eventManager->Get(event, Q_NO_BLOCK | Q_NO_DESTROY | Q_NO_POLL))
+			return;
+
+	char *typeName = "<Unknown>";
+	for (int i = 0; eventTable[i].type; i++)
+		if (event.type == eventTable[i].type)
+		{
+			typeName = eventTable[i].name;
+			break;
+		}
+
+	// Add the event string to the spy event list.
+	switch (event.type)
+	{
+#if defined(ZIL_MSDOS) || defined(ZIL_CURSES)
+	case E_MOUSE:
+		{
+		EVENT_TYPE ccode = ttyWindow->LogicalEvent(event, ID_WINDOW_OBJECT);
+		if (ccode == L_BEGIN_SELECT || ccode == L_END_SELECT)
+		{
+			for (int i = 0; eventTable[i].type; i++)
+				if (ccode == eventTable[i].type)
+				{
+					typeName = eventTable[i].name;
+					break;
+				}
+			ttyWindow->Printf(" %s", typeName);
+		}
+		}
+		break;
+#elif defined(ZIL_MSWINDOWS)
+	case E_MSWINDOWS:
+		if (event.message.message == WM_MOUSEMOVE ||
+			event.message.message == WM_NCMOUSEMOVE ||
+			event.message.message == 0x118 ||
+			event.message.message == WM_PAINT)
+			break;
+
+		ttyWindow->Printf("%s %04x %04x %08x", typeName, event.message.message,
+			event.message.wParam, event.message.lParam);
+		break;
+#elif defined(ZIL_OS2)
+	case E_OS2:
+		if (event.message.msg == WM_MOUSEMOVE ||
+			event.message.msg == WM_PAINT ||
+			event.message.msg == WM_TIMER)
+			break;
+
+		ttyWindow->Printf("%s %04x %08lx %08lx", typeName, event.message.msg,
+			event.message.mp1, event.message.mp2);
+		break;
+#elif defined(ZIL_MOTIF)
+	case E_MOTIF:
+		if (event.message.type == Expose || event.message.type == DestroyNotify ||
+			event.message.type == UnmapNotify || event.message.type == MapNotify ||
+			event.message.type == MotionNotify)
+			break;
+
+		ttyWindow->Printf("%s %02x %08lx %08x", typeName, event.message.type,
+			event.message.xany.serial, event.message.xany.window);
+		break;
+#elif defined(ZIL_MACINTOSH)
+	case L_VIEW:
+		break;
+
+	case E_MACINTOSH:
+		if (event.message.what == updateEvt
+#	if (ZIL_MACINTOSH >= 700)
+			|| (event.message.what == osEvt && event.rawCode == mouseMovedMessage)
+#	endif
+			)
+			break;
+
+		ttyWindow->Printf("%s %d %08lx %02x", typeName, event.message.what,
+			event.message.message, event.message.modifiers);
+		break;
+#elif defined(ZIL_NEXTSTEP)
+	case E_NEXTSTEP:
+		ttyWindow->Printf("%s", typeName);
+		break;
+#endif
+
+	case E_KEY:
+		ttyWindow->Printf(" %s   %04x %02x  %c", typeName, event.rawCode, event.key.shiftState, event.key.value);
+		break;
+
+	default:
+		ttyWindow->Printf(" %s %04x", typeName, event.rawCode);
+		break;
+	}
+}
+
+int UI_APPLICATION::Main(void)
+{
+	// The UI_APPLICATION constructor automatically initializes the
+	// display, eventManager, and windowManager variables.
+
+	// This line fixes linkers that don't look for main in the .LIBs.
+	UI_APPLICATION::LinkMain();
+
+	// Add the spy to the event manager.
+	*eventManager + new SPY(windowManager);
+
+	// Create sample window.
+	UIW_WINDOW *window = UIW_WINDOW::Generic(3, 5, 40, 6, "Text window for SPY!");
+	*window
+		+ new UIW_TEXT(0, 0, 0, 0, "Sample Text!", 256, WNF_NO_FLAGS,
+			WOF_NON_FIELD_REGION);
+
+	// Add the window the window manager.
+	*windowManager + window;
+
+	// This line causes the window manager to send an L_EXIT when the main
+	// window is closed.  It MUST be after the window is added to windowManager.
+	windowManager->screenID = window->screenID;
+
+	// Process user responses.
+	UI_APPLICATION::Control();
+
+	return (0);
+}

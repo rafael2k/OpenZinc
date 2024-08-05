@@ -1,0 +1,29 @@
+all:
+	@echo "Make the DOS_BGI library by changing into"
+	@echo "the ZINC\SOURCE directory and typing:"
+	@echo "make -fbtcpp400.mak dos_bgi.lib"
+
+#.chr.obj:
+#	bgiobj /f $*.chr $*.obj
+
+iso: iso_syst.obj iso_dial.obj iso_smal.obj
+
+iso_syst.obj: iso_syst.chr
+	bgiobj /f iso_syst.chr iso_syst.obj _ISOSystemFont
+
+iso_dial.obj: iso_dial.chr
+	bgiobj /f iso_dial.chr iso_dial.obj _ISODialogFont
+
+iso_smal.obj: iso_smal.chr
+	bgiobj /f iso_smal.chr iso_smal.obj _ISOSmallFont
+
+oem: oem_syst.obj oem_dial.obj oem_smal.obj
+
+oem_syst.obj: oem_syst.chr
+	bgiobj /f oem_syst.chr oem_syst.obj _OEMSystemFont
+
+oem_dial.obj: oem_dial.chr
+	bgiobj /f oem_dial.chr oem_dial.obj _OEMDialogFont
+
+oem_smal.obj: oem_smal.chr
+	bgiobj /f oem_smal.chr oem_smal.obj _OEMSmallFont

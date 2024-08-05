@@ -1,0 +1,4 @@
+x32_fg.lib
++z_appfg.oxv  +d_fgdspx.oxv +fg_cstm.oxv 
++g_fgdspx.oxv +i_wccfgx.oxv +d_mousex.oxv
++d_intlx.oxv

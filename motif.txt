@@ -1,0 +1,463 @@
+---------------------------------------------------------------------
+------------- Zinc Application Framework 4.2 - MOTIF.TXT ------------
+----------- COPYRIGHT (C) 1990-1996.  All Rights Reserved. ----------
+------ Zinc Software Incorporated.  Pleasant Grove, Utah  USA -------
+---------------------------------------------------------------------
+
+This document explains how to install and compile the source code for 
+Zinc Application Framework version 4.2 for OSF/Motif.
+
+
+---------------------------------------------------------------------
+---- CONTENTS -------------------------------------------------------
+---------------------------------------------------------------------
+
+This document is divided into the following sections:
+
+     SYSTEMS SUPPORTED
+     INSTALLING ZINC
+     COMPILING ZINC
+     DISTRIBUTION CONTENTS
+     DIFFERENCES
+     HINTS AND GOTCHAS
+     INTERNET ACCESS
+ 
+
+---------------------------------------------------------------------
+----- SYSTEMS SUPPORTED ---------------------------------------------
+---------------------------------------------------------------------
+
+Although the source code for Zinc 4.2 has been compiled and run
+on a number of other Motif 1.1 and 1.2 systems, Zinc makes no
+claims about the number of bugs found on, or the ease of porting
+to unsupported systems.  A document is available from Zinc
+Technical Support that provides assistance to customers
+attempting to port to other systems.  The source code for the Zinc
+Motif key will not compile without modification with Motif 1.0.
+
+Zinc can be compiled and linked on supported systems with the
+following:
+
+     C++ compiler supplied by the vendor
+     Motif, Xt, and X11 include files and libraries
+
+---------------------------------------------------------------------
+----- INSTALLING ZINC -----------------------------------------------
+---------------------------------------------------------------------
+
+NOTE: The Zinc distribution should be installed to a new directory,
+not on top of an existing Zinc distribution.  Many changes were made
+to the INSTALL script, making it incompatible with previous copies
+of INSTALL??.status.
+
+Copy the Zinc distribution to your system by following the
+instructions in one of the sections below, depending on which
+type of media you received Zinc.
+
+---- Installing from tape ----
+
+     To install Zinc from a tape:
+
+     -    Change directory to the location that you want to
+          contain the Zinc directory tree.
+
+     -    Use the 'tar' command to extract the contents of the
+          tape.  For example:
+
+               tar xv
+          or
+               tar xvf TAPENAME
+
+          where TAPENAME is the name of the tape drive on your system,
+          such as /dev/rmt/1m.
+
+---- Installing from DOS floppy (FAT tar) or DOS BBS ----
+
+     To install Zinc from the DOS files ZAF42MTF.TZ?
+
+     -    Use communications software to copy the DOS (FAT tar) file
+          to the UNIX system into the desired directory.  On SCO Unix,
+          this involves opening a DOS window to copy the contents of
+          the FAT tar disk(s) into the desired directory.
+
+     -    Use 'zcat' and 'tar' to uncompress and unarchive the
+          distribution files (from a Unix window on SCO Motif):
+     
+     Standard distribution:
+
+               cat zaf42mtf.tz? | zcat | tar xvf -
+
+     Unicode
+
+               cat zaf42uni.taz | zcat | tar xvf -
+     
+---- Installing from QNX tar floppy or DOS BBS ----
+
+     To install Zinc from the QNX tar files 'ZAF42MTF.TF?':
+
+     -    Copy the contents of the QNX tar disk(s) to the QNX system
+          into the desired directory.
+
+     -    Use 'fcat' and 'tar' to uncompress and unarchive the
+          distribution files:
+     
+               cat zaf42mtf.tf? | fcat | tar -xvf -
+     
+     -    If you purchased the Zinc Unicode key:
+
+               cat zaf42uni.taf | fcat | tar -xvf -
+
+---- Installing from a file ----
+
+     If you received the file zaf.motif.4.2.tar.Z over the
+     Internet:
+
+     -    Move the file to the location that you want to contain
+          the Zinc directory tree.
+     
+     -    Uncompress and unarchive the distribution:
+
+               zcat zaf.motif.4.2.tar.Z | tar xvf -
+
+     -    If you purchased the Zinc Unicode key:
+
+               zcat zaf.unicode.4.2.tar.Z | tar xvf -
+
+     -    For QNX, the tar file will be named zaf.????.4.2.tar.F
+          and the 'fcat' and 'tar' utilities should be used to
+          uncompress and unarchive the distribution.
+
+---- Setting the path ----
+
+To use the Zinc Designer, you must set the ZINC_PATH environment variable  
+to include the Zinc/bin directory like this:
+
+    set ZINC_PATH=`pwd`/bin; export ZINC_PATH
+
+
+
+---------------------------------------------------------------------
+----- COMPILING ZINC ------------------------------------------------
+---------------------------------------------------------------------
+
+If you didn't receive Zinc on a tape, you must compile the
+distribution before you can use it.  If you did receive Zinc on a
+tape, it will contain compiled executable and library files, so it
+may not be necessary for you to recompile the source code
+immediately.  However, we recommend that all sites be able
+to recompile the source because of possible differences between
+our configuration and yours.  
+
+If you choose not to recompile, you will probably still want to
+run Zinc's tutor and example programs and install the library as
+explained below. To remove all object and executable files, type
+
+     make clean
+
+Two steps are involved in compiling Zinc:
+
+     1) Run INSTALL.
+
+     An interactive script that asks you
+     about your system configuration.  You should
+     view this script to see what options are
+     available.  This will not run interactively
+     on SCO Unix.  This is not required for QNX.
+
+     2) Compile and link with make.
+
+From the Zinc directory, type:
+
+     ./INSTALL or
+     ./INSTALL -f -n -m sco (for SCO Unix/Motif)
+     (not required for QNX)
+
+You will be asked what type of system to compile for and then you
+will be shown the default configuration for your system type.   
+You can change any parameters necessary.  INSTALL then configures
+all the Makefiles in the Zinc tree.  If the C++ compiler on your
+system needs to have C++ source file names to end with something
+besides .cpp, such as .C, .cc, or .cxx, INSTALL changes all
+the source files in the Zinc tree by calling the Suffixes utility. 
+
+After running INSTALL, compile the Zinc library:
+
+     make clean
+     make
+
+Any problems you encounter while compiling or linking on a
+supported system can probably be fixed by changing the values
+supplied to INSTALL, especially the locations to search for
+include files and libraries.  You can run INSTALL as many times
+as necessary, until you can compile and link successfully. 
+INSTALL remembers your input from one run to the next (unless you
+run INSTALL -f).
+
+It will take anywhere from 10 minutes to 4 hours to compile the
+whole Zinc tree, depending on your computer's speed and operating
+system.  If, instead of compiling the whole Zinc tree, you just
+want to make and test the Zinc library, you can compile just the
+Zinc library by doing the following:
+
+     cd source; make; make test; ./test
+
+For QNX, do the following:
+
+     cd source; make -f wccpp105.mak qnx; ./test
+
+After you have compiled Zinc, you might want to run some of the
+programs in the example and tutorial directories to get an idea
+of what Zinc can do.
+
+     NOTE: For unsupported systems that have link errors while
+     linking the Designer:
+
+     Compilers and linkers on some systems have trouble with
+     using different object modules that were produced from
+     source files with the same name.  For example, the Zinc
+     Designer is produced by linking together several different
+     libraries, several of which contain the module 'z_win.o'. 
+     This sometimes causes link errors on HP or Sun systems.  If,
+     you get a warning such as
+
+     /bin/ld: Duplicate symbol "__noperfopt__z_win_cpp_ID_DIRECT"
+
+     while compiling the Designer, you need to run FixLink 
+     from the root of the Zinc tree.  
+     
+     FixLink installs makefiles in some of the Designer's
+     directories that fix the problem by renaming the offending
+     source files.  After running FixLink, you will need to rerun
+     the INSTALL script.
+
+If you run programs that use languages other than the default
+language or locale, the file i18n.dat must be located in a
+directory specified in your PATH or ZINC_PATH environment
+variables.  This file is originally located in the Zinc/bin
+directory.
+
+
+---------------------------------------------------------------------
+----- DISTRIBUTION CONTENTS -----------------------------------------
+---------------------------------------------------------------------
+
+The Motif key for Zinc Application Framework is distributed in
+the following ways:
+
+     Tape (DAT, QIC, 8mm, etc.)
+
+     Unix Networks (filename: zaf.motif.4.2.tar.Z or
+          zaf.motif.4.2.tar.F (QNX))
+
+     DOS floppy or DOS BBS (format: compressed tar, filenames:
+          zaf42mtf.tz?, zaf42mtf.tf? (QNX frozen tar, BBS only),
+          does not include the Zinc demo)
+			
+     QNX tar floppy (format: frozen tar, filenames: 
+          zaf42mtf.tf?, does not include the Zinc demo)
+
+If you have purchased the Zinc Unicode Key for international-
+ization support, you will also receive either an extra tape, a
+file from the internet called zaf.unicode.4.2.tar.Z (or
+zaf.unicode.4.2.tar.F (QNX)), or a DOS file called ZAF42UNI.TAZ (or
+ZAF42UNI.TAF (QNX))
+
+Tape distributions contain source code, data files, pre-built
+library and the designer executable.  Other distributions contain
+only source code and data files, so you must compile Zinc yourself.
+
+All Unix distribution methods contain both the Zinc Engine and
+the Motif Key together on the same media.  Performing the
+installation as described here installs both the Engine and the
+Motif Key.
+
+The following diagram shows the Zinc directory structure that
+will be created during installation:
+
+               |--- bin
+               |
+               |--- design       |---
+               |                 |---
+               |--- example -----|--- ...
+               |
+               |--- include      |--- intl
+     Zinc -----|                 |
+               |--- lib          |--- storage 
+               |                 |
+               |--- source ------|--- (unicode)
+               |
+               |--- tutor -------|---
+                                 |---
+                                 |--- ...
+
+
+     Besides containing the above directories, the main Zinc
+     directory contains the installation script (INSTALL), the X
+     application defaults file (ZincApp), and several informational
+     files, such as a copy of this file (motif.txt).
+
+IMPORTANT:  The ZincApp defaults file must be in the run-time path in
+     order for any Zinc application to run.  Zinc Application Framework,
+     Motif key, now depends on the ZincApp defaults file to initialize
+     the fonts used by all Zinc window objects.  The INSTALL script
+     allows you to copy the ZincApp defaults file to one of the following:
+         1) app-defaults directory (requires super-user status)
+         2) your home directory
+
+     The source directory contains the library source.
+
+     design contains source for the Zinc Designer.
+
+     storage contains several programs for use in validating
+     Zinc data files.
+
+     unicode is only provided if you have purchased the Unicode
+     key.
+
+     example and tutor contain Zinc instructional example
+     programs.
+     
+     include and lib contain header and library files
+     for use in compiling and linking the demo, the Designer,
+     and the example and tutorial programs.
+
+
+---------------------------------------------------------------------
+----- DIFFERENCES ---------------------------------------------------
+---------------------------------------------------------------------
+
+This section explains some of the differences between the Zinc
+Motif Key and keys for other systems:
+
+     MDI Windows
+
+     MDI windows are supported in Motif as normal child shells. 
+     They follow the Motif Style Guide, so they do not have all
+     functionality available in MS Windows MDI windows.
+
+     String Justification
+
+     The Zinc UIW_STRING provides for left, center, and right
+     justification, but since Motif XmText widgets only provide
+     left justification, the WOF_JUSTIFY_RIGHT and
+     WOF_JUSTIFY_CENTER flags are ignored in Motif for UIW_STRING
+     objects.
+
+
+---------------------------------------------------------------------
+----- HINTS AND GOTCHAS ---------------------------------------------
+---------------------------------------------------------------------
+
+Some things to watch out for:
+
+--   Some cfront compilers or translators will generate a warning
+     such as:
+
+          warning: result of *  expression not used
+
+     whenever they encounter a line of code that uses
+     UIW_WINDOW's operator+ such as:
+
+          *window + UIW_PROMPT(5, 5, "Hello");
+
+     This construct is used dozens of times in the Zinc library,
+     so some systems will generate dozens of warnings.  These
+     warnings don't affect the operation of the code.  If you
+     don't like seeing them you can change the offending lines of
+     code:
+
+          (void *)(*window + UIW_PROMPT(5, 5, "Hello"));
+
+--   Some of the Zinc examples and tutorials have names that may
+     collide with programs already in your path.  For example,
+     some Unix systems have programs named calndr, error,
+     or test.  So if some of Zinc's programs don't seem to
+     run correctly, specify the path name too.  For example,
+     after changing to the example/mapping/calndr directory, calndr
+     may not run Zinc's calndr program, but ./calndr will.
+
+--   Before SunOS 5.2 (Solaris 2.2), Sun did not ship its own
+     version of Motif.  This means that any Motif libraries on
+     Sun systems were obtained through third parties, such as IXI,
+     ICS, or directly from OSF.  Unfortunately, it seems that no
+     vendor's version of Motif works exactly the same as any
+     other vendor's.  Zinc can't guarantee that our software will
+     work correctly with all vendors' versions of Motif.  To
+     minimize the effects of Motif bugs, we recommend that you
+     obtain the latest release and patches of Motif from your
+     vendor.
+
+--   By default, Zinc uses one 12-point and two 14-point Helvetica
+     fonts, but unfortunately, all X servers do not make all font
+     sizes available. Therefore some X servers such as DESQview X 
+     may not provide the fonts Zinc requires.  If this is the case 
+     with one of your X servers, any Zinc program that is run will 
+     abort with an error such as
+
+        Error: Unable to load FNT_SMALL_FONT:
+            -*-helvetica-medium-r-*--12-*-iso8859-1
+     
+     If this occurs, find an appropriate font for the server with
+     xlsfonts, then add that font to the ZincApp file.  For 
+     example:
+
+         xlsfonts -fn "-*-helvetica-medium-r-*--*-*-iso8859-1"
+
+      To support extended ISO characters in the mwm clients and 
+         icons, set the fontList resources for the client*title and
+         the icon*title to an appropriate ISO 8859-1 font in .Xdefaults 
+         or its equivalent file:
+
+         Mwm*client*title*fontList:  -*-helvetica-bold-r-*--12-*-iso8859-1
+         Mwm*icon*fontList:          -*-helvetica-bold-r-*--12-*-iso8859-1
+
+--   Because Zinc's cell height and width are a function of the
+     font size, when Zinc Motif applications are run on low
+     resolution monitors (like standard VGA screens), the Zinc
+     windows may appear too large.  To resolve this problem, edit
+     ZincApp file, comment out the three default Zinc fonts, and
+     uncomment the three smaller fonts.
+
+--   Zinc for Motif works whether the Motif Window Manager's
+     keyboardFocusPolicy is pointer or explicit, but because of the
+     way FocusIn and FocusOut events are sent, if the policy is
+     pointer, Zinc's Validate() routines may be called more
+     than once.
+
+          
+---------------------------------------------------------------------
+----- UNICODE SUPPORT -----------------------------------------------
+---------------------------------------------------------------------
+
+     Unicode support has been tested on OSF/1 and AIX.  It was 
+     implemented as genericly as possible on top of Motif 1.2 using
+     the XIM interface.  This code will probably need modification
+     if your system uses the XSI interface.  The support will not
+     work with Motif 1.1.  The library must be recompiled with
+     ZIL_UNICODE defined in ui_env.hpp.  You must also set 
+     environment variable LANG and start the input method before 
+     starting Zinc applications.
+     
+     If you would like to support other platforms, you must add
+     entries in the table "fontMap" in m_dsp.cpp for your platform.
+     You may also need to modify ZIL_INTERNATIONAL::OSI18nInitialize()
+     in m_intl.cpp and the "langMap" table in g_lang.cpp.
+
+
+---------------------------------------------------------------------
+----- INTERNET ACCESS -----------------------------------------------
+---------------------------------------------------------------------
+
+You can use the Internet to contact Zinc Technical Support and to
+download Zinc demos and upgrades.
+
+--To reach Zinc Technical Support, send mail to tech@zinc.com.
+
+--To download demos for several different systems supported by Zinc,
+connect by anonymous ftp to ftp.zinc.com and cd to demos.  You can 
+also access our Web server at http://www.zinc.com/.  
+
+For upgrades or to get an update of the Zinc engine or a key
+that you have already purchased, contact Zinc Technical Support.
+
+

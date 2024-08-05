@@ -1,0 +1,12 @@
+In files 3_win1.cpp and 9_win1.cpp
+in function ScrollEvent() the following problem exists
+
+//UI_REGION client = clipList.First() ? clipList.First()->region : trueRegion;
+// sc7 complains about line above and quits with an internal error
+// the code segment below should be equivalent
+    UI_REGION client;
+    if (clipList.First() != NULL)
+        client = clipList.First()->region;
+    else
+        client = trueRegion;
+

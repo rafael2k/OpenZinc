@@ -1,0 +1,591 @@
+---------------------------------------------------------------------
+-------------- Zinc Application Framework 4.2 - READ.ME -------------
+----------- COPYRIGHT (C) 1990-1995.  All Rights Reserved. ----------
+------ Zinc Software Incorporated.  Pleasant Grove, Utah  USA -------
+---------------------------------------------------------------------
+
+Welcome to Zinc Application Framework 4.1!  This file contains some
+important information concerning this release.  Please read this file
+before installing the product.  It is divided into the following
+sections:
+
+    NEW IN THIS REVISION
+    ENVIRONMENT/OPERATING SYSTEM SUPPORT
+    COMPILER SUPPORT AND NOTES
+    INSTALLATION
+    INTERNATIONAL LANGUAGE SUPPORT
+    UNICODE SUPPORT
+    TECHNICAL SUPPORT
+    REPORTING PROBLEMS
+    CONTACTING ZINC
+
+
+---------------------------------------------------------------------
+---- NEW IN THIS REVISION -------------------------------------------
+---------------------------------------------------------------------
+
+
+See fix.txt for the changes that have been made in the version.
+
+
+
+---------------------------------------------------------------------
+---- ENVIRONMENT/OPERATING SYSTEM SUPPORT ---------------------------
+---------------------------------------------------------------------
+
+This version of Zinc provides support for the following environments.
+Note that to use all these environments would require the Zinc Engine
+and all platform keys.
+
+    MS-DOS, PC-DOS
+    MS/PC-DOS/V (Japan, Korea, Taiwan, China)
+    NEC PC9800
+    Windows 3.x
+    Windows 3.1 (Japan, Korea, Taiwan, China)
+    Win32s
+    Windows NT 3.5
+    Windows NT 3.5 for DEC axp (Supported)
+    Windows NT J 3.5
+    Windows 95
+    OS/2 2.x
+    OS/2 3.0 (Warp)
+    OS/2 J 2.1
+    HPUX 9.0x, Motif 1.2
+    DESQview X 2.x, Motif 1.2
+    QNX 4.22, Motif 1.2
+    SCO Unix 3.2, Motif 1.2
+    SunOS 4.1.3, Motif 1.2
+    SunOS 5.4/Solaris 2.4, Motif 1.2
+    SunOS 5.2/Solaris 2.2, Motif 1.2
+    Apple Macintosh System 7
+
+
+---------------------------------------------------------------------
+---- COMPILER SUPPORT -----------------------------------------------
+---------------------------------------------------------------------
+
+There are three levels of compiler support provided by Zinc.  "Zinc
+Certified" support indicates that Zinc has compiled and tested the
+libraries, utilities, examples, and tutorials with that compiler and
+is responsible for their compatibility.
+
+"Vendor Certified" support means the compiler vendor has compiled
+and tested the libraries, utilities, examples, and tutorials with
+that compiler and is responsible for their compatibility.
+
+"Supported" indicates that Zinc has compiled the library with that
+compiler but has done minimal testing.  A compiler at this level of
+support receives low-priority attention.
+
+Zinc will work with the following compilers:
+
+DOS:    1) Borland C++ Version 5.0 (Zinc Certified)
+               DOS real mode
+               DOS 16-bit extender, Phar Lap 286 3.1
+               DOS 16-bit extender, Borland PowerPack
+               DOS 32-bit extender, Borland PowerPack
+               DOS/V real mode text only
+               DOS/V 16-bit extender text and GFX, Phar Lap 286 3.1
+
+        2) Borland C++ Version 5.0 (Supported)
+               DOS VROOMM overlay
+               NEC 9800 series real mode text only
+
+        3) Borland C++ Version 4.5 (Supported)
+               DOS real mode
+               DOS VROOMM overlay
+               DOS 16-bit extender, Phar Lap 286 3.1
+               DOS 16-bit extender, Rational DOS16M
+               DOS 16-bit extender, Borland PowerPack
+               DOS 32-bit extender, Borland PowerPack
+               DOS/V real mode text only
+               DOS/V 16-bit extender text and GFX, Phar Lap 286 3.1
+               NEC 9800 series real mode text only
+
+        4) Microsoft Visual C++ Version 2.1 (Zinc Certified)
+               DOS 32-bit extender, Phar Lap TNT 7.0
+
+        5) Microsoft Visual C++ Version 1.52 (Zinc Certified)
+               DOS real mode
+               DOS 16-bit extender, Phar Lap 286 3.1
+               DOS 16-bit extender, Rational DOS16M
+               DOS 16-bit extender, Rational DOS16M for NEC PC9800
+
+        6) Microsoft Visual C++ Version 1.52 (Supported)
+               DOS/V real mode text only
+               DOS/V 16-bit extender text and GFX, Phar Lap 286 3.1
+               DOS MOVE overlay
+
+        7) Microsoft Visual C++ Version 2.0 (Supported)
+               DOS 32-bit extender, Phar Lap TNT 7.0
+
+        8) Symantec Version 7.0 (Zinc Certified)
+               DOS real mode
+               DOS 32-bit extender, FlashTek X model
+
+        9) Symantec Version 7.0 (Zinc Supported)
+               DOS VCM Overlay
+
+        10) Watcom C++ 10.5 (Zinc Certified)
+               DOS 32-bit extender, Rational 4GW
+
+WINDOWS, WIN32s, WINNT and Windows 95:
+        1) Borland C++ Version 5.0 (Zinc Certified)
+               Windows 3.x
+               Windows NT 3.x
+               Win32s
+	       Windows 95
+
+        2) Borland C++ Version 4.5 (Supported)
+               Windows 3.x
+               Windows NT 3.x
+               Win32s
+	       Windows 95
+
+        3) Microsoft Visual C++ Version 1.52 (Zinc Certified)
+               Windows 3.x
+               Windows J 3.1
+
+        4) Microsoft Visual C++ Version 4.0 & 4.1 (Zinc Certified)
+               Windows NT 3.x
+               Win32s
+	       Windows 95
+
+        5) Microsoft and Digital AXP C/C++ Version 8.0 (Supported)
+               Windows NT 3.5 for DEC axp
+
+        6) Symantec Version 7.0 (Supported)
+               Windows 3.x
+
+        7) Watcom C++ 10.5 (Zinc Certified)
+               Windows 3.x
+               Windows NT 3.x
+               Win32s
+	       Windows 95
+
+OS/2:
+        1) IBM Visual Age C++ Version 3.0 (Zinc Certified)
+               OS/2 3.0 (Warp)
+
+        2) IBM C-Set C++ Version 2.1 (Supported)
+               OS/2 3.0 (Warp)
+
+        3) IBM C-Set C++ Version 2.1 (Supported)
+               OS/2 2.x
+
+        4) IBM C-Set C++ Version 2.0 (Supported)
+               OS/2 2.x
+               OS/2 3.0 (Warp)
+
+        5) Borland C++ for OS/2 Version 2.0 (Zinc Certified)
+               OS/2 3.0 (Warp)
+               OS/2 J 2.1
+
+        6) Borland C++ for OS/2 Version 2.0 (Supported)
+               OS/2 2.x
+
+        7) Borland C++ for OS/2 Version 1.5 (Supported)
+               OS/2 2.x
+               OS/2 3.0 (Warp)
+               OS/2 J 2.1
+
+        8) Watcom C++ 10.5 (Zinc Certified)
+
+        9) Watcom C++ 10.0 (Supported)
+
+Macintosh System 7:
+        1) Metrowerks CW8 (Zinc Certified)
+               68K Macintosh
+               Power Macintosh
+
+        2) Symantec C++ Version 7.0.4 (Zinc Certified)
+               68K Macintosh
+
+        3) Symantec C++ Version 8.0 (Zinc Certified)
+               Power Macintosh
+
+Motif:
+        1) HPUX 9.0x (Zinc Certified)
+               X11R5/Motif 1.2
+
+        2) SunOS 4.1.3 (Zinc Certified)
+               X11R5/Motif 1.2
+
+        3) SunOS 5.4/Solaris 2.4 (Zinc Certified)
+               X11R5/Motif 1.2
+
+        4) DESQview X 2.X (Supported)
+               X11R5/Motif 1.2
+
+        5) QNX 4.22 (Zinc Certified)
+               X11R5/Motif 1.2
+
+        6) SCO Unix 3.3 (Supported)
+               X11R5/Motif 1.2
+
+        7) x86 (Supported)
+               X11R5/Motif 1.2
+
+        8) DEC Alpha OSF/1 3.2 (Pre-Release)
+               X11R5/Motif 1.2
+
+        9) AIX 4.1 (Zinc Certified)
+               X11R5/Motif 1.2
+
+Curses:
+        1) AIX 3.2.x (Zinc Certified)
+
+        2) SCO Unix 3.2 (Zinc Certified)
+
+In general, Zinc only ships libraries for the top three certified
+compilers. When a "Certified" compiler vendor releases a new version
+of their compiler, Zinc will usually provide support for the new
+compiler in its next release.  If you are working with a nonsupported
+compiler, call Zinc technical support to see if Zinc or the vendor
+plans to certify the compiler.
+
+
+USING BORLAND C++ 5.0 or MICROSOFT VISUAL C++ 1.52 FOR DOS PROTECTED MODE
+
+When using Borland C++ 5.0 to build DOS protected mode applications
+using PharLap, you will need Phar Lap 3.1 or later. Previous versions
+of Phar Lap do not support this compiler.
+
+When using Microsoft C++ 1.52 to build DOS protected mode applications
+using PharLap, you will need Phar Lap 3.04 or later. Previous versions
+of PharLap do not support this compiler.
+
+When upgrading to a new version of Phar Lap, take care to properly set
+up any necessary environment variables and configuration files.  With
+Borland, update the TURBOC.CFG and TLINK.CFG files so that the new
+BC4 subdirectory in your PharLap directory is referenced.  With
+Microsoft, the environment LIB and INCLUDE variables will need to be
+set to reference the MSVC subdirectory in the Phar Lap directory.
+Refer to the PharLap documentation for specific instructions on
+installing and configuring the PharLap DOS Extender.
+
+
+USING BORLAND POWERPACK FOR DOS PROTECTED MODE
+
+When using Borland PowerPak to build DOS protected-mode applications
+you will need the BGI drivers in your path at run-time. PowerPak support
+does not currently work with the GFX graphics library. For more information
+about using the PowerPak DOS Extender, see the file "powerpk.txt."
+
+USING MICROSOFT VISUAL WORKBENCH
+
+When using Microsoft's Visual Workbench, the compiler may generate
+errors when attempting to locate some Motif include files.  These files
+are included in Motif-specific code in a Zinc header file, but
+Microsoft's dependency scan still attempts to use them.  To eliminate
+the problem, either comment out the offending lines in the Zinc header
+file or place the names of the offending header file names in Microsoft's
+SYSINCL.DAT file, which is used to exclude header files from the
+dependency scan.  For more information about SYSINCL.DAT see Microsoft's
+"Visual Workbench User's Guide."
+
+USING RATIONAL DOS16M DOS EXTENDER
+
+For information about using the Rational DOS16M DOS Extender, see
+the file "dos16m.txt."
+
+MAKEFILES
+
+The following makefiles are supported for each compiler:
+
+MAKEFILE       - General makefile with compiler specific information.
+
+BTCPP500.MAK- Borland C++ Version 5.0
+BTCPP450.MAK- Borland C++ Version 4.5
+BCCPP100.MAK- Borland C++ for OS/2 Version 1.0
+BCCPP150.MAK- Borland C++ for OS/2 Version 1.5
+BCCPP200.MAK- Borland C++ for OS/2 Version 2.0
+MSCPP800.MAK- Microsoft and Digital AXP C/C++ Version 8.0
+MVCPP400.MAK- Microsoft Visual C++ Version 4.0
+MVCPP210.MAK- Microsoft Visual C++ Version 2.1
+MVCPP150.MAK- Microsoft Visual C++ Version 1.5
+SCCPP700.MAK- Symantec Version 7.0
+ICCPP200.MAK- IBM C-Set C++ for OS/2 Version 2.0
+ICCPP210.MAK- IBM C-Set C++ for OS/2 Version 2.1
+WCCPP105.MAK    - Watcom C++ Version 10.5
+WCCPP100.MAK    - Watcom C++ Version 10.0
+posix.mak       - All Motif compilers
+Makefile        - All Motif compilers
+qnx.mak         - QNX 4.22, Motif 1.2
+M68K120.scr     - AppleScript for Metrowerks CW5 for Macintosh
+MPPC120.scr     - AppleScript for Metrowerks CW5 for Power Macintosh
+S68K700.scr     - AppleScript for Symantec for Macintosh Version 7.0
+SPPC700.scr     - AppleScript for Symantec for Power Macintosh Version 8.0
+makefile.nxt    - NEXTSTEP
+
+NOTE: The Metrowerks and Symantec compilers for the Macintosh use
+project files.  A project file is provided with each example and
+tutorial program and for the library.
+
+
+---------------------------------------------------------------------
+---- INSTALLATION ---------------------------------------------------
+---------------------------------------------------------------------
+
+To install Zinc Application Framework on systems running DOS, Windows,
+or OS/2, insert the first "Zinc Engine" diskette into the desired drive
+(e.g., drive A) and type:
+
+  a:<Enter>
+  install<Enter>
+
+The installation program will ask you to select the drive to install
+to as well as which parts of the Framework you wish to install.  The
+install program requires 450K free memory.  Please refer to "Chapter
+1 - Installing Zinc" of the Getting Started manual for more information
+on installation procedures.
+
+To install for Motif, refer to the file "motif.txt."
+
+To install for Macintosh, refer to the file "mac.txt."
+
+To install for NEXTSTEP, refer to the file "nextstep.txt"
+
+---------------------------------------------------------------------
+---- INTERNATIONAL LANGUAGE SUPPORT ---------------------------------
+---------------------------------------------------------------------
+
+The base product of Zinc supports multiple languages.  In this
+release we have library support (dos_zil, win_zil, etc..) for the
+following languages (data and source files located in the
+\ZINC\BIN and \ZINC\SOURCE\INTL directories):
+
+    Catalan
+    Danish
+    Dutch
+    English
+    Finnish
+    French
+    German
+    Greek
+    Italian
+    Japanese
+    Korean
+    Norwegian
+    Spanish
+    Swedish
+
+Other languages will be supported in the future.
+
+Note: The Japanese, Korean, and Greek language support requires the
+Unicode key.
+
+The product also supports multiple locales (the locale affects
+formatting for objects like dates, times, etc.).  In this release we
+have support for the following locales:
+
+    Austria
+    Canada (English, French)
+    China
+    Denmark
+    Finland
+    France
+    Germany
+    Greece
+    Italy
+    Japan
+    Korea
+    Mexico
+    Netherlands
+    Norway
+    Spain
+    Sweden
+    Taiwan
+    United Kingdom
+    United States
+
+For information on using the international language support features
+of Zinc Application Framework 4.1, see "The Programmer's Reference
+Volume One."
+
+Currently, the example programs, most tutorials, and the Designer only
+run in English mode.  We hope to get other language support for these
+applications in the future.
+
+
+---------------------------------------------------------------------
+---- UNICODE SUPPORT ------------------------------------------------
+---------------------------------------------------------------------
+
+This version of Zinc runs in either an 8-bit standard mode (available
+as the default in all previous versions of the library) or a Unicode
+mode.  Unicode mode requires the Unicode key.  Unicode mode is turned
+on by setting the ZIL_UNICODE switch located in the ui_env.hpp file
+and recompiling the library and your application.
+
+Unicode modes of operation are Certified for the following
+compiler/environment configurations:
+
+    DOS/V (PharLap extended mode):
+             1) Borland C++ Version 4.5
+
+    DOS (NEC PC 9800)
+             1) Borland C++ Version 4.5 (Supported)
+             2) Microsoft Visual C++ Version 1.5 (Supported)
+
+    WINDOWS:
+             1) Borland C++ Version 5.0
+             2) Watcom 10.5
+
+    WIN32s:
+             1) Microsoft Visual C++ Version 4.1
+             2) Borland C++ Version 5.0
+             3) Watcom 10.5
+
+    WINNT:
+             1) Microsoft Visual C++ Version 4.1
+             2) Borland C++ Version 5.0
+             3) Watcom 10.5
+
+    OS/2:
+             1) Borland C++ Version 1.5
+             2) Watcom 10.5
+
+    Macintosh:
+             1) Metrowerks CW5
+
+    Motif:
+             1) AIX 3.2.x
+
+As of this writing, we support the Unicode mode of operation on
+most versions of DOS and DOS/V, most versions of Windows,
+Windows NT, and OS/2 J.  Other systems will be added.  Check with
+technical support for any additions.
+
+NOTE:  When using Borland 3.1 or earlier with the NEC PC 9800 it may
+be necessary to modify the startup code produced by the Borland
+compiler.  If you have the Borland compiler for the NEC 9800
+series you will not need to make any modifications to the startup
+code.  Otherwise, the startup code makes several BIOS calls which will
+produce undesired effects since the NEC PC 9800 is not
+ISA-compatible.  The following steps can be taken to modify the
+startup code:
+
+    1) Locate the C0.ASM file.  This should be in the
+       \BORLANDC\LIB\STARTUP directory.  Bring this file up in a text
+       editor.
+
+    2) At about line 310 there will be a comment that says
+
+         ;prepare main arguments
+
+       Comment out all lines after this comment to the line that says
+
+         @@NotMidnight
+
+       Do not comment out the "@@NotMidnight" line.
+
+    3) Using the BUILD-CO.BAT file in that same directory, rebuild
+       the C0.OBJ file and make sure it is placed in the
+       \BORLANDC\LIB directory.
+
+Most Zinc classes are derived from ZIL_INTERNATIONAL.  You will find
+overloaded functions in this class for standard ANSI ctype functions,
+file functions, and string functions.  We were unable to convert ctype
+functions (isupper, islower, etc.) because most libraries define them
+to be #define macros.  Alternate functions with a similar name are
+provided (isupper -> IsUpper, tolower -> ToLower, etc.).
+
+The reason we overload ctype, string and file functions is to give
+us an automatic inheritance capability of these functions for 8-bit
+and 16-bit strings.  You may have noticed compiler vendors that
+supply a strlen() and wstrlen() function.  We just overload the same
+function to take either an 8-bit or 16-bit string.
+
+The DOS Unicode font is in a file called UNICODE.FNT that ships with
+the Unicode key.  Some utilities and source files for use with the
+UNICODE.FNT file are available on the BBS.  Call technical support
+for assistance in obtaining these files.
+
+
+---------------------------------------------------------------------
+---- TECHNICAL SUPPORT ----------------------------------------------
+---------------------------------------------------------------------
+
+Technical Support is available to registered users only.
+
+Before you contact Zinc Technical Support you should study the example
+programs provided and read the summary of commonly asked questions in
+the Getting Started manual.  There is also an updated list of common
+questions, other suggestions, and new example programs available on
+the bulletin board (Main Conference, Tech Support directory and the
+User Contribution Conference) and in the tech_support directory on
+our ftp site (ftp://ftp.zinc.com/).
+
+Technical Support will answer questions relating to using Zinc
+Application Framework.  Topics not covered in the manuals, and
+suggestions on how to accomplish a given task are normally handled by
+technical support.
+
+Technical support can also help resolve problems/bugs in the software
+(see Reporting Problems) and give passwords to download maintenance
+releases from the bulletin board or ftp site.  Problems or bugs can
+be resolved quickest if they have been narrowed down to the smallest
+possible code sample (preferably less than 150 lines).
+
+Requests for support may be made via email, fax, the bulletin board,
+CompuServe, or you can call and talk directly to a support engineer.
+The numbers and addresses are provided at the end of this file.
+
+
+---------------------------------------------------------------------
+---- REPORTING PROBLEMS ---------------------------------------------
+---------------------------------------------------------------------
+
+If you are upgrading from Zinc Application Framework 4.1.X, you should
+be able to recompile and relink your existing code with no changes to
+your code if ZIL_OLD_DEFS is defined in ui_env.hpp.  Refer to the
+file FIX.TXT for a list of changes made from 4.1.X to 4.2.
+
+If you do encounter a problem with the library, either in trying to
+recompile your existing application or in trying to use some
+functionality, please let us know about it.  We want to do everything
+we can to provide you with the best product possible.
+
+When reporting a problem, please be as specific as possible in your
+description of the problem.  The more details you can give us, the
+more likely it is that we will be able to accurately reproduce the
+problem and fix it.  At a minimum, in addition to the description of
+the problem, we need to know which environment you were running in,
+such as Windows, OS/2, etc., which compiler you were using, and which
+version of the product--both the version number and the maintenance
+revision number--the problem was in.
+
+The appropriate numbers/addresses for reporting problems are given
+below.
+
+---------------------------------------------------------------------
+---- CONTACTING ZINC ------------------------------------------------
+---------------------------------------------------------------------
+
+Zinc now has offices in North America, Europe, and Asia.  The
+addresses and phone numbers are:
+
+Worldwide                 Internet:          info@zinc.com
+                                             tech@zinc.com
+                          Ftp Server:        ftp://ftp.zinc.com/
+                                             user anonymous
+                          Web Server:        http://www.zinc.com/
+                          CompuServe:        GO ZINC
+
+North America             Zinc Software Incorporated
+                          405 South 100 East, 2nd Floor
+                          Pleasant Grove, UT 84062
+                          Corporate Offices: +1 801 785 8900
+                          Technical Support: +1 801 785 8998
+                          FAX:               +1 801 785 8996
+                          BBS:               +1 801 785 8997
+
+Europe                    Zinc Software (UK) Limited
+                          106-108 Powis Street
+                          London, SE18 6LU United Kingdom
+                          European Sales and
+                          Technical Support: +44 (0)181 855 9918
+                          FAX:               +44 (0)181 316 2211
+                          BBS:               +44 (0)181 317 2310
+                          Email:             europe@zinc.com

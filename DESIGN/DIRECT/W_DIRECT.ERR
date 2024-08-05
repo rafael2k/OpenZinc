@@ -1,0 +1,4 @@
+w_direct.cpp(397): Warning! W014: col(0) no reference to symbol 'DriveCharToInt'
+w_direct.cpp(18): Note! N392: col(12) definition: 'int DriveCharToInt( char )'
+w_direct.cpp(397): Warning! W014: col(0) no reference to symbol 'DriveIntToChar'
+w_direct.cpp(19): Note! N392: col(13) definition: 'char DriveIntToChar( int )'
